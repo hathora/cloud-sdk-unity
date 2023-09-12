@@ -12,6 +12,6 @@ features:
     methodSecurity: 0.0.1
 unity:
   version: 0.0.1
-  author: Speakeasy
+  author: Hathora
   maxMethodParams: 0
   packageName: hathorasdk
