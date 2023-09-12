@@ -1,0 +1,17 @@
+configVersion: 1.0.0
+generation:
+  sdkClassName: Hathora
+  singleTagPerOp: false
+features:
+  unity:
+    core: 0.1.0
+    deprecations: 0.0.1
+    downloadStreams: 0.0.1
+    globalSecurity: 0.0.1
+    globalServerURLs: 0.0.1
+    methodSecurity: 0.0.1
+unity:
+  version: 0.0.1
+  author: Speakeasy
+  maxMethodParams: 0
+  packageName: hathorasdk
