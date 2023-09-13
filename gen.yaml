@@ -17,6 +17,6 @@ features:
     methodSecurity: 0.0.1
 unity:
   version: 0.1.0
-  author: Hathora
+  author: HathoraSdk
   maxMethodParams: 0
   packageName: hathorasdk
