@@ -5,7 +5,7 @@ management:
   speakeasyVersion: 1.82.5
   generationVersion: 2.108.3
 generation:
-  sdkClassName: Hathora
+  sdkClassName: Hathora-Cloud
   singleTagPerOp: false
 features:
   unity:
