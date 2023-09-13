@@ -19,11 +19,11 @@ Create a new [application](https://hathora.dev/docs/concepts/hathora-entities#ap
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Shared;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.AppV1.CreateAppAsync(new CreateAppSecurity() {
         HathoraDevToken = "",
@@ -62,10 +62,10 @@ Delete an [application](https://hathora.dev/docs/concepts/hathora-entities#appli
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.AppV1.DeleteAppAsync(new DeleteAppSecurity() {
         HathoraDevToken = "",
@@ -97,10 +97,10 @@ Get details for an [application](https://hathora.dev/docs/concepts/hathora-entit
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.AppV1.GetAppInfoAsync(new GetAppInfoSecurity() {
         HathoraDevToken = "",
@@ -132,10 +132,10 @@ Returns an unsorted list of your organization’s [applications](https://hathora
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.AppV1.GetAppsAsync(new GetAppsSecurity() {
         HathoraDevToken = "",
@@ -164,11 +164,11 @@ Update data for an existing [application](https://hathora.dev/docs/concepts/hath
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
-using Hathora.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
+using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.AppV1.UpdateAppAsync(new UpdateAppSecurity() {
         HathoraDevToken = "",

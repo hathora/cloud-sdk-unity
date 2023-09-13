@@ -2,11 +2,11 @@
 
 
 ```csharp
-using Hathora;
-using Hathora.Models.Shared;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.AppV1.CreateAppAsync(new CreateAppSecurity() {
         HathoraDevToken = "",

@@ -6,29 +6,31 @@ Operations to get logs by [applications](https://hathora.dev/docs/concepts/hatho
 
 ### Available Operations
 
-* [GetLogsForApp](#getlogsforapp) - Returns a stream of logs for an [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`.
-* [GetLogsForDeployment](#getlogsfordeployment) - Returns a stream of logs for a [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment) using `appId` and `deploymentId`.
+* [~~GetLogsForApp~~](#getlogsforapp) - Returns a stream of logs for an [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. :warning: **Deprecated**
+* [~~GetLogsForDeployment~~](#getlogsfordeployment) - Returns a stream of logs for a [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment) using `appId` and `deploymentId`. :warning: **Deprecated**
 * [GetLogsForProcess](#getlogsforprocess) - Returns a stream of logs for a [process](https://hathora.dev/docs/concepts/hathora-entities#process) using `appId` and `processId`.
 
-## GetLogsForApp
+## ~~GetLogsForApp~~
 
 Returns a stream of logs for an [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
-using Hathora.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
+using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.LogV1.GetLogsForAppAsync(new GetLogsForAppSecurity() {
         HathoraDevToken = "",
     }, new GetLogsForAppRequest() {
         AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
         Follow = false,
-        Region = Hathora.Models.Shared.Region.SaoPaulo,
+        Region = HathoraCloud.Models.Shared.Region.SaoPaulo,
         TailLines = 272656,
     }))
 {
@@ -49,17 +51,19 @@ using(var res = await sdk.LogV1.GetLogsForAppAsync(new GetLogsForAppSecurity() {
 **[GetLogsForAppResponse](../../models/operations/GetLogsForAppResponse.md)**
 
 
-## GetLogsForDeployment
+## ~~GetLogsForDeployment~~
 
 Returns a stream of logs for a [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment) using `appId` and `deploymentId`.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.LogV1.GetLogsForDeploymentAsync(new GetLogsForDeploymentSecurity() {
         HathoraDevToken = "",
@@ -94,10 +98,10 @@ Returns a stream of logs for a [process](https://hathora.dev/docs/concepts/hatho
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.LogV1.GetLogsForProcessAsync(new GetLogsForProcessSecurity() {
         HathoraDevToken = "",

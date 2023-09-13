@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: b30e514fa12f9ecaaad15154026fce36
+  docChecksum: 059a0144b32ffccdbdd7c169444432c9
   docVersion: 0.0.1
-  speakeasyVersion: 1.82.5
-  generationVersion: 2.108.3
+  speakeasyVersion: 1.83.2
+  generationVersion: 2.109.3
 generation:
   sdkClassName: Hathora-Cloud
   singleTagPerOp: false
@@ -16,7 +16,7 @@ features:
     globalServerURLs: 0.0.1
     methodSecurity: 0.0.1
 unity:
-  version: 0.1.0
+  version: 0.2.0
   author: Hathora
   maxMethodParams: 0
   packageName: hathorasdk

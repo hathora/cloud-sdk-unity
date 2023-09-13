@@ -12,10 +12,10 @@
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.BillingV1.GetBalanceAsync(new GetBalanceSecurity() {
         HathoraDevToken = "",
@@ -42,10 +42,10 @@ using(var res = await sdk.BillingV1.GetBalanceAsync(new GetBalanceSecurity() {
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.BillingV1.GetInvoicesAsync(new GetInvoicesSecurity() {
         HathoraDevToken = "",
@@ -72,10 +72,10 @@ using(var res = await sdk.BillingV1.GetInvoicesAsync(new GetInvoicesSecurity() {
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.BillingV1.GetPaymentMethodAsync(new GetPaymentMethodSecurity() {
         HathoraDevToken = "",
@@ -102,11 +102,11 @@ using(var res = await sdk.BillingV1.GetPaymentMethodAsync(new GetPaymentMethodSe
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Shared;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.BillingV1.InitStripeCustomerPortalUrlAsync(new InitStripeCustomerPortalUrlSecurity() {
         HathoraDevToken = "",

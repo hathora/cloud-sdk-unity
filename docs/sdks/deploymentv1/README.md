@@ -17,11 +17,11 @@ Create a new [deployment](https://hathora.dev/docs/concepts/hathora-entities#dep
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
-using Hathora.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
+using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.DeploymentV1.CreateDeploymentAsync(new CreateDeploymentSecurity() {
         HathoraDevToken = "",
@@ -31,7 +31,7 @@ using(var res = await sdk.DeploymentV1.CreateDeploymentAsync(new CreateDeploymen
                 new ContainerPort() {
                     Name = "default",
                     Port = 8000,
-                    TransportType = Hathora.Models.Shared.TransportType.Udp,
+                    TransportType = HathoraCloud.Models.Shared.TransportType.Udp,
                 },
             },
             ContainerPort = 4000,
@@ -41,9 +41,9 @@ using(var res = await sdk.DeploymentV1.CreateDeploymentAsync(new CreateDeploymen
                     Value = "TRUE",
                 },
             },
-            PlanName = Hathora.Models.Shared.PlanName.Tiny,
+            PlanName = HathoraCloud.Models.Shared.PlanName.Tiny,
             RoomsPerProcess = 3,
-            TransportType = Hathora.Models.Shared.TransportType.Tls,
+            TransportType = HathoraCloud.Models.Shared.TransportType.Tls,
         },
         AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
         BuildId = 1,
@@ -73,10 +73,10 @@ Get details for a [deployment](https://hathora.dev/docs/concepts/hathora-entitie
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.DeploymentV1.GetDeploymentInfoAsync(new GetDeploymentInfoSecurity() {
         HathoraDevToken = "",
@@ -109,10 +109,10 @@ Returns an array of [deployments](https://hathora.dev/docs/concepts/hathora-enti
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.DeploymentV1.GetDeploymentsAsync(new GetDeploymentsSecurity() {
         HathoraDevToken = "",

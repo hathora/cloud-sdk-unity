@@ -15,9 +15,9 @@ Returns an array of all regions with a host and port that a client can directly 
 ### Example Usage
 
 ```csharp
-using Hathora;
+using HathoraCloud;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.DiscoveryV1.GetPingServiceEndpointsAsync())
 {

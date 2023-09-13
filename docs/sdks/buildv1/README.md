@@ -19,11 +19,11 @@ Creates a new [build](https://hathora.dev/docs/concepts/hathora-entities#build).
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
-using Hathora.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
+using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.BuildV1.CreateBuildAsync(new CreateBuildSecurity() {
         HathoraDevToken = "",
@@ -58,10 +58,10 @@ Delete a [build](https://hathora.dev/docs/concepts/hathora-entities#build). All 
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.BuildV1.DeleteBuildAsync(new DeleteBuildSecurity() {
         HathoraDevToken = "",
@@ -94,10 +94,10 @@ Get details for a [build](https://hathora.dev/docs/concepts/hathora-entities#bui
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.BuildV1.GetBuildInfoAsync(new GetBuildInfoSecurity() {
         HathoraDevToken = "",
@@ -130,10 +130,10 @@ Returns an array of [builds](https://hathora.dev/docs/concepts/hathora-entities#
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.BuildV1.GetBuildsAsync(new GetBuildsSecurity() {
         HathoraDevToken = "",
@@ -165,10 +165,10 @@ Builds a game server artifact from a tarball you provide. Pass in the `buildId` 
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.BuildV1.RunBuildAsync(new RunBuildSecurity() {
         HathoraDevToken = "",

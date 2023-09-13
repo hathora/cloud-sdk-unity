@@ -9,10 +9,10 @@
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.ManagementV1.SendVerificationEmailAsync(new VerificationEmailRequest() {
         UserId = "minus",

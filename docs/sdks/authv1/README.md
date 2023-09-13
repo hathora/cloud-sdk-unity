@@ -17,10 +17,10 @@ Returns a unique player token for an anonymous user.
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.AuthV1.LoginAnonymousAsync(new LoginAnonymousRequest() {
         AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
@@ -49,11 +49,11 @@ Returns a unique player token using a Google-signed OIDC `idToken`.
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
-using Hathora.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
+using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.AuthV1.LoginGoogleAsync(new Models.Operations.LoginGoogleRequest() {
         LoginGoogleRequest = new Models.Shared.LoginGoogleRequest() {
@@ -85,11 +85,11 @@ Returns a unique player token with a specified nickname for a user.
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
-using Hathora.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
+using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK();
 
 using(var res = await sdk.AuthV1.LoginNicknameAsync(new Models.Operations.LoginNicknameRequest() {
         LoginNicknameRequest = new Models.Shared.LoginNicknameRequest() {
