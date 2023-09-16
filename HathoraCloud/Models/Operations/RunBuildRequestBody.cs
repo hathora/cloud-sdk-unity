@@ -14,14 +14,13 @@ namespace HathoraCloud.Models.Operations
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class RunBuildRequestBody
     {
+
         [SerializeField]
         [SpeakeasyMetadata("multipartForm:file")]
         public RunBuildRequestBodyFile File { get; set; } = default!;
         
     }
-    
 }

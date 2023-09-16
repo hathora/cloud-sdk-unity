@@ -14,13 +14,12 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     public enum ActiveConnectionInfoStatus
     {
-    	[JsonProperty("active")]
-		Active,
+        [JsonProperty("active")]
+        Active,
     }
-    
+
     public static class ActiveConnectionInfoStatusExtension
     {
         public static string Value(this ActiveConnectionInfoStatus value)
@@ -42,5 +41,5 @@ namespace HathoraCloud.Models.Shared
             throw new Exception($"Unknown value {value} for enum ActiveConnectionInfoStatus");
         }
     }
-    
+
 }

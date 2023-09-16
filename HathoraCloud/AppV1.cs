@@ -19,12 +19,35 @@ namespace HathoraCloud
     using System;
     using UnityEngine.Networking;
 
+    /// <summary>
+    /// Operations that allow you manage your &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#application&quot;&gt;applications&lt;/a&gt;.
+    /// </summary>
     public interface IAppV1SDK
     {
+
+        /// <summary>
+        /// Create a new <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>.
+        /// </summary>
         Task<CreateAppResponse> CreateAppAsync(CreateAppSecurity security, AppConfig request);
+
+        /// <summary>
+        /// Delete an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`. Your organization will lose access to this application.
+        /// </summary>
         Task<DeleteAppResponse> DeleteAppAsync(DeleteAppSecurity security, DeleteAppRequest? request = null);
+
+        /// <summary>
+        /// Get details for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`.
+        /// </summary>
         Task<GetAppInfoResponse> GetAppInfoAsync(GetAppInfoSecurity security, GetAppInfoRequest? request = null);
+
+        /// <summary>
+        /// Returns an unsorted list of your organization’s <a href="https://hathora.dev/docs/concepts/hathora-entities#application">applications</a>. An application is uniquely identified by an `appId`.
+        /// </summary>
         Task<GetAppsResponse> GetAppsAsync(GetAppsSecurity security);
+
+        /// <summary>
+        /// Update data for an existing <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`.
+        /// </summary>
         Task<UpdateAppResponse> UpdateAppAsync(UpdateAppSecurity security, UpdateAppRequest request);
     }
 
@@ -32,8 +55,8 @@ namespace HathoraCloud
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.112.0";
+        private const string _sdkVersion = "0.5.0";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -48,9 +71,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Create a new [application](https://hathora.dev/docs/concepts/hathora-entities#application).
-        /// </summary>
         public async Task<CreateAppResponse> CreateAppAsync(CreateAppSecurity security, AppConfig request)
         {
             string baseUrl = _serverUrl;
@@ -128,9 +148,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Delete an [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Your organization will lose access to this application.
-        /// </summary>
         public async Task<DeleteAppResponse> DeleteAppAsync(DeleteAppSecurity security, DeleteAppRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -194,9 +211,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Get details for an [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`.
-        /// </summary>
         public async Task<GetAppInfoResponse> GetAppInfoAsync(GetAppInfoSecurity security, GetAppInfoRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -255,9 +269,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Returns an unsorted list of your organization’s [applications](https://hathora.dev/docs/concepts/hathora-entities#application). An application is uniquely identified by an `appId`.
-        /// </summary>
         public async Task<GetAppsResponse> GetAppsAsync(GetAppsSecurity security)
         {
             string baseUrl = _serverUrl;
@@ -307,9 +318,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Update data for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`.
-        /// </summary>
         public async Task<UpdateAppResponse> UpdateAppAsync(UpdateAppSecurity security, UpdateAppRequest request)
         {
             string baseUrl = _serverUrl;

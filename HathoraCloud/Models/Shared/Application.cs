@@ -14,13 +14,13 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     /// <summary>
     /// An application object is the top level namespace for the game server.
     /// </summary>
     [Serializable]
     public class Application
     {
+
         /// <summary>
         /// System generated unique identifier for an application.
         /// </summary>
@@ -28,6 +28,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("appId")]
         public string AppId { get; set; } = default!;
         
+
         /// <summary>
         /// Readable name for an application. Must be unique within an organization.
         /// </summary>
@@ -35,6 +36,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("appName")]
         public string AppName { get; set; } = default!;
         
+
         /// <summary>
         /// Secret that is used for identity and access management.
         /// </summary>
@@ -42,13 +44,15 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("appSecret")]
         public string AppSecret { get; set; } = default!;
         
+
         /// <summary>
-        /// Configure [player authentication](https://hathora.dev/docs/lobbies-and-matchmaking/auth-service) for your application. Use Hathora's built-in auth providers or use your own [custom authentication](https://hathora.dev/docs/lobbies-and-matchmaking/auth-service#custom-auth-provider).
+        /// Configure &lt;a href=&quot;https://hathora.dev/docs/lobbies-and-matchmaking/auth-service&quot;&gt;player authentication&lt;/a&gt; for your application. Use Hathora&amp;apos;s built-in auth providers or use your own &lt;a href=&quot;https://hathora.dev/docs/lobbies-and-matchmaking/auth-service#custom-auth-provider&quot;&gt;custom authentication&lt;/a&gt;.
         /// </summary>
         [SerializeField]
         [JsonProperty("authConfiguration")]
         public AuthConfiguration AuthConfiguration { get; set; } = default!;
         
+
         /// <summary>
         /// When the application was created.
         /// </summary>
@@ -56,6 +60,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("createdAt")]
         public DateTime CreatedAt { get; set; } = default!;
         
+
         /// <summary>
         /// Email address for the user that deleted the application.
         /// </summary>
@@ -63,6 +68,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("createdBy")]
         public string CreatedBy { get; set; } = default!;
         
+
         /// <summary>
         /// When the application was deleted.
         /// </summary>
@@ -70,6 +76,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("deletedAt")]
         public DateTime DeletedAt { get; set; } = default!;
         
+
         /// <summary>
         /// Email address for the user that deleted the application.
         /// </summary>
@@ -77,6 +84,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("deletedBy")]
         public string DeletedBy { get; set; } = default!;
         
+
         /// <summary>
         /// System generated unique identifier for an organization.
         /// </summary>
@@ -85,5 +93,4 @@ namespace HathoraCloud.Models.Shared
         public string OrgId { get; set; } = default!;
         
     }
-    
 }

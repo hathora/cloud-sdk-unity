@@ -14,21 +14,23 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     /// <summary>
     /// Connection information to the default port.
     /// </summary>
     [Serializable]
     public class ActiveConnectionInfo
     {
+
         [SerializeField]
         [JsonProperty("host")]
         public string Host { get; set; } = default!;
         
+
         [SerializeField]
         [JsonProperty("port")]
         public double Port { get; set; } = default!;
         
+
         /// <summary>
         /// Unique identifier to a game session or match. Use either a system generated ID or pass in your own.
         /// </summary>
@@ -36,10 +38,12 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("roomId")]
         public string RoomId { get; set; } = default!;
         
+
         [SerializeField]
         [JsonProperty("status")]
         public ActiveConnectionInfoStatus Status { get; set; } = default!;
         
+
         /// <summary>
         /// Transport type specifies the underlying communication protocol to the exposed port.
         /// </summary>
@@ -48,5 +52,4 @@ namespace HathoraCloud.Models.Shared
         public TransportType TransportType { get; set; } = default!;
         
     }
-    
 }

@@ -14,33 +14,32 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     /// <summary>
-    /// The allocation status of a room.
+    /// The allocation status of a room.&lt;br/&gt;
     /// 
     /// <remarks>
-    /// 
-    /// `scheduling`: a process is not allocated yet and the room is waiting to be scheduled
-    /// 
-    /// `active`: ready to accept connections
-    /// 
-    /// `suspended`: room is unallocated from the process but can be rescheduled later with the same `roomId`
-    /// 
+    /// <br/>
+    /// `scheduling`: a process is not allocated yet and the room is waiting to be scheduled<br/>
+    /// <br/>
+    /// `active`: ready to accept connections<br/>
+    /// <br/>
+    /// `suspended`: room is unallocated from the process but can be rescheduled later with the same `roomId`<br/>
+    /// <br/>
     /// `destroyed`: all associated metadata is deleted
     /// </remarks>
     /// </summary>
     public enum RoomStatus
     {
-    	[JsonProperty("scheduling")]
-		Scheduling,
-		[JsonProperty("active")]
-		Active,
-		[JsonProperty("suspended")]
-		Suspended,
-		[JsonProperty("destroyed")]
-		Destroyed,
+        [JsonProperty("scheduling")]
+        Scheduling,
+        [JsonProperty("active")]
+        Active,
+        [JsonProperty("suspended")]
+        Suspended,
+        [JsonProperty("destroyed")]
+        Destroyed,
     }
-    
+
     public static class RoomStatusExtension
     {
         public static string Value(this RoomStatus value)
@@ -62,5 +61,5 @@ namespace HathoraCloud.Models.Shared
             throw new Exception($"Unknown value {value} for enum RoomStatus");
         }
     }
-    
+
 }

@@ -15,22 +15,23 @@ namespace HathoraCloud.Models.Operations
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class CreateRoomDeprecatedRequest
     {
+
         [SerializeField]
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Models.Shared.CreateRoomRequest CreateRoomRequest { get; set; } = default!;
         
+
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
         public string AppId { get; set; } = default!;
         
+
         [SerializeField]
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=roomId")]
         public string? RoomId { get; set; }
         
     }
-    
 }

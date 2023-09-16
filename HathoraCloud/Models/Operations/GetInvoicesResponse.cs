@@ -16,25 +16,29 @@ namespace HathoraCloud.Models.Operations
     using UnityEngine.Networking;
     using UnityEngine;
     
-    
     [Serializable]
     public class GetInvoicesResponse: IDisposable
     {
+
         [SerializeField]
         public string? ContentType { get; set; } = default!;
         
+
         [SerializeField]
         public string? GetInvoices404ApplicationJSONString { get; set; }
         
+
         /// <summary>
         /// Ok
         /// </summary>
         [SerializeField]
         public List<Invoice>? Invoices { get; set; }
         
+
         [SerializeField]
         public int StatusCode { get; set; } = default!;
         
+
         [SerializeField]
         public UnityWebRequest? RawResponse { get; set; }
         
@@ -44,5 +48,4 @@ namespace HathoraCloud.Models.Operations
             }
         }
     }
-    
 }

@@ -15,26 +15,28 @@ namespace HathoraCloud.Models.Operations
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class GetLogsForAppRequest
     {
+
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
         public string AppId { get; set; } = default!;
         
+
         [SerializeField]
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=follow")]
         public bool? Follow { get; set; }
         
+
         [SerializeField]
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=region")]
         public Region? Region { get; set; }
         
+
         [SerializeField]
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=tailLines")]
         public int? TailLines { get; set; }
         
     }
-    
 }

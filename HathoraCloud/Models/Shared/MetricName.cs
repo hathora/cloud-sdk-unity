@@ -14,22 +14,21 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     /// <summary>
     /// Available metrics to query over time.
     /// </summary>
     public enum MetricName
     {
-    	[JsonProperty("cpu")]
-		Cpu,
-		[JsonProperty("memory")]
-		Memory,
-		[JsonProperty("rate_egress")]
-		RateEgress,
-		[JsonProperty("total_egress")]
-		TotalEgress,
+        [JsonProperty("cpu")]
+        Cpu,
+        [JsonProperty("memory")]
+        Memory,
+        [JsonProperty("rate_egress")]
+        RateEgress,
+        [JsonProperty("total_egress")]
+        TotalEgress,
     }
-    
+
     public static class MetricNameExtension
     {
         public static string Value(this MetricName value)
@@ -51,5 +50,5 @@ namespace HathoraCloud.Models.Shared
             throw new Exception($"Unknown value {value} for enum MetricName");
         }
     }
-    
+
 }

@@ -14,25 +14,26 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     /// <summary>
     /// Make all properties in T optional
     /// </summary>
     [Serializable]
     public class PaymentMethod
     {
+
         [SerializeField]
         [JsonProperty("ach")]
         public AchPaymentMethod? Ach { get; set; }
         
+
         [SerializeField]
         [JsonProperty("card")]
         public CardPaymentMethod? Card { get; set; }
         
+
         [SerializeField]
         [JsonProperty("link")]
         public LinkPaymentMethod? Link { get; set; }
         
     }
-    
 }

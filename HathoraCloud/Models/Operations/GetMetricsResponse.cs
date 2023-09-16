@@ -15,31 +15,37 @@ namespace HathoraCloud.Models.Operations
     using UnityEngine.Networking;
     using UnityEngine;
     
-    
     [Serializable]
     public class GetMetricsResponse: IDisposable
     {
+
         [SerializeField]
         public string? ContentType { get; set; } = default!;
         
+
         [SerializeField]
         public string? GetMetrics404ApplicationJSONString { get; set; }
         
+
         [SerializeField]
         public string? GetMetrics422ApplicationJSONString { get; set; }
         
+
         [SerializeField]
         public string? GetMetrics500ApplicationJSONString { get; set; }
         
+
         /// <summary>
         /// Ok
         /// </summary>
         [SerializeField]
         public MetricsResponse? MetricsResponse { get; set; }
         
+
         [SerializeField]
         public int StatusCode { get; set; } = default!;
         
+
         [SerializeField]
         public UnityWebRequest? RawResponse { get; set; }
         
@@ -49,5 +55,4 @@ namespace HathoraCloud.Models.Operations
             }
         }
     }
-    
 }

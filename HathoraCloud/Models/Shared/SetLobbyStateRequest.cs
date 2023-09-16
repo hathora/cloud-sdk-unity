@@ -14,10 +14,10 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class SetLobbyStateRequest
     {
+
         /// <summary>
         /// JSON blob to store metadata for a room. Must be smaller than 1MB.
         /// </summary>
@@ -26,5 +26,4 @@ namespace HathoraCloud.Models.Shared
         public SetLobbyStateRequestState State { get; set; } = default!;
         
     }
-    
 }

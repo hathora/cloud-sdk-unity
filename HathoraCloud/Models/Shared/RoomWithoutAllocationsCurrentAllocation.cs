@@ -14,13 +14,13 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     /// <summary>
     /// Metadata on an allocated instance of a room.
     /// </summary>
     [Serializable]
     public class RoomWithoutAllocationsCurrentAllocation
     {
+
         /// <summary>
         /// System generated unique identifier to a runtime instance of your game server.
         /// </summary>
@@ -28,6 +28,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("processId")]
         public string ProcessId { get; set; } = default!;
         
+
         /// <summary>
         /// System generated unique identifier to an allocated instance of a room.
         /// </summary>
@@ -35,14 +36,15 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("roomAllocationId")]
         public string RoomAllocationId { get; set; } = default!;
         
+
         [SerializeField]
         [JsonProperty("scheduledAt")]
         public DateTime ScheduledAt { get; set; } = default!;
         
+
         [SerializeField]
         [JsonProperty("unscheduledAt")]
         public DateTime UnscheduledAt { get; set; } = default!;
         
     }
-    
 }

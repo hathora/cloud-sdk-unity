@@ -16,25 +16,29 @@ namespace HathoraCloud.Models.Operations
     using UnityEngine.Networking;
     using UnityEngine;
     
-    
     [Serializable]
     public class GetStoppedProcessesResponse: IDisposable
     {
+
         [SerializeField]
         public string? ContentType { get; set; } = default!;
         
+
         [SerializeField]
         public string? GetStoppedProcesses404ApplicationJSONString { get; set; }
         
+
         /// <summary>
         /// Ok
         /// </summary>
         [SerializeField]
         public List<Process>? Processes { get; set; }
         
+
         [SerializeField]
         public int StatusCode { get; set; } = default!;
         
+
         [SerializeField]
         public UnityWebRequest? RawResponse { get; set; }
         
@@ -44,5 +48,4 @@ namespace HathoraCloud.Models.Operations
             }
         }
     }
-    
 }

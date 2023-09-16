@@ -14,21 +14,21 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class CreateRoomRequest
     {
+
         [SerializeField]
         [JsonProperty("region")]
         public Region Region { get; set; } = default!;
         
+
         /// <summary>
-        /// Optional configuration parameters for the room. Can be any string including stringified JSON. It is accessible from the room via [`GetRoomInfo()`](https://hathora.dev/api#tag/RoomV2/operation/GetRoomInfo).
+        /// Optional configuration parameters for the room. Can be any string including stringified JSON. It is accessible from the room via &lt;a href=&quot;&quot;&gt;`GetRoomInfo()`&lt;/a&gt;.
         /// </summary>
         [SerializeField]
         [JsonProperty("roomConfig")]
         public string? RoomConfig { get; set; }
         
     }
-    
 }

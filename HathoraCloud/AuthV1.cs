@@ -18,10 +18,25 @@ namespace HathoraCloud
     using System;
     using UnityEngine.Networking;
 
+    /// <summary>
+    /// Operations that allow you to generate a Hathora-signed &lt;a href=&quot;JWT&quot;&gt;JSON web token (JWT)&lt;/a&gt; for &lt;a href=&quot;https://hathora.dev/docs/lobbies-and-matchmaking/auth-service&quot;&gt;player authentication&lt;/a&gt;.
+    /// </summary>
     public interface IAuthV1SDK
     {
+
+        /// <summary>
+        /// Returns a unique player token for an anonymous user.
+        /// </summary>
         Task<LoginAnonymousResponse> LoginAnonymousAsync(LoginAnonymousRequest? request = null);
+
+        /// <summary>
+        /// Returns a unique player token using a Google-signed OIDC `idToken`.
+        /// </summary>
         Task<LoginGoogleResponse> LoginGoogleAsync(Models.Operations.LoginGoogleRequest request);
+
+        /// <summary>
+        /// Returns a unique player token with a specified nickname for a user.
+        /// </summary>
         Task<LoginNicknameResponse> LoginNicknameAsync(Models.Operations.LoginNicknameRequest request);
     }
 
@@ -29,8 +44,8 @@ namespace HathoraCloud
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.112.0";
+        private const string _sdkVersion = "0.5.0";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -45,9 +60,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Returns a unique player token for an anonymous user.
-        /// </summary>
         public async Task<LoginAnonymousResponse> LoginAnonymousAsync(LoginAnonymousRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -106,9 +118,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Returns a unique player token using a Google-signed OIDC `idToken`.
-        /// </summary>
         public async Task<LoginGoogleResponse> LoginGoogleAsync(Models.Operations.LoginGoogleRequest request)
         {
             string baseUrl = _serverUrl;
@@ -186,9 +195,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Returns a unique player token with a specified nickname for a user.
-        /// </summary>
         public async Task<LoginNicknameResponse> LoginNicknameAsync(Models.Operations.LoginNicknameRequest request)
         {
             string baseUrl = _serverUrl;

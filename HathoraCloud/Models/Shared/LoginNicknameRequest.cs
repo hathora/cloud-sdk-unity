@@ -14,10 +14,10 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class LoginNicknameRequest
     {
+
         /// <summary>
         /// An alias to represent a player.
         /// </summary>
@@ -26,5 +26,4 @@ namespace HathoraCloud.Models.Shared
         public string Nickname { get; set; } = default!;
         
     }
-    
 }

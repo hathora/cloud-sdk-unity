@@ -14,25 +14,30 @@ namespace HathoraCloud.Models.Operations
     using UnityEngine.Networking;
     using UnityEngine;
     
-    
     [Serializable]
     public class DeleteBuildResponse: IDisposable
     {
+
         [SerializeField]
         public string? ContentType { get; set; } = default!;
         
+
         [SerializeField]
         public string? DeleteBuild404ApplicationJSONString { get; set; }
         
+
         [SerializeField]
         public string? DeleteBuild422ApplicationJSONString { get; set; }
         
+
         [SerializeField]
         public string? DeleteBuild500ApplicationJSONString { get; set; }
         
+
         [SerializeField]
         public int StatusCode { get; set; } = default!;
         
+
         [SerializeField]
         public UnityWebRequest? RawResponse { get; set; }
         
@@ -42,5 +47,4 @@ namespace HathoraCloud.Models.Operations
             }
         }
     }
-    
 }

@@ -15,18 +15,18 @@ namespace HathoraCloud.Models.Operations
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class UpdateAppRequest
     {
+
         [SerializeField]
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public AppConfig AppConfig { get; set; } = default!;
         
+
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
         public string AppId { get; set; } = default!;
         
     }
-    
 }

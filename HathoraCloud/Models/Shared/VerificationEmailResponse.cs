@@ -14,14 +14,13 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class VerificationEmailResponse
     {
+
         [SerializeField]
         [JsonProperty("status")]
         public VerificationEmailResponseStatus Status { get; set; } = default!;
         
     }
-    
 }

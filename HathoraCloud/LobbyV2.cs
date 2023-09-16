@@ -19,14 +19,33 @@ namespace HathoraCloud
     using System;
     using UnityEngine.Networking;
 
+    /// <summary>
+    /// Operations to create and manage &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#lobby&quot;&gt;lobbies&lt;/a&gt;.
+    /// </summary>
     public interface ILobbyV2SDK
     {
+
+        /// <summary>
+        /// Create a new lobby for an existing <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`.
+        /// </summary>
         Task<CreateLobbyResponse> CreateLobbyAsync(Models.Operations.CreateLobbyRequest request);
         Task<CreateLocalLobbyResponse> CreateLocalLobbyAsync(CreateLocalLobbyRequest request);
         Task<CreatePrivateLobbyResponse> CreatePrivateLobbyAsync(CreatePrivateLobbyRequest request);
         Task<CreatePublicLobbyResponse> CreatePublicLobbyAsync(CreatePublicLobbyRequest request);
+
+        /// <summary>
+        /// Get details for an existing lobby using `appId` and `roomId`.
+        /// </summary>
         Task<GetLobbyInfoResponse> GetLobbyInfoAsync(GetLobbyInfoRequest? request = null);
+
+        /// <summary>
+        /// Get all active lobbies for a given <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`. Filter the array by optionally passing in a `region`.
+        /// </summary>
         Task<ListActivePublicLobbiesResponse> ListActivePublicLobbiesAsync(ListActivePublicLobbiesRequest? request = null);
+
+        /// <summary>
+        /// Set the state of a lobby using `appId` and `roomId`. State is intended to be set by the server and must be smaller than 1MB.
+        /// </summary>
         Task<SetLobbyStateResponse> SetLobbyStateAsync(SetLobbyStateSecurity security, Models.Operations.SetLobbyStateRequest request);
     }
 
@@ -34,8 +53,8 @@ namespace HathoraCloud
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.112.0";
+        private const string _sdkVersion = "0.5.0";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -50,9 +69,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Create a new lobby for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`.
-        /// </summary>
         public async Task<CreateLobbyResponse> CreateLobbyAsync(Models.Operations.CreateLobbyRequest request)
         {
             string baseUrl = _serverUrl;
@@ -512,9 +528,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Get details for an existing lobby using `appId` and `roomId`.
-        /// </summary>
         public async Task<GetLobbyInfoResponse> GetLobbyInfoAsync(GetLobbyInfoRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -573,9 +586,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Get all active lobbies for a given [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Filter the array by optionally passing in a `region`.
-        /// </summary>
         public async Task<ListActivePublicLobbiesResponse> ListActivePublicLobbiesAsync(ListActivePublicLobbiesRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -625,9 +635,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Set the state of a lobby using `appId` and `roomId`. State is intended to be set by the server and must be smaller than 1MB.
-        /// </summary>
         public async Task<SetLobbyStateResponse> SetLobbyStateAsync(SetLobbyStateSecurity security, Models.Operations.SetLobbyStateRequest request)
         {
             string baseUrl = _serverUrl;

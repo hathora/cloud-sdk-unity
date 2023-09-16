@@ -15,18 +15,18 @@ namespace HathoraCloud.Models.Operations
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class LoginNicknameRequest
     {
+
         [SerializeField]
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Models.Shared.LoginNicknameRequest LoginNicknameRequestValue { get; set; } = default!;
         
+
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
         public string AppId { get; set; } = default!;
         
     }
-    
 }

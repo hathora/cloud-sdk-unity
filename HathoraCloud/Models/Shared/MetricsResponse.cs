@@ -15,29 +15,31 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     /// <summary>
     /// Construct a type with a set of properties K of type T
     /// </summary>
     [Serializable]
     public class MetricsResponse
     {
+
         [SerializeField]
         [JsonProperty("cpu")]
         public List<MetricValue>? Cpu { get; set; }
         
+
         [SerializeField]
         [JsonProperty("memory")]
         public List<MetricValue>? Memory { get; set; }
         
+
         [SerializeField]
         [JsonProperty("rate_egress")]
         public List<MetricValue>? RateEgress { get; set; }
         
+
         [SerializeField]
         [JsonProperty("total_egress")]
         public List<MetricValue>? TotalEgress { get; set; }
         
     }
-    
 }

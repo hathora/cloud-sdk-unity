@@ -13,7 +13,6 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     /// <summary>
     /// JSON blob to store metadata for a room. Must be smaller than 1MB.
     /// </summary>
@@ -21,5 +20,4 @@ namespace HathoraCloud.Models.Shared
     public class SetLobbyStateRequestState
     {
     }
-    
 }

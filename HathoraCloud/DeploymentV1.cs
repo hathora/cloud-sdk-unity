@@ -19,10 +19,25 @@ namespace HathoraCloud
     using System;
     using UnityEngine.Networking;
 
+    /// <summary>
+    /// Operations that allow you configure and manage an application&amp;apos;s &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#build&quot;&gt;build&lt;/a&gt; at runtime.
+    /// </summary>
     public interface IDeploymentV1SDK
     {
+
+        /// <summary>
+        /// Create a new <a href="https://hathora.dev/docs/concepts/hathora-entities#deployment">deployment</a>. Creating a new deployment means all new rooms created will use the latest deployment configuration, but existing games in progress will not be affected.
+        /// </summary>
         Task<CreateDeploymentResponse> CreateDeploymentAsync(CreateDeploymentSecurity security, CreateDeploymentRequest request);
+
+        /// <summary>
+        /// Get details for a <a href="https://hathora.dev/docs/concepts/hathora-entities#deployment">deployment</a>.
+        /// </summary>
         Task<GetDeploymentInfoResponse> GetDeploymentInfoAsync(GetDeploymentInfoSecurity security, GetDeploymentInfoRequest? request = null);
+
+        /// <summary>
+        /// Returns an array of <a href="https://hathora.dev/docs/concepts/hathora-entities#deployment">deployments</a> for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>.
+        /// </summary>
         Task<GetDeploymentsResponse> GetDeploymentsAsync(GetDeploymentsSecurity security, GetDeploymentsRequest? request = null);
     }
 
@@ -30,8 +45,8 @@ namespace HathoraCloud
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.112.0";
+        private const string _sdkVersion = "0.5.0";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -46,9 +61,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Create a new [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment). Creating a new deployment means all new rooms created will use the latest deployment configuration, but existing games in progress will not be affected.
-        /// </summary>
         public async Task<CreateDeploymentResponse> CreateDeploymentAsync(CreateDeploymentSecurity security, CreateDeploymentRequest request)
         {
             string baseUrl = _serverUrl;
@@ -135,9 +147,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Get details for a [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment).
-        /// </summary>
         public async Task<GetDeploymentInfoResponse> GetDeploymentInfoAsync(GetDeploymentInfoSecurity security, GetDeploymentInfoRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -196,9 +205,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Returns an array of [deployments](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application).
-        /// </summary>
         public async Task<GetDeploymentsResponse> GetDeploymentsAsync(GetDeploymentsSecurity security, GetDeploymentsRequest? request = null)
         {
             string baseUrl = _serverUrl;

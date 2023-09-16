@@ -14,13 +14,13 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     /// <summary>
     /// A container port object represents the transport configruations for how your server will listen.
     /// </summary>
     [Serializable]
     public class ContainerPort
     {
+
         /// <summary>
         /// Readable name for the port.
         /// </summary>
@@ -28,10 +28,12 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
         
+
         [SerializeField]
         [JsonProperty("port")]
         public int Port { get; set; } = default!;
         
+
         /// <summary>
         /// Transport type specifies the underlying communication protocol to the exposed port.
         /// </summary>
@@ -40,5 +42,4 @@ namespace HathoraCloud.Models.Shared
         public TransportType TransportType { get; set; } = default!;
         
     }
-    
 }

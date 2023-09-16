@@ -15,13 +15,13 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     /// <summary>
     /// Deployment is a versioned configuration for a build that describes runtime behavior.
     /// </summary>
     [Serializable]
     public class Deployment
     {
+
         /// <summary>
         /// Additional ports your server listens on.
         /// </summary>
@@ -29,6 +29,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("additionalContainerPorts")]
         public List<ContainerPort> AdditionalContainerPorts { get; set; } = default!;
         
+
         /// <summary>
         /// System generated unique identifier for an application.
         /// </summary>
@@ -36,6 +37,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("appId")]
         public string AppId { get; set; } = default!;
         
+
         /// <summary>
         /// System generated id for a build. Increments by 1.
         /// </summary>
@@ -43,11 +45,13 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("buildId")]
         public int BuildId { get; set; } = default!;
         
+
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [SerializeField]
         [JsonProperty("containerPort")]
         public double ContainerPort { get; set; } = default!;
         
+
         /// <summary>
         /// When the deployment was created.
         /// </summary>
@@ -55,6 +59,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("createdAt")]
         public DateTime CreatedAt { get; set; } = default!;
         
+
         /// <summary>
         /// Email address for the user that created the deployment.
         /// </summary>
@@ -62,6 +67,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("createdBy")]
         public string CreatedBy { get; set; } = default!;
         
+
         /// <summary>
         /// A container port object represents the transport configruations for how your server will listen.
         /// </summary>
@@ -69,6 +75,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("defaultContainerPort")]
         public ContainerPort DefaultContainerPort { get; set; } = default!;
         
+
         /// <summary>
         /// System generated id for a deployment. Increments by 1.
         /// </summary>
@@ -76,6 +83,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("deploymentId")]
         public int DeploymentId { get; set; } = default!;
         
+
         /// <summary>
         /// The environment variable that our process will have access to at runtime.
         /// </summary>
@@ -83,17 +91,18 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("env")]
         public List<DeploymentEnv> Env { get; set; } = default!;
         
+
         /// <summary>
-        /// A plan defines how much CPU and memory is required to run an instance of your game server.
+        /// A plan defines how much CPU and memory is required to run an instance of your game server.&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// `tiny`: shared core, 1gb memory
-        /// 
-        /// `small`: 1 core, 2gb memory
-        /// 
-        /// `medium`: 2 core, 4gb memory
-        /// 
+        /// <br/>
+        /// `tiny`: shared core, 1gb memory<br/>
+        /// <br/>
+        /// `small`: 1 core, 2gb memory<br/>
+        /// <br/>
+        /// `medium`: 2 core, 4gb memory<br/>
+        /// <br/>
         /// `large`: 4 core, 8gb memory
         /// </remarks>
         /// </summary>
@@ -101,6 +110,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("planName")]
         public PlanName PlanName { get; set; } = default!;
         
+
         /// <summary>
         /// The number of cores allocated to your process.
         /// </summary>
@@ -108,6 +118,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("requestedCPU")]
         public double RequestedCPU { get; set; } = default!;
         
+
         /// <summary>
         /// The amount of memory allocated to your process.
         /// </summary>
@@ -115,18 +126,19 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("requestedMemoryMB")]
         public double RequestedMemoryMB { get; set; } = default!;
         
+
         /// <summary>
-        /// Governs how many [rooms](https://hathora.dev/docs/concepts/hathora-entities#room) can be scheduled in a process.
+        /// Governs how many &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#room&quot;&gt;rooms&lt;/a&gt; can be scheduled in a process.
         /// </summary>
         [SerializeField]
         [JsonProperty("roomsPerProcess")]
         public int RoomsPerProcess { get; set; } = default!;
         
+
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [SerializeField]
         [JsonProperty("transportType")]
         public DeploymentTransportType TransportType { get; set; } = default!;
         
     }
-    
 }

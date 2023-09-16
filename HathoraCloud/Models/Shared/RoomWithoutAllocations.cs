@@ -14,13 +14,13 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     /// <summary>
     /// From T, pick a set of properties whose keys are in the union K
     /// </summary>
     [Serializable]
     public class RoomWithoutAllocations
     {
+
         /// <summary>
         /// System generated unique identifier for an application.
         /// </summary>
@@ -28,14 +28,17 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("appId")]
         public string AppId { get; set; } = default!;
         
+
         [SerializeField]
         [JsonProperty("currentAllocation")]
         public RoomWithoutAllocationsCurrentAllocation CurrentAllocation { get; set; } = default!;
         
+
         [SerializeField]
         [JsonProperty("roomConfig")]
         public string RoomConfig { get; set; } = default!;
         
+
         /// <summary>
         /// Unique identifier to a game session or match. Use either a system generated ID or pass in your own.
         /// </summary>
@@ -43,17 +46,18 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("roomId")]
         public string RoomId { get; set; } = default!;
         
+
         /// <summary>
-        /// The allocation status of a room.
+        /// The allocation status of a room.&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// `scheduling`: a process is not allocated yet and the room is waiting to be scheduled
-        /// 
-        /// `active`: ready to accept connections
-        /// 
-        /// `suspended`: room is unallocated from the process but can be rescheduled later with the same `roomId`
-        /// 
+        /// <br/>
+        /// `scheduling`: a process is not allocated yet and the room is waiting to be scheduled<br/>
+        /// <br/>
+        /// `active`: ready to accept connections<br/>
+        /// <br/>
+        /// `suspended`: room is unallocated from the process but can be rescheduled later with the same `roomId`<br/>
+        /// <br/>
         /// `destroyed`: all associated metadata is deleted
         /// </remarks>
         /// </summary>
@@ -62,5 +66,4 @@ namespace HathoraCloud.Models.Shared
         public RoomStatus Status { get; set; } = default!;
         
     }
-    
 }

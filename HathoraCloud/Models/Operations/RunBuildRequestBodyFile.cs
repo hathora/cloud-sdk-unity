@@ -14,18 +14,18 @@ namespace HathoraCloud.Models.Operations
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class RunBuildRequestBodyFile
     {
+
         [SerializeField]
         [SpeakeasyMetadata("multipartForm:content")]
         public byte[] Content { get; set; } = default!;
         
+
         [SerializeField]
         [SpeakeasyMetadata("multipartForm:name=file")]
         public string File { get; set; } = default!;
         
     }
-    
 }

@@ -18,8 +18,15 @@ namespace HathoraCloud
     using System;
     using UnityEngine.Networking;
 
+    /// <summary>
+    /// Operations to get metrics by &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#process&quot;&gt;process&lt;/a&gt;. We store 72 hours of metrics data.
+    /// </summary>
     public interface IMetricsV1SDK
     {
+
+        /// <summary>
+        /// Get metrics for a <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> using `appId` and `processId`.
+        /// </summary>
         Task<GetMetricsResponse> GetMetricsAsync(GetMetricsSecurity security, GetMetricsRequest? request = null);
     }
 
@@ -27,8 +34,8 @@ namespace HathoraCloud
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.112.0";
+        private const string _sdkVersion = "0.5.0";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -43,9 +50,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Get metrics for a [process](https://hathora.dev/docs/concepts/hathora-entities#process) using `appId` and `processId`.
-        /// </summary>
         public async Task<GetMetricsResponse> GetMetricsAsync(GetMetricsSecurity security, GetMetricsRequest? request = null)
         {
             string baseUrl = _serverUrl;

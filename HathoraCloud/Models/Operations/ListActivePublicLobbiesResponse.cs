@@ -16,22 +16,25 @@ namespace HathoraCloud.Models.Operations
     using UnityEngine.Networking;
     using UnityEngine;
     
-    
     [Serializable]
     public class ListActivePublicLobbiesResponse: IDisposable
     {
+
         [SerializeField]
         public string? ContentType { get; set; } = default!;
         
+
         /// <summary>
         /// Ok
         /// </summary>
         [SerializeField]
         public List<Lobby>? Lobbies { get; set; }
         
+
         [SerializeField]
         public int StatusCode { get; set; } = default!;
         
+
         [SerializeField]
         public UnityWebRequest? RawResponse { get; set; }
         
@@ -41,5 +44,4 @@ namespace HathoraCloud.Models.Operations
             }
         }
     }
-    
 }

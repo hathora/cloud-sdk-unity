@@ -14,22 +14,23 @@ namespace HathoraCloud.Models.Operations
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class CreatePublicLobbyRequest
     {
+
         [SerializeField]
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public CreatePublicLobbyRequestBody RequestBody { get; set; } = default!;
         
+
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
         public string AppId { get; set; } = default!;
         
+
         [SerializeField]
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=roomId")]
         public string? RoomId { get; set; }
         
     }
-    
 }

@@ -14,29 +14,28 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     public enum CardBrand
     {
-    	[JsonProperty("amex")]
-		Amex,
-		[JsonProperty("cartes_bancaires")]
-		CartesBancaires,
-		[JsonProperty("diners")]
-		Diners,
-		[JsonProperty("discover")]
-		Discover,
-		[JsonProperty("jcb")]
-		Jcb,
-		[JsonProperty("mastercard")]
-		Mastercard,
-		[JsonProperty("visa")]
-		Visa,
-		[JsonProperty("unionpay")]
-		Unionpay,
-		[JsonProperty("card")]
-		Card,
+        [JsonProperty("amex")]
+        Amex,
+        [JsonProperty("cartes_bancaires")]
+        CartesBancaires,
+        [JsonProperty("diners")]
+        Diners,
+        [JsonProperty("discover")]
+        Discover,
+        [JsonProperty("jcb")]
+        Jcb,
+        [JsonProperty("mastercard")]
+        Mastercard,
+        [JsonProperty("visa")]
+        Visa,
+        [JsonProperty("unionpay")]
+        Unionpay,
+        [JsonProperty("card")]
+        Card,
     }
-    
+
     public static class CardBrandExtension
     {
         public static string Value(this CardBrand value)
@@ -58,5 +57,5 @@ namespace HathoraCloud.Models.Shared
             throw new Exception($"Unknown value {value} for enum CardBrand");
         }
     }
-    
+
 }

@@ -16,10 +16,25 @@ namespace HathoraCloud
     using System;
     using UnityEngine.Networking;
 
+    /// <summary>
+    /// Operations to get logs by &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#application&quot;&gt;applications&lt;/a&gt;, &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#process&quot;&gt;processes&lt;/a&gt;, and &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#deployment&quot;&gt;deployments&lt;/a&gt;. We store 20GB of logs data.
+    /// </summary>
     public interface ILogV1SDK
     {
+
+        /// <summary>
+        /// Returns a stream of logs for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`.
+        /// </summary>
         Task<GetLogsForAppResponse> GetLogsForAppAsync(GetLogsForAppSecurity security, GetLogsForAppRequest? request = null);
+
+        /// <summary>
+        /// Returns a stream of logs for a <a href="https://hathora.dev/docs/concepts/hathora-entities#deployment">deployment</a> using `appId` and `deploymentId`.
+        /// </summary>
         Task<GetLogsForDeploymentResponse> GetLogsForDeploymentAsync(GetLogsForDeploymentSecurity security, GetLogsForDeploymentRequest? request = null);
+
+        /// <summary>
+        /// Returns a stream of logs for a <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> using `appId` and `processId`.
+        /// </summary>
         Task<GetLogsForProcessResponse> GetLogsForProcessAsync(GetLogsForProcessSecurity security, GetLogsForProcessRequest? request = null);
     }
 
@@ -27,8 +42,8 @@ namespace HathoraCloud
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.112.0";
+        private const string _sdkVersion = "0.5.0";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -43,9 +58,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Returns a stream of logs for an [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`.
-        /// </summary>
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<GetLogsForAppResponse> GetLogsForAppAsync(GetLogsForAppSecurity security, GetLogsForAppRequest? request = null)
         {
@@ -105,9 +117,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Returns a stream of logs for a [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment) using `appId` and `deploymentId`.
-        /// </summary>
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<GetLogsForDeploymentResponse> GetLogsForDeploymentAsync(GetLogsForDeploymentSecurity security, GetLogsForDeploymentRequest? request = null)
         {
@@ -167,9 +176,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Returns a stream of logs for a [process](https://hathora.dev/docs/concepts/hathora-entities#process) using `appId` and `processId`.
-        /// </summary>
         public async Task<GetLogsForProcessResponse> GetLogsForProcessAsync(GetLogsForProcessSecurity security, GetLogsForProcessRequest? request = null)
         {
             string baseUrl = _serverUrl;

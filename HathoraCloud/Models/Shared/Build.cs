@@ -15,13 +15,13 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     /// <summary>
     /// A build represents a game server artifact and its associated metadata.
     /// </summary>
     [Serializable]
     public class Build
     {
+
         /// <summary>
         /// System generated unique identifier for an application.
         /// </summary>
@@ -29,6 +29,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("appId")]
         public string AppId { get; set; } = default!;
         
+
         /// <summary>
         /// System generated id for a build. Increments by 1.
         /// </summary>
@@ -36,17 +37,20 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("buildId")]
         public int BuildId { get; set; } = default!;
         
+
         [SerializeField]
         [JsonProperty("buildTag")]
         public string BuildTag { get; set; } = default!;
         
+
         /// <summary>
-        /// When [`CreateBuild()`](https://hathora.dev/api#tag/BuildV1/operation/CreateBuild) is called.
+        /// When &lt;a href=&quot;&quot;&gt;`CreateBuild()`&lt;/a&gt; is called.
         /// </summary>
         [SerializeField]
         [JsonProperty("createdAt")]
         public DateTime CreatedAt { get; set; } = default!;
         
+
         /// <summary>
         /// Email address for the user that created the build.
         /// </summary>
@@ -54,6 +58,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("createdBy")]
         public string CreatedBy { get; set; } = default!;
         
+
         /// <summary>
         /// When the build was deleted.
         /// </summary>
@@ -61,13 +66,15 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("deletedAt")]
         public DateTime DeletedAt { get; set; } = default!;
         
+
         /// <summary>
-        /// When [`RunBuild()`](https://hathora.dev/api#tag/BuildV1/operation/RunBuild) finished executing.
+        /// When &lt;a href=&quot;&quot;&gt;`RunBuild()`&lt;/a&gt; finished executing.
         /// </summary>
         [SerializeField]
         [JsonProperty("finishedAt")]
         public DateTime FinishedAt { get; set; } = default!;
         
+
         /// <summary>
         /// The size (in bytes) of the Docker image built by Hathora.
         /// </summary>
@@ -75,31 +82,34 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("imageSize")]
         public double ImageSize { get; set; } = default!;
         
+
         /// <summary>
-        /// Identifiers for the containers stored in Hathora's registries.
+        /// Identifiers for the containers stored in Hathora&amp;apos;s registries.
         /// </summary>
         [SerializeField]
         [JsonProperty("regionalContainerTags")]
         public List<BuildRegionalContainerTags> RegionalContainerTags { get; set; } = default!;
         
+
         /// <summary>
-        /// When [`RunBuild()`](https://hathora.dev/api#tag/BuildV1/operation/RunBuild) is called.
+        /// When &lt;a href=&quot;&quot;&gt;`RunBuild()`&lt;/a&gt; is called.
         /// </summary>
         [SerializeField]
         [JsonProperty("startedAt")]
         public DateTime StartedAt { get; set; } = default!;
         
+
         /// <summary>
-        /// Current status of your build.
+        /// Current status of your build.&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// `created`: a build was created but not yet run
-        /// 
-        /// `running`: the build process is actively executing
-        /// 
-        /// `succeeded`: the game server artifact was successfully built and stored in the Hathora registries
-        /// 
+        /// <br/>
+        /// `created`: a build was created but not yet run<br/>
+        /// <br/>
+        /// `running`: the build process is actively executing<br/>
+        /// <br/>
+        /// `succeeded`: the game server artifact was successfully built and stored in the Hathora registries<br/>
+        /// <br/>
         /// `failed`: the build process was unsuccessful, most likely due to an error with the `Dockerfile`
         /// </remarks>
         /// </summary>
@@ -108,5 +118,4 @@ namespace HathoraCloud.Models.Shared
         public BuildStatus Status { get; set; } = default!;
         
     }
-    
 }

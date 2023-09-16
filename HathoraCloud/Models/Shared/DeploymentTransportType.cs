@@ -13,18 +13,17 @@ namespace HathoraCloud.Models.Shared
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
-    
     [Obsolete("This enum will be removed in a future release, please migrate away from it as soon as possible")]
     public enum DeploymentTransportType
     {
-    	[JsonProperty("tcp")]
-		Tcp,
-		[JsonProperty("udp")]
-		Udp,
-		[JsonProperty("tls")]
-		Tls,
+        [JsonProperty("tcp")]
+        Tcp,
+        [JsonProperty("udp")]
+        Udp,
+        [JsonProperty("tls")]
+        Tls,
     }
-    
+
     public static class DeploymentTransportTypeExtension
     {
         public static string Value(this DeploymentTransportType value)
@@ -46,5 +45,5 @@ namespace HathoraCloud.Models.Shared
             throw new Exception($"Unknown value {value} for enum DeploymentTransportType");
         }
     }
-    
+
 }

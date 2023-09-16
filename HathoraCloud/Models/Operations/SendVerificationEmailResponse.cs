@@ -15,22 +15,26 @@ namespace HathoraCloud.Models.Operations
     using UnityEngine.Networking;
     using UnityEngine;
     
-    
     [Serializable]
     public class SendVerificationEmailResponse: IDisposable
     {
+
         [SerializeField]
         public string? ContentType { get; set; } = default!;
         
+
         [SerializeField]
         public int StatusCode { get; set; } = default!;
         
+
         [SerializeField]
         public UnityWebRequest? RawResponse { get; set; }
         
+
         [SerializeField]
         public string? SendVerificationEmail500ApplicationJSONString { get; set; }
         
+
         /// <summary>
         /// Ok
         /// </summary>
@@ -43,5 +47,4 @@ namespace HathoraCloud.Models.Operations
             }
         }
     }
-    
 }

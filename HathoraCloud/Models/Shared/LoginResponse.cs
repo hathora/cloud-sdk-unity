@@ -14,10 +14,10 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class LoginResponse
     {
+
         /// <summary>
         /// A unique Hathora-signed JWT player token.
         /// </summary>
@@ -26,5 +26,4 @@ namespace HathoraCloud.Models.Shared
         public string Token { get; set; } = default!;
         
     }
-    
 }

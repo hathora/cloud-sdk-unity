@@ -15,18 +15,18 @@ namespace HathoraCloud.Models.Operations
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class CreateBuildRequest
     {
+
         [SerializeField]
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Models.Shared.CreateBuildRequest CreateBuildRequestValue { get; set; } = default!;
         
+
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
         public string AppId { get; set; } = default!;
         
     }
-    
 }

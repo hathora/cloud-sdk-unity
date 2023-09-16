@@ -14,40 +14,49 @@ namespace HathoraCloud.Models.Operations
     using UnityEngine.Networking;
     using UnityEngine;
     
-    
     [Serializable]
     public class CreatePrivateLobbyDeprecatedResponse: IDisposable
     {
+
         [SerializeField]
         public string? ContentType { get; set; } = default!;
         
+
         [SerializeField]
         public string? CreatePrivateLobbyDeprecated400ApplicationJSONString { get; set; }
         
+
         [SerializeField]
         public string? CreatePrivateLobbyDeprecated401ApplicationJSONString { get; set; }
         
+
         [SerializeField]
         public string? CreatePrivateLobbyDeprecated404ApplicationJSONString { get; set; }
         
+
         [SerializeField]
         public string? CreatePrivateLobbyDeprecated422ApplicationJSONString { get; set; }
         
+
         [SerializeField]
         public string? CreatePrivateLobbyDeprecated429ApplicationJSONString { get; set; }
         
+
         [SerializeField]
         public string? CreatePrivateLobbyDeprecated500ApplicationJSONString { get; set; }
         
+
         /// <summary>
         /// Ok
         /// </summary>
         [SerializeField]
         public string? RoomId { get; set; }
         
+
         [SerializeField]
         public int StatusCode { get; set; } = default!;
         
+
         [SerializeField]
         public UnityWebRequest? RawResponse { get; set; }
         
@@ -57,5 +66,4 @@ namespace HathoraCloud.Models.Operations
             }
         }
     }
-    
 }

@@ -14,20 +14,19 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     /// <summary>
     /// Transport type specifies the underlying communication protocol to the exposed port.
     /// </summary>
     public enum TransportType
     {
-    	[JsonProperty("tcp")]
-		Tcp,
-		[JsonProperty("udp")]
-		Udp,
-		[JsonProperty("tls")]
-		Tls,
+        [JsonProperty("tcp")]
+        Tcp,
+        [JsonProperty("udp")]
+        Udp,
+        [JsonProperty("tls")]
+        Tls,
     }
-    
+
     public static class TransportTypeExtension
     {
         public static string Value(this TransportType value)
@@ -49,5 +48,5 @@ namespace HathoraCloud.Models.Shared
             throw new Exception($"Unknown value {value} for enum TransportType");
         }
     }
-    
+
 }

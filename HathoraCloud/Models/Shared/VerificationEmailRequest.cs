@@ -14,14 +14,13 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class VerificationEmailRequest
     {
+
         [SerializeField]
         [JsonProperty("userId")]
         public string UserId { get; set; } = default!;
         
     }
-    
 }

@@ -14,22 +14,26 @@ namespace HathoraCloud.Models.Operations
     using UnityEngine.Networking;
     using UnityEngine;
     
-    
     [Serializable]
     public class SuspendRoomDeprecatedResponse: IDisposable
     {
+
         [SerializeField]
         public string? ContentType { get; set; } = default!;
         
+
         [SerializeField]
         public int StatusCode { get; set; } = default!;
         
+
         [SerializeField]
         public UnityWebRequest? RawResponse { get; set; }
         
+
         [SerializeField]
         public string? SuspendRoomDeprecated404ApplicationJSONString { get; set; }
         
+
         [SerializeField]
         public string? SuspendRoomDeprecated500ApplicationJSONString { get; set; }
         
@@ -39,5 +43,4 @@ namespace HathoraCloud.Models.Operations
             }
         }
     }
-    
 }

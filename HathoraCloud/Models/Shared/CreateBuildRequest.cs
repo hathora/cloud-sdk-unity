@@ -14,17 +14,16 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class CreateBuildRequest
     {
+
         /// <summary>
-        /// Tag to associate an external version with a build. It is accessible via [`GetBuildInfo()`](https://hathora.dev/api#tag/BuildV1/operation/GetBuildInfo).
+        /// Tag to associate an external version with a build. It is accessible via &lt;a href=&quot;&quot;&gt;`GetBuildInfo()`&lt;/a&gt;.
         /// </summary>
         [SerializeField]
         [JsonProperty("buildTag")]
         public string? BuildTag { get; set; }
         
     }
-    
 }

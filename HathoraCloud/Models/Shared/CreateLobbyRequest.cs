@@ -14,10 +14,10 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class CreateLobbyRequest
     {
+
         /// <summary>
         /// User input to initialize the game state. Object must be smaller than 64KB.
         /// </summary>
@@ -25,19 +25,21 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("initialConfig")]
         public LobbyInitialConfig InitialConfig { get; set; } = default!;
         
+
         [SerializeField]
         [JsonProperty("region")]
         public Region Region { get; set; } = default!;
         
+
         /// <summary>
-        /// Types of lobbies a player can create.
+        /// Types of lobbies a player can create.&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// `private`: the player who created the room must share the roomId with their friends
-        /// 
-        /// `public`: visible in the public lobby list, anyone can join
-        /// 
+        /// <br/>
+        /// `private`: the player who created the room must share the roomId with their friends<br/>
+        /// <br/>
+        /// `public`: visible in the public lobby list, anyone can join<br/>
+        /// <br/>
         /// `local`: for testing with a server running locally
         /// </remarks>
         /// </summary>
@@ -46,5 +48,4 @@ namespace HathoraCloud.Models.Shared
         public LobbyVisibility Visibility { get; set; } = default!;
         
     }
-    
 }

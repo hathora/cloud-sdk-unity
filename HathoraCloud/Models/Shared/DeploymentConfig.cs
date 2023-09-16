@@ -15,13 +15,13 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     /// <summary>
     /// User specified deployment configuration for your application at runtime.
     /// </summary>
     [Serializable]
     public class DeploymentConfig
     {
+
         /// <summary>
         /// Additional ports your server listens on.
         /// </summary>
@@ -29,6 +29,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("additionalContainerPorts")]
         public List<ContainerPort>? AdditionalContainerPorts { get; set; }
         
+
         /// <summary>
         /// Default port the server listens on.
         /// </summary>
@@ -36,6 +37,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("containerPort")]
         public int ContainerPort { get; set; } = default!;
         
+
         /// <summary>
         /// The environment variable that our process will have access to at runtime.
         /// </summary>
@@ -43,17 +45,18 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("env")]
         public List<DeploymentConfigEnv> Env { get; set; } = default!;
         
+
         /// <summary>
-        /// A plan defines how much CPU and memory is required to run an instance of your game server.
+        /// A plan defines how much CPU and memory is required to run an instance of your game server.&lt;br/&gt;
         /// 
         /// <remarks>
-        /// 
-        /// `tiny`: shared core, 1gb memory
-        /// 
-        /// `small`: 1 core, 2gb memory
-        /// 
-        /// `medium`: 2 core, 4gb memory
-        /// 
+        /// <br/>
+        /// `tiny`: shared core, 1gb memory<br/>
+        /// <br/>
+        /// `small`: 1 core, 2gb memory<br/>
+        /// <br/>
+        /// `medium`: 2 core, 4gb memory<br/>
+        /// <br/>
         /// `large`: 4 core, 8gb memory
         /// </remarks>
         /// </summary>
@@ -61,13 +64,15 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("planName")]
         public PlanName PlanName { get; set; } = default!;
         
+
         /// <summary>
-        /// Governs how many [rooms](https://hathora.dev/docs/concepts/hathora-entities#room) can be scheduled in a process.
+        /// Governs how many &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#room&quot;&gt;rooms&lt;/a&gt; can be scheduled in a process.
         /// </summary>
         [SerializeField]
         [JsonProperty("roomsPerProcess")]
         public int RoomsPerProcess { get; set; } = default!;
         
+
         /// <summary>
         /// Transport type specifies the underlying communication protocol to the exposed port.
         /// </summary>
@@ -76,5 +81,4 @@ namespace HathoraCloud.Models.Shared
         public TransportType TransportType { get; set; } = default!;
         
     }
-    
 }

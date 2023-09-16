@@ -19,8 +19,15 @@ namespace HathoraCloud
     using System;
     using UnityEngine.Networking;
 
+    /// <summary>
+    /// Service that allows clients to directly ping all Hathora regions to get latency information
+    /// </summary>
     public interface IDiscoveryV1SDK
     {
+
+        /// <summary>
+        /// Returns an array of all regions with a host and port that a client can directly ping. Open a websocket connection to `wss://&lt;host&gt;:&lt;port&gt;/ws` and send a packet. To calculate ping, measure the time it takes to get an echo packet back.
+        /// </summary>
         Task<GetPingServiceEndpointsResponse> GetPingServiceEndpointsAsync();
     }
 
@@ -28,8 +35,8 @@ namespace HathoraCloud
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.112.0";
+        private const string _sdkVersion = "0.5.0";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -44,9 +51,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Returns an array of all regions with a host and port that a client can directly ping. Open a websocket connection to `wss://<host>:<port>/ws` and send a packet. To calculate ping, measure the time it takes to get an echo packet back.
-        /// </summary>
         public async Task<GetPingServiceEndpointsResponse> GetPingServiceEndpointsAsync()
         {
             string baseUrl = _serverUrl;

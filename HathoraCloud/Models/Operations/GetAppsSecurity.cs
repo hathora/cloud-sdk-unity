@@ -14,14 +14,13 @@ namespace HathoraCloud.Models.Operations
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class GetAppsSecurity
     {
+
         [SerializeField]
         [SpeakeasyMetadata("security:scheme=true,type=http,subType=bearer,name=Authorization")]
         public string HathoraDevToken { get; set; } = default!;
         
     }
-    
 }

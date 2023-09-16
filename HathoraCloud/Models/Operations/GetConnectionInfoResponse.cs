@@ -15,31 +15,37 @@ namespace HathoraCloud.Models.Operations
     using UnityEngine.Networking;
     using UnityEngine;
     
-    
     [Serializable]
     public class GetConnectionInfoResponse: IDisposable
     {
+
         /// <summary>
         /// Ok
         /// </summary>
         [SerializeField]
         public ConnectionInfoV2? ConnectionInfoV2 { get; set; }
         
+
         [SerializeField]
         public string? ContentType { get; set; } = default!;
         
+
         [SerializeField]
         public string? GetConnectionInfo400ApplicationJSONString { get; set; }
         
+
         [SerializeField]
         public string? GetConnectionInfo404ApplicationJSONString { get; set; }
         
+
         [SerializeField]
         public string? GetConnectionInfo500ApplicationJSONString { get; set; }
         
+
         [SerializeField]
         public int StatusCode { get; set; } = default!;
         
+
         [SerializeField]
         public UnityWebRequest? RawResponse { get; set; }
         
@@ -49,5 +55,4 @@ namespace HathoraCloud.Models.Operations
             }
         }
     }
-    
 }

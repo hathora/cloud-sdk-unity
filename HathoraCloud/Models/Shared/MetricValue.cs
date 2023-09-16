@@ -14,18 +14,18 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class MetricValue
     {
+
         [SerializeField]
         [JsonProperty("timestamp")]
         public double Timestamp { get; set; } = default!;
         
+
         [SerializeField]
         [JsonProperty("value")]
         public double Value { get; set; } = default!;
         
     }
-    
 }

@@ -14,14 +14,13 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class LinkPaymentMethod
     {
+
         [SerializeField]
         [JsonProperty("email")]
         public string? Email { get; set; }
         
     }
-    
 }

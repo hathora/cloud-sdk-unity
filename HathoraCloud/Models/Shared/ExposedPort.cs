@@ -14,25 +14,28 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     /// <summary>
     /// Connection details for an active process.
     /// </summary>
     [Serializable]
     public class ExposedPort
     {
+
         [SerializeField]
         [JsonProperty("host")]
         public string Host { get; set; } = default!;
         
+
         [SerializeField]
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
         
+
         [SerializeField]
         [JsonProperty("port")]
         public double Port { get; set; } = default!;
         
+
         /// <summary>
         /// Transport type specifies the underlying communication protocol to the exposed port.
         /// </summary>
@@ -41,5 +44,4 @@ namespace HathoraCloud.Models.Shared
         public TransportType TransportType { get; set; } = default!;
         
     }
-    
 }

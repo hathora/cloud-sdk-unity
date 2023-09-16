@@ -15,14 +15,15 @@ namespace HathoraCloud.Models.Operations
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class ListActivePublicLobbiesRequest
     {
+
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
         public string AppId { get; set; } = default!;
         
+
         /// <summary>
         /// Region to filter by. If omitted, active public lobbies in all regions will be returned.
         /// </summary>
@@ -31,5 +32,4 @@ namespace HathoraCloud.Models.Operations
         public Region? Region { get; set; }
         
     }
-    
 }

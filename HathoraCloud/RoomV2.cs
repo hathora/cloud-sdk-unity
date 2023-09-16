@@ -19,14 +19,45 @@ namespace HathoraCloud
     using System;
     using UnityEngine.Networking;
 
+    /// <summary>
+    /// Operations to create, manage, and connect to &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#room&quot;&gt;rooms&lt;/a&gt;.
+    /// </summary>
     public interface IRoomV2SDK
     {
+
+        /// <summary>
+        /// Create a new <a href="https://hathora.dev/docs/concepts/hathora-entities#room">room</a> for an existing <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>. Poll the <a href="">`GetConnectionInfo()`</a> endpoint to get connection details for an active room.
+        /// </summary>
         Task<CreateRoomResponse> CreateRoomAsync(CreateRoomSecurity security, Models.Operations.CreateRoomRequest request);
+
+        /// <summary>
+        /// Destroy a <a href="https://hathora.dev/docs/concepts/hathora-entities#room">room</a>. All associated metadata is deleted.
+        /// </summary>
         Task<DestroyRoomResponse> DestroyRoomAsync(DestroyRoomSecurity security, DestroyRoomRequest? request = null);
+
+        /// <summary>
+        /// Get all active <a href="https://hathora.dev/docs/concepts/hathora-entities#room">rooms</a> for a given <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a>.
+        /// </summary>
         Task<GetActiveRoomsForProcessResponse> GetActiveRoomsForProcessAsync(GetActiveRoomsForProcessSecurity security, GetActiveRoomsForProcessRequest? request = null);
+
+        /// <summary>
+        /// Poll this endpoint to get connection details to a <a href="https://hathora.dev/docs/concepts/hathora-entities#room">room</a>. Clients can call this endpoint without authentication.
+        /// </summary>
         Task<GetConnectionInfoResponse> GetConnectionInfoAsync(GetConnectionInfoRequest? request = null);
+
+        /// <summary>
+        /// Get all inactive <a href="https://hathora.dev/docs/concepts/hathora-entities#room">rooms</a> for a given <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a>.
+        /// </summary>
         Task<GetInactiveRoomsForProcessResponse> GetInactiveRoomsForProcessAsync(GetInactiveRoomsForProcessSecurity security, GetInactiveRoomsForProcessRequest? request = null);
+
+        /// <summary>
+        /// Retreive current and historical allocation data for a <a href="https://hathora.dev/docs/concepts/hathora-entities#room">room</a>.
+        /// </summary>
         Task<GetRoomInfoResponse> GetRoomInfoAsync(GetRoomInfoSecurity security, GetRoomInfoRequest? request = null);
+
+        /// <summary>
+        /// Suspend a <a href="https://hathora.dev/docs/concepts/hathora-entities#room">room</a>. The room is unallocated from the process but can be rescheduled later using the same `roomId`.
+        /// </summary>
         Task<SuspendRoomResponse> SuspendRoomAsync(SuspendRoomSecurity security, SuspendRoomRequest? request = null);
     }
 
@@ -34,8 +65,8 @@ namespace HathoraCloud
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.112.0";
+        private const string _sdkVersion = "0.5.0";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -50,9 +81,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Create a new [room](https://hathora.dev/docs/concepts/hathora-entities#room) for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application). Poll the [`GetConnectionInfo()`](https://hathora.dev/api#tag/RoomV2/operation/GetConnectionInfo) endpoint to get connection details for an active room.
-        /// </summary>
         public async Task<CreateRoomResponse> CreateRoomAsync(CreateRoomSecurity security, Models.Operations.CreateRoomRequest request)
         {
             string baseUrl = _serverUrl;
@@ -157,9 +185,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Destroy a [room](https://hathora.dev/docs/concepts/hathora-entities#room). All associated metadata is deleted.
-        /// </summary>
         public async Task<DestroyRoomResponse> DestroyRoomAsync(DestroyRoomSecurity security, DestroyRoomRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -223,9 +248,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Get all active [rooms](https://hathora.dev/docs/concepts/hathora-entities#room) for a given [process](https://hathora.dev/docs/concepts/hathora-entities#process).
-        /// </summary>
         public async Task<GetActiveRoomsForProcessResponse> GetActiveRoomsForProcessAsync(GetActiveRoomsForProcessSecurity security, GetActiveRoomsForProcessRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -284,9 +306,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Poll this endpoint to get connection details to a [room](https://hathora.dev/docs/concepts/hathora-entities#room). Clients can call this endpoint without authentication.
-        /// </summary>
         public async Task<GetConnectionInfoResponse> GetConnectionInfoAsync(GetConnectionInfoRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -363,9 +382,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Get all inactive [rooms](https://hathora.dev/docs/concepts/hathora-entities#room) for a given [process](https://hathora.dev/docs/concepts/hathora-entities#process).
-        /// </summary>
         public async Task<GetInactiveRoomsForProcessResponse> GetInactiveRoomsForProcessAsync(GetInactiveRoomsForProcessSecurity security, GetInactiveRoomsForProcessRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -424,9 +440,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Retreive current and historical allocation data for a [room](https://hathora.dev/docs/concepts/hathora-entities#room).
-        /// </summary>
         public async Task<GetRoomInfoResponse> GetRoomInfoAsync(GetRoomInfoSecurity security, GetRoomInfoRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -485,9 +498,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Suspend a [room](https://hathora.dev/docs/concepts/hathora-entities#room). The room is unallocated from the process but can be rescheduled later using the same `roomId`.
-        /// </summary>
         public async Task<SuspendRoomResponse> SuspendRoomAsync(SuspendRoomSecurity security, SuspendRoomRequest? request = null)
         {
             string baseUrl = _serverUrl;

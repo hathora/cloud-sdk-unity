@@ -14,14 +14,13 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class CustomerPortalUrl
     {
+
         [SerializeField]
         [JsonProperty("returnUrl")]
         public string ReturnUrl { get; set; } = default!;
         
     }
-    
 }

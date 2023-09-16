@@ -19,10 +19,25 @@ namespace HathoraCloud
     using System;
     using UnityEngine.Networking;
 
+    /// <summary>
+    /// Operations to get data on active and stopped &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#process&quot;&gt;processes&lt;/a&gt;.
+    /// </summary>
     public interface IProcessesV1SDK
     {
+
+        /// <summary>
+        /// Get details for an existing <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> using `appId` and `processId`.
+        /// </summary>
         Task<GetProcessInfoResponse> GetProcessInfoAsync(GetProcessInfoSecurity security, GetProcessInfoRequest? request = null);
+
+        /// <summary>
+        /// Returns an array of active <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> objects for an existing <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`. Filter the array by optionally passing in a region.
+        /// </summary>
         Task<GetRunningProcessesResponse> GetRunningProcessesAsync(GetRunningProcessesSecurity security, GetRunningProcessesRequest? request = null);
+
+        /// <summary>
+        /// Returns an array of stopped <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> objects for an existing <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`. Filter the array by optionally passing in a region.
+        /// </summary>
         Task<GetStoppedProcessesResponse> GetStoppedProcessesAsync(GetStoppedProcessesSecurity security, GetStoppedProcessesRequest? request = null);
     }
 
@@ -30,8 +45,8 @@ namespace HathoraCloud
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.4.0";
-        private const string _sdkGenVersion = "2.112.0";
+        private const string _sdkVersion = "0.5.0";
+        private const string _sdkGenVersion = "2.115.2";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -46,9 +61,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Get details for an existing [process](https://hathora.dev/docs/concepts/hathora-entities#process) using `appId` and `processId`.
-        /// </summary>
         public async Task<GetProcessInfoResponse> GetProcessInfoAsync(GetProcessInfoSecurity security, GetProcessInfoRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -107,9 +119,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Returns an array of active [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Filter the array by optionally passing in a region.
-        /// </summary>
         public async Task<GetRunningProcessesResponse> GetRunningProcessesAsync(GetRunningProcessesSecurity security, GetRunningProcessesRequest? request = null)
         {
             string baseUrl = _serverUrl;
@@ -168,9 +177,6 @@ namespace HathoraCloud
         }
         
 
-        /// <summary>
-        /// Returns an array of stopped [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Filter the array by optionally passing in a region.
-        /// </summary>
         public async Task<GetStoppedProcessesResponse> GetStoppedProcessesAsync(GetStoppedProcessesSecurity security, GetStoppedProcessesRequest? request = null)
         {
             string baseUrl = _serverUrl;

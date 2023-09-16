@@ -14,29 +14,28 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     /// <summary>
-    /// Types of lobbies a player can create.
+    /// Types of lobbies a player can create.&lt;br/&gt;
     /// 
     /// <remarks>
-    /// 
-    /// `private`: the player who created the room must share the roomId with their friends
-    /// 
-    /// `public`: visible in the public lobby list, anyone can join
-    /// 
+    /// <br/>
+    /// `private`: the player who created the room must share the roomId with their friends<br/>
+    /// <br/>
+    /// `public`: visible in the public lobby list, anyone can join<br/>
+    /// <br/>
     /// `local`: for testing with a server running locally
     /// </remarks>
     /// </summary>
     public enum LobbyVisibility
     {
-    	[JsonProperty("private")]
-		Private,
-		[JsonProperty("public")]
-		Public,
-		[JsonProperty("local")]
-		Local,
+        [JsonProperty("private")]
+        Private,
+        [JsonProperty("public")]
+        Public,
+        [JsonProperty("local")]
+        Local,
     }
-    
+
     public static class LobbyVisibilityExtension
     {
         public static string Value(this LobbyVisibility value)
@@ -58,5 +57,5 @@ namespace HathoraCloud.Models.Shared
             throw new Exception($"Unknown value {value} for enum LobbyVisibility");
         }
     }
-    
+
 }

@@ -15,18 +15,18 @@ namespace HathoraCloud.Models.Operations
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class GetRunningProcessesRequest
     {
+
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
         public string AppId { get; set; } = default!;
         
+
         [SerializeField]
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=region")]
         public Region? Region { get; set; }
         
     }
-    
 }

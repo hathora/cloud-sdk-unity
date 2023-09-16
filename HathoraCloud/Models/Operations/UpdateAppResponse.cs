@@ -15,28 +15,33 @@ namespace HathoraCloud.Models.Operations
     using UnityEngine.Networking;
     using UnityEngine;
     
-    
     [Serializable]
     public class UpdateAppResponse: IDisposable
     {
+
         /// <summary>
         /// Ok
         /// </summary>
         [SerializeField]
         public Models.Shared.Application? Application { get; set; }
         
+
         [SerializeField]
         public string? ContentType { get; set; } = default!;
         
+
         [SerializeField]
         public int StatusCode { get; set; } = default!;
         
+
         [SerializeField]
         public UnityWebRequest? RawResponse { get; set; }
         
+
         [SerializeField]
         public string? UpdateApp404ApplicationJSONString { get; set; }
         
+
         [SerializeField]
         public string? UpdateApp500ApplicationJSONString { get; set; }
         
@@ -46,5 +51,4 @@ namespace HathoraCloud.Models.Operations
             }
         }
     }
-    
 }

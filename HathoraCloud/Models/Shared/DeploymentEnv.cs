@@ -14,18 +14,18 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     [Serializable]
     public class DeploymentEnv
     {
+
         [SerializeField]
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
         
+
         [SerializeField]
         [JsonProperty("value")]
         public string Value { get; set; } = default!;
         
     }
-    
 }

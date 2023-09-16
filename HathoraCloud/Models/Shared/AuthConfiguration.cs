@@ -14,13 +14,13 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     /// <summary>
-    /// Configure [player authentication](https://hathora.dev/docs/lobbies-and-matchmaking/auth-service) for your application. Use Hathora's built-in auth providers or use your own [custom authentication](https://hathora.dev/docs/lobbies-and-matchmaking/auth-service#custom-auth-provider).
+    /// Configure &lt;a href=&quot;https://hathora.dev/docs/lobbies-and-matchmaking/auth-service&quot;&gt;player authentication&lt;/a&gt; for your application. Use Hathora&amp;apos;s built-in auth providers or use your own &lt;a href=&quot;https://hathora.dev/docs/lobbies-and-matchmaking/auth-service#custom-auth-provider&quot;&gt;custom authentication&lt;/a&gt;.
     /// </summary>
     [Serializable]
     public class AuthConfiguration
     {
+
         /// <summary>
         /// Construct a type with a set of properties K of type T
         /// </summary>
@@ -28,6 +28,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("anonymous")]
         public RecordStringNever? Anonymous { get; set; }
         
+
         /// <summary>
         /// Enable google auth for your application.
         /// </summary>
@@ -35,6 +36,7 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("google")]
         public AuthConfigurationGoogle? Google { get; set; }
         
+
         /// <summary>
         /// Construct a type with a set of properties K of type T
         /// </summary>
@@ -43,5 +45,4 @@ namespace HathoraCloud.Models.Shared
         public RecordStringNever? Nickname { get; set; }
         
     }
-    
 }

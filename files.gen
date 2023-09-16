@@ -445,3 +445,4 @@ docs/models/shared/Room.md
 docs/models/shared/RoomAllocation.md
 docs/models/shared/ConnectionInfoV2Status.md
 docs/models/shared/ConnectionInfoV2.md
+.gitattributes

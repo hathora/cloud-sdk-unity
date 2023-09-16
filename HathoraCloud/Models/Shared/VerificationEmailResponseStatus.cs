@@ -14,13 +14,12 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    
     public enum VerificationEmailResponseStatus
     {
-    	[JsonProperty("success")]
-		Success,
+        [JsonProperty("success")]
+        Success,
     }
-    
+
     public static class VerificationEmailResponseStatusExtension
     {
         public static string Value(this VerificationEmailResponseStatus value)
@@ -42,5 +41,5 @@ namespace HathoraCloud.Models.Shared
             throw new Exception($"Unknown value {value} for enum VerificationEmailResponseStatus");
         }
     }
-    
+
 }
