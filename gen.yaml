@@ -16,7 +16,7 @@ features:
     globalServerURLs: 0.0.1
     methodSecurity: 0.0.1
 unity:
-  version: 0.5.0
+  version: 0.6.0
   author: Hathora
   maxMethodParams: 0
   packageName: hathorasdk
