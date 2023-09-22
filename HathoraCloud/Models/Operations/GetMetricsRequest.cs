@@ -21,8 +21,13 @@ namespace HathoraCloud.Models.Operations
     {
 
         [SerializeField]
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=processId")]
+        public string ProcessId { get; set; } = default!;
+        
+
+        [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
-        public string AppId { get; set; } = default!;
+        public string? AppId { get; set; }
         
 
         /// <summary>
@@ -39,11 +44,6 @@ namespace HathoraCloud.Models.Operations
         [SerializeField]
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=metrics")]
         public List<MetricName>? Metrics { get; set; }
-        
-
-        [SerializeField]
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=processId")]
-        public string ProcessId { get; set; } = default!;
         
 
         /// <summary>

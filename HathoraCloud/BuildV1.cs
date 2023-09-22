@@ -28,35 +28,35 @@ namespace HathoraCloud
         /// <summary>
         /// Creates a new <a href="https://hathora.dev/docs/concepts/hathora-entities#build">build</a>. Responds with a `buildId` that you must pass to <a href="">`RunBuild()`</a> to build the game server artifact. You can optionally pass in a `buildTag` to associate an external version with a build.
         /// </summary>
-        Task<CreateBuildResponse> CreateBuildAsync(CreateBuildSecurity security, Models.Operations.CreateBuildRequest request);
+        Task<CreateBuildResponse> CreateBuildAsync(CreateBuildRequest request);
 
         /// <summary>
         /// Delete a <a href="https://hathora.dev/docs/concepts/hathora-entities#build">build</a>. All associated metadata is deleted.
         /// </summary>
-        Task<DeleteBuildResponse> DeleteBuildAsync(DeleteBuildSecurity security, DeleteBuildRequest? request = null);
+        Task<DeleteBuildResponse> DeleteBuildAsync(DeleteBuildRequest? request = null);
 
         /// <summary>
         /// Get details for a <a href="https://hathora.dev/docs/concepts/hathora-entities#build">build</a>.
         /// </summary>
-        Task<GetBuildInfoResponse> GetBuildInfoAsync(GetBuildInfoSecurity security, GetBuildInfoRequest? request = null);
+        Task<GetBuildInfoResponse> GetBuildInfoAsync(GetBuildInfoRequest? request = null);
 
         /// <summary>
         /// Returns an array of <a href="https://hathora.dev/docs/concepts/hathora-entities#build">builds</a> for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>.
         /// </summary>
-        Task<GetBuildsResponse> GetBuildsAsync(GetBuildsSecurity security, GetBuildsRequest? request = null);
+        Task<GetBuildsResponse> GetBuildsAsync(GetBuildsRequest? request = null);
 
         /// <summary>
         /// Builds a game server artifact from a tarball you provide. Pass in the `buildId` generated from <a href="">`CreateBuild()`</a>.
         /// </summary>
-        Task<RunBuildResponse> RunBuildAsync(RunBuildSecurity security, RunBuildRequest request);
+        Task<RunBuildResponse> RunBuildAsync(RunBuildRequest request);
     }
 
     public class BuildV1SDK: IBuildV1SDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.10.0";
-        private const string _sdkGenVersion = "2.122.1";
+        private const string _sdkVersion = "0.11.0";
+        private const string _sdkGenVersion = "2.125.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -71,8 +71,9 @@ namespace HathoraCloud
         }
         
 
-        public async Task<CreateBuildResponse> CreateBuildAsync(CreateBuildSecurity security, Models.Operations.CreateBuildRequest request)
+        public async Task<CreateBuildResponse> CreateBuildAsync(CreateBuildRequest request)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -86,7 +87,7 @@ namespace HathoraCloud
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
-            var serializedBody = RequestBodySerializer.Serialize(request, "CreateBuildRequestValue", "json");
+            var serializedBody = RequestBodySerializer.Serialize(request, "CreateBuildParams", "json");
             if (serializedBody == null) 
             {
                 throw new ArgumentNullException("request body is required");
@@ -97,7 +98,7 @@ namespace HathoraCloud
                 httpRequest.SetRequestHeader("Content-Type", serializedBody.ContentType);
             }
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -148,8 +149,9 @@ namespace HathoraCloud
         }
         
 
-        public async Task<DeleteBuildResponse> DeleteBuildAsync(DeleteBuildSecurity security, DeleteBuildRequest? request = null)
+        public async Task<DeleteBuildResponse> DeleteBuildAsync(DeleteBuildRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -164,7 +166,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -220,8 +222,9 @@ namespace HathoraCloud
         }
         
 
-        public async Task<GetBuildInfoResponse> GetBuildInfoAsync(GetBuildInfoSecurity security, GetBuildInfoRequest? request = null)
+        public async Task<GetBuildInfoResponse> GetBuildInfoAsync(GetBuildInfoRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -236,7 +239,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -278,8 +281,9 @@ namespace HathoraCloud
         }
         
 
-        public async Task<GetBuildsResponse> GetBuildsAsync(GetBuildsSecurity security, GetBuildsRequest? request = null)
+        public async Task<GetBuildsResponse> GetBuildsAsync(GetBuildsRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -294,7 +298,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -336,8 +340,9 @@ namespace HathoraCloud
         }
         
 
-        public async Task<RunBuildResponse> RunBuildAsync(RunBuildSecurity security, RunBuildRequest request)
+        public async Task<RunBuildResponse> RunBuildAsync(RunBuildRequest request)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -362,7 +367,7 @@ namespace HathoraCloud
                 httpRequest.SetRequestHeader("Content-Type", serializedBody.ContentType);
             }
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)

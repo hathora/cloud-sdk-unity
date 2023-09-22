@@ -44,8 +44,8 @@ namespace HathoraCloud
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.10.0";
-        private const string _sdkGenVersion = "2.122.1";
+        private const string _sdkVersion = "0.11.0";
+        private const string _sdkGenVersion = "2.125.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -62,6 +62,7 @@ namespace HathoraCloud
 
         public async Task<LoginAnonymousResponse> LoginAnonymousAsync(LoginAnonymousRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -76,7 +77,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = _defaultClient;
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -120,6 +121,7 @@ namespace HathoraCloud
 
         public async Task<LoginGoogleResponse> LoginGoogleAsync(Models.Operations.LoginGoogleRequest request)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -144,7 +146,7 @@ namespace HathoraCloud
                 httpRequest.SetRequestHeader("Content-Type", serializedBody.ContentType);
             }
             
-            var client = _defaultClient;
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -197,6 +199,7 @@ namespace HathoraCloud
 
         public async Task<LoginNicknameResponse> LoginNicknameAsync(Models.Operations.LoginNicknameRequest request)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -221,7 +224,7 @@ namespace HathoraCloud
                 httpRequest.SetRequestHeader("Content-Type", serializedBody.ContentType);
             }
             
-            var client = _defaultClient;
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)

@@ -26,7 +26,7 @@ namespace HathoraCloud.Models.Operations
 
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
-        public string AppId { get; set; } = default!;
+        public string? AppId { get; set; }
         
     }
 }

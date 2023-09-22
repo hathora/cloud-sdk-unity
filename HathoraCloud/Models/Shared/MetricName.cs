@@ -27,6 +27,8 @@ namespace HathoraCloud.Models.Shared
         RateEgress,
         [JsonProperty("total_egress")]
         TotalEgress,
+        [JsonProperty("active_connections")]
+        ActiveConnections,
     }
 
     public static class MetricNameExtension

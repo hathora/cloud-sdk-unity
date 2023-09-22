@@ -25,25 +25,25 @@ namespace HathoraCloud
         /// <summary>
         /// Returns a stream of logs for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`.
         /// </summary>
-        Task<GetLogsForAppResponse> GetLogsForAppAsync(GetLogsForAppSecurity security, GetLogsForAppRequest? request = null);
+        Task<GetLogsForAppResponse> GetLogsForAppAsync(GetLogsForAppRequest? request = null);
 
         /// <summary>
         /// Returns a stream of logs for a <a href="https://hathora.dev/docs/concepts/hathora-entities#deployment">deployment</a> using `appId` and `deploymentId`.
         /// </summary>
-        Task<GetLogsForDeploymentResponse> GetLogsForDeploymentAsync(GetLogsForDeploymentSecurity security, GetLogsForDeploymentRequest? request = null);
+        Task<GetLogsForDeploymentResponse> GetLogsForDeploymentAsync(GetLogsForDeploymentRequest? request = null);
 
         /// <summary>
         /// Returns a stream of logs for a <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> using `appId` and `processId`.
         /// </summary>
-        Task<GetLogsForProcessResponse> GetLogsForProcessAsync(GetLogsForProcessSecurity security, GetLogsForProcessRequest? request = null);
+        Task<GetLogsForProcessResponse> GetLogsForProcessAsync(GetLogsForProcessRequest? request = null);
     }
 
     public class LogV1SDK: ILogV1SDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.10.0";
-        private const string _sdkGenVersion = "2.122.1";
+        private const string _sdkVersion = "0.11.0";
+        private const string _sdkGenVersion = "2.125.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -59,8 +59,9 @@ namespace HathoraCloud
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<GetLogsForAppResponse> GetLogsForAppAsync(GetLogsForAppSecurity security, GetLogsForAppRequest? request = null)
+        public async Task<GetLogsForAppResponse> GetLogsForAppAsync(GetLogsForAppRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -75,7 +76,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -118,8 +119,9 @@ namespace HathoraCloud
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<GetLogsForDeploymentResponse> GetLogsForDeploymentAsync(GetLogsForDeploymentSecurity security, GetLogsForDeploymentRequest? request = null)
+        public async Task<GetLogsForDeploymentResponse> GetLogsForDeploymentAsync(GetLogsForDeploymentRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -134,7 +136,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -176,8 +178,9 @@ namespace HathoraCloud
         }
         
 
-        public async Task<GetLogsForProcessResponse> GetLogsForProcessAsync(GetLogsForProcessSecurity security, GetLogsForProcessRequest? request = null)
+        public async Task<GetLogsForProcessResponse> GetLogsForProcessAsync(GetLogsForProcessRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -192,7 +195,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -226,6 +229,15 @@ namespace HathoraCloud
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
                     response.GetLogsForProcess404ApplicationJSONString = httpResponse.downloadHandler.text;
+                }
+                
+                return response;
+            }
+            if((response.StatusCode == 500))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {
+                    response.GetLogsForProcess500ApplicationJSONString = httpResponse.downloadHandler.text;
                 }
                 
                 return response;

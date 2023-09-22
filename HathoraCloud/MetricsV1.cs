@@ -27,15 +27,15 @@ namespace HathoraCloud
         /// <summary>
         /// Get metrics for a <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> using `appId` and `processId`.
         /// </summary>
-        Task<GetMetricsResponse> GetMetricsAsync(GetMetricsSecurity security, GetMetricsRequest? request = null);
+        Task<GetMetricsResponse> GetMetricsAsync(GetMetricsRequest? request = null);
     }
 
     public class MetricsV1SDK: IMetricsV1SDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.10.0";
-        private const string _sdkGenVersion = "2.122.1";
+        private const string _sdkVersion = "0.11.0";
+        private const string _sdkGenVersion = "2.125.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -50,8 +50,9 @@ namespace HathoraCloud
         }
         
 
-        public async Task<GetMetricsResponse> GetMetricsAsync(GetMetricsSecurity security, GetMetricsRequest? request = null)
+        public async Task<GetMetricsResponse> GetMetricsAsync(GetMetricsRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -66,7 +67,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)

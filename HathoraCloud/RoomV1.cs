@@ -21,21 +21,21 @@ namespace HathoraCloud
 
     public interface IRoomV1SDK
     {
-        Task<CreateRoomDeprecatedResponse> CreateRoomDeprecatedAsync(CreateRoomDeprecatedSecurity security, CreateRoomDeprecatedRequest request);
-        Task<DestroyRoomDeprecatedResponse> DestroyRoomDeprecatedAsync(DestroyRoomDeprecatedSecurity security, DestroyRoomDeprecatedRequest? request = null);
-        Task<GetActiveRoomsForProcessDeprecatedResponse> GetActiveRoomsForProcessDeprecatedAsync(GetActiveRoomsForProcessDeprecatedSecurity security, GetActiveRoomsForProcessDeprecatedRequest? request = null);
+        Task<CreateRoomDeprecatedResponse> CreateRoomDeprecatedAsync(CreateRoomDeprecatedRequest request);
+        Task<DestroyRoomDeprecatedResponse> DestroyRoomDeprecatedAsync(DestroyRoomDeprecatedRequest? request = null);
+        Task<GetActiveRoomsForProcessDeprecatedResponse> GetActiveRoomsForProcessDeprecatedAsync(GetActiveRoomsForProcessDeprecatedRequest? request = null);
         Task<GetConnectionInfoDeprecatedResponse> GetConnectionInfoDeprecatedAsync(GetConnectionInfoDeprecatedRequest? request = null);
-        Task<GetInactiveRoomsForProcessDeprecatedResponse> GetInactiveRoomsForProcessDeprecatedAsync(GetInactiveRoomsForProcessDeprecatedSecurity security, GetInactiveRoomsForProcessDeprecatedRequest? request = null);
-        Task<GetRoomInfoDeprecatedResponse> GetRoomInfoDeprecatedAsync(GetRoomInfoDeprecatedSecurity security, GetRoomInfoDeprecatedRequest? request = null);
-        Task<SuspendRoomDeprecatedResponse> SuspendRoomDeprecatedAsync(SuspendRoomDeprecatedSecurity security, SuspendRoomDeprecatedRequest? request = null);
+        Task<GetInactiveRoomsForProcessDeprecatedResponse> GetInactiveRoomsForProcessDeprecatedAsync(GetInactiveRoomsForProcessDeprecatedRequest? request = null);
+        Task<GetRoomInfoDeprecatedResponse> GetRoomInfoDeprecatedAsync(GetRoomInfoDeprecatedRequest? request = null);
+        Task<SuspendRoomDeprecatedResponse> SuspendRoomDeprecatedAsync(SuspendRoomDeprecatedRequest? request = null);
     }
 
     public class RoomV1SDK: IRoomV1SDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.10.0";
-        private const string _sdkGenVersion = "2.122.1";
+        private const string _sdkVersion = "0.11.0";
+        private const string _sdkGenVersion = "2.125.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -51,8 +51,9 @@ namespace HathoraCloud
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<CreateRoomDeprecatedResponse> CreateRoomDeprecatedAsync(CreateRoomDeprecatedSecurity security, CreateRoomDeprecatedRequest request)
+        public async Task<CreateRoomDeprecatedResponse> CreateRoomDeprecatedAsync(CreateRoomDeprecatedRequest request)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -66,7 +67,7 @@ namespace HathoraCloud
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
-            var serializedBody = RequestBodySerializer.Serialize(request, "CreateRoomRequest", "json");
+            var serializedBody = RequestBodySerializer.Serialize(request, "CreateRoomParams", "json");
             if (serializedBody == null) 
             {
                 throw new ArgumentNullException("request body is required");
@@ -77,7 +78,7 @@ namespace HathoraCloud
                 httpRequest.SetRequestHeader("Content-Type", serializedBody.ContentType);
             }
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -156,8 +157,9 @@ namespace HathoraCloud
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<DestroyRoomDeprecatedResponse> DestroyRoomDeprecatedAsync(DestroyRoomDeprecatedSecurity security, DestroyRoomDeprecatedRequest? request = null)
+        public async Task<DestroyRoomDeprecatedResponse> DestroyRoomDeprecatedAsync(DestroyRoomDeprecatedRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -172,7 +174,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -220,8 +222,9 @@ namespace HathoraCloud
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<GetActiveRoomsForProcessDeprecatedResponse> GetActiveRoomsForProcessDeprecatedAsync(GetActiveRoomsForProcessDeprecatedSecurity security, GetActiveRoomsForProcessDeprecatedRequest? request = null)
+        public async Task<GetActiveRoomsForProcessDeprecatedResponse> GetActiveRoomsForProcessDeprecatedAsync(GetActiveRoomsForProcessDeprecatedRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -236,7 +239,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -281,6 +284,7 @@ namespace HathoraCloud
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<GetConnectionInfoDeprecatedResponse> GetConnectionInfoDeprecatedAsync(GetConnectionInfoDeprecatedRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -295,7 +299,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = _defaultClient;
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -356,8 +360,9 @@ namespace HathoraCloud
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<GetInactiveRoomsForProcessDeprecatedResponse> GetInactiveRoomsForProcessDeprecatedAsync(GetInactiveRoomsForProcessDeprecatedSecurity security, GetInactiveRoomsForProcessDeprecatedRequest? request = null)
+        public async Task<GetInactiveRoomsForProcessDeprecatedResponse> GetInactiveRoomsForProcessDeprecatedAsync(GetInactiveRoomsForProcessDeprecatedRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -372,7 +377,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -415,8 +420,9 @@ namespace HathoraCloud
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<GetRoomInfoDeprecatedResponse> GetRoomInfoDeprecatedAsync(GetRoomInfoDeprecatedSecurity security, GetRoomInfoDeprecatedRequest? request = null)
+        public async Task<GetRoomInfoDeprecatedResponse> GetRoomInfoDeprecatedAsync(GetRoomInfoDeprecatedRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -431,7 +437,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -474,8 +480,9 @@ namespace HathoraCloud
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<SuspendRoomDeprecatedResponse> SuspendRoomDeprecatedAsync(SuspendRoomDeprecatedSecurity security, SuspendRoomDeprecatedRequest? request = null)
+        public async Task<SuspendRoomDeprecatedResponse> SuspendRoomDeprecatedAsync(SuspendRoomDeprecatedRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -490,7 +497,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)

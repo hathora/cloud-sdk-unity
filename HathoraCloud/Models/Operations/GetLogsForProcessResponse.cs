@@ -34,6 +34,10 @@ namespace HathoraCloud.Models.Operations
         
 
         [SerializeField]
+        public string? GetLogsForProcess500ApplicationJSONString { get; set; }
+        
+
+        [SerializeField]
         public int StatusCode { get; set; } = default!;
         
 

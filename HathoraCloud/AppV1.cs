@@ -28,35 +28,35 @@ namespace HathoraCloud
         /// <summary>
         /// Create a new <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>.
         /// </summary>
-        Task<CreateAppResponse> CreateAppAsync(CreateAppSecurity security, AppConfig request);
+        Task<CreateAppResponse> CreateAppAsync(AppConfig request);
 
         /// <summary>
         /// Delete an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`. Your organization will lose access to this application.
         /// </summary>
-        Task<DeleteAppResponse> DeleteAppAsync(DeleteAppSecurity security, DeleteAppRequest? request = null);
+        Task<DeleteAppResponse> DeleteAppAsync(DeleteAppRequest? request = null);
 
         /// <summary>
         /// Get details for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`.
         /// </summary>
-        Task<GetAppInfoResponse> GetAppInfoAsync(GetAppInfoSecurity security, GetAppInfoRequest? request = null);
+        Task<GetAppInfoResponse> GetAppInfoAsync(GetAppInfoRequest? request = null);
 
         /// <summary>
         /// Returns an unsorted list of your organization’s <a href="https://hathora.dev/docs/concepts/hathora-entities#application">applications</a>. An application is uniquely identified by an `appId`.
         /// </summary>
-        Task<GetAppsResponse> GetAppsAsync(GetAppsSecurity security);
+        Task<GetAppsResponse> GetAppsAsync();
 
         /// <summary>
         /// Update data for an existing <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`.
         /// </summary>
-        Task<UpdateAppResponse> UpdateAppAsync(UpdateAppSecurity security, UpdateAppRequest request);
+        Task<UpdateAppResponse> UpdateAppAsync(UpdateAppRequest request);
     }
 
     public class AppV1SDK: IAppV1SDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.10.0";
-        private const string _sdkGenVersion = "2.122.1";
+        private const string _sdkVersion = "0.11.0";
+        private const string _sdkGenVersion = "2.125.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -71,7 +71,7 @@ namespace HathoraCloud
         }
         
 
-        public async Task<CreateAppResponse> CreateAppAsync(CreateAppSecurity security, AppConfig request)
+        public async Task<CreateAppResponse> CreateAppAsync(AppConfig request)
         {
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
@@ -97,7 +97,7 @@ namespace HathoraCloud
                 httpRequest.SetRequestHeader("Content-Type", serializedBody.ContentType);
             }
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -148,8 +148,9 @@ namespace HathoraCloud
         }
         
 
-        public async Task<DeleteAppResponse> DeleteAppAsync(DeleteAppSecurity security, DeleteAppRequest? request = null)
+        public async Task<DeleteAppResponse> DeleteAppAsync(DeleteAppRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -164,7 +165,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -211,8 +212,9 @@ namespace HathoraCloud
         }
         
 
-        public async Task<GetAppInfoResponse> GetAppInfoAsync(GetAppInfoSecurity security, GetAppInfoRequest? request = null)
+        public async Task<GetAppInfoResponse> GetAppInfoAsync(GetAppInfoRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -227,7 +229,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -269,7 +271,7 @@ namespace HathoraCloud
         }
         
 
-        public async Task<GetAppsResponse> GetAppsAsync(GetAppsSecurity security)
+        public async Task<GetAppsResponse> GetAppsAsync()
         {
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
@@ -285,7 +287,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -318,8 +320,9 @@ namespace HathoraCloud
         }
         
 
-        public async Task<UpdateAppResponse> UpdateAppAsync(UpdateAppSecurity security, UpdateAppRequest request)
+        public async Task<UpdateAppResponse> UpdateAppAsync(UpdateAppRequest request)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -344,7 +347,7 @@ namespace HathoraCloud
                 httpRequest.SetRequestHeader("Content-Type", serializedBody.ContentType);
             }
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)

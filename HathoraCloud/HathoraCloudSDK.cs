@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud
 {
+    using HathoraCloud.Models.Shared;
     using HathoraCloud.Utils;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -78,6 +79,7 @@ namespace HathoraCloud
     
     public class SDKConfig
     {
+        public string? AppId;
     }
 
     public class HathoraCloudSDK: IHathoraCloudSDK
@@ -90,8 +92,8 @@ namespace HathoraCloud
         };
 
         private const string _target = "unity";
-        private const string _sdkVersion = "0.10.0";
-        private const string _sdkGenVersion = "2.122.1";
+        private const string _sdkVersion = "0.11.0";
+        private const string _sdkGenVersion = "2.125.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -111,15 +113,21 @@ namespace HathoraCloud
         public IRoomV1SDK RoomV1 { get; private set; }
         public IRoomV2SDK RoomV2 { get; private set; }
 
-        public HathoraCloudSDK(string? serverUrl = null, ISpeakeasyHttpClient? client = null)
+        public HathoraCloudSDK(Security? security = null, string? appId = null, string? serverUrl = null, ISpeakeasyHttpClient? client = null)
         {
             _serverUrl = serverUrl ?? HathoraCloudSDK.ServerList[0];
 
             _defaultClient = new SpeakeasyHttpClient(client);
             _securityClient = _defaultClient;
             
+            if(security != null)
+            {
+                _securityClient = SecuritySerializer.Apply(_defaultClient, security);
+            }
+            
             Config = new SDKConfig()
             {
+                AppId = appId,
             };
 
             AppV1 = new AppV1SDK(_defaultClient, _securityClient, _serverUrl, Config);

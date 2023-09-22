@@ -23,6 +23,11 @@ namespace HathoraCloud.Models.Shared
     {
 
         [SerializeField]
+        [JsonProperty("active_connections")]
+        public List<MetricValue>? ActiveConnections { get; set; }
+        
+
+        [SerializeField]
         [JsonProperty("cpu")]
         public List<MetricValue>? Cpu { get; set; }
         

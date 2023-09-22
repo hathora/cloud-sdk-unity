@@ -28,25 +28,25 @@ namespace HathoraCloud
         /// <summary>
         /// Get details for an existing <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> using `appId` and `processId`.
         /// </summary>
-        Task<GetProcessInfoResponse> GetProcessInfoAsync(GetProcessInfoSecurity security, GetProcessInfoRequest? request = null);
+        Task<GetProcessInfoResponse> GetProcessInfoAsync(GetProcessInfoRequest? request = null);
 
         /// <summary>
         /// Returns an array of active <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> objects for an existing <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`. Filter the array by optionally passing in a region.
         /// </summary>
-        Task<GetRunningProcessesResponse> GetRunningProcessesAsync(GetRunningProcessesSecurity security, GetRunningProcessesRequest? request = null);
+        Task<GetRunningProcessesResponse> GetRunningProcessesAsync(GetRunningProcessesRequest? request = null);
 
         /// <summary>
         /// Returns an array of stopped <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> objects for an existing <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`. Filter the array by optionally passing in a region.
         /// </summary>
-        Task<GetStoppedProcessesResponse> GetStoppedProcessesAsync(GetStoppedProcessesSecurity security, GetStoppedProcessesRequest? request = null);
+        Task<GetStoppedProcessesResponse> GetStoppedProcessesAsync(GetStoppedProcessesRequest? request = null);
     }
 
     public class ProcessesV1SDK: IProcessesV1SDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.10.0";
-        private const string _sdkGenVersion = "2.122.1";
+        private const string _sdkVersion = "0.11.0";
+        private const string _sdkGenVersion = "2.125.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -61,8 +61,9 @@ namespace HathoraCloud
         }
         
 
-        public async Task<GetProcessInfoResponse> GetProcessInfoAsync(GetProcessInfoSecurity security, GetProcessInfoRequest? request = null)
+        public async Task<GetProcessInfoResponse> GetProcessInfoAsync(GetProcessInfoRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -77,7 +78,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -115,12 +116,22 @@ namespace HathoraCloud
                 
                 return response;
             }
+            if((response.StatusCode == 500))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {
+                    response.GetProcessInfo500ApplicationJSONString = httpResponse.downloadHandler.text;
+                }
+                
+                return response;
+            }
             return response;
         }
         
 
-        public async Task<GetRunningProcessesResponse> GetRunningProcessesAsync(GetRunningProcessesSecurity security, GetRunningProcessesRequest? request = null)
+        public async Task<GetRunningProcessesResponse> GetRunningProcessesAsync(GetRunningProcessesRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -135,7 +146,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -177,8 +188,9 @@ namespace HathoraCloud
         }
         
 
-        public async Task<GetStoppedProcessesResponse> GetStoppedProcessesAsync(GetStoppedProcessesSecurity security, GetStoppedProcessesRequest? request = null)
+        public async Task<GetStoppedProcessesResponse> GetStoppedProcessesAsync(GetStoppedProcessesRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -193,7 +205,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)

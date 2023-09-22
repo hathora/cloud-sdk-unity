@@ -21,23 +21,23 @@ To do so open the Package Manager via `Window > Package Manager` and click the `
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
-
-
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK();
-
-using(var res = await sdk.AppV1.CreateAppAsync(new CreateAppSecurity() {
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
         HathoraDevToken = "",
-    }, new AppConfig() {
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
+);
+
+using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
         AppName = "minecraft",
         AuthConfiguration = new AuthConfiguration() {
             Anonymous = new RecordStringNever() {},
             Google = new AuthConfigurationGoogle() {
-                ClientId = "corrupti",
+                ClientId = "provident",
             },
             Nickname = new RecordStringNever() {},
         },
@@ -147,6 +147,18 @@ using(var res = await sdk.AppV1.CreateAppAsync(new CreateAppSecurity() {
 * [GetRoomInfo](docs/sdks/roomv2/README.md#getroominfo) - Retreive current and historical allocation data for a [room](https://hathora.dev/docs/concepts/hathora-entities#room).
 * [SuspendRoom](docs/sdks/roomv2/README.md#suspendroom) - Suspend a [room](https://hathora.dev/docs/concepts/hathora-entities#room). The room is unallocated from the process but can be rescheduled later using the same `roomId`.
 <!-- End SDK Available Operations -->
+
+
+
+<!-- Start Dev Containers -->
+
+
+
+<!-- End Dev Containers -->
+
+<!-- Placeholder for Future Speakeasy SDK Sections -->
+
+
 
 ### Maturity
 

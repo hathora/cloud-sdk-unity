@@ -21,12 +21,12 @@ namespace HathoraCloud.Models.Operations
 
         [SerializeField]
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public Models.Shared.CreateBuildRequest CreateBuildRequestValue { get; set; } = default!;
+        public CreateBuildParams CreateBuildParams { get; set; } = default!;
         
 
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
-        public string AppId { get; set; } = default!;
+        public string? AppId { get; set; }
         
     }
 }

@@ -27,6 +27,10 @@ namespace HathoraCloud.Models.Operations
         public string? GetProcessInfo404ApplicationJSONString { get; set; }
         
 
+        [SerializeField]
+        public string? GetProcessInfo500ApplicationJSONString { get; set; }
+        
+
         /// <summary>
         /// Ok
         /// </summary>

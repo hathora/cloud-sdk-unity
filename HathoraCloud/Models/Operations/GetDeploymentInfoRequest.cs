@@ -19,13 +19,13 @@ namespace HathoraCloud.Models.Operations
     {
 
         [SerializeField]
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
-        public string AppId { get; set; } = default!;
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=deploymentId")]
+        public int DeploymentId { get; set; } = default!;
         
 
         [SerializeField]
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=deploymentId")]
-        public int DeploymentId { get; set; } = default!;
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
+        public string? AppId { get; set; }
         
     }
 }

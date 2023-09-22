@@ -28,17 +28,17 @@ namespace HathoraCloud
         /// <summary>
         /// Create a new <a href="https://hathora.dev/docs/concepts/hathora-entities#room">room</a> for an existing <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>. Poll the <a href="">`GetConnectionInfo()`</a> endpoint to get connection details for an active room.
         /// </summary>
-        Task<CreateRoomResponse> CreateRoomAsync(CreateRoomSecurity security, Models.Operations.CreateRoomRequest request);
+        Task<CreateRoomResponse> CreateRoomAsync(CreateRoomRequest request);
 
         /// <summary>
         /// Destroy a <a href="https://hathora.dev/docs/concepts/hathora-entities#room">room</a>. All associated metadata is deleted.
         /// </summary>
-        Task<DestroyRoomResponse> DestroyRoomAsync(DestroyRoomSecurity security, DestroyRoomRequest? request = null);
+        Task<DestroyRoomResponse> DestroyRoomAsync(DestroyRoomRequest? request = null);
 
         /// <summary>
         /// Get all active <a href="https://hathora.dev/docs/concepts/hathora-entities#room">rooms</a> for a given <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a>.
         /// </summary>
-        Task<GetActiveRoomsForProcessResponse> GetActiveRoomsForProcessAsync(GetActiveRoomsForProcessSecurity security, GetActiveRoomsForProcessRequest? request = null);
+        Task<GetActiveRoomsForProcessResponse> GetActiveRoomsForProcessAsync(GetActiveRoomsForProcessRequest? request = null);
 
         /// <summary>
         /// Poll this endpoint to get connection details to a <a href="https://hathora.dev/docs/concepts/hathora-entities#room">room</a>. Clients can call this endpoint without authentication.
@@ -48,25 +48,25 @@ namespace HathoraCloud
         /// <summary>
         /// Get all inactive <a href="https://hathora.dev/docs/concepts/hathora-entities#room">rooms</a> for a given <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a>.
         /// </summary>
-        Task<GetInactiveRoomsForProcessResponse> GetInactiveRoomsForProcessAsync(GetInactiveRoomsForProcessSecurity security, GetInactiveRoomsForProcessRequest? request = null);
+        Task<GetInactiveRoomsForProcessResponse> GetInactiveRoomsForProcessAsync(GetInactiveRoomsForProcessRequest? request = null);
 
         /// <summary>
         /// Retreive current and historical allocation data for a <a href="https://hathora.dev/docs/concepts/hathora-entities#room">room</a>.
         /// </summary>
-        Task<GetRoomInfoResponse> GetRoomInfoAsync(GetRoomInfoSecurity security, GetRoomInfoRequest? request = null);
+        Task<GetRoomInfoResponse> GetRoomInfoAsync(GetRoomInfoRequest? request = null);
 
         /// <summary>
         /// Suspend a <a href="https://hathora.dev/docs/concepts/hathora-entities#room">room</a>. The room is unallocated from the process but can be rescheduled later using the same `roomId`.
         /// </summary>
-        Task<SuspendRoomResponse> SuspendRoomAsync(SuspendRoomSecurity security, SuspendRoomRequest? request = null);
+        Task<SuspendRoomResponse> SuspendRoomAsync(SuspendRoomRequest? request = null);
     }
 
     public class RoomV2SDK: IRoomV2SDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.10.0";
-        private const string _sdkGenVersion = "2.122.1";
+        private const string _sdkVersion = "0.11.0";
+        private const string _sdkGenVersion = "2.125.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -81,8 +81,9 @@ namespace HathoraCloud
         }
         
 
-        public async Task<CreateRoomResponse> CreateRoomAsync(CreateRoomSecurity security, Models.Operations.CreateRoomRequest request)
+        public async Task<CreateRoomResponse> CreateRoomAsync(CreateRoomRequest request)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -96,7 +97,7 @@ namespace HathoraCloud
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
-            var serializedBody = RequestBodySerializer.Serialize(request, "CreateRoomRequestValue", "json");
+            var serializedBody = RequestBodySerializer.Serialize(request, "CreateRoomParams", "json");
             if (serializedBody == null) 
             {
                 throw new ArgumentNullException("request body is required");
@@ -107,7 +108,7 @@ namespace HathoraCloud
                 httpRequest.SetRequestHeader("Content-Type", serializedBody.ContentType);
             }
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -185,8 +186,9 @@ namespace HathoraCloud
         }
         
 
-        public async Task<DestroyRoomResponse> DestroyRoomAsync(DestroyRoomSecurity security, DestroyRoomRequest? request = null)
+        public async Task<DestroyRoomResponse> DestroyRoomAsync(DestroyRoomRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -201,7 +203,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -248,8 +250,9 @@ namespace HathoraCloud
         }
         
 
-        public async Task<GetActiveRoomsForProcessResponse> GetActiveRoomsForProcessAsync(GetActiveRoomsForProcessSecurity security, GetActiveRoomsForProcessRequest? request = null)
+        public async Task<GetActiveRoomsForProcessResponse> GetActiveRoomsForProcessAsync(GetActiveRoomsForProcessRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -264,7 +267,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -308,6 +311,7 @@ namespace HathoraCloud
 
         public async Task<GetConnectionInfoResponse> GetConnectionInfoAsync(GetConnectionInfoRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -322,7 +326,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = _defaultClient;
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -382,8 +386,9 @@ namespace HathoraCloud
         }
         
 
-        public async Task<GetInactiveRoomsForProcessResponse> GetInactiveRoomsForProcessAsync(GetInactiveRoomsForProcessSecurity security, GetInactiveRoomsForProcessRequest? request = null)
+        public async Task<GetInactiveRoomsForProcessResponse> GetInactiveRoomsForProcessAsync(GetInactiveRoomsForProcessRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -398,7 +403,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -440,8 +445,9 @@ namespace HathoraCloud
         }
         
 
-        public async Task<GetRoomInfoResponse> GetRoomInfoAsync(GetRoomInfoSecurity security, GetRoomInfoRequest? request = null)
+        public async Task<GetRoomInfoResponse> GetRoomInfoAsync(GetRoomInfoRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -456,7 +462,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -498,8 +504,9 @@ namespace HathoraCloud
         }
         
 
-        public async Task<SuspendRoomResponse> SuspendRoomAsync(SuspendRoomSecurity security, SuspendRoomRequest? request = null)
+        public async Task<SuspendRoomResponse> SuspendRoomAsync(SuspendRoomRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -514,7 +521,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
             
             
-            var client = SecuritySerializer.Apply(_defaultClient, security);
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)

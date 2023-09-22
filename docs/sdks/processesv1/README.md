@@ -18,14 +18,17 @@ Get details for an existing [process](https://hathora.dev/docs/concepts/hathora-
 
 ```csharp
 using HathoraCloud;
+using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK();
-
-using(var res = await sdk.ProcessesV1.GetProcessInfoAsync(new GetProcessInfoSecurity() {
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
         HathoraDevToken = "",
-    }, new GetProcessInfoRequest() {
-        AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
+);
+
+using(var res = await sdk.ProcessesV1.GetProcessInfoAsync(new GetProcessInfoRequest() {
         ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
     }))
 {
@@ -35,10 +38,9 @@ using(var res = await sdk.ProcessesV1.GetProcessInfoAsync(new GetProcessInfoSecu
 
 ### Parameters
 
-| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `request`                                                                   | [GetProcessInfoRequest](../../models/operations/GetProcessInfoRequest.md)   | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
-| `security`                                                                  | [GetProcessInfoSecurity](../../models/operations/GetProcessInfoSecurity.md) | :heavy_check_mark:                                                          | The security requirements to use for the request.                           |
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `request`                                                                 | [GetProcessInfoRequest](../../models/operations/GetProcessInfoRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
 
 
 ### Response
@@ -54,16 +56,18 @@ Returns an array of active [process](https://hathora.dev/docs/concepts/hathora-e
 
 ```csharp
 using HathoraCloud;
-using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK();
-
-using(var res = await sdk.ProcessesV1.GetRunningProcessesAsync(new GetRunningProcessesSecurity() {
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
         HathoraDevToken = "",
-    }, new GetRunningProcessesRequest() {
-        AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-        Region = HathoraCloud.Models.Shared.Region.London,
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
+);
+
+using(var res = await sdk.ProcessesV1.GetRunningProcessesAsync(new GetRunningProcessesRequest() {
+        Region = HathoraCloud.Models.Shared.Region.SaoPaulo,
     }))
 {
     // handle response
@@ -72,10 +76,9 @@ using(var res = await sdk.ProcessesV1.GetRunningProcessesAsync(new GetRunningPro
 
 ### Parameters
 
-| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `request`                                                                             | [GetRunningProcessesRequest](../../models/operations/GetRunningProcessesRequest.md)   | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
-| `security`                                                                            | [GetRunningProcessesSecurity](../../models/operations/GetRunningProcessesSecurity.md) | :heavy_check_mark:                                                                    | The security requirements to use for the request.                                     |
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `request`                                                                           | [GetRunningProcessesRequest](../../models/operations/GetRunningProcessesRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 
 ### Response
@@ -91,16 +94,18 @@ Returns an array of stopped [process](https://hathora.dev/docs/concepts/hathora-
 
 ```csharp
 using HathoraCloud;
-using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK();
-
-using(var res = await sdk.ProcessesV1.GetStoppedProcessesAsync(new GetStoppedProcessesSecurity() {
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
         HathoraDevToken = "",
-    }, new GetStoppedProcessesRequest() {
-        AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-        Region = HathoraCloud.Models.Shared.Region.SaoPaulo,
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
+);
+
+using(var res = await sdk.ProcessesV1.GetStoppedProcessesAsync(new GetStoppedProcessesRequest() {
+        Region = HathoraCloud.Models.Shared.Region.Sydney,
     }))
 {
     // handle response
@@ -109,10 +114,9 @@ using(var res = await sdk.ProcessesV1.GetStoppedProcessesAsync(new GetStoppedPro
 
 ### Parameters
 
-| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `request`                                                                             | [GetStoppedProcessesRequest](../../models/operations/GetStoppedProcessesRequest.md)   | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
-| `security`                                                                            | [GetStoppedProcessesSecurity](../../models/operations/GetStoppedProcessesSecurity.md) | :heavy_check_mark:                                                                    | The security requirements to use for the request.                                     |
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `request`                                                                           | [GetStoppedProcessesRequest](../../models/operations/GetStoppedProcessesRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 
 ### Response

@@ -30,6 +30,7 @@ namespace HathoraCloud.Models.Shared
         public double ActiveConnections { get; set; } = default!;
         
 
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [SerializeField]
         [JsonProperty("activeConnectionsUpdatedAt")]
         public DateTime ActiveConnectionsUpdatedAt { get; set; } = default!;

@@ -21,8 +21,8 @@ namespace HathoraCloud
 
     public interface ILobbyV1SDK
     {
-        Task<CreatePrivateLobbyDeprecatedResponse> CreatePrivateLobbyDeprecatedAsync(CreatePrivateLobbyDeprecatedRequest? request = null);
-        Task<CreatePublicLobbyDeprecatedResponse> CreatePublicLobbyDeprecatedAsync(CreatePublicLobbyDeprecatedRequest? request = null);
+        Task<CreatePrivateLobbyDeprecatedResponse> CreatePrivateLobbyDeprecatedAsync(CreatePrivateLobbyDeprecatedSecurity security, CreatePrivateLobbyDeprecatedRequest? request = null);
+        Task<CreatePublicLobbyDeprecatedResponse> CreatePublicLobbyDeprecatedAsync(CreatePublicLobbyDeprecatedSecurity security, CreatePublicLobbyDeprecatedRequest? request = null);
         Task<ListActivePublicLobbiesDeprecatedResponse> ListActivePublicLobbiesDeprecatedAsync(ListActivePublicLobbiesDeprecatedRequest? request = null);
     }
 
@@ -30,8 +30,8 @@ namespace HathoraCloud
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.10.0";
-        private const string _sdkGenVersion = "2.122.1";
+        private const string _sdkVersion = "0.11.0";
+        private const string _sdkGenVersion = "2.125.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -47,8 +47,9 @@ namespace HathoraCloud
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<CreatePrivateLobbyDeprecatedResponse> CreatePrivateLobbyDeprecatedAsync(CreatePrivateLobbyDeprecatedRequest? request = null)
+        public async Task<CreatePrivateLobbyDeprecatedResponse> CreatePrivateLobbyDeprecatedAsync(CreatePrivateLobbyDeprecatedSecurity security, CreatePrivateLobbyDeprecatedRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -61,10 +62,9 @@ namespace HathoraCloud
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
-            HeaderSerializer.PopulateHeaders(ref httpRequest, request);
             
             
-            var client = _defaultClient;
+            var client = SecuritySerializer.Apply(_defaultClient, security);
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -152,8 +152,9 @@ namespace HathoraCloud
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<CreatePublicLobbyDeprecatedResponse> CreatePublicLobbyDeprecatedAsync(CreatePublicLobbyDeprecatedRequest? request = null)
+        public async Task<CreatePublicLobbyDeprecatedResponse> CreatePublicLobbyDeprecatedAsync(CreatePublicLobbyDeprecatedSecurity security, CreatePublicLobbyDeprecatedRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -166,10 +167,9 @@ namespace HathoraCloud
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
-            HeaderSerializer.PopulateHeaders(ref httpRequest, request);
             
             
-            var client = _defaultClient;
+            var client = SecuritySerializer.Apply(_defaultClient, security);
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -259,6 +259,7 @@ namespace HathoraCloud
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<ListActivePublicLobbiesDeprecatedResponse> ListActivePublicLobbiesDeprecatedAsync(ListActivePublicLobbiesDeprecatedRequest? request = null)
         {
+            request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
@@ -271,10 +272,9 @@ namespace HathoraCloud
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", $"speakeasy-sdk/{_target} {_sdkVersion} {_sdkGenVersion} {_openapiDocVersion}");
-            HeaderSerializer.PopulateHeaders(ref httpRequest, request);
             
             
-            var client = _defaultClient;
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
