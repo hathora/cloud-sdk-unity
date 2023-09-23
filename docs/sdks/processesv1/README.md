@@ -6,13 +6,13 @@ Operations to get data on active and stopped [processes](https://hathora.dev/doc
 
 ### Available Operations
 
-* [GetProcessInfo](#getprocessinfo) - Get details for an existing [process](https://hathora.dev/docs/concepts/hathora-entities#process) using `appId` and `processId`.
-* [GetRunningProcesses](#getrunningprocesses) - Returns an array of active [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Filter the array by optionally passing in a region.
-* [GetStoppedProcesses](#getstoppedprocesses) - Returns an array of stopped [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Filter the array by optionally passing in a region.
+* [GetProcessInfo](#getprocessinfo) - Get details for a [process](https://hathora.dev/docs/concepts/hathora-entities#process).
+* [GetRunningProcesses](#getrunningprocesses) - Retrieve 10 most recently started [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `region`.
+* [GetStoppedProcesses](#getstoppedprocesses) - Retrieve 10 most recently stopped [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `region`.
 
 ## GetProcessInfo
 
-Get details for an existing [process](https://hathora.dev/docs/concepts/hathora-entities#process) using `appId` and `processId`.
+Get details for a [process](https://hathora.dev/docs/concepts/hathora-entities#process).
 
 ### Example Usage
 
@@ -50,7 +50,7 @@ using(var res = await sdk.ProcessesV1.GetProcessInfoAsync(new GetProcessInfoRequ
 
 ## GetRunningProcesses
 
-Returns an array of active [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Filter the array by optionally passing in a region.
+Retrieve 10 most recently started [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `region`.
 
 ### Example Usage
 
@@ -67,7 +67,7 @@ var sdk = new HathoraCloudSDK(
 );
 
 using(var res = await sdk.ProcessesV1.GetRunningProcessesAsync(new GetRunningProcessesRequest() {
-        Region = HathoraCloud.Models.Shared.Region.SaoPaulo,
+        Region = HathoraCloud.Models.Shared.Region.Frankfurt,
     }))
 {
     // handle response
@@ -88,7 +88,7 @@ using(var res = await sdk.ProcessesV1.GetRunningProcessesAsync(new GetRunningPro
 
 ## GetStoppedProcesses
 
-Returns an array of stopped [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Filter the array by optionally passing in a region.
+Retrieve 10 most recently stopped [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `region`.
 
 ### Example Usage
 
@@ -105,7 +105,7 @@ var sdk = new HathoraCloudSDK(
 );
 
 using(var res = await sdk.ProcessesV1.GetStoppedProcessesAsync(new GetStoppedProcessesRequest() {
-        Region = HathoraCloud.Models.Shared.Region.Sydney,
+        Region = HathoraCloud.Models.Shared.Region.Mumbai,
     }))
 {
     // handle response

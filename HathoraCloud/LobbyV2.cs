@@ -20,13 +20,13 @@ namespace HathoraCloud
     using UnityEngine.Networking;
 
     /// <summary>
-    /// Operations to create and manage &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#lobby&quot;&gt;lobbies&lt;/a&gt;.
+    /// Operations to create and manage lobbies using our &lt;a href=&quot;https://hathora.dev/docs/lobbies-and-matchmaking/lobby-service&quot;&gt;Lobby Service&lt;/a&gt;.
     /// </summary>
     public interface ILobbyV2SDK
     {
 
         /// <summary>
-        /// Create a new lobby for an existing <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`.
+        /// Create a new lobby for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>. A lobby object is a wrapper around a <a href="https://hathora.dev/docs/concepts/hathora-entities#room">room</a> object. With a lobby, you get additional functionality like configuring the visibility of the room, managing the state of a match, and retreiving a list of public lobbies to display to players.
         /// </summary>
         Task<CreateLobbyResponse> CreateLobbyAsync(CreateLobbySecurity security, CreateLobbyRequest request);
         Task<CreateLocalLobbyResponse> CreateLocalLobbyAsync(CreateLocalLobbySecurity security, CreateLocalLobbyRequest request);
@@ -34,17 +34,17 @@ namespace HathoraCloud
         Task<CreatePublicLobbyResponse> CreatePublicLobbyAsync(CreatePublicLobbySecurity security, CreatePublicLobbyRequest request);
 
         /// <summary>
-        /// Get details for an existing lobby using `appId` and `roomId`.
+        /// Get details for a lobby.
         /// </summary>
         Task<GetLobbyInfoResponse> GetLobbyInfoAsync(GetLobbyInfoRequest? request = null);
 
         /// <summary>
-        /// Get all active lobbies for a given <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`. Filter the array by optionally passing in a `region`.
+        /// Get all active lobbies for a an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>. Filter by optionally passing in a `region`. Use this endpoint to display all public lobbies that a player can join in the game client.
         /// </summary>
         Task<ListActivePublicLobbiesResponse> ListActivePublicLobbiesAsync(ListActivePublicLobbiesRequest? request = null);
 
         /// <summary>
-        /// Set the state of a lobby using `appId` and `roomId`. State is intended to be set by the server and must be smaller than 1MB.
+        /// Set the state of a lobby. State is intended to be set by the server and must be smaller than 1MB. Use this endpoint to store match data like live player count to enforce max number of clients or persist end-game data (i.e. winner or final scores).
         /// </summary>
         Task<SetLobbyStateResponse> SetLobbyStateAsync(SetLobbyStateRequest request);
     }
@@ -53,7 +53,7 @@ namespace HathoraCloud
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.11.0";
+        private const string _sdkVersion = "0.12.0";
         private const string _sdkGenVersion = "2.125.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";

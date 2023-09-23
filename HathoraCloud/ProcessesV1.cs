@@ -26,17 +26,17 @@ namespace HathoraCloud
     {
 
         /// <summary>
-        /// Get details for an existing <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> using `appId` and `processId`.
+        /// Get details for a <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a>.
         /// </summary>
         Task<GetProcessInfoResponse> GetProcessInfoAsync(GetProcessInfoRequest? request = null);
 
         /// <summary>
-        /// Returns an array of active <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> objects for an existing <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`. Filter the array by optionally passing in a region.
+        /// Retrieve 10 most recently started <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> objects for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>. Filter the array by optionally passing in a `region`.
         /// </summary>
         Task<GetRunningProcessesResponse> GetRunningProcessesAsync(GetRunningProcessesRequest? request = null);
 
         /// <summary>
-        /// Returns an array of stopped <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> objects for an existing <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`. Filter the array by optionally passing in a region.
+        /// Retrieve 10 most recently stopped <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> objects for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>. Filter the array by optionally passing in a `region`.
         /// </summary>
         Task<GetStoppedProcessesResponse> GetStoppedProcessesAsync(GetStoppedProcessesRequest? request = null);
     }
@@ -45,7 +45,7 @@ namespace HathoraCloud
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.11.0";
+        private const string _sdkVersion = "0.12.0";
         private const string _sdkGenVersion = "2.125.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";

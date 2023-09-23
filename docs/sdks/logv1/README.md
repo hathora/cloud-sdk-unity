@@ -33,7 +33,7 @@ var sdk = new HathoraCloudSDK(
 using(var res = await sdk.LogV1.GetLogsForAppAsync(new GetLogsForAppRequest() {
         Follow = false,
         Region = HathoraCloud.Models.Shared.Region.Chicago,
-        TailLines = 383441,
+        TailLines = 100,
     }))
 {
     // handle response
@@ -75,7 +75,7 @@ var sdk = new HathoraCloudSDK(
 using(var res = await sdk.LogV1.GetLogsForDeploymentAsync(new GetLogsForDeploymentRequest() {
         DeploymentId = 1,
         Follow = false,
-        TailLines = 477665,
+        TailLines = 100,
     }))
 {
     // handle response
@@ -115,7 +115,7 @@ var sdk = new HathoraCloudSDK(
 using(var res = await sdk.LogV1.GetLogsForProcessAsync(new GetLogsForProcessRequest() {
         ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
         Follow = false,
-        TailLines = 791725,
+        TailLines = 100,
     }))
 {
     // handle response

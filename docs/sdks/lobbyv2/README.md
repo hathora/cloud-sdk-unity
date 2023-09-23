@@ -2,21 +2,21 @@
 
 ## Overview
 
-Operations to create and manage [lobbies](https://hathora.dev/docs/concepts/hathora-entities#lobby).
+Operations to create and manage lobbies using our [Lobby Service](https://hathora.dev/docs/lobbies-and-matchmaking/lobby-service).
 
 ### Available Operations
 
-* [CreateLobby](#createlobby) - Create a new lobby for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`.
+* [CreateLobby](#createlobby) - Create a new lobby for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). A lobby object is a wrapper around a [room](https://hathora.dev/docs/concepts/hathora-entities#room) object. With a lobby, you get additional functionality like configuring the visibility of the room, managing the state of a match, and retreiving a list of public lobbies to display to players.
 * [~~CreateLocalLobby~~](#createlocallobby) - :warning: **Deprecated**
 * [~~CreatePrivateLobby~~](#createprivatelobby) - :warning: **Deprecated**
 * [~~CreatePublicLobby~~](#createpubliclobby) - :warning: **Deprecated**
-* [GetLobbyInfo](#getlobbyinfo) - Get details for an existing lobby using `appId` and `roomId`.
-* [ListActivePublicLobbies](#listactivepubliclobbies) - Get all active lobbies for a given [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Filter the array by optionally passing in a `region`.
-* [SetLobbyState](#setlobbystate) - Set the state of a lobby using `appId` and `roomId`. State is intended to be set by the server and must be smaller than 1MB.
+* [GetLobbyInfo](#getlobbyinfo) - Get details for a lobby.
+* [ListActivePublicLobbies](#listactivepubliclobbies) - Get all active lobbies for a an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter by optionally passing in a `region`. Use this endpoint to display all public lobbies that a player can join in the game client.
+* [SetLobbyState](#setlobbystate) - Set the state of a lobby. State is intended to be set by the server and must be smaller than 1MB. Use this endpoint to store match data like live player count to enforce max number of clients or persist end-game data (i.e. winner or final scores).
 
 ## CreateLobby
 
-Create a new lobby for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`.
+Create a new lobby for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). A lobby object is a wrapper around a [room](https://hathora.dev/docs/concepts/hathora-entities#room) object. With a lobby, you get additional functionality like configuring the visibility of the room, managing the state of a match, and retreiving a list of public lobbies to display to players.
 
 ### Example Usage
 
@@ -185,7 +185,7 @@ using(var res = await sdk.LobbyV2.CreatePublicLobbyAsync(new CreatePublicLobbySe
 
 ## GetLobbyInfo
 
-Get details for an existing lobby using `appId` and `roomId`.
+Get details for a lobby.
 
 ### Example Usage
 
@@ -223,7 +223,7 @@ using(var res = await sdk.LobbyV2.GetLobbyInfoAsync(new GetLobbyInfoRequest() {
 
 ## ListActivePublicLobbies
 
-Get all active lobbies for a given [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Filter the array by optionally passing in a `region`.
+Get all active lobbies for a an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter by optionally passing in a `region`. Use this endpoint to display all public lobbies that a player can join in the game client.
 
 ### Example Usage
 
@@ -261,7 +261,7 @@ using(var res = await sdk.LobbyV2.ListActivePublicLobbiesAsync(new ListActivePub
 
 ## SetLobbyState
 
-Set the state of a lobby using `appId` and `roomId`. State is intended to be set by the server and must be smaller than 1MB.
+Set the state of a lobby. State is intended to be set by the server and must be smaller than 1MB. Use this endpoint to store match data like live player count to enforce max number of clients or persist end-game data (i.e. winner or final scores).
 
 ### Example Usage
 

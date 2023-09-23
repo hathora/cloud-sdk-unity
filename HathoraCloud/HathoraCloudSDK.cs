@@ -50,7 +50,7 @@ namespace HathoraCloud
         public ILobbyV1SDK LobbyV1 { get; }
 
         /// <summary>
-        /// Operations to create and manage &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#lobby&quot;&gt;lobbies&lt;/a&gt;.
+        /// Operations to create and manage lobbies using our &lt;a href=&quot;https://hathora.dev/docs/lobbies-and-matchmaking/lobby-service&quot;&gt;Lobby Service&lt;/a&gt;.
         /// </summary>
         public ILobbyV2SDK LobbyV2 { get; }
 
@@ -92,7 +92,7 @@ namespace HathoraCloud
         };
 
         private const string _target = "unity";
-        private const string _sdkVersion = "0.11.0";
+        private const string _sdkVersion = "0.12.0";
         private const string _sdkGenVersion = "2.125.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";

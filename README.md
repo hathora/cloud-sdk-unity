@@ -99,13 +99,13 @@ using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
 
 ### [LobbyV2](docs/sdks/lobbyv2/README.md)
 
-* [CreateLobby](docs/sdks/lobbyv2/README.md#createlobby) - Create a new lobby for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`.
+* [CreateLobby](docs/sdks/lobbyv2/README.md#createlobby) - Create a new lobby for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). A lobby object is a wrapper around a [room](https://hathora.dev/docs/concepts/hathora-entities#room) object. With a lobby, you get additional functionality like configuring the visibility of the room, managing the state of a match, and retreiving a list of public lobbies to display to players.
 * [~~CreateLocalLobby~~](docs/sdks/lobbyv2/README.md#createlocallobby) - :warning: **Deprecated**
 * [~~CreatePrivateLobby~~](docs/sdks/lobbyv2/README.md#createprivatelobby) - :warning: **Deprecated**
 * [~~CreatePublicLobby~~](docs/sdks/lobbyv2/README.md#createpubliclobby) - :warning: **Deprecated**
-* [GetLobbyInfo](docs/sdks/lobbyv2/README.md#getlobbyinfo) - Get details for an existing lobby using `appId` and `roomId`.
-* [ListActivePublicLobbies](docs/sdks/lobbyv2/README.md#listactivepubliclobbies) - Get all active lobbies for a given [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Filter the array by optionally passing in a `region`.
-* [SetLobbyState](docs/sdks/lobbyv2/README.md#setlobbystate) - Set the state of a lobby using `appId` and `roomId`. State is intended to be set by the server and must be smaller than 1MB.
+* [GetLobbyInfo](docs/sdks/lobbyv2/README.md#getlobbyinfo) - Get details for a lobby.
+* [ListActivePublicLobbies](docs/sdks/lobbyv2/README.md#listactivepubliclobbies) - Get all active lobbies for a an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter by optionally passing in a `region`. Use this endpoint to display all public lobbies that a player can join in the game client.
+* [SetLobbyState](docs/sdks/lobbyv2/README.md#setlobbystate) - Set the state of a lobby. State is intended to be set by the server and must be smaller than 1MB. Use this endpoint to store match data like live player count to enforce max number of clients or persist end-game data (i.e. winner or final scores).
 
 ### [LogV1](docs/sdks/logv1/README.md)
 
@@ -123,9 +123,9 @@ using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
 
 ### [ProcessesV1](docs/sdks/processesv1/README.md)
 
-* [GetProcessInfo](docs/sdks/processesv1/README.md#getprocessinfo) - Get details for an existing [process](https://hathora.dev/docs/concepts/hathora-entities#process) using `appId` and `processId`.
-* [GetRunningProcesses](docs/sdks/processesv1/README.md#getrunningprocesses) - Returns an array of active [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Filter the array by optionally passing in a region.
-* [GetStoppedProcesses](docs/sdks/processesv1/README.md#getstoppedprocesses) - Returns an array of stopped [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Filter the array by optionally passing in a region.
+* [GetProcessInfo](docs/sdks/processesv1/README.md#getprocessinfo) - Get details for a [process](https://hathora.dev/docs/concepts/hathora-entities#process).
+* [GetRunningProcesses](docs/sdks/processesv1/README.md#getrunningprocesses) - Retrieve 10 most recently started [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `region`.
+* [GetStoppedProcesses](docs/sdks/processesv1/README.md#getstoppedprocesses) - Retrieve 10 most recently stopped [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `region`.
 
 ### [RoomV1](docs/sdks/roomv1/README.md)
 
@@ -151,8 +151,6 @@ using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
 
 
 <!-- Start Dev Containers -->
-
-
 
 <!-- End Dev Containers -->
 
