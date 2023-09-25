@@ -2,7 +2,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>hathorasdk</PackageId>
-    <Version>0.13.0</Version>
+    <Version>0.14.0</Version>
     <Authors>Hathora</Authors>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
