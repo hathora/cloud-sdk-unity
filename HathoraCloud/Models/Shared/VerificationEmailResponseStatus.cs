@@ -31,7 +31,13 @@ namespace HathoraCloud.Models.Shared
         {
             foreach(var field in typeof(VerificationEmailResponseStatus).GetFields())
             {
-                var attribute = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0] as JsonPropertyAttribute;
+                var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
+                if (attributes.Length == 0)
+                {
+                    continue;
+                }
+
+                var attribute = attributes[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
                     return (VerificationEmailResponseStatus)field.GetValue(null);

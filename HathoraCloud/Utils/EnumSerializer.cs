@@ -9,20 +9,42 @@
 //------------------------------------------------------------------------------
 #nullable enable
 using System;
-using System.Linq;
 using Newtonsoft.Json;
 
 namespace HathoraCloud.Utils
 {
-    internal class EnumSerializer: JsonConverter
+    internal class EnumSerializer : JsonConverter
     {
-        public override bool CanConvert(Type objectType) =>
-            objectType.IsEnum;
+        public override bool CanConvert(Type objectType) => objectType.IsEnum;
 
-        public override bool CanRead => false;
+        public override bool CanRead => true;
 
-        public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer) =>
-            throw new NotImplementedException();
+        public override object? ReadJson(
+            JsonReader reader,
+            Type objectType,
+            object? existingValue,
+            JsonSerializer serializer
+        )
+        {
+            if (reader.Value == null)
+            {
+                throw new ArgumentNullException(nameof(reader.Value));
+            }
+
+            var extensionType = Type.GetType(objectType.FullName + "Extension");
+            if (extensionType == null)
+            {
+                return Enum.ToObject(objectType, reader.Value);
+            }
+
+            var method = extensionType.GetMethod("ToEnum");
+            if (method == null)
+            {
+                throw new Exception($"Unable to find ToEnum method on {extensionType.FullName}");
+            }
+
+            return method.Invoke(null, new[] { (string)reader.Value });
+        }
 
         public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
         {
@@ -32,19 +54,14 @@ namespace HathoraCloud.Utils
                 return;
             }
 
-            var isInt = false;
-            var attributes = value.GetType().GetMember(value.ToString()).First().CustomAttributes;
-            if(attributes.Count() == 0 || attributes.First().ConstructorArguments.Count() == 0)
+            var extensionType = Type.GetType(value.GetType().FullName + "Extension");
+            if (extensionType == null)
             {
-                isInt = true;
-            }
-            var parsedValue = Utilities.ToString(value);
-            if(isInt)
-            {
-                writer.WriteValue(int.Parse(parsedValue));
+                writer.WriteValue(value);
                 return;
             }
-            writer.WriteValue(parsedValue);
+
+            writer.WriteValue(Utilities.ToString(value));
         }
     }
 }

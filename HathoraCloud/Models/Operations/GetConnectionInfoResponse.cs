@@ -26,6 +26,9 @@ namespace HathoraCloud.Models.Operations
         public ConnectionInfoV2? ConnectionInfoV2 { get; set; }
         
 
+        /// <summary>
+        /// HTTP response content type for this operation
+        /// </summary>
         [SerializeField]
         public string? ContentType { get; set; } = default!;
         
@@ -42,10 +45,16 @@ namespace HathoraCloud.Models.Operations
         public string? GetConnectionInfo500ApplicationJSONString { get; set; }
         
 
+        /// <summary>
+        /// HTTP response status code for this operation
+        /// </summary>
         [SerializeField]
         public int StatusCode { get; set; } = default!;
         
 
+        /// <summary>
+        /// Raw HTTP response; suitable for custom response parsing
+        /// </summary>
         [SerializeField]
         public UnityWebRequest? RawResponse { get; set; }
         

@@ -18,6 +18,9 @@ namespace HathoraCloud.Models.Operations
     public class GetLogsForAppResponse: IDisposable
     {
 
+        /// <summary>
+        /// HTTP response content type for this operation
+        /// </summary>
         [SerializeField]
         public string? ContentType { get; set; } = default!;
         
@@ -33,10 +36,16 @@ namespace HathoraCloud.Models.Operations
         public string? GetLogsForApp404ApplicationJSONString { get; set; }
         
 
+        /// <summary>
+        /// HTTP response status code for this operation
+        /// </summary>
         [SerializeField]
         public int StatusCode { get; set; } = default!;
         
 
+        /// <summary>
+        /// Raw HTTP response; suitable for custom response parsing
+        /// </summary>
         [SerializeField]
         public UnityWebRequest? RawResponse { get; set; }
         

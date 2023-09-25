@@ -82,6 +82,9 @@ namespace HathoraCloud
         public string? AppId;
     }
 
+    /// <summary>
+    /// Hathora Cloud API: Welcome to the Hathora Cloud API documentation! Learn how to use the Hathora Cloud APIs to build and scale your game servers globally.
+    /// </summary>
     public class HathoraCloudSDK: IHathoraCloudSDK
     {
         public SDKConfig Config { get; private set; }
@@ -92,8 +95,8 @@ namespace HathoraCloud
         };
 
         private const string _target = "unity";
-        private const string _sdkVersion = "0.14.0";
-        private const string _sdkGenVersion = "2.125.1";
+        private const string _sdkVersion = "0.15.0";
+        private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;

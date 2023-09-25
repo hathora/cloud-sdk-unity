@@ -38,12 +38,15 @@ namespace HathoraCloud
         Task<GetLogsForProcessResponse> GetLogsForProcessAsync(GetLogsForProcessRequest? request = null);
     }
 
+    /// <summary>
+    /// Operations to get logs by &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#application&quot;&gt;applications&lt;/a&gt;, &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#process&quot;&gt;processes&lt;/a&gt;, and &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#deployment&quot;&gt;deployments&lt;/a&gt;. We store 20GB of logs data.
+    /// </summary>
     public class LogV1SDK: ILogV1SDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.14.0";
-        private const string _sdkGenVersion = "2.125.1";
+        private const string _sdkVersion = "0.15.0";
+        private const string _sdkGenVersion = "2.129.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
