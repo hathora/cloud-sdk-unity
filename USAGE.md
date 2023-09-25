@@ -2,15 +2,17 @@
 
 
 ```csharp
-using Hathora;
-using Hathora.Models.Shared;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraSDK();
-
-using(var res = await sdk.AppV1.CreateAppAsync(new CreateAppSecurity() {
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
         HathoraDevToken = "",
-    }, new AppConfig() {
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
+);
+
+using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
         AppName = "minecraft",
         AuthConfiguration = new AuthConfiguration() {
             Anonymous = new RecordStringNever() {},

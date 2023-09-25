@@ -1,4 +1,4 @@
-# lobbyV1
+# LobbyV1
 
 ### Available Operations
 
@@ -13,16 +13,19 @@
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
-using Hathora.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
+using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
+);
 
-using(var res = await sdk.LobbyV1.CreatePrivateLobbyDeprecatedAsync(new CreatePrivateLobbyDeprecatedRequest() {
-        AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+using(var res = await sdk.LobbyV1.CreatePrivateLobbyDeprecatedAsync(new CreatePrivateLobbyDeprecatedSecurity() {
+        PlayerAuth = "",
+    }, new CreatePrivateLobbyDeprecatedRequest() {
         Local = false,
-        Region = Hathora.Models.Shared.Region.Frankfurt,
+        Region = HathoraCloud.Models.Shared.Region.Singapore,
     }))
 {
     // handle response
@@ -31,9 +34,10 @@ using(var res = await sdk.LobbyV1.CreatePrivateLobbyDeprecatedAsync(new CreatePr
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `request`                                                                                             | [CreatePrivateLobbyDeprecatedRequest](../../models/operations/CreatePrivateLobbyDeprecatedRequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [CreatePrivateLobbyDeprecatedRequest](../../models/operations/CreatePrivateLobbyDeprecatedRequest.md)   | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+| `security`                                                                                              | [CreatePrivateLobbyDeprecatedSecurity](../../models/operations/CreatePrivateLobbyDeprecatedSecurity.md) | :heavy_check_mark:                                                                                      | The security requirements to use for the request.                                                       |
 
 
 ### Response
@@ -48,16 +52,19 @@ using(var res = await sdk.LobbyV1.CreatePrivateLobbyDeprecatedAsync(new CreatePr
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
-using Hathora.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
+using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
+);
 
-using(var res = await sdk.LobbyV1.CreatePublicLobbyDeprecatedAsync(new CreatePublicLobbyDeprecatedRequest() {
-        AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+using(var res = await sdk.LobbyV1.CreatePublicLobbyDeprecatedAsync(new CreatePublicLobbyDeprecatedSecurity() {
+        PlayerAuth = "",
+    }, new CreatePublicLobbyDeprecatedRequest() {
         Local = false,
-        Region = Hathora.Models.Shared.Region.Singapore,
+        Region = HathoraCloud.Models.Shared.Region.Singapore,
     }))
 {
     // handle response
@@ -66,9 +73,10 @@ using(var res = await sdk.LobbyV1.CreatePublicLobbyDeprecatedAsync(new CreatePub
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `request`                                                                                           | [CreatePublicLobbyDeprecatedRequest](../../models/operations/CreatePublicLobbyDeprecatedRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `request`                                                                                             | [CreatePublicLobbyDeprecatedRequest](../../models/operations/CreatePublicLobbyDeprecatedRequest.md)   | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+| `security`                                                                                            | [CreatePublicLobbyDeprecatedSecurity](../../models/operations/CreatePublicLobbyDeprecatedSecurity.md) | :heavy_check_mark:                                                                                    | The security requirements to use for the request.                                                     |
 
 
 ### Response
@@ -83,16 +91,20 @@ using(var res = await sdk.LobbyV1.CreatePublicLobbyDeprecatedAsync(new CreatePub
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
-using Hathora.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
+        HathoraDevToken = "",
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
+);
 
 using(var res = await sdk.LobbyV1.ListActivePublicLobbiesDeprecatedAsync(new ListActivePublicLobbiesDeprecatedRequest() {
-        AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
         Local = false,
-        Region = Hathora.Models.Shared.Region.Singapore,
+        Region = HathoraCloud.Models.Shared.Region.London,
     }))
 {
     // handle response

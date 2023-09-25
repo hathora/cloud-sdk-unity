@@ -1,4 +1,4 @@
-# processesV1
+# ProcessesV1
 
 ## Overview
 
@@ -6,26 +6,29 @@ Operations to get data on active and stopped [processes](https://hathora.dev/doc
 
 ### Available Operations
 
-* [GetProcessInfo](#getprocessinfo) - Get details for an existing [process](https://hathora.dev/docs/concepts/hathora-entities#process) using `appId` and `processId`.
-* [GetRunningProcesses](#getrunningprocesses) - Returns an array of active [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Filter the array by optionally passing in a region.
-* [GetStoppedProcesses](#getstoppedprocesses) - Returns an array of stopped [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Filter the array by optionally passing in a region.
+* [GetProcessInfo](#getprocessinfo) - Get details for a [process](https://hathora.dev/docs/concepts/hathora-entities#process).
+* [GetRunningProcesses](#getrunningprocesses) - Retrieve 10 most recently started [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `region`.
+* [GetStoppedProcesses](#getstoppedprocesses) - Retrieve 10 most recently stopped [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `region`.
 
 ## GetProcessInfo
 
-Get details for an existing [process](https://hathora.dev/docs/concepts/hathora-entities#process) using `appId` and `processId`.
+Get details for a [process](https://hathora.dev/docs/concepts/hathora-entities#process).
 
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
-
-using(var res = await sdk.ProcessesV1.GetProcessInfoAsync(new GetProcessInfoSecurity() {
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
         HathoraDevToken = "",
-    }, new GetProcessInfoRequest() {
-        AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
+);
+
+using(var res = await sdk.ProcessesV1.GetProcessInfoAsync(new GetProcessInfoRequest() {
         ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
     }))
 {
@@ -35,10 +38,9 @@ using(var res = await sdk.ProcessesV1.GetProcessInfoAsync(new GetProcessInfoSecu
 
 ### Parameters
 
-| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `request`                                                                   | [GetProcessInfoRequest](../../models/operations/GetProcessInfoRequest.md)   | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
-| `security`                                                                  | [GetProcessInfoSecurity](../../models/operations/GetProcessInfoSecurity.md) | :heavy_check_mark:                                                          | The security requirements to use for the request.                           |
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `request`                                                                 | [GetProcessInfoRequest](../../models/operations/GetProcessInfoRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
 
 
 ### Response
@@ -48,22 +50,24 @@ using(var res = await sdk.ProcessesV1.GetProcessInfoAsync(new GetProcessInfoSecu
 
 ## GetRunningProcesses
 
-Returns an array of active [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Filter the array by optionally passing in a region.
+Retrieve 10 most recently started [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `region`.
 
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
-using Hathora.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
-
-using(var res = await sdk.ProcessesV1.GetRunningProcessesAsync(new GetRunningProcessesSecurity() {
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
         HathoraDevToken = "",
-    }, new GetRunningProcessesRequest() {
-        AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-        Region = Hathora.Models.Shared.Region.London,
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
+);
+
+using(var res = await sdk.ProcessesV1.GetRunningProcessesAsync(new GetRunningProcessesRequest() {
+        Region = HathoraCloud.Models.Shared.Region.Frankfurt,
     }))
 {
     // handle response
@@ -72,10 +76,9 @@ using(var res = await sdk.ProcessesV1.GetRunningProcessesAsync(new GetRunningPro
 
 ### Parameters
 
-| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `request`                                                                             | [GetRunningProcessesRequest](../../models/operations/GetRunningProcessesRequest.md)   | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
-| `security`                                                                            | [GetRunningProcessesSecurity](../../models/operations/GetRunningProcessesSecurity.md) | :heavy_check_mark:                                                                    | The security requirements to use for the request.                                     |
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `request`                                                                           | [GetRunningProcessesRequest](../../models/operations/GetRunningProcessesRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 
 ### Response
@@ -85,22 +88,24 @@ using(var res = await sdk.ProcessesV1.GetRunningProcessesAsync(new GetRunningPro
 
 ## GetStoppedProcesses
 
-Returns an array of stopped [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Filter the array by optionally passing in a region.
+Retrieve 10 most recently stopped [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `region`.
 
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
-using Hathora.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
-
-using(var res = await sdk.ProcessesV1.GetStoppedProcessesAsync(new GetStoppedProcessesSecurity() {
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
         HathoraDevToken = "",
-    }, new GetStoppedProcessesRequest() {
-        AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-        Region = Hathora.Models.Shared.Region.SaoPaulo,
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
+);
+
+using(var res = await sdk.ProcessesV1.GetStoppedProcessesAsync(new GetStoppedProcessesRequest() {
+        Region = HathoraCloud.Models.Shared.Region.Mumbai,
     }))
 {
     // handle response
@@ -109,10 +114,9 @@ using(var res = await sdk.ProcessesV1.GetStoppedProcessesAsync(new GetStoppedPro
 
 ### Parameters
 
-| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `request`                                                                             | [GetStoppedProcessesRequest](../../models/operations/GetStoppedProcessesRequest.md)   | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
-| `security`                                                                            | [GetStoppedProcessesSecurity](../../models/operations/GetStoppedProcessesSecurity.md) | :heavy_check_mark:                                                                    | The security requirements to use for the request.                                     |
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `request`                                                                           | [GetStoppedProcessesRequest](../../models/operations/GetStoppedProcessesRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 
 ### Response

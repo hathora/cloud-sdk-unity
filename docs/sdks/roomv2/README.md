@@ -1,4 +1,4 @@
-# roomV2
+# RoomV2
 
 ## Overview
 
@@ -21,20 +21,22 @@ Create a new [room](https://hathora.dev/docs/concepts/hathora-entities#room) for
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
-using Hathora.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
-
-using(var res = await sdk.RoomV2.CreateRoomAsync(new CreateRoomSecurity() {
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
         HathoraDevToken = "",
-    }, new Models.Operations.CreateRoomRequest() {
-        CreateRoomRequest = new Models.Shared.CreateRoomRequest() {
-            Region = Hathora.Models.Shared.Region.Seattle,
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
+);
+
+using(var res = await sdk.RoomV2.CreateRoomAsync(new CreateRoomRequest() {
+        CreateRoomParams = new CreateRoomParams() {
+            Region = HathoraCloud.Models.Shared.Region.SaoPaulo,
             RoomConfig = "{\"name\":\"my-room\"}",
         },
-        AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
         RoomId = "2swovpy1fnunu",
     }))
 {
@@ -44,10 +46,9 @@ using(var res = await sdk.RoomV2.CreateRoomAsync(new CreateRoomSecurity() {
 
 ### Parameters
 
-| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
-| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `request`                                                                           | [Models.Operations.CreateRoomRequest](../../models/operations/CreateRoomRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
-| `security`                                                                          | [CreateRoomSecurity](../../models/operations/CreateRoomSecurity.md)                 | :heavy_check_mark:                                                                  | The security requirements to use for the request.                                   |
+| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `request`                                                         | [CreateRoomRequest](../../models/operations/CreateRoomRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
 
 
 ### Response
@@ -62,15 +63,18 @@ Destroy a [room](https://hathora.dev/docs/concepts/hathora-entities#room). All a
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
-
-using(var res = await sdk.RoomV2.DestroyRoomAsync(new DestroyRoomSecurity() {
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
         HathoraDevToken = "",
-    }, new DestroyRoomRequest() {
-        AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
+);
+
+using(var res = await sdk.RoomV2.DestroyRoomAsync(new DestroyRoomRequest() {
         RoomId = "2swovpy1fnunu",
     }))
 {
@@ -80,10 +84,9 @@ using(var res = await sdk.RoomV2.DestroyRoomAsync(new DestroyRoomSecurity() {
 
 ### Parameters
 
-| Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
-| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| `request`                                                             | [DestroyRoomRequest](../../models/operations/DestroyRoomRequest.md)   | :heavy_check_mark:                                                    | The request object to use for the request.                            |
-| `security`                                                            | [DestroyRoomSecurity](../../models/operations/DestroyRoomSecurity.md) | :heavy_check_mark:                                                    | The security requirements to use for the request.                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request`                                                           | [DestroyRoomRequest](../../models/operations/DestroyRoomRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 
 
 ### Response
@@ -98,15 +101,18 @@ Get all active [rooms](https://hathora.dev/docs/concepts/hathora-entities#room) 
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
-
-using(var res = await sdk.RoomV2.GetActiveRoomsForProcessAsync(new GetActiveRoomsForProcessSecurity() {
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
         HathoraDevToken = "",
-    }, new GetActiveRoomsForProcessRequest() {
-        AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
+);
+
+using(var res = await sdk.RoomV2.GetActiveRoomsForProcessAsync(new GetActiveRoomsForProcessRequest() {
         ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
     }))
 {
@@ -116,10 +122,9 @@ using(var res = await sdk.RoomV2.GetActiveRoomsForProcessAsync(new GetActiveRoom
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `request`                                                                                       | [GetActiveRoomsForProcessRequest](../../models/operations/GetActiveRoomsForProcessRequest.md)   | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
-| `security`                                                                                      | [GetActiveRoomsForProcessSecurity](../../models/operations/GetActiveRoomsForProcessSecurity.md) | :heavy_check_mark:                                                                              | The security requirements to use for the request.                                               |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [GetActiveRoomsForProcessRequest](../../models/operations/GetActiveRoomsForProcessRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 
 ### Response
@@ -134,13 +139,18 @@ Poll this endpoint to get connection details to a [room](https://hathora.dev/doc
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
+        HathoraDevToken = "",
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
+);
 
 using(var res = await sdk.RoomV2.GetConnectionInfoAsync(new GetConnectionInfoRequest() {
-        AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
         RoomId = "2swovpy1fnunu",
     }))
 {
@@ -167,15 +177,18 @@ Get all inactive [rooms](https://hathora.dev/docs/concepts/hathora-entities#room
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
-
-using(var res = await sdk.RoomV2.GetInactiveRoomsForProcessAsync(new GetInactiveRoomsForProcessSecurity() {
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
         HathoraDevToken = "",
-    }, new GetInactiveRoomsForProcessRequest() {
-        AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
+);
+
+using(var res = await sdk.RoomV2.GetInactiveRoomsForProcessAsync(new GetInactiveRoomsForProcessRequest() {
         ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
     }))
 {
@@ -185,10 +198,9 @@ using(var res = await sdk.RoomV2.GetInactiveRoomsForProcessAsync(new GetInactive
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `request`                                                                                           | [GetInactiveRoomsForProcessRequest](../../models/operations/GetInactiveRoomsForProcessRequest.md)   | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
-| `security`                                                                                          | [GetInactiveRoomsForProcessSecurity](../../models/operations/GetInactiveRoomsForProcessSecurity.md) | :heavy_check_mark:                                                                                  | The security requirements to use for the request.                                                   |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [GetInactiveRoomsForProcessRequest](../../models/operations/GetInactiveRoomsForProcessRequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 
 ### Response
@@ -203,15 +215,18 @@ Retreive current and historical allocation data for a [room](https://hathora.dev
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
-
-using(var res = await sdk.RoomV2.GetRoomInfoAsync(new GetRoomInfoSecurity() {
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
         HathoraDevToken = "",
-    }, new GetRoomInfoRequest() {
-        AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
+);
+
+using(var res = await sdk.RoomV2.GetRoomInfoAsync(new GetRoomInfoRequest() {
         RoomId = "2swovpy1fnunu",
     }))
 {
@@ -221,10 +236,9 @@ using(var res = await sdk.RoomV2.GetRoomInfoAsync(new GetRoomInfoSecurity() {
 
 ### Parameters
 
-| Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
-| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| `request`                                                             | [GetRoomInfoRequest](../../models/operations/GetRoomInfoRequest.md)   | :heavy_check_mark:                                                    | The request object to use for the request.                            |
-| `security`                                                            | [GetRoomInfoSecurity](../../models/operations/GetRoomInfoSecurity.md) | :heavy_check_mark:                                                    | The security requirements to use for the request.                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request`                                                           | [GetRoomInfoRequest](../../models/operations/GetRoomInfoRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 
 
 ### Response
@@ -239,15 +253,18 @@ Suspend a [room](https://hathora.dev/docs/concepts/hathora-entities#room). The r
 ### Example Usage
 
 ```csharp
-using Hathora;
-using Hathora.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraSDK();
-
-using(var res = await sdk.RoomV2.SuspendRoomAsync(new SuspendRoomSecurity() {
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
         HathoraDevToken = "",
-    }, new SuspendRoomRequest() {
-        AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
+);
+
+using(var res = await sdk.RoomV2.SuspendRoomAsync(new SuspendRoomRequest() {
         RoomId = "2swovpy1fnunu",
     }))
 {
@@ -257,10 +274,9 @@ using(var res = await sdk.RoomV2.SuspendRoomAsync(new SuspendRoomSecurity() {
 
 ### Parameters
 
-| Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
-| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| `request`                                                             | [SuspendRoomRequest](../../models/operations/SuspendRoomRequest.md)   | :heavy_check_mark:                                                    | The request object to use for the request.                            |
-| `security`                                                            | [SuspendRoomSecurity](../../models/operations/SuspendRoomSecurity.md) | :heavy_check_mark:                                                    | The security requirements to use for the request.                     |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request`                                                           | [SuspendRoomRequest](../../models/operations/SuspendRoomRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 
 
 ### Response

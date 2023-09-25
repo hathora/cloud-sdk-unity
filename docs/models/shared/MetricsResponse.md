@@ -7,6 +7,7 @@ Construct a type with a set of properties K of type T
 
 | Field                                                   | Type                                                    | Required                                                | Description                                             |
 | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| `activeConnections`                                     | List<[MetricValue](../../models/shared/MetricValue.md)> | :heavy_minus_sign:                                      | N/A                                                     |
 | `cpu`                                                   | List<[MetricValue](../../models/shared/MetricValue.md)> | :heavy_minus_sign:                                      | N/A                                                     |
 | `memory`                                                | List<[MetricValue](../../models/shared/MetricValue.md)> | :heavy_minus_sign:                                      | N/A                                                     |
 | `rateEgress`                                            | List<[MetricValue](../../models/shared/MetricValue.md)> | :heavy_minus_sign:                                      | N/A                                                     |
