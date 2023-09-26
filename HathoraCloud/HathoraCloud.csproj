@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <IsPackable>true</IsPackable>
-    <PackageId>hathorasdk</PackageId>
-    <Version>0.15.0</Version>
+    <PackageId>hathora-unity-sdk</PackageId>
+    <Version>0.16.0</Version>
     <Authors>Hathora</Authors>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <DocumentationFile>docs/hathorasdk.xml</DocumentationFile>
+    <DocumentationFile>docs/hathora-unity-sdk.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
