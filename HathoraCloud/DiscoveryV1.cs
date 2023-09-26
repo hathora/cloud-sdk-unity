@@ -38,8 +38,8 @@ namespace HathoraCloud
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.16.0";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "0.17.0";
+        private const string _sdkGenVersion = "2.131.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -84,6 +84,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new GetPingServiceEndpointsResponse
             {
                 StatusCode = (int)httpResponse.responseCode,

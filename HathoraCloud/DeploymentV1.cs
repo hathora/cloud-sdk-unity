@@ -20,7 +20,7 @@ namespace HathoraCloud
     using UnityEngine.Networking;
 
     /// <summary>
-    /// Operations that allow you configure and manage an application&amp;apos;s &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#build&quot;&gt;build&lt;/a&gt; at runtime.
+    /// Operations that allow you configure and manage an application&apos;s <a href="https://hathora.dev/docs/concepts/hathora-entities#build">build</a> at runtime.
     /// </summary>
     public interface IDeploymentV1SDK
     {
@@ -42,14 +42,14 @@ namespace HathoraCloud
     }
 
     /// <summary>
-    /// Operations that allow you configure and manage an application&amp;apos;s &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#build&quot;&gt;build&lt;/a&gt; at runtime.
+    /// Operations that allow you configure and manage an application&apos;s <a href="https://hathora.dev/docs/concepts/hathora-entities#build">build</a> at runtime.
     /// </summary>
     public class DeploymentV1SDK: IDeploymentV1SDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.16.0";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "0.17.0";
+        private const string _sdkGenVersion = "2.131.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -105,6 +105,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new CreateDeploymentResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
@@ -182,6 +183,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new GetDeploymentInfoResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
@@ -241,6 +243,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new GetDeploymentsResponse
             {
                 StatusCode = (int)httpResponse.responseCode,

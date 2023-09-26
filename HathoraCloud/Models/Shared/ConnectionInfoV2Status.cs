@@ -15,7 +15,7 @@ namespace HathoraCloud.Models.Shared
     using UnityEngine;
     
     /// <summary>
-    /// `exposedPort` will only be available when the `status` of a room is &amp;quot;active&amp;quot;.
+    /// `exposedPort` will only be available when the `status` of a room is &quot;active&quot;.
     /// </summary>
     public enum ConnectionInfoV2Status
     {

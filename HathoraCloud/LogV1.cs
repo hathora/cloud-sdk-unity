@@ -17,7 +17,7 @@ namespace HathoraCloud
     using UnityEngine.Networking;
 
     /// <summary>
-    /// Operations to get logs by &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#application&quot;&gt;applications&lt;/a&gt;, &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#process&quot;&gt;processes&lt;/a&gt;, and &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#deployment&quot;&gt;deployments&lt;/a&gt;. We store 20GB of logs data.
+    /// Operations to get logs by <a href="https://hathora.dev/docs/concepts/hathora-entities#application">applications</a>, <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a>, and <a href="https://hathora.dev/docs/concepts/hathora-entities#deployment">deployments</a>. We store 20GB of logs data.
     /// </summary>
     public interface ILogV1SDK
     {
@@ -39,14 +39,14 @@ namespace HathoraCloud
     }
 
     /// <summary>
-    /// Operations to get logs by &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#application&quot;&gt;applications&lt;/a&gt;, &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#process&quot;&gt;processes&lt;/a&gt;, and &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#deployment&quot;&gt;deployments&lt;/a&gt;. We store 20GB of logs data.
+    /// Operations to get logs by <a href="https://hathora.dev/docs/concepts/hathora-entities#application">applications</a>, <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a>, and <a href="https://hathora.dev/docs/concepts/hathora-entities#deployment">deployments</a>. We store 20GB of logs data.
     /// </summary>
     public class LogV1SDK: ILogV1SDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.16.0";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "0.17.0";
+        private const string _sdkGenVersion = "2.131.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -93,6 +93,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new GetLogsForAppResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
@@ -153,6 +154,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new GetLogsForDeploymentResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
@@ -212,6 +214,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new GetLogsForProcessResponse
             {
                 StatusCode = (int)httpResponse.responseCode,

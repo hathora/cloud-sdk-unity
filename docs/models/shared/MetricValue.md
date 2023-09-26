@@ -5,5 +5,5 @@
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `timestamp`        | *double*           | :heavy_check_mark: | N/A                |
-| `value`            | *double*           | :heavy_check_mark: | N/A                |
+| `Timestamp`        | *double*           | :heavy_check_mark: | N/A                |
+| `Value`            | *double*           | :heavy_check_mark: | N/A                |

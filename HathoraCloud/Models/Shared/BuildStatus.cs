@@ -15,7 +15,7 @@ namespace HathoraCloud.Models.Shared
     using UnityEngine;
     
     /// <summary>
-    /// Current status of your build.&lt;br/&gt;
+    /// Current status of your build.<br/>
     /// 
     /// <remarks>
     /// <br/>

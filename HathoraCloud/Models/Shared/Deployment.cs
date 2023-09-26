@@ -93,7 +93,7 @@ namespace HathoraCloud.Models.Shared
         
 
         /// <summary>
-        /// A plan defines how much CPU and memory is required to run an instance of your game server.&lt;br/&gt;
+        /// A plan defines how much CPU and memory is required to run an instance of your game server.<br/>
         /// 
         /// <remarks>
         /// <br/>
@@ -128,7 +128,7 @@ namespace HathoraCloud.Models.Shared
         
 
         /// <summary>
-        /// Governs how many &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#room&quot;&gt;rooms&lt;/a&gt; can be scheduled in a process.
+        /// Governs how many <a href="https://hathora.dev/docs/concepts/hathora-entities#room">rooms</a> can be scheduled in a process.
         /// </summary>
         [SerializeField]
         [JsonProperty("roomsPerProcess")]

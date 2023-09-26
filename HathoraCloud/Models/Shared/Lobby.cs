@@ -81,7 +81,7 @@ namespace HathoraCloud.Models.Shared
         
 
         /// <summary>
-        /// Types of lobbies a player can create.&lt;br/&gt;
+        /// Types of lobbies a player can create.<br/>
         /// 
         /// <remarks>
         /// <br/>

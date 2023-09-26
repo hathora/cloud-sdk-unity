@@ -5,4 +5,4 @@
 
 | Field              | Type               | Required           | Description        | Example            |
 | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `playerAuth`       | *string*           | :heavy_check_mark: | N/A                |                    |
+| `PlayerAuth`       | *string*           | :heavy_check_mark: | N/A                |                    |

@@ -5,4 +5,4 @@
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `returnUrl`        | *string*           | :heavy_check_mark: | N/A                |
+| `ReturnUrl`        | *string*           | :heavy_check_mark: | N/A                |

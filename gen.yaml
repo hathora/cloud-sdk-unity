@@ -2,14 +2,14 @@ configVersion: 1.0.0
 management:
   docChecksum: fa6c702e59efb9c05b584dbf7a059a4b
   docVersion: 0.0.1
-  speakeasyVersion: 1.91.0
-  generationVersion: 2.129.1
+  speakeasyVersion: 1.91.2
+  generationVersion: 2.131.1
 generation:
   sdkClassName: Hathora-Cloud
   singleTagPerOp: false
 features:
   unity:
-    core: 0.3.1
+    core: 0.3.3
     deprecations: 0.0.1
     downloadStreams: 0.0.1
     globalSecurity: 0.0.1
@@ -17,7 +17,7 @@ features:
     globals: 0.0.1
     methodSecurity: 0.1.0
 unity:
-  version: 0.16.0
+  version: 0.17.0
   author: Hathora
   maxMethodParams: 0
   packageName: hathora-unity-sdk

@@ -27,7 +27,7 @@ namespace HathoraCloud.Models.Shared
         
 
         /// <summary>
-        /// Configure &lt;a href=&quot;https://hathora.dev/docs/lobbies-and-matchmaking/auth-service&quot;&gt;player authentication&lt;/a&gt; for your application. Use Hathora&amp;apos;s built-in auth providers or use your own &lt;a href=&quot;https://hathora.dev/docs/lobbies-and-matchmaking/auth-service#custom-auth-provider&quot;&gt;custom authentication&lt;/a&gt;.
+        /// Configure <a href="https://hathora.dev/docs/lobbies-and-matchmaking/auth-service">player authentication</a> for your application. Use Hathora&apos;s built-in auth providers or use your own <a href="https://hathora.dev/docs/lobbies-and-matchmaking/auth-service#custom-auth-provider">custom authentication</a>.
         /// </summary>
         [SerializeField]
         [JsonProperty("authConfiguration")]

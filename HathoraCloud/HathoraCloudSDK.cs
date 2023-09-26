@@ -23,23 +23,23 @@ namespace HathoraCloud
     {
 
         /// <summary>
-        /// Operations that allow you manage your &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#application&quot;&gt;applications&lt;/a&gt;.
+        /// Operations that allow you manage your <a href="https://hathora.dev/docs/concepts/hathora-entities#application">applications</a>.
         /// </summary>
         public IAppV1SDK AppV1 { get; }
 
         /// <summary>
-        /// Operations that allow you to generate a Hathora-signed &lt;a href=&quot;JWT&quot;&gt;JSON web token (JWT)&lt;/a&gt; for &lt;a href=&quot;https://hathora.dev/docs/lobbies-and-matchmaking/auth-service&quot;&gt;player authentication&lt;/a&gt;.
+        /// Operations that allow you to generate a Hathora-signed <a href="JWT">JSON web token (JWT)</a> for <a href="https://hathora.dev/docs/lobbies-and-matchmaking/auth-service">player authentication</a>.
         /// </summary>
         public IAuthV1SDK AuthV1 { get; }
         public IBillingV1SDK BillingV1 { get; }
 
         /// <summary>
-        /// Operations that allow you create and manage your &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#build&quot;&gt;builds&lt;/a&gt;.
+        /// Operations that allow you create and manage your <a href="https://hathora.dev/docs/concepts/hathora-entities#build">builds</a>.
         /// </summary>
         public IBuildV1SDK BuildV1 { get; }
 
         /// <summary>
-        /// Operations that allow you configure and manage an application&amp;apos;s &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#build&quot;&gt;build&lt;/a&gt; at runtime.
+        /// Operations that allow you configure and manage an application&apos;s <a href="https://hathora.dev/docs/concepts/hathora-entities#build">build</a> at runtime.
         /// </summary>
         public IDeploymentV1SDK DeploymentV1 { get; }
 
@@ -50,29 +50,29 @@ namespace HathoraCloud
         public ILobbyV1SDK LobbyV1 { get; }
 
         /// <summary>
-        /// Operations to create and manage lobbies using our &lt;a href=&quot;https://hathora.dev/docs/lobbies-and-matchmaking/lobby-service&quot;&gt;Lobby Service&lt;/a&gt;.
+        /// Operations to create and manage lobbies using our <a href="https://hathora.dev/docs/lobbies-and-matchmaking/lobby-service">Lobby Service</a>.
         /// </summary>
         public ILobbyV2SDK LobbyV2 { get; }
 
         /// <summary>
-        /// Operations to get logs by &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#application&quot;&gt;applications&lt;/a&gt;, &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#process&quot;&gt;processes&lt;/a&gt;, and &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#deployment&quot;&gt;deployments&lt;/a&gt;. We store 20GB of logs data.
+        /// Operations to get logs by <a href="https://hathora.dev/docs/concepts/hathora-entities#application">applications</a>, <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a>, and <a href="https://hathora.dev/docs/concepts/hathora-entities#deployment">deployments</a>. We store 20GB of logs data.
         /// </summary>
         public ILogV1SDK LogV1 { get; }
         public IManagementV1SDK ManagementV1 { get; }
 
         /// <summary>
-        /// Operations to get metrics by &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#process&quot;&gt;process&lt;/a&gt;. We store 72 hours of metrics data.
+        /// Operations to get metrics by <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a>. We store 72 hours of metrics data.
         /// </summary>
         public IMetricsV1SDK MetricsV1 { get; }
 
         /// <summary>
-        /// Operations to get data on active and stopped &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#process&quot;&gt;processes&lt;/a&gt;.
+        /// Operations to get data on active and stopped <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a>.
         /// </summary>
         public IProcessesV1SDK ProcessesV1 { get; }
         public IRoomV1SDK RoomV1 { get; }
 
         /// <summary>
-        /// Operations to create, manage, and connect to &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#room&quot;&gt;rooms&lt;/a&gt;.
+        /// Operations to create, manage, and connect to <a href="https://hathora.dev/docs/concepts/hathora-entities#room">rooms</a>.
         /// </summary>
         public IRoomV2SDK RoomV2 { get; }
     }
@@ -95,8 +95,8 @@ namespace HathoraCloud
         };
 
         private const string _target = "unity";
-        private const string _sdkVersion = "0.16.0";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "0.17.0";
+        private const string _sdkGenVersion = "2.131.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;

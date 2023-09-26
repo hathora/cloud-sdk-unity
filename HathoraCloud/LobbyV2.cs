@@ -20,7 +20,7 @@ namespace HathoraCloud
     using UnityEngine.Networking;
 
     /// <summary>
-    /// Operations to create and manage lobbies using our &lt;a href=&quot;https://hathora.dev/docs/lobbies-and-matchmaking/lobby-service&quot;&gt;Lobby Service&lt;/a&gt;.
+    /// Operations to create and manage lobbies using our <a href="https://hathora.dev/docs/lobbies-and-matchmaking/lobby-service">Lobby Service</a>.
     /// </summary>
     public interface ILobbyV2SDK
     {
@@ -50,14 +50,14 @@ namespace HathoraCloud
     }
 
     /// <summary>
-    /// Operations to create and manage lobbies using our &lt;a href=&quot;https://hathora.dev/docs/lobbies-and-matchmaking/lobby-service&quot;&gt;Lobby Service&lt;/a&gt;.
+    /// Operations to create and manage lobbies using our <a href="https://hathora.dev/docs/lobbies-and-matchmaking/lobby-service">Lobby Service</a>.
     /// </summary>
     public class LobbyV2SDK: ILobbyV2SDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.16.0";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "0.17.0";
+        private const string _sdkGenVersion = "2.131.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -113,6 +113,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new CreateLobbyResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
@@ -228,6 +229,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new CreateLocalLobbyResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
@@ -343,6 +345,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new CreatePrivateLobbyResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
@@ -458,6 +461,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new CreatePublicLobbyResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
@@ -562,6 +566,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new GetLobbyInfoResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
@@ -621,6 +626,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new ListActivePublicLobbiesResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
@@ -681,6 +687,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new SetLobbyStateResponse
             {
                 StatusCode = (int)httpResponse.responseCode,

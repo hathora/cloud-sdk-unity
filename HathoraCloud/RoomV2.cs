@@ -20,7 +20,7 @@ namespace HathoraCloud
     using UnityEngine.Networking;
 
     /// <summary>
-    /// Operations to create, manage, and connect to &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#room&quot;&gt;rooms&lt;/a&gt;.
+    /// Operations to create, manage, and connect to <a href="https://hathora.dev/docs/concepts/hathora-entities#room">rooms</a>.
     /// </summary>
     public interface IRoomV2SDK
     {
@@ -62,14 +62,14 @@ namespace HathoraCloud
     }
 
     /// <summary>
-    /// Operations to create, manage, and connect to &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#room&quot;&gt;rooms&lt;/a&gt;.
+    /// Operations to create, manage, and connect to <a href="https://hathora.dev/docs/concepts/hathora-entities#room">rooms</a>.
     /// </summary>
     public class RoomV2SDK: IRoomV2SDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.16.0";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "0.17.0";
+        private const string _sdkGenVersion = "2.131.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -125,6 +125,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new CreateRoomResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
@@ -220,6 +221,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new DestroyRoomResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
@@ -284,6 +286,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new GetActiveRoomsForProcessResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
@@ -343,6 +346,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new GetConnectionInfoResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
@@ -420,6 +424,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new GetInactiveRoomsForProcessResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
@@ -479,6 +484,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new GetRoomInfoResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
@@ -538,6 +544,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new SuspendRoomResponse
             {
                 StatusCode = (int)httpResponse.responseCode,

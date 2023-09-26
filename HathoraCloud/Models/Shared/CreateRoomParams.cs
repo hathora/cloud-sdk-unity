@@ -24,7 +24,7 @@ namespace HathoraCloud.Models.Shared
         
 
         /// <summary>
-        /// Optional configuration parameters for the room. Can be any string including stringified JSON. It is accessible from the room via &lt;a href=&quot;&quot;&gt;`GetRoomInfo()`&lt;/a&gt;.
+        /// Optional configuration parameters for the room. Can be any string including stringified JSON. It is accessible from the room via <a href="">`GetRoomInfo()`</a>.
         /// </summary>
         [SerializeField]
         [JsonProperty("roomConfig")]

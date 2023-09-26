@@ -19,7 +19,7 @@ namespace HathoraCloud
     using UnityEngine.Networking;
 
     /// <summary>
-    /// Operations that allow you to generate a Hathora-signed &lt;a href=&quot;JWT&quot;&gt;JSON web token (JWT)&lt;/a&gt; for &lt;a href=&quot;https://hathora.dev/docs/lobbies-and-matchmaking/auth-service&quot;&gt;player authentication&lt;/a&gt;.
+    /// Operations that allow you to generate a Hathora-signed <a href="JWT">JSON web token (JWT)</a> for <a href="https://hathora.dev/docs/lobbies-and-matchmaking/auth-service">player authentication</a>.
     /// </summary>
     public interface IAuthV1SDK
     {
@@ -41,14 +41,14 @@ namespace HathoraCloud
     }
 
     /// <summary>
-    /// Operations that allow you to generate a Hathora-signed &lt;a href=&quot;JWT&quot;&gt;JSON web token (JWT)&lt;/a&gt; for &lt;a href=&quot;https://hathora.dev/docs/lobbies-and-matchmaking/auth-service&quot;&gt;player authentication&lt;/a&gt;.
+    /// Operations that allow you to generate a Hathora-signed <a href="JWT">JSON web token (JWT)</a> for <a href="https://hathora.dev/docs/lobbies-and-matchmaking/auth-service">player authentication</a>.
     /// </summary>
     public class AuthV1SDK: IAuthV1SDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.16.0";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "0.17.0";
+        private const string _sdkGenVersion = "2.131.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -94,6 +94,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new LoginAnonymousResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
@@ -163,6 +164,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new LoginGoogleResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
@@ -241,6 +243,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new LoginNicknameResponse
             {
                 StatusCode = (int)httpResponse.responseCode,

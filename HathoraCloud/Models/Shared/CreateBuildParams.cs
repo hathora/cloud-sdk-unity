@@ -19,7 +19,7 @@ namespace HathoraCloud.Models.Shared
     {
 
         /// <summary>
-        /// Tag to associate an external version with a build. It is accessible via &lt;a href=&quot;&quot;&gt;`GetBuildInfo()`&lt;/a&gt;.
+        /// Tag to associate an external version with a build. It is accessible via <a href="">`GetBuildInfo()`</a>.
         /// </summary>
         [SerializeField]
         [JsonProperty("buildTag")]

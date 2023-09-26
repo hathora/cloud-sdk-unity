@@ -15,7 +15,7 @@ namespace HathoraCloud.Models.Shared
     using UnityEngine;
     
     /// <summary>
-    /// The allocation status of a room.&lt;br/&gt;
+    /// The allocation status of a room.<br/>
     /// 
     /// <remarks>
     /// <br/>

@@ -19,7 +19,7 @@ namespace HathoraCloud
     using UnityEngine.Networking;
 
     /// <summary>
-    /// Operations to get metrics by &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#process&quot;&gt;process&lt;/a&gt;. We store 72 hours of metrics data.
+    /// Operations to get metrics by <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a>. We store 72 hours of metrics data.
     /// </summary>
     public interface IMetricsV1SDK
     {
@@ -31,14 +31,14 @@ namespace HathoraCloud
     }
 
     /// <summary>
-    /// Operations to get metrics by &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#process&quot;&gt;process&lt;/a&gt;. We store 72 hours of metrics data.
+    /// Operations to get metrics by <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a>. We store 72 hours of metrics data.
     /// </summary>
     public class MetricsV1SDK: IMetricsV1SDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.16.0";
-        private const string _sdkGenVersion = "2.129.1";
+        private const string _sdkVersion = "0.17.0";
+        private const string _sdkGenVersion = "2.131.1";
         private const string _openapiDocVersion = "0.0.1";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
@@ -84,6 +84,7 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
+            
             var response = new GetMetricsResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
