@@ -29,12 +29,12 @@ var sdk = new HathoraCloudSDK(
 
 using(var res = await sdk.MetricsV1.GetMetricsAsync(new GetMetricsRequest() {
         ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
-        End = 4776.65D,
+        End = 5456.86D,
         Metrics = new List<MetricName>() {
-            HathoraCloud.Models.Shared.MetricName.TotalEgress,
+            HathoraCloud.Models.Shared.MetricName.Memory,
         },
-        Start = 8121.69D,
-        Step = 528895,
+        Start = 4311.13D,
+        Step = 490659,
     }))
 {
     // handle response

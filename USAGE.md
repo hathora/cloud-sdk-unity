@@ -17,7 +17,7 @@ using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
         AuthConfiguration = new AuthConfiguration() {
             Anonymous = new RecordStringNever() {},
             Google = new AuthConfigurationGoogle() {
-                ClientId = "corrupti",
+                ClientId = "models ah Southeast",
             },
             Nickname = new RecordStringNever() {},
         },

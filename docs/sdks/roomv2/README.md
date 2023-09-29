@@ -35,7 +35,7 @@ var sdk = new HathoraCloudSDK(
 
 using(var res = await sdk.RoomV2.CreateRoomAsync(new CreateRoomRequest() {
         CreateRoomParams = new CreateRoomParams() {
-            Region = HathoraCloud.Models.Shared.Region.SaoPaulo,
+            Region = HathoraCloud.Models.Shared.Region.Sydney,
             RoomConfig = "{\"name\":\"my-room\"}",
         },
         RoomId = "2swovpy1fnunu",

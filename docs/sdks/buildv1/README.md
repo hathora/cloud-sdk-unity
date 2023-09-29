@@ -186,8 +186,8 @@ var sdk = new HathoraCloudSDK(
 using(var res = await sdk.BuildV1.RunBuildAsync(new RunBuildRequest() {
         RequestBody = new RunBuildRequestBody() {
             File = new RunBuildRequestBodyFile() {
-                Content = "nulla as bytes <<<>>>",
-                File = "corrupti",
+                Content = "Ukkktj?kA= as bytes <<<>>>",
+                File = "times Mini",
             },
         },
         BuildId = 1,

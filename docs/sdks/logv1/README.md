@@ -33,7 +33,7 @@ var sdk = new HathoraCloudSDK(
 
 using(var res = await sdk.LogV1.GetLogsForAppAsync(new GetLogsForAppRequest() {
         Follow = false,
-        Region = HathoraCloud.Models.Shared.Region.Chicago,
+        Region = HathoraCloud.Models.Shared.Region.Singapore,
         TailLines = 100,
     }))
 {

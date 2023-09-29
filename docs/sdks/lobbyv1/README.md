@@ -26,7 +26,7 @@ using(var res = await sdk.LobbyV1.CreatePrivateLobbyDeprecatedAsync(new CreatePr
         PlayerAuth = "",
     }, new CreatePrivateLobbyDeprecatedRequest() {
         Local = false,
-        Region = HathoraCloud.Models.Shared.Region.Singapore,
+        Region = HathoraCloud.Models.Shared.Region.London,
     }))
 {
     // handle response
@@ -65,7 +65,7 @@ using(var res = await sdk.LobbyV1.CreatePublicLobbyDeprecatedAsync(new CreatePub
         PlayerAuth = "",
     }, new CreatePublicLobbyDeprecatedRequest() {
         Local = false,
-        Region = HathoraCloud.Models.Shared.Region.Singapore,
+        Region = HathoraCloud.Models.Shared.Region.Frankfurt,
     }))
 {
     // handle response
@@ -105,7 +105,7 @@ var sdk = new HathoraCloudSDK(
 
 using(var res = await sdk.LobbyV1.ListActivePublicLobbiesDeprecatedAsync(new ListActivePublicLobbiesDeprecatedRequest() {
         Local = false,
-        Region = HathoraCloud.Models.Shared.Region.London,
+        Region = HathoraCloud.Models.Shared.Region.Tokyo,
     }))
 {
     // handle response
