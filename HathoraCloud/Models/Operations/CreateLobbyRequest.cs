@@ -21,7 +21,7 @@ namespace HathoraCloud.Models.Operations
 
         [SerializeField]
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public CreateLobbyParams CreateLobbyParams { get; set; } = default!;
+        public CreateLobbyV3Params CreateLobbyV3Params { get; set; } = default!;
         
 
         [SerializeField]
@@ -30,8 +30,8 @@ namespace HathoraCloud.Models.Operations
         
 
         [SerializeField]
-        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=roomId")]
-        public string? RoomId { get; set; }
+        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=shortCode")]
+        public string? ShortCode { get; set; }
         
     }
 }

@@ -72,6 +72,11 @@ namespace HathoraCloud.Models.Shared
         public string RoomId { get; set; } = default!;
         
 
+        [SerializeField]
+        [JsonProperty("shortCode")]
+        public string ShortCode { get; set; } = default!;
+        
+
         /// <summary>
         /// JSON blob to store metadata for a room. Must be smaller than 1MB.
         /// </summary>

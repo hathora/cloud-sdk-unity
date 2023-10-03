@@ -19,6 +19,9 @@ namespace HathoraCloud
     using System;
     using UnityEngine.Networking;
 
+    /// <summary>
+    /// Deprecated. Use RoomV2.
+    /// </summary>
     public interface IRoomV1SDK
     {
         Task<CreateRoomDeprecatedResponse> CreateRoomDeprecatedAsync(CreateRoomDeprecatedRequest request);
@@ -30,14 +33,17 @@ namespace HathoraCloud
         Task<SuspendRoomDeprecatedResponse> SuspendRoomDeprecatedAsync(SuspendRoomDeprecatedRequest? request = null);
     }
 
+    /// <summary>
+    /// Deprecated. Use RoomV2.
+    /// </summary>
     public class RoomV1SDK: IRoomV1SDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.21.1";
-        private const string _sdkGenVersion = "2.143.2";
+        private const string _sdkVersion = "0.21.2";
+        private const string _sdkGenVersion = "2.144.7";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.21.1 2.143.2 0.0.1 hathora-unity-sdk";
+        private const string _userAgent = "speakeasy-sdk/unity 0.21.2 2.144.7 0.0.1 hathora-unity-sdk";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;

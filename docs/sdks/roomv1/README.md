@@ -1,6 +1,10 @@
 # RoomV1
 (*RoomV1*)
 
+## Overview
+
+Deprecated. Use RoomV2.
+
 ### Available Operations
 
 * [~~CreateRoomDeprecated~~](#createroomdeprecated) - :warning: **Deprecated**

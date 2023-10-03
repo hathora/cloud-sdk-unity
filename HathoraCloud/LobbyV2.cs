@@ -20,7 +20,7 @@ namespace HathoraCloud
     using UnityEngine.Networking;
 
     /// <summary>
-    /// Operations to create and manage lobbies using our <a href="https://hathora.dev/docs/lobbies-and-matchmaking/lobby-service">Lobby Service</a>.
+    /// Deprecated. Use LobbyV3.
     /// </summary>
     public interface ILobbyV2SDK
     {
@@ -28,7 +28,7 @@ namespace HathoraCloud
         /// <summary>
         /// Create a new lobby for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>. A lobby object is a wrapper around a <a href="https://hathora.dev/docs/concepts/hathora-entities#room">room</a> object. With a lobby, you get additional functionality like configuring the visibility of the room, managing the state of a match, and retreiving a list of public lobbies to display to players.
         /// </summary>
-        Task<CreateLobbyResponse> CreateLobbyAsync(CreateLobbySecurity security, CreateLobbyRequest request);
+        Task<CreateLobbyDeprecatedResponse> CreateLobbyDeprecatedAsync(CreateLobbyDeprecatedSecurity security, CreateLobbyDeprecatedRequest request);
         Task<CreateLocalLobbyResponse> CreateLocalLobbyAsync(CreateLocalLobbySecurity security, CreateLocalLobbyRequest request);
         Task<CreatePrivateLobbyResponse> CreatePrivateLobbyAsync(CreatePrivateLobbySecurity security, CreatePrivateLobbyRequest request);
         Task<CreatePublicLobbyResponse> CreatePublicLobbyAsync(CreatePublicLobbySecurity security, CreatePublicLobbyRequest request);
@@ -41,7 +41,7 @@ namespace HathoraCloud
         /// <summary>
         /// Get all active lobbies for a an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>. Filter by optionally passing in a `region`. Use this endpoint to display all public lobbies that a player can join in the game client.
         /// </summary>
-        Task<ListActivePublicLobbiesResponse> ListActivePublicLobbiesAsync(ListActivePublicLobbiesRequest? request = null);
+        Task<ListActivePublicLobbiesDeprecatedV2Response> ListActivePublicLobbiesDeprecatedV2Async(ListActivePublicLobbiesDeprecatedV2Request? request = null);
 
         /// <summary>
         /// Set the state of a lobby. State is intended to be set by the server and must be smaller than 1MB. Use this endpoint to store match data like live player count to enforce max number of clients or persist end-game data (i.e. winner or final scores).
@@ -50,16 +50,16 @@ namespace HathoraCloud
     }
 
     /// <summary>
-    /// Operations to create and manage lobbies using our <a href="https://hathora.dev/docs/lobbies-and-matchmaking/lobby-service">Lobby Service</a>.
+    /// Deprecated. Use LobbyV3.
     /// </summary>
     public class LobbyV2SDK: ILobbyV2SDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.21.1";
-        private const string _sdkGenVersion = "2.143.2";
+        private const string _sdkVersion = "0.21.2";
+        private const string _sdkGenVersion = "2.144.7";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.21.1 2.143.2 0.0.1 hathora-unity-sdk";
+        private const string _userAgent = "speakeasy-sdk/unity 0.21.2 2.144.7 0.0.1 hathora-unity-sdk";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -73,7 +73,7 @@ namespace HathoraCloud
         }
         
 
-        public async Task<CreateLobbyResponse> CreateLobbyAsync(CreateLobbySecurity security, CreateLobbyRequest request)
+        public async Task<CreateLobbyDeprecatedResponse> CreateLobbyDeprecatedAsync(CreateLobbyDeprecatedSecurity security, CreateLobbyDeprecatedRequest request)
         {
             request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
@@ -115,7 +115,7 @@ namespace HathoraCloud
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
             
-            var response = new CreateLobbyResponse
+            var response = new CreateLobbyDeprecatedResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
                 ContentType = contentType,
@@ -134,7 +134,7 @@ namespace HathoraCloud
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.CreateLobby400ApplicationJSONString = httpResponse.downloadHandler.text;
+                    response.CreateLobbyDeprecated400ApplicationJSONString = httpResponse.downloadHandler.text;
                 }
                 
                 return response;
@@ -143,7 +143,7 @@ namespace HathoraCloud
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.CreateLobby401ApplicationJSONString = httpResponse.downloadHandler.text;
+                    response.CreateLobbyDeprecated401ApplicationJSONString = httpResponse.downloadHandler.text;
                 }
                 
                 return response;
@@ -152,7 +152,7 @@ namespace HathoraCloud
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.CreateLobby404ApplicationJSONString = httpResponse.downloadHandler.text;
+                    response.CreateLobbyDeprecated404ApplicationJSONString = httpResponse.downloadHandler.text;
                 }
                 
                 return response;
@@ -161,7 +161,7 @@ namespace HathoraCloud
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.CreateLobby422ApplicationJSONString = httpResponse.downloadHandler.text;
+                    response.CreateLobbyDeprecated422ApplicationJSONString = httpResponse.downloadHandler.text;
                 }
                 
                 return response;
@@ -170,7 +170,7 @@ namespace HathoraCloud
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.CreateLobby429ApplicationJSONString = httpResponse.downloadHandler.text;
+                    response.CreateLobbyDeprecated429ApplicationJSONString = httpResponse.downloadHandler.text;
                 }
                 
                 return response;
@@ -179,7 +179,7 @@ namespace HathoraCloud
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.CreateLobby500ApplicationJSONString = httpResponse.downloadHandler.text;
+                    response.CreateLobbyDeprecated500ApplicationJSONString = httpResponse.downloadHandler.text;
                 }
                 
                 return response;
@@ -596,7 +596,7 @@ namespace HathoraCloud
         }
         
 
-        public async Task<ListActivePublicLobbiesResponse> ListActivePublicLobbiesAsync(ListActivePublicLobbiesRequest? request = null)
+        public async Task<ListActivePublicLobbiesDeprecatedV2Response> ListActivePublicLobbiesDeprecatedV2Async(ListActivePublicLobbiesDeprecatedV2Request? request = null)
         {
             request.AppId ??= Config.AppId;
             string baseUrl = _serverUrl;
@@ -628,7 +628,7 @@ namespace HathoraCloud
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
             
-            var response = new ListActivePublicLobbiesResponse
+            var response = new ListActivePublicLobbiesDeprecatedV2Response
             {
                 StatusCode = (int)httpResponse.responseCode,
                 ContentType = contentType,

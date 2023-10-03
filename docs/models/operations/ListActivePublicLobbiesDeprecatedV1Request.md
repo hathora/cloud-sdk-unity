@@ -1,4 +1,4 @@
-# ListActivePublicLobbiesDeprecatedRequest
+# ListActivePublicLobbiesDeprecatedV1Request
 
 
 ## Fields

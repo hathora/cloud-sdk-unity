@@ -47,12 +47,21 @@ namespace HathoraCloud
         /// Service that allows clients to directly ping all Hathora regions to get latency information
         /// </summary>
         public IDiscoveryV1SDK DiscoveryV1 { get; }
+
+        /// <summary>
+        /// Deprecated. Use LobbyV3.
+        /// </summary>
         public ILobbyV1SDK LobbyV1 { get; }
+
+        /// <summary>
+        /// Deprecated. Use LobbyV3.
+        /// </summary>
+        public ILobbyV2SDK LobbyV2 { get; }
 
         /// <summary>
         /// Operations to create and manage lobbies using our <a href="https://hathora.dev/docs/lobbies-and-matchmaking/lobby-service">Lobby Service</a>.
         /// </summary>
-        public ILobbyV2SDK LobbyV2 { get; }
+        public ILobbyV3SDK LobbyV3 { get; }
 
         /// <summary>
         /// Operations to get logs by <a href="https://hathora.dev/docs/concepts/hathora-entities#application">applications</a>, <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a>, and <a href="https://hathora.dev/docs/concepts/hathora-entities#deployment">deployments</a>. We store 20GB of logs data.
@@ -69,6 +78,10 @@ namespace HathoraCloud
         /// Operations to get data on active and stopped <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a>.
         /// </summary>
         public IProcessesV1SDK ProcessesV1 { get; }
+
+        /// <summary>
+        /// Deprecated. Use RoomV2.
+        /// </summary>
         public IRoomV1SDK RoomV1 { get; }
 
         /// <summary>
@@ -95,10 +108,10 @@ namespace HathoraCloud
         };
 
         private const string _target = "unity";
-        private const string _sdkVersion = "0.21.1";
-        private const string _sdkGenVersion = "2.143.2";
+        private const string _sdkVersion = "0.21.2";
+        private const string _sdkGenVersion = "2.144.7";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.21.1 2.143.2 0.0.1 hathora-unity-sdk";
+        private const string _userAgent = "speakeasy-sdk/unity 0.21.2 2.144.7 0.0.1 hathora-unity-sdk";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -110,6 +123,7 @@ namespace HathoraCloud
         public IDiscoveryV1SDK DiscoveryV1 { get; private set; }
         public ILobbyV1SDK LobbyV1 { get; private set; }
         public ILobbyV2SDK LobbyV2 { get; private set; }
+        public ILobbyV3SDK LobbyV3 { get; private set; }
         public ILogV1SDK LogV1 { get; private set; }
         public IManagementV1SDK ManagementV1 { get; private set; }
         public IMetricsV1SDK MetricsV1 { get; private set; }
@@ -142,6 +156,7 @@ namespace HathoraCloud
             DiscoveryV1 = new DiscoveryV1SDK(_defaultClient, _securityClient, _serverUrl, Config);
             LobbyV1 = new LobbyV1SDK(_defaultClient, _securityClient, _serverUrl, Config);
             LobbyV2 = new LobbyV2SDK(_defaultClient, _securityClient, _serverUrl, Config);
+            LobbyV3 = new LobbyV3SDK(_defaultClient, _securityClient, _serverUrl, Config);
             LogV1 = new LogV1SDK(_defaultClient, _securityClient, _serverUrl, Config);
             ManagementV1 = new ManagementV1SDK(_defaultClient, _securityClient, _serverUrl, Config);
             MetricsV1 = new MetricsV1SDK(_defaultClient, _securityClient, _serverUrl, Config);
