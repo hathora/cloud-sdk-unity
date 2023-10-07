@@ -11,6 +11,7 @@
 namespace HathoraCloud.Models.Shared
 {
     using Newtonsoft.Json;
+    using System.Collections.Generic;
     using System;
     using UnityEngine;
     
@@ -50,7 +51,7 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("initialConfig")]
-        public LobbyInitialConfig InitialConfig { get; set; } = default!;
+        public Dictionary<string, object> InitialConfig { get; set; } = default!;
         
 
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
@@ -82,7 +83,7 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("state")]
-        public LobbyState? State { get; set; }
+        public Dictionary<string, object>? State { get; set; }
         
 
         /// <summary>

@@ -31,15 +31,17 @@ var sdk = new HathoraCloudSDK(
 );
 
 using(var res = await sdk.LobbyV2.CreateLobbyDeprecatedAsync(new CreateLobbyDeprecatedSecurity() {
-        PlayerAuth = "",
-    }, new CreateLobbyDeprecatedRequest() {
-        CreateLobbyParams = new CreateLobbyParams() {
-            InitialConfig = new LobbyInitialConfig() {},
-            Region = HathoraCloud.Models.Shared.Region.Tokyo,
-            Visibility = HathoraCloud.Models.Shared.LobbyVisibility.Private,
+    PlayerAuth = "",
+}, new CreateLobbyDeprecatedRequest() {
+    CreateLobbyParams = new CreateLobbyParams() {
+        InitialConfig = new Dictionary<string, object>() {
+            { "pascal", "Electric" },
         },
-        RoomId = "2swovpy1fnunu",
-    }))
+        Region = HathoraCloud.Models.Shared.Region.Mumbai,
+        Visibility = HathoraCloud.Models.Shared.LobbyVisibility.Private,
+    },
+    RoomId = "2swovpy1fnunu",
+}))
 {
     // handle response
 }
@@ -74,14 +76,16 @@ var sdk = new HathoraCloudSDK(
 );
 
 using(var res = await sdk.LobbyV2.CreateLocalLobbyAsync(new CreateLocalLobbySecurity() {
-        PlayerAuth = "",
-    }, new CreateLocalLobbyRequest() {
-        RequestBody = new CreateLocalLobbyRequestBody() {
-            InitialConfig = new LobbyInitialConfig() {},
-            Region = HathoraCloud.Models.Shared.Region.Sydney,
+    PlayerAuth = "",
+}, new CreateLocalLobbyRequest() {
+    RequestBody = new CreateLocalLobbyRequestBody() {
+        InitialConfig = new Dictionary<string, object>() {
+            { "foolishly", "microchip" },
         },
-        RoomId = "2swovpy1fnunu",
-    }))
+        Region = HathoraCloud.Models.Shared.Region.Sydney,
+    },
+    RoomId = "2swovpy1fnunu",
+}))
 {
     // handle response
 }
@@ -116,14 +120,16 @@ var sdk = new HathoraCloudSDK(
 );
 
 using(var res = await sdk.LobbyV2.CreatePrivateLobbyAsync(new CreatePrivateLobbySecurity() {
-        PlayerAuth = "",
-    }, new CreatePrivateLobbyRequest() {
-        RequestBody = new CreatePrivateLobbyRequestBody() {
-            InitialConfig = new LobbyInitialConfig() {},
-            Region = HathoraCloud.Models.Shared.Region.Chicago,
+    PlayerAuth = "",
+}, new CreatePrivateLobbyRequest() {
+    RequestBody = new CreatePrivateLobbyRequestBody() {
+        InitialConfig = new Dictionary<string, object>() {
+            { "innovative", "calculating" },
         },
-        RoomId = "2swovpy1fnunu",
-    }))
+        Region = HathoraCloud.Models.Shared.Region.Seattle,
+    },
+    RoomId = "2swovpy1fnunu",
+}))
 {
     // handle response
 }
@@ -158,14 +164,16 @@ var sdk = new HathoraCloudSDK(
 );
 
 using(var res = await sdk.LobbyV2.CreatePublicLobbyAsync(new CreatePublicLobbySecurity() {
-        PlayerAuth = "",
-    }, new CreatePublicLobbyRequest() {
-        RequestBody = new CreatePublicLobbyRequestBody() {
-            InitialConfig = new LobbyInitialConfig() {},
-            Region = HathoraCloud.Models.Shared.Region.Sydney,
+    PlayerAuth = "",
+}, new CreatePublicLobbyRequest() {
+    RequestBody = new CreatePublicLobbyRequestBody() {
+        InitialConfig = new Dictionary<string, object>() {
+            { "evenly", "Quality" },
         },
-        RoomId = "2swovpy1fnunu",
-    }))
+        Region = HathoraCloud.Models.Shared.Region.Seattle,
+    },
+    RoomId = "2swovpy1fnunu",
+}))
 {
     // handle response
 }
@@ -203,8 +211,8 @@ var sdk = new HathoraCloudSDK(
 );
 
 using(var res = await sdk.LobbyV2.GetLobbyInfoAsync(new GetLobbyInfoRequest() {
-        RoomId = "2swovpy1fnunu",
-    }))
+    RoomId = "2swovpy1fnunu",
+}))
 {
     // handle response
 }
@@ -240,9 +248,7 @@ var sdk = new HathoraCloudSDK(
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
 );
 
-using(var res = await sdk.LobbyV2.ListActivePublicLobbiesDeprecatedV2Async(new ListActivePublicLobbiesDeprecatedV2Request() {
-        Region = HathoraCloud.Models.Shared.Region.Frankfurt,
-    }))
+using(var res = await sdk.LobbyV2.ListActivePublicLobbiesDeprecatedV2Async(new ListActivePublicLobbiesDeprecatedV2Request() {}))
 {
     // handle response
 }
@@ -279,11 +285,13 @@ var sdk = new HathoraCloudSDK(
 );
 
 using(var res = await sdk.LobbyV2.SetLobbyStateAsync(new SetLobbyStateRequest() {
-        SetLobbyStateParams = new SetLobbyStateParams() {
-            State = new SetLobbyStateParamsState() {},
+    SetLobbyStateParams = new SetLobbyStateParams() {
+        State = new Dictionary<string, object>() {
+            { "Diesel", "Gender" },
         },
-        RoomId = "2swovpy1fnunu",
-    }))
+    },
+    RoomId = "2swovpy1fnunu",
+}))
 {
     // handle response
 }

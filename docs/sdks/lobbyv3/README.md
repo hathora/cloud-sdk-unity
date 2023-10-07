@@ -28,15 +28,15 @@ var sdk = new HathoraCloudSDK(
 );
 
 using(var res = await sdk.LobbyV3.CreateLobbyAsync(new CreateLobbySecurity() {
-        PlayerAuth = "",
-    }, new CreateLobbyRequest() {
-        CreateLobbyV3Params = new CreateLobbyV3Params() {
-            Region = HathoraCloud.Models.Shared.Region.Seattle,
-            RoomConfig = "{\"name\":\"my-room\"}",
-            Visibility = HathoraCloud.Models.Shared.LobbyVisibility.Private,
-        },
-        ShortCode = "LFG4",
-    }))
+    PlayerAuth = "",
+}, new CreateLobbyRequest() {
+    CreateLobbyV3Params = new CreateLobbyV3Params() {
+        Region = HathoraCloud.Models.Shared.Region.Seattle,
+        RoomConfig = "{\"name\":\"my-room\"}",
+        Visibility = HathoraCloud.Models.Shared.LobbyVisibility.Private,
+    },
+    ShortCode = "LFG4",
+}))
 {
     // handle response
 }
@@ -74,8 +74,8 @@ var sdk = new HathoraCloudSDK(
 );
 
 using(var res = await sdk.LobbyV3.GetLobbyInfoByRoomIdAsync(new GetLobbyInfoByRoomIdRequest() {
-        RoomId = "2swovpy1fnunu",
-    }))
+    RoomId = "2swovpy1fnunu",
+}))
 {
     // handle response
 }
@@ -112,8 +112,8 @@ var sdk = new HathoraCloudSDK(
 );
 
 using(var res = await sdk.LobbyV3.GetLobbyInfoByShortCodeAsync(new GetLobbyInfoByShortCodeRequest() {
-        ShortCode = "LFG4",
-    }))
+    ShortCode = "LFG4",
+}))
 {
     // handle response
 }
@@ -149,9 +149,7 @@ var sdk = new HathoraCloudSDK(
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
 );
 
-using(var res = await sdk.LobbyV3.ListActivePublicLobbiesAsync(new ListActivePublicLobbiesRequest() {
-        Region = HathoraCloud.Models.Shared.Region.Seattle,
-    }))
+using(var res = await sdk.LobbyV3.ListActivePublicLobbiesAsync(new ListActivePublicLobbiesRequest() {}))
 {
     // handle response
 }

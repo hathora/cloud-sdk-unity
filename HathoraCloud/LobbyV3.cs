@@ -53,10 +53,10 @@ namespace HathoraCloud
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.21.2";
-        private const string _sdkGenVersion = "2.144.7";
+        private const string _sdkVersion = "0.21.3";
+        private const string _sdkGenVersion = "2.150.0";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.21.2 2.144.7 0.0.1 hathora-unity-sdk";
+        private const string _userAgent = "speakeasy-sdk/unity 0.21.3 2.150.0 0.0.1 hathora-unity-sdk";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -118,6 +118,7 @@ namespace HathoraCloud
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 201))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -223,6 +224,7 @@ namespace HathoraCloud
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -283,6 +285,7 @@ namespace HathoraCloud
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -343,6 +346,7 @@ namespace HathoraCloud
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
+            
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))

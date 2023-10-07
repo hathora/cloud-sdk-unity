@@ -11,6 +11,7 @@
 namespace HathoraCloud.Models.Shared
 {
     using Newtonsoft.Json;
+    using System.Collections.Generic;
     using System;
     using UnityEngine;
     
@@ -23,7 +24,7 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("state")]
-        public SetLobbyStateParamsState State { get; set; } = default!;
+        public Dictionary<string, object> State { get; set; } = default!;
         
     }
 }
