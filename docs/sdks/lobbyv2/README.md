@@ -3,11 +3,11 @@
 
 ## Overview
 
-Deprecated. Use LobbyV3.
+Deprecated. Use [LobbyV3](https://hathora.dev/api#tag/LobbyV3).
 
 ### Available Operations
 
-* [CreateLobbyDeprecated](#createlobbydeprecated) - Create a new lobby for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). A lobby object is a wrapper around a [room](https://hathora.dev/docs/concepts/hathora-entities#room) object. With a lobby, you get additional functionality like configuring the visibility of the room, managing the state of a match, and retreiving a list of public lobbies to display to players.
+* [CreateLobbyDeprecated](#createlobbydeprecated) - Create a new lobby for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). A lobby object is a wrapper around a [room](https://hathora.dev/docs/concepts/hathora-entities#room) object. With a lobby, you get additional functionality like configuring the visibility of the room, managing the state of a match, and retrieving a list of public lobbies to display to players.
 * [~~CreateLocalLobby~~](#createlocallobby) - :warning: **Deprecated**
 * [~~CreatePrivateLobby~~](#createprivatelobby) - :warning: **Deprecated**
 * [~~CreatePublicLobby~~](#createpubliclobby) - :warning: **Deprecated**
@@ -17,7 +17,7 @@ Deprecated. Use LobbyV3.
 
 ## CreateLobbyDeprecated
 
-Create a new lobby for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). A lobby object is a wrapper around a [room](https://hathora.dev/docs/concepts/hathora-entities#room) object. With a lobby, you get additional functionality like configuring the visibility of the room, managing the state of a match, and retreiving a list of public lobbies to display to players.
+Create a new lobby for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). A lobby object is a wrapper around a [room](https://hathora.dev/docs/concepts/hathora-entities#room) object. With a lobby, you get additional functionality like configuring the visibility of the room, managing the state of a match, and retrieving a list of public lobbies to display to players.
 
 ### Example Usage
 
@@ -34,10 +34,8 @@ using(var res = await sdk.LobbyV2.CreateLobbyDeprecatedAsync(new CreateLobbyDepr
     PlayerAuth = "",
 }, new CreateLobbyDeprecatedRequest() {
     CreateLobbyParams = new CreateLobbyParams() {
-        InitialConfig = new Dictionary<string, object>() {
-            { "pascal", "Electric" },
-        },
-        Region = HathoraCloud.Models.Shared.Region.Mumbai,
+        InitialConfig = new LobbyInitialConfig() {},
+        Region = HathoraCloud.Models.Shared.Region.Tokyo,
         Visibility = HathoraCloud.Models.Shared.LobbyVisibility.Private,
     },
     RoomId = "2swovpy1fnunu",
@@ -79,9 +77,7 @@ using(var res = await sdk.LobbyV2.CreateLocalLobbyAsync(new CreateLocalLobbySecu
     PlayerAuth = "",
 }, new CreateLocalLobbyRequest() {
     RequestBody = new CreateLocalLobbyRequestBody() {
-        InitialConfig = new Dictionary<string, object>() {
-            { "foolishly", "microchip" },
-        },
+        InitialConfig = new LobbyInitialConfig() {},
         Region = HathoraCloud.Models.Shared.Region.Sydney,
     },
     RoomId = "2swovpy1fnunu",
@@ -123,10 +119,8 @@ using(var res = await sdk.LobbyV2.CreatePrivateLobbyAsync(new CreatePrivateLobby
     PlayerAuth = "",
 }, new CreatePrivateLobbyRequest() {
     RequestBody = new CreatePrivateLobbyRequestBody() {
-        InitialConfig = new Dictionary<string, object>() {
-            { "innovative", "calculating" },
-        },
-        Region = HathoraCloud.Models.Shared.Region.Seattle,
+        InitialConfig = new LobbyInitialConfig() {},
+        Region = HathoraCloud.Models.Shared.Region.Chicago,
     },
     RoomId = "2swovpy1fnunu",
 }))
@@ -167,10 +161,8 @@ using(var res = await sdk.LobbyV2.CreatePublicLobbyAsync(new CreatePublicLobbySe
     PlayerAuth = "",
 }, new CreatePublicLobbyRequest() {
     RequestBody = new CreatePublicLobbyRequestBody() {
-        InitialConfig = new Dictionary<string, object>() {
-            { "evenly", "Quality" },
-        },
-        Region = HathoraCloud.Models.Shared.Region.Seattle,
+        InitialConfig = new LobbyInitialConfig() {},
+        Region = HathoraCloud.Models.Shared.Region.Sydney,
     },
     RoomId = "2swovpy1fnunu",
 }))
@@ -286,9 +278,7 @@ var sdk = new HathoraCloudSDK(
 
 using(var res = await sdk.LobbyV2.SetLobbyStateAsync(new SetLobbyStateRequest() {
     SetLobbyStateParams = new SetLobbyStateParams() {
-        State = new Dictionary<string, object>() {
-            { "Diesel", "Gender" },
-        },
+        State = new SetLobbyStateParamsState() {},
     },
     RoomId = "2swovpy1fnunu",
 }))

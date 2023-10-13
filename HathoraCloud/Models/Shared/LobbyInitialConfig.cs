@@ -10,20 +10,14 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
-    using Newtonsoft.Json;
     using System;
     using UnityEngine;
     
+    /// <summary>
+    /// User input to initialize the game state. Object must be smaller than 64KB.
+    /// </summary>
     [Serializable]
-    public class SetLobbyStateParams
+    public class LobbyInitialConfig
     {
-
-        /// <summary>
-        /// JSON blob to store metadata for a room. Must be smaller than 1MB.
-        /// </summary>
-        [SerializeField]
-        [JsonProperty("state")]
-        public SetLobbyStateParamsState State { get; set; } = default!;
-        
     }
 }

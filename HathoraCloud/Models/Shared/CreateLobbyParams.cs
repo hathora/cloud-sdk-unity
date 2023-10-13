@@ -11,7 +11,6 @@
 namespace HathoraCloud.Models.Shared
 {
     using Newtonsoft.Json;
-    using System.Collections.Generic;
     using System;
     using UnityEngine;
     
@@ -24,7 +23,7 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("initialConfig")]
-        public Dictionary<string, object> InitialConfig { get; set; } = default!;
+        public LobbyInitialConfig InitialConfig { get; set; } = default!;
         
 
         [SerializeField]

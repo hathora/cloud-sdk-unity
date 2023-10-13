@@ -181,9 +181,12 @@ HathoraCloud/Models/Shared/CreateBuildParams.cs
 HathoraCloud/Models/Shared/DeploymentConfigEnv.cs
 HathoraCloud/Models/Shared/DeploymentConfig.cs
 HathoraCloud/Models/Shared/DiscoveryResponse.cs
+HathoraCloud/Models/Shared/LobbyState.cs
 HathoraCloud/Models/Shared/Lobby.cs
 HathoraCloud/Models/Shared/LobbyVisibility.cs
+HathoraCloud/Models/Shared/LobbyInitialConfig.cs
 HathoraCloud/Models/Shared/CreateLobbyParams.cs
+HathoraCloud/Models/Shared/SetLobbyStateParamsState.cs
 HathoraCloud/Models/Shared/SetLobbyStateParams.cs
 HathoraCloud/Models/Shared/LobbyV3.cs
 HathoraCloud/Models/Shared/CreateLobbyV3Params.cs
@@ -359,9 +362,12 @@ docs/models/shared/CreateBuildParams.md
 docs/models/shared/DeploymentConfigEnv.md
 docs/models/shared/DeploymentConfig.md
 docs/models/shared/DiscoveryResponse.md
+docs/models/shared/LobbyState.md
 docs/models/shared/Lobby.md
 docs/models/shared/LobbyVisibility.md
+docs/models/shared/LobbyInitialConfig.md
 docs/models/shared/CreateLobbyParams.md
+docs/models/shared/SetLobbyStateParamsState.md
 docs/models/shared/SetLobbyStateParams.md
 docs/models/shared/LobbyV3.md
 docs/models/shared/CreateLobbyV3Params.md

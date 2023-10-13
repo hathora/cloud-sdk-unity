@@ -3,7 +3,7 @@
 
 ## Overview
 
-Deprecated. Use LobbyV3.
+Deprecated. Use [LobbyV3](https://hathora.dev/api#tag/LobbyV3).
 
 ### Available Operations
 

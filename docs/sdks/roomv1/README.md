@@ -3,7 +3,7 @@
 
 ## Overview
 
-Deprecated. Use RoomV2.
+Deprecated. Use [RoomV2](https://hathora.dev/api#tag/RoomV2).
 
 ### Available Operations
 

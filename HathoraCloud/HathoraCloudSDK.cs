@@ -49,12 +49,12 @@ namespace HathoraCloud
         public IDiscoveryV1SDK DiscoveryV1 { get; }
 
         /// <summary>
-        /// Deprecated. Use LobbyV3.
+        /// Deprecated. Use <a href="https://hathora.dev/api#tag/LobbyV3">LobbyV3</a>.
         /// </summary>
         public ILobbyV1SDK LobbyV1 { get; }
 
         /// <summary>
-        /// Deprecated. Use LobbyV3.
+        /// Deprecated. Use <a href="https://hathora.dev/api#tag/LobbyV3">LobbyV3</a>.
         /// </summary>
         public ILobbyV2SDK LobbyV2 { get; }
 
@@ -80,7 +80,7 @@ namespace HathoraCloud
         public IProcessesV1SDK ProcessesV1 { get; }
 
         /// <summary>
-        /// Deprecated. Use RoomV2.
+        /// Deprecated. Use <a href="https://hathora.dev/api#tag/RoomV2">RoomV2</a>.
         /// </summary>
         public IRoomV1SDK RoomV1 { get; }
 
@@ -108,10 +108,10 @@ namespace HathoraCloud
         };
 
         private const string _target = "unity";
-        private const string _sdkVersion = "0.21.3";
-        private const string _sdkGenVersion = "2.150.0";
+        private const string _sdkVersion = "0.21.4";
+        private const string _sdkGenVersion = "2.154.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.21.3 2.150.0 0.0.1 hathora-unity-sdk";
+        private const string _userAgent = "speakeasy-sdk/unity 0.21.4 2.154.1 0.0.1 hathora-unity-sdk";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
