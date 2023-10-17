@@ -15,7 +15,7 @@ namespace HathoraCloud.Models.Shared
     using UnityEngine;
     
     /// <summary>
-    /// Types of lobbies a player can create.&lt;br/&gt;
+    /// Types of lobbies a player can create.<br/>
     /// 
     /// <remarks>
     /// <br/>

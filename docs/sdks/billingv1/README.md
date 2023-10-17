@@ -1,4 +1,5 @@
 # BillingV1
+(*BillingV1*)
 
 ### Available Operations
 
@@ -104,8 +105,8 @@ var sdk = new HathoraCloudSDK(
 );
 
 using(var res = await sdk.BillingV1.InitStripeCustomerPortalUrlAsync(new CustomerPortalUrl() {
-        ReturnUrl = "unde",
-    }))
+    ReturnUrl = "ivory",
+}))
 {
     // handle response
 }

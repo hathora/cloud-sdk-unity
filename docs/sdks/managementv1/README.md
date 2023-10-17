@@ -1,4 +1,5 @@
 # ManagementV1
+(*ManagementV1*)
 
 ### Available Operations
 
@@ -20,8 +21,8 @@ var sdk = new HathoraCloudSDK(
 );
 
 using(var res = await sdk.ManagementV1.SendVerificationEmailAsync(new VerificationEmailRequest() {
-        UserId = "suscipit",
-    }))
+    UserId = "off Hybrid grounded",
+}))
 {
     // handle response
 }

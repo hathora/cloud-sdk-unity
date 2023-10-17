@@ -143,7 +143,7 @@ namespace HathoraCloud.Models.Shared
         
 
         /// <summary>
-        /// Governs how many &lt;a href=&quot;https://hathora.dev/docs/concepts/hathora-entities#room&quot;&gt;rooms&lt;/a&gt; can be scheduled in a process.
+        /// Governs how many <a href="https://hathora.dev/docs/concepts/hathora-entities#room">rooms</a> can be scheduled in a process.
         /// </summary>
         [SerializeField]
         [JsonProperty("roomsPerProcess")]

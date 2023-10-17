@@ -10,28 +10,22 @@
 #nullable enable
 namespace HathoraCloud.Models.Operations
 {
-    using HathoraCloud.Models.Shared;
     using HathoraCloud.Utils;
     using System;
     using UnityEngine;
     
     [Serializable]
-    public class ListActivePublicLobbiesDeprecatedRequest
+    public class GetLobbyInfoByShortCodeRequest
     {
+
+        [SerializeField]
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=shortCode")]
+        public string ShortCode { get; set; } = default!;
+        
 
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
         public string? AppId { get; set; }
-        
-
-        [SerializeField]
-        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=local")]
-        public bool? Local { get; set; }
-        
-
-        [SerializeField]
-        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=region")]
-        public Region? Region { get; set; }
         
     }
 }

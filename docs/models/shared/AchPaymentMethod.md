@@ -5,5 +5,5 @@
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `bankName`         | *string*           | :heavy_minus_sign: | N/A                |
-| `last4`            | *string*           | :heavy_minus_sign: | N/A                |
+| `BankName`         | *string*           | :heavy_minus_sign: | N/A                |
+| `Last4`            | *string*           | :heavy_minus_sign: | N/A                |

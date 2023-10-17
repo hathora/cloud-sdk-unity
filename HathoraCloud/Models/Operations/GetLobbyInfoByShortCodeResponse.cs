@@ -11,13 +11,12 @@
 namespace HathoraCloud.Models.Operations
 {
     using HathoraCloud.Models.Shared;
-    using System.Collections.Generic;
     using System;
     using UnityEngine.Networking;
     using UnityEngine;
     
     [Serializable]
-    public class ListActivePublicLobbiesDeprecatedResponse: IDisposable
+    public class GetLobbyInfoByShortCodeResponse: IDisposable
     {
 
         /// <summary>
@@ -28,18 +27,14 @@ namespace HathoraCloud.Models.Operations
         
 
         [SerializeField]
-        public string? ListActivePublicLobbiesDeprecated401ApplicationJSONString { get; set; }
-        
-
-        [SerializeField]
-        public string? ListActivePublicLobbiesDeprecated404ApplicationJSONString { get; set; }
+        public string? GetLobbyInfoByShortCode404ApplicationJSONString { get; set; }
         
 
         /// <summary>
         /// Ok
         /// </summary>
         [SerializeField]
-        public List<Lobby>? Lobbies { get; set; }
+        public LobbyV3? LobbyV3 { get; set; }
         
 
         /// <summary>

@@ -19,7 +19,7 @@ namespace HathoraCloud.Models.Shared
     {
 
         /// <summary>
-        /// A Google-signed OIDC ID token representing a player&amp;apos;s authenticated identity. Learn how to get an `idToken` &lt;a href=&quot;https://cloud.google.com/docs/authentication/get-id-token&quot;&gt;here&lt;/a&gt;.
+        /// A Google-signed OIDC ID token representing a player&apos;s authenticated identity. Learn how to get an `idToken` <a href="https://cloud.google.com/docs/authentication/get-id-token">here</a>.
         /// </summary>
         [SerializeField]
         [JsonProperty("idToken")]

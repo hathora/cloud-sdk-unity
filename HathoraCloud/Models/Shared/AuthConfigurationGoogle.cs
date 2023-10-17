@@ -22,7 +22,7 @@ namespace HathoraCloud.Models.Shared
     {
 
         /// <summary>
-        /// A Google generated token representing the developer&amp;apos;s credentials for &lt;a href=&quot;https://console.cloud.google.com/apis/dashboard?pli=1&amp;amp;project=discourse-login-388921&quot;&gt;Google&amp;apos;s API Console&lt;/a&gt;. Learn how to get a `clientId` &lt;a href=&quot;https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid&quot;&gt;here&lt;/a&gt;.
+        /// A Google generated token representing the developer&apos;s credentials for <a href="https://console.cloud.google.com/apis/dashboard?pli=1&amp;project=discourse-login-388921">Google&apos;s API Console</a>. Learn how to get a `clientId` <a href="https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid">here</a>.
         /// </summary>
         [SerializeField]
         [JsonProperty("clientId")]

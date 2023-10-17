@@ -15,7 +15,7 @@ namespace HathoraCloud.Models.Shared
     using UnityEngine;
     
     /// <summary>
-    /// A plan defines how much CPU and memory is required to run an instance of your game server.&lt;br/&gt;
+    /// A plan defines how much CPU and memory is required to run an instance of your game server.<br/>
     /// 
     /// <remarks>
     /// <br/>

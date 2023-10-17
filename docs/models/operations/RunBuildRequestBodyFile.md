@@ -5,5 +5,5 @@
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `content`          | *byte[]*           | :heavy_check_mark: | N/A                |
-| `file`             | *string*           | :heavy_check_mark: | N/A                |
+| `Content`          | *byte[]*           | :heavy_check_mark: | N/A                |
+| `File`             | *string*           | :heavy_check_mark: | N/A                |

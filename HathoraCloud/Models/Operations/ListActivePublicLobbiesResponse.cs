@@ -31,7 +31,7 @@ namespace HathoraCloud.Models.Operations
         /// Ok
         /// </summary>
         [SerializeField]
-        public List<Lobby>? Lobbies { get; set; }
+        public List<LobbyV3>? LobbyV3s { get; set; }
         
 
         /// <summary>

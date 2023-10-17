@@ -5,4 +5,4 @@
 
 | Field                           | Type                            | Required                        | Description                     | Example                         |
 | ------------------------------- | ------------------------------- | ------------------------------- | ------------------------------- | ------------------------------- |
-| `nickname`                      | *string*                        | :heavy_check_mark:              | An alias to represent a player. | squiddytwoshoes                 |
+| `Nickname`                      | *string*                        | :heavy_check_mark:              | An alias to represent a player. | squiddytwoshoes                 |

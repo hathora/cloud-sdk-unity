@@ -5,5 +5,5 @@
 
 | Field                                         | Type                                          | Required                                      | Description                                   |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| `brand`                                       | [CardBrand](../../models/shared/CardBrand.md) | :heavy_check_mark:                            | N/A                                           |
-| `last4`                                       | *string*                                      | :heavy_check_mark:                            | N/A                                           |
+| `Brand`                                       | [CardBrand](../../models/shared/CardBrand.md) | :heavy_check_mark:                            | N/A                                           |
+| `Last4`                                       | *string*                                      | :heavy_check_mark:                            | N/A                                           |

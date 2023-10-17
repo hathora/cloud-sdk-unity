@@ -8,30 +8,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace HathoraCloud.Models.Shared
+namespace HathoraCloud.Models.Operations
 {
-    using Newtonsoft.Json;
+    using HathoraCloud.Utils;
     using System;
     using UnityEngine;
     
-    /// <summary>
-    /// Connection information to the default port.
-    /// </summary>
     [Serializable]
-    public class StartingConnectionInfo
+    public class GetLobbyInfoByRoomIdRequest
     {
 
-        /// <summary>
-        /// Unique identifier to a game session or match. Use the default system generated ID or overwrite it with your own.
-        /// </summary>
         [SerializeField]
-        [JsonProperty("roomId")]
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=roomId")]
         public string RoomId { get; set; } = default!;
         
 
         [SerializeField]
-        [JsonProperty("status")]
-        public StartingConnectionInfoStatus Status { get; set; } = default!;
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
+        public string? AppId { get; set; }
         
     }
 }

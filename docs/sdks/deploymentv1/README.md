@@ -1,4 +1,5 @@
 # DeploymentV1
+(*DeploymentV1*)
 
 ## Overview
 
@@ -29,27 +30,27 @@ var sdk = new HathoraCloudSDK(
 );
 
 using(var res = await sdk.DeploymentV1.CreateDeploymentAsync(new CreateDeploymentRequest() {
-        DeploymentConfig = new DeploymentConfig() {
-            AdditionalContainerPorts = new List<ContainerPort>() {
-                new ContainerPort() {
-                    Name = "default",
-                    Port = 8000,
-                    TransportType = HathoraCloud.Models.Shared.TransportType.Tls,
-                },
+    DeploymentConfig = new DeploymentConfig() {
+        AdditionalContainerPorts = new List<ContainerPort>() {
+            new ContainerPort() {
+                Name = "default",
+                Port = 8000,
+                TransportType = HathoraCloud.Models.Shared.TransportType.Udp,
             },
-            ContainerPort = 4000,
-            Env = new List<DeploymentConfigEnv>() {
-                new DeploymentConfigEnv() {
-                    Name = "EULA",
-                    Value = "TRUE",
-                },
-            },
-            PlanName = HathoraCloud.Models.Shared.PlanName.Tiny,
-            RoomsPerProcess = 3,
-            TransportType = HathoraCloud.Models.Shared.TransportType.Udp,
         },
-        BuildId = 1,
-    }))
+        ContainerPort = 4000,
+        Env = new List<DeploymentConfigEnv>() {
+            new DeploymentConfigEnv() {
+                Name = "EULA",
+                Value = "TRUE",
+            },
+        },
+        PlanName = HathoraCloud.Models.Shared.PlanName.Tiny,
+        RoomsPerProcess = 3,
+        TransportType = HathoraCloud.Models.Shared.TransportType.Tcp,
+    },
+    BuildId = 1,
+}))
 {
     // handle response
 }
@@ -86,8 +87,8 @@ var sdk = new HathoraCloudSDK(
 );
 
 using(var res = await sdk.DeploymentV1.GetDeploymentInfoAsync(new GetDeploymentInfoRequest() {
-        DeploymentId = 1,
-    }))
+    DeploymentId = 1,
+}))
 {
     // handle response
 }

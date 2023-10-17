@@ -1,4 +1,5 @@
 # AppV1
+(*AppV1*)
 
 ## Overview
 
@@ -30,15 +31,15 @@ var sdk = new HathoraCloudSDK(
 );
 
 using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
-        AppName = "minecraft",
-        AuthConfiguration = new AuthConfiguration() {
-            Anonymous = new RecordStringNever() {},
-            Google = new AuthConfigurationGoogle() {
-                ClientId = "distinctio",
-            },
-            Nickname = new RecordStringNever() {},
+    AppName = "minecraft",
+    AuthConfiguration = new AuthConfiguration() {
+        Anonymous = new RecordStringNever() {},
+        Google = new AuthConfigurationGoogle() {
+            ClientId = "models ah Southeast",
         },
-    }))
+        Nickname = new RecordStringNever() {},
+    },
+}))
 {
     // handle response
 }
@@ -176,17 +177,17 @@ var sdk = new HathoraCloudSDK(
 );
 
 using(var res = await sdk.AppV1.UpdateAppAsync(new UpdateAppRequest() {
-        AppConfig = new AppConfig() {
-            AppName = "minecraft",
-            AuthConfiguration = new AuthConfiguration() {
-                Anonymous = new RecordStringNever() {},
-                Google = new AuthConfigurationGoogle() {
-                    ClientId = "quibusdam",
-                },
-                Nickname = new RecordStringNever() {},
+    AppConfig = new AppConfig() {
+        AppName = "minecraft",
+        AuthConfiguration = new AuthConfiguration() {
+            Anonymous = new RecordStringNever() {},
+            Google = new AuthConfigurationGoogle() {
+                ClientId = "Lane",
             },
+            Nickname = new RecordStringNever() {},
         },
-    }))
+    },
+}))
 {
     // handle response
 }

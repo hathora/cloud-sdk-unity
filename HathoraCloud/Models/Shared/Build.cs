@@ -44,7 +44,7 @@ namespace HathoraCloud.Models.Shared
         
 
         /// <summary>
-        /// When &lt;a href=&quot;&quot;&gt;`CreateBuild()`&lt;/a&gt; is called.
+        /// When <a href="">`CreateBuild()`</a> is called.
         /// </summary>
         [SerializeField]
         [JsonProperty("createdAt")]
@@ -68,7 +68,7 @@ namespace HathoraCloud.Models.Shared
         
 
         /// <summary>
-        /// When &lt;a href=&quot;&quot;&gt;`RunBuild()`&lt;/a&gt; finished executing.
+        /// When <a href="">`RunBuild()`</a> finished executing.
         /// </summary>
         [SerializeField]
         [JsonProperty("finishedAt")]
@@ -84,7 +84,7 @@ namespace HathoraCloud.Models.Shared
         
 
         /// <summary>
-        /// Identifiers for the containers stored in Hathora&amp;apos;s registries.
+        /// Identifiers for the containers stored in Hathora&apos;s registries.
         /// </summary>
         [SerializeField]
         [JsonProperty("regionalContainerTags")]
@@ -92,7 +92,7 @@ namespace HathoraCloud.Models.Shared
         
 
         /// <summary>
-        /// When &lt;a href=&quot;&quot;&gt;`RunBuild()`&lt;/a&gt; is called.
+        /// When <a href="">`RunBuild()`</a> is called.
         /// </summary>
         [SerializeField]
         [JsonProperty("startedAt")]
@@ -100,7 +100,7 @@ namespace HathoraCloud.Models.Shared
         
 
         /// <summary>
-        /// Current status of your build.&lt;br/&gt;
+        /// Current status of your build.<br/>
         /// 
         /// <remarks>
         /// <br/>

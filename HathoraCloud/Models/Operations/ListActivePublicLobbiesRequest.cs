@@ -25,7 +25,7 @@ namespace HathoraCloud.Models.Operations
         
 
         /// <summary>
-        /// Region to filter by. If omitted, active public lobbies in all regions will be returned.
+        /// If omitted, active public lobbies in all regions will be returned.
         /// </summary>
         [SerializeField]
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=region")]
