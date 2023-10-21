@@ -21,7 +21,7 @@ var sdk = new HathoraCloudSDK(
 );
 
 using(var res = await sdk.ManagementV1.SendVerificationEmailAsync(new VerificationEmailRequest() {
-    UserId = "off Hybrid grounded",
+    UserId = "string",
 }))
 {
     // handle response
