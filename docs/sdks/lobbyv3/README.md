@@ -35,6 +35,7 @@ using(var res = await sdk.LobbyV3.CreateLobbyAsync(new CreateLobbySecurity() {
         RoomConfig = "{\"name\":\"my-room\"}",
         Visibility = HathoraCloud.Models.Shared.LobbyVisibility.Private,
     },
+    RoomId = "2swovpy1fnunu",
     ShortCode = "LFG4",
 }))
 {

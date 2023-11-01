@@ -2,7 +2,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>hathora-unity-sdk</PackageId>
-    <Version>0.22.0</Version>
+    <Version>0.22.1</Version>
     <Authors>Hathora</Authors>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
