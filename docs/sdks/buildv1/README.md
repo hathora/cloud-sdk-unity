@@ -187,7 +187,7 @@ using(var res = await sdk.BuildV1.RunBuildAsync(new RunBuildRequest() {
     RequestBody = new RunBuildRequestBody() {
         File = new RunBuildRequestBodyFile() {
             Content = "Ukkktj?kA= as bytes <<<>>>",
-            File = "times Mini",
+            File = "string",
         },
     },
     BuildId = 1,
