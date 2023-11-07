@@ -22,10 +22,10 @@ To do so open the Package Manager via `Window > Package Manager` and click the `
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -36,7 +36,7 @@ using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
     AppName = "minecraft",
     AuthConfiguration = new AuthConfiguration() {
         Anonymous = new RecordStringNever() {},
-        Google = new AuthConfigurationGoogle() {
+        Google = new Google() {
             ClientId = "string",
         },
         Nickname = new RecordStringNever() {},
@@ -52,7 +52,7 @@ using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
 ## Available Resources and Operations
 
 
-### [AppV1](docs/sdks/appv1/README.md)
+### [.AppV1](docs/sdks/appv1/README.md)
 
 * [CreateApp](docs/sdks/appv1/README.md#createapp) - Create a new [application](https://hathora.dev/docs/concepts/hathora-entities#application).
 * [DeleteApp](docs/sdks/appv1/README.md#deleteapp) - Delete an [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Your organization will lose access to this application.
@@ -60,20 +60,20 @@ using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
 * [GetApps](docs/sdks/appv1/README.md#getapps) - Returns an unsorted list of your organization’s [applications](https://hathora.dev/docs/concepts/hathora-entities#application). An application is uniquely identified by an `appId`.
 * [UpdateApp](docs/sdks/appv1/README.md#updateapp) - Update data for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`.
 
-### [AuthV1](docs/sdks/authv1/README.md)
+### [.AuthV1](docs/sdks/authv1/README.md)
 
 * [LoginAnonymous](docs/sdks/authv1/README.md#loginanonymous) - Returns a unique player token for an anonymous user.
 * [LoginGoogle](docs/sdks/authv1/README.md#logingoogle) - Returns a unique player token using a Google-signed OIDC `idToken`.
 * [LoginNickname](docs/sdks/authv1/README.md#loginnickname) - Returns a unique player token with a specified nickname for a user.
 
-### [BillingV1](docs/sdks/billingv1/README.md)
+### [.BillingV1](docs/sdks/billingv1/README.md)
 
 * [GetBalance](docs/sdks/billingv1/README.md#getbalance)
 * [GetInvoices](docs/sdks/billingv1/README.md#getinvoices)
 * [GetPaymentMethod](docs/sdks/billingv1/README.md#getpaymentmethod)
 * [InitStripeCustomerPortalUrl](docs/sdks/billingv1/README.md#initstripecustomerportalurl)
 
-### [BuildV1](docs/sdks/buildv1/README.md)
+### [.BuildV1](docs/sdks/buildv1/README.md)
 
 * [CreateBuild](docs/sdks/buildv1/README.md#createbuild) - Creates a new [build](https://hathora.dev/docs/concepts/hathora-entities#build). Responds with a `buildId` that you must pass to [`RunBuild()`](https://hathora.dev/api#tag/BuildV1/operation/RunBuild) to build the game server artifact. You can optionally pass in a `buildTag` to associate an external version with a build.
 * [DeleteBuild](docs/sdks/buildv1/README.md#deletebuild) - Delete a [build](https://hathora.dev/docs/concepts/hathora-entities#build). All associated metadata is deleted.
@@ -81,23 +81,23 @@ using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
 * [GetBuilds](docs/sdks/buildv1/README.md#getbuilds) - Returns an array of [builds](https://hathora.dev/docs/concepts/hathora-entities#build) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application).
 * [RunBuild](docs/sdks/buildv1/README.md#runbuild) - Builds a game server artifact from a tarball you provide. Pass in the `buildId` generated from [`CreateBuild()`](https://hathora.dev/api#tag/BuildV1/operation/CreateBuild).
 
-### [DeploymentV1](docs/sdks/deploymentv1/README.md)
+### [.DeploymentV1](docs/sdks/deploymentv1/README.md)
 
 * [CreateDeployment](docs/sdks/deploymentv1/README.md#createdeployment) - Create a new [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment). Creating a new deployment means all new rooms created will use the latest deployment configuration, but existing games in progress will not be affected.
 * [GetDeploymentInfo](docs/sdks/deploymentv1/README.md#getdeploymentinfo) - Get details for a [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment).
 * [GetDeployments](docs/sdks/deploymentv1/README.md#getdeployments) - Returns an array of [deployments](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application).
 
-### [DiscoveryV1](docs/sdks/discoveryv1/README.md)
+### [.DiscoveryV1](docs/sdks/discoveryv1/README.md)
 
 * [GetPingServiceEndpoints](docs/sdks/discoveryv1/README.md#getpingserviceendpoints) - Returns an array of all regions with a host and port that a client can directly ping. Open a websocket connection to `wss://<host>:<port>/ws` and send a packet. To calculate ping, measure the time it takes to get an echo packet back.
 
-### [LobbyV1](docs/sdks/lobbyv1/README.md)
+### [.LobbyV1](docs/sdks/lobbyv1/README.md)
 
 * [~~CreatePrivateLobbyDeprecated~~](docs/sdks/lobbyv1/README.md#createprivatelobbydeprecated) - :warning: **Deprecated**
 * [~~CreatePublicLobbyDeprecated~~](docs/sdks/lobbyv1/README.md#createpubliclobbydeprecated) - :warning: **Deprecated**
 * [~~ListActivePublicLobbiesDeprecatedV1~~](docs/sdks/lobbyv1/README.md#listactivepubliclobbiesdeprecatedv1) - :warning: **Deprecated**
 
-### [LobbyV2](docs/sdks/lobbyv2/README.md)
+### [.LobbyV2](docs/sdks/lobbyv2/README.md)
 
 * [CreateLobbyDeprecated](docs/sdks/lobbyv2/README.md#createlobbydeprecated) - Create a new lobby for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). A lobby object is a wrapper around a [room](https://hathora.dev/docs/concepts/hathora-entities#room) object. With a lobby, you get additional functionality like configuring the visibility of the room, managing the state of a match, and retrieving a list of public lobbies to display to players.
 * [~~CreateLocalLobby~~](docs/sdks/lobbyv2/README.md#createlocallobby) - :warning: **Deprecated**
@@ -107,34 +107,34 @@ using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
 * [ListActivePublicLobbiesDeprecatedV2](docs/sdks/lobbyv2/README.md#listactivepubliclobbiesdeprecatedv2) - Get all active lobbies for a an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter by optionally passing in a `region`. Use this endpoint to display all public lobbies that a player can join in the game client.
 * [SetLobbyState](docs/sdks/lobbyv2/README.md#setlobbystate) - Set the state of a lobby. State is intended to be set by the server and must be smaller than 1MB. Use this endpoint to store match data like live player count to enforce max number of clients or persist end-game data (i.e. winner or final scores).
 
-### [LobbyV3](docs/sdks/lobbyv3/README.md)
+### [.LobbyV3](docs/sdks/lobbyv3/README.md)
 
 * [CreateLobby](docs/sdks/lobbyv3/README.md#createlobby) - Create a new lobby for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). A lobby object is a wrapper around a [room](https://hathora.dev/docs/concepts/hathora-entities#room) object. With a lobby, you get additional functionality like configuring the visibility of the room, managing the state of a match, and retrieving a list of public lobbies to display to players.
 * [GetLobbyInfoByRoomId](docs/sdks/lobbyv3/README.md#getlobbyinfobyroomid) - Get details for a lobby.
 * [GetLobbyInfoByShortCode](docs/sdks/lobbyv3/README.md#getlobbyinfobyshortcode) - Get details for a lobby. If 2 or more lobbies have the same `shortCode`, then the most recently created lobby will be returned.
 * [ListActivePublicLobbies](docs/sdks/lobbyv3/README.md#listactivepubliclobbies) - Get all active lobbies for a given [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `region`. Use this endpoint to display all public lobbies that a player can join in the game client.
 
-### [LogV1](docs/sdks/logv1/README.md)
+### [.LogV1](docs/sdks/logv1/README.md)
 
 * [~~GetLogsForApp~~](docs/sdks/logv1/README.md#getlogsforapp) - Returns a stream of logs for an [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. :warning: **Deprecated**
 * [~~GetLogsForDeployment~~](docs/sdks/logv1/README.md#getlogsfordeployment) - Returns a stream of logs for a [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment) using `appId` and `deploymentId`. :warning: **Deprecated**
 * [GetLogsForProcess](docs/sdks/logv1/README.md#getlogsforprocess) - Returns a stream of logs for a [process](https://hathora.dev/docs/concepts/hathora-entities#process) using `appId` and `processId`.
 
-### [ManagementV1](docs/sdks/managementv1/README.md)
+### [.ManagementV1](docs/sdks/managementv1/README.md)
 
 * [SendVerificationEmail](docs/sdks/managementv1/README.md#sendverificationemail)
 
-### [MetricsV1](docs/sdks/metricsv1/README.md)
+### [.MetricsV1](docs/sdks/metricsv1/README.md)
 
 * [GetMetrics](docs/sdks/metricsv1/README.md#getmetrics) - Get metrics for a [process](https://hathora.dev/docs/concepts/hathora-entities#process) using `appId` and `processId`.
 
-### [ProcessesV1](docs/sdks/processesv1/README.md)
+### [.ProcessesV1](docs/sdks/processesv1/README.md)
 
 * [GetProcessInfo](docs/sdks/processesv1/README.md#getprocessinfo) - Get details for a [process](https://hathora.dev/docs/concepts/hathora-entities#process).
 * [GetRunningProcesses](docs/sdks/processesv1/README.md#getrunningprocesses) - Retrieve 10 most recently started [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `region`.
 * [GetStoppedProcesses](docs/sdks/processesv1/README.md#getstoppedprocesses) - Retrieve 10 most recently stopped [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `region`.
 
-### [RoomV1](docs/sdks/roomv1/README.md)
+### [.RoomV1](docs/sdks/roomv1/README.md)
 
 * [~~CreateRoomDeprecated~~](docs/sdks/roomv1/README.md#createroomdeprecated) - :warning: **Deprecated**
 * [~~DestroyRoomDeprecated~~](docs/sdks/roomv1/README.md#destroyroomdeprecated) - :warning: **Deprecated**
@@ -144,7 +144,7 @@ using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
 * [~~GetRoomInfoDeprecated~~](docs/sdks/roomv1/README.md#getroominfodeprecated) - :warning: **Deprecated**
 * [~~SuspendRoomDeprecated~~](docs/sdks/roomv1/README.md#suspendroomdeprecated) - :warning: **Deprecated**
 
-### [RoomV2](docs/sdks/roomv2/README.md)
+### [.RoomV2](docs/sdks/roomv2/README.md)
 
 * [CreateRoom](docs/sdks/roomv2/README.md#createroom) - Create a new [room](https://hathora.dev/docs/concepts/hathora-entities#room) for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application). Poll the [`GetConnectionInfo()`](https://hathora.dev/api#tag/RoomV2/operation/GetConnectionInfo) endpoint to get connection details for an active room.
 * [DestroyRoom](docs/sdks/roomv2/README.md#destroyroom) - Destroy a [room](https://hathora.dev/docs/concepts/hathora-entities#room). All associated metadata is deleted.
@@ -185,11 +185,11 @@ The following global parameter is available.
 ## Example
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },

@@ -1,5 +1,5 @@
 # ManagementV1
-(*ManagementV1*)
+(*.ManagementV1*)
 
 ### Available Operations
 
@@ -10,10 +10,10 @@
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },

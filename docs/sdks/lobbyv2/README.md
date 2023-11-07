@@ -1,5 +1,5 @@
 # LobbyV2
-(*LobbyV2*)
+(*.LobbyV2*)
 
 ## Overview
 
@@ -22,11 +22,11 @@ Create a new lobby for an [application](https://hathora.dev/docs/concepts/hathor
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Operations;
-using HathoraCloud.Models.Shared;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Operations;
+using HathoraUnitySDK.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
 );
 
@@ -35,8 +35,8 @@ using(var res = await sdk.LobbyV2.CreateLobbyDeprecatedAsync(new CreateLobbyDepr
 }, new CreateLobbyDeprecatedRequest() {
     CreateLobbyParams = new CreateLobbyParams() {
         InitialConfig = new LobbyInitialConfig() {},
-        Region = HathoraCloud.Models.Shared.Region.Tokyo,
-        Visibility = HathoraCloud.Models.Shared.LobbyVisibility.Private,
+        Region = Region.Tokyo,
+        Visibility = LobbyVisibility.Private,
     },
     RoomId = "2swovpy1fnunu",
 }))
@@ -65,11 +65,11 @@ using(var res = await sdk.LobbyV2.CreateLobbyDeprecatedAsync(new CreateLobbyDepr
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Operations;
-using HathoraCloud.Models.Shared;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Operations;
+using HathoraUnitySDK.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
 );
 
@@ -78,7 +78,7 @@ using(var res = await sdk.LobbyV2.CreateLocalLobbyAsync(new CreateLocalLobbySecu
 }, new CreateLocalLobbyRequest() {
     RequestBody = new CreateLocalLobbyRequestBody() {
         InitialConfig = new LobbyInitialConfig() {},
-        Region = HathoraCloud.Models.Shared.Region.Sydney,
+        Region = Region.Sydney,
     },
     RoomId = "2swovpy1fnunu",
 }))
@@ -107,11 +107,11 @@ using(var res = await sdk.LobbyV2.CreateLocalLobbyAsync(new CreateLocalLobbySecu
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Operations;
-using HathoraCloud.Models.Shared;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Operations;
+using HathoraUnitySDK.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
 );
 
@@ -120,7 +120,7 @@ using(var res = await sdk.LobbyV2.CreatePrivateLobbyAsync(new CreatePrivateLobby
 }, new CreatePrivateLobbyRequest() {
     RequestBody = new CreatePrivateLobbyRequestBody() {
         InitialConfig = new LobbyInitialConfig() {},
-        Region = HathoraCloud.Models.Shared.Region.Chicago,
+        Region = Region.Chicago,
     },
     RoomId = "2swovpy1fnunu",
 }))
@@ -149,11 +149,11 @@ using(var res = await sdk.LobbyV2.CreatePrivateLobbyAsync(new CreatePrivateLobby
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Operations;
-using HathoraCloud.Models.Shared;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Operations;
+using HathoraUnitySDK.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
 );
 
@@ -162,7 +162,7 @@ using(var res = await sdk.LobbyV2.CreatePublicLobbyAsync(new CreatePublicLobbySe
 }, new CreatePublicLobbyRequest() {
     RequestBody = new CreatePublicLobbyRequestBody() {
         InitialConfig = new LobbyInitialConfig() {},
-        Region = HathoraCloud.Models.Shared.Region.Sydney,
+        Region = Region.Sydney,
     },
     RoomId = "2swovpy1fnunu",
 }))
@@ -191,11 +191,11 @@ Get details for a lobby.
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -229,11 +229,11 @@ Get all active lobbies for a an [application](https://hathora.dev/docs/concepts/
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -265,11 +265,11 @@ Set the state of a lobby. State is intended to be set by the server and must be 
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
