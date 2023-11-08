@@ -1,5 +1,5 @@
 # DeploymentV1
-(*DeploymentV1*)
+(*.DeploymentV1*)
 
 ## Overview
 
@@ -18,11 +18,12 @@ Create a new [deployment](https://hathora.dev/docs/concepts/hathora-entities#dep
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -35,7 +36,7 @@ using(var res = await sdk.DeploymentV1.CreateDeploymentAsync(new CreateDeploymen
             new ContainerPort() {
                 Name = "default",
                 Port = 8000,
-                TransportType = HathoraCloud.Models.Shared.TransportType.Udp,
+                TransportType = TransportType.Udp,
             },
         },
         ContainerPort = 4000,
@@ -45,9 +46,9 @@ using(var res = await sdk.DeploymentV1.CreateDeploymentAsync(new CreateDeploymen
                 Value = "TRUE",
             },
         },
-        PlanName = HathoraCloud.Models.Shared.PlanName.Tiny,
+        PlanName = PlanName.Tiny,
         RoomsPerProcess = 3,
-        TransportType = HathoraCloud.Models.Shared.TransportType.Tcp,
+        TransportType = TransportType.Tcp,
     },
     BuildId = 1,
 }))
@@ -75,11 +76,11 @@ Get details for a [deployment](https://hathora.dev/docs/concepts/hathora-entitie
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -113,11 +114,11 @@ Returns an array of [deployments](https://hathora.dev/docs/concepts/hathora-enti
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },

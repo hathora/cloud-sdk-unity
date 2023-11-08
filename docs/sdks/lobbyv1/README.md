@@ -1,5 +1,5 @@
 # LobbyV1
-(*LobbyV1*)
+(*.LobbyV1*)
 
 ## Overview
 
@@ -18,11 +18,11 @@ Deprecated. Use [LobbyV3](https://hathora.dev/api#tag/LobbyV3).
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Operations;
-using HathoraCloud.Models.Shared;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Operations;
+using HathoraUnitySDK.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
 );
 
@@ -54,11 +54,11 @@ using(var res = await sdk.LobbyV1.CreatePrivateLobbyDeprecatedAsync(new CreatePr
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Operations;
-using HathoraCloud.Models.Shared;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Operations;
+using HathoraUnitySDK.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
 );
 
@@ -90,11 +90,11 @@ using(var res = await sdk.LobbyV1.CreatePublicLobbyDeprecatedAsync(new CreatePub
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },

@@ -1,5 +1,5 @@
 # AppV1
-(*AppV1*)
+(*.AppV1*)
 
 ## Overview
 
@@ -20,10 +20,10 @@ Create a new [application](https://hathora.dev/docs/concepts/hathora-entities#ap
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -34,7 +34,7 @@ using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
     AppName = "minecraft",
     AuthConfiguration = new AuthConfiguration() {
         Anonymous = new RecordStringNever() {},
-        Google = new AuthConfigurationGoogle() {
+        Google = new Google() {
             ClientId = "string",
         },
         Nickname = new RecordStringNever() {},
@@ -64,11 +64,11 @@ Delete an [application](https://hathora.dev/docs/concepts/hathora-entities#appli
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -100,11 +100,11 @@ Get details for an [application](https://hathora.dev/docs/concepts/hathora-entit
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -136,10 +136,10 @@ Returns an unsorted list of your organization’s [applications](https://hathora
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -165,11 +165,11 @@ Update data for an existing [application](https://hathora.dev/docs/concepts/hath
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -181,7 +181,7 @@ using(var res = await sdk.AppV1.UpdateAppAsync(new UpdateAppRequest() {
         AppName = "minecraft",
         AuthConfiguration = new AuthConfiguration() {
             Anonymous = new RecordStringNever() {},
-            Google = new AuthConfigurationGoogle() {
+            Google = new Google() {
                 ClientId = "string",
             },
             Nickname = new RecordStringNever() {},

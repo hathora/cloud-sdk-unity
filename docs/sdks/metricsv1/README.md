@@ -1,5 +1,5 @@
 # MetricsV1
-(*MetricsV1*)
+(*.MetricsV1*)
 
 ## Overview
 
@@ -16,11 +16,12 @@ Get metrics for a [process](https://hathora.dev/docs/concepts/hathora-entities#p
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
+using System.Collections.Generic;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -30,7 +31,7 @@ var sdk = new HathoraCloudSDK(
 using(var res = await sdk.MetricsV1.GetMetricsAsync(new GetMetricsRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
     Metrics = new List<MetricName>() {
-        HathoraCloud.Models.Shared.MetricName.RateEgress,
+        MetricName.RateEgress,
     },
 }))
 {

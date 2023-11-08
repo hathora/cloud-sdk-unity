@@ -1,5 +1,5 @@
 # BuildV1
-(*BuildV1*)
+(*.BuildV1*)
 
 ## Overview
 
@@ -20,11 +20,11 @@ Creates a new [build](https://hathora.dev/docs/concepts/hathora-entities#build).
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -60,11 +60,11 @@ Delete a [build](https://hathora.dev/docs/concepts/hathora-entities#build). All 
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -98,11 +98,11 @@ Get details for a [build](https://hathora.dev/docs/concepts/hathora-entities#bui
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -136,11 +136,11 @@ Returns an array of [builds](https://hathora.dev/docs/concepts/hathora-entities#
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -172,11 +172,11 @@ Builds a game server artifact from a tarball you provide. Pass in the `buildId` 
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -185,9 +185,9 @@ var sdk = new HathoraCloudSDK(
 
 using(var res = await sdk.BuildV1.RunBuildAsync(new RunBuildRequest() {
     RequestBody = new RunBuildRequestBody() {
-        File = new RunBuildRequestBodyFile() {
-            Content = "Ukkktj?kA= as bytes <<<>>>",
-            File = "string",
+        File = new File() {
+            Content = "0xcBBBDB7B76 as bytes <<<>>>",
+            FileName = "times_mini.wav",
         },
     },
     BuildId = 1,

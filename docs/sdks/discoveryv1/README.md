@@ -1,5 +1,5 @@
 # DiscoveryV1
-(*DiscoveryV1*)
+(*.DiscoveryV1*)
 
 ## Overview
 
@@ -16,10 +16,10 @@ Returns an array of all regions with a host and port that a client can directly 
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },

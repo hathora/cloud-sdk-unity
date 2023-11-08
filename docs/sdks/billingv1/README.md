@@ -1,5 +1,5 @@
 # BillingV1
-(*BillingV1*)
+(*.BillingV1*)
 
 ### Available Operations
 
@@ -13,10 +13,10 @@
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -40,10 +40,10 @@ using(var res = await sdk.BillingV1.GetBalanceAsync())
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -67,10 +67,10 @@ using(var res = await sdk.BillingV1.GetInvoicesAsync())
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -94,10 +94,10 @@ using(var res = await sdk.BillingV1.GetPaymentMethodAsync())
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },

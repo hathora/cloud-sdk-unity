@@ -1,5 +1,5 @@
 # LobbyV3
-(*LobbyV3*)
+(*.LobbyV3*)
 
 ## Overview
 
@@ -19,11 +19,11 @@ Create a new lobby for an [application](https://hathora.dev/docs/concepts/hathor
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Operations;
-using HathoraCloud.Models.Shared;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Operations;
+using HathoraUnitySDK.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
 );
 
@@ -31,9 +31,9 @@ using(var res = await sdk.LobbyV3.CreateLobbyAsync(new CreateLobbySecurity() {
     PlayerAuth = "",
 }, new CreateLobbyRequest() {
     CreateLobbyV3Params = new CreateLobbyV3Params() {
-        Region = HathoraCloud.Models.Shared.Region.Seattle,
+        Region = Region.Seattle,
         RoomConfig = "{\"name\":\"my-room\"}",
-        Visibility = HathoraCloud.Models.Shared.LobbyVisibility.Private,
+        Visibility = LobbyVisibility.Private,
     },
     RoomId = "2swovpy1fnunu",
     ShortCode = "LFG4",
@@ -63,11 +63,11 @@ Get details for a lobby.
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -101,11 +101,11 @@ Get details for a lobby. If 2 or more lobbies have the same `shortCode`, then th
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -139,11 +139,11 @@ Get all active lobbies for a given [application](https://hathora.dev/docs/concep
 ### Example Usage
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
-using HathoraCloud.Models.Operations;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
+using HathoraUnitySDK.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },

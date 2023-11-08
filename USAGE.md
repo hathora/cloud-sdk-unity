@@ -2,10 +2,10 @@
 
 
 ```csharp
-using HathoraCloud;
-using HathoraCloud.Models.Shared;
+using HathoraUnitySDK;
+using HathoraUnitySDK.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
+var sdk = new HathoraCloud(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -16,7 +16,7 @@ using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
     AppName = "minecraft",
     AuthConfiguration = new AuthConfiguration() {
         Anonymous = new RecordStringNever() {},
-        Google = new AuthConfigurationGoogle() {
+        Google = new Google() {
             ClientId = "string",
         },
         Nickname = new RecordStringNever() {},
