@@ -1,5 +1,5 @@
 # LobbyV3
-(*.LobbyV3*)
+(*LobbyV3*)
 
 ## Overview
 
@@ -45,10 +45,10 @@ using(var res = await sdk.LobbyV3.CreateLobbyAsync(new CreateLobbySecurity() {
 
 ### Parameters
 
-| Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
-| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| `request`                                                             | [CreateLobbyRequest](../../models/operations/CreateLobbyRequest.md)   | :heavy_check_mark:                                                    | The request object to use for the request.                            |
-| `security`                                                            | [CreateLobbySecurity](../../models/operations/CreateLobbySecurity.md) | :heavy_check_mark:                                                    | The security requirements to use for the request.                     |
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [CreateLobbyRequest](../../models/operations/CreateLobbyRequest.md)                                     | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+| `security`                                                                                              | [HathoraUnitySDK.Models.Operations.CreateLobbySecurity](../../models/operations/CreateLobbySecurity.md) | :heavy_check_mark:                                                                                      | The security requirements to use for the request.                                                       |
 
 
 ### Response

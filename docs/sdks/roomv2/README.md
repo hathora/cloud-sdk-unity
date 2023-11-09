@@ -1,5 +1,5 @@
 # RoomV2
-(*.RoomV2*)
+(*RoomV2*)
 
 ## Overview
 

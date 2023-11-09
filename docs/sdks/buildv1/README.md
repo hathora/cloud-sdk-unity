@@ -1,5 +1,5 @@
 # BuildV1
-(*.BuildV1*)
+(*BuildV1*)
 
 ## Overview
 

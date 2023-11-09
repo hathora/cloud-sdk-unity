@@ -1,5 +1,5 @@
 # ProcessesV1
-(*.ProcessesV1*)
+(*ProcessesV1*)
 
 ## Overview
 

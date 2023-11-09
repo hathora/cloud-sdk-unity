@@ -1,5 +1,5 @@
 # AuthV1
-(*.AuthV1*)
+(*AuthV1*)
 
 ## Overview
 

@@ -1,5 +1,5 @@
 # MetricsV1
-(*.MetricsV1*)
+(*MetricsV1*)
 
 ## Overview
 

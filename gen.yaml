@@ -2,22 +2,22 @@ configVersion: 1.0.0
 management:
   docChecksum: 9a111e9d3fe10e82815689b59fc8c8a7
   docVersion: 0.0.1
-  speakeasyVersion: 1.115.0
-  generationVersion: 2.183.0
+  speakeasyVersion: 1.116.0
+  generationVersion: 2.185.0
 generation:
   comments: {}
   sdkClassName: Hathora-Cloud
   repoURL: https://github.com/hathora/cloud-sdk-unity.git
 features:
   unity:
-    core: 1.1.0
+    core: 1.1.1
     deprecations: 0.0.1
     globalSecurity: 0.0.1
     globalServerURLs: 0.0.1
     globals: 0.0.1
     methodSecurity: 0.1.0
 unity:
-  version: 0.23.0
+  version: 0.23.1
   author: Hathora
   imports:
     option: openapi
@@ -27,7 +27,9 @@ unity:
       operations: Models/Operations
       shared: Models/Shared
       webhooks: Models/Webhooks
+  inputModelSuffix: input
   maxMethodParams: 0
+  outputModelSuffix: output
   packageName: hathora-unity-sdk
   published: true
   repoSubDirectory: .
