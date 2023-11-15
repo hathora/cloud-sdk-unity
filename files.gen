@@ -154,6 +154,7 @@ HathoraUnitySDK/Models/Shared/Application.cs
 HathoraUnitySDK/Models/Shared/Google.cs
 HathoraUnitySDK/Models/Shared/AuthConfiguration.cs
 HathoraUnitySDK/Models/Shared/RecordStringNever.cs
+HathoraUnitySDK/Models/Shared/ApiError.cs
 HathoraUnitySDK/Models/Shared/AppConfig.cs
 HathoraUnitySDK/Models/Shared/ApplicationWithDeployment.cs
 HathoraUnitySDK/Models/Shared/Env.cs
@@ -335,6 +336,7 @@ docs/Models/Shared/Application.md
 docs/Models/Shared/Google.md
 docs/Models/Shared/AuthConfiguration.md
 docs/Models/Shared/RecordStringNever.md
+docs/Models/Shared/ApiError.md
 docs/Models/Shared/AppConfig.md
 docs/Models/Shared/ApplicationWithDeployment.md
 docs/Models/Shared/Env.md

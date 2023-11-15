@@ -8,24 +8,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace HathoraUnitySDK.Models.Operations
+namespace HathoraUnitySDK.Models.Shared
 {
-    using HathoraUnitySDK.Utils;
+    using Newtonsoft.Json;
     using System;
     using UnityEngine;
     
     [Serializable]
-    public class GetActiveRoomsForProcessRequest
+    public class ApiError
     {
 
         [SerializeField]
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=processId")]
-        public string ProcessId { get; set; } = default!;
-        
-
-        [SerializeField]
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
-        public string? AppId { get; set; }
+        [JsonProperty("message")]
+        public string Message { get; set; } = default!;
         
     }
 }

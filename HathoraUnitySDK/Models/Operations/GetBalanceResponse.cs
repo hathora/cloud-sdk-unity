@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraUnitySDK.Models.Operations
 {
+    using HathoraUnitySDK.Models.Shared;
     using System;
     using UnityEngine.Networking;
     using UnityEngine;
@@ -17,6 +18,10 @@ namespace HathoraUnitySDK.Models.Operations
     [Serializable]
     public class GetBalanceResponse: IDisposable
     {
+
+        [SerializeField]
+        public ApiError? ApiError { get; set; }
+        
 
         /// <summary>
         /// HTTP response content type for this operation
@@ -44,10 +49,6 @@ namespace HathoraUnitySDK.Models.Operations
         /// </summary>
         [SerializeField]
         public double? Number { get; set; }
-        
-
-        [SerializeField]
-        public string? Res { get; set; }
         
         public void Dispose() {
             if (RawResponse != null) {

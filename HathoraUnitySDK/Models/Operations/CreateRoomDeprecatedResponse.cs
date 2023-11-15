@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraUnitySDK.Models.Operations
 {
+    using HathoraUnitySDK.Models.Shared;
     using System;
     using UnityEngine.Networking;
     using UnityEngine;
@@ -19,27 +20,7 @@ namespace HathoraUnitySDK.Models.Operations
     {
 
         [SerializeField]
-        public string? TwoHundredAndOneApplicationJsonRoomId { get; set; }
-        
-
-        [SerializeField]
-        public string? FourHundredApplicationJsonRes { get; set; }
-        
-
-        [SerializeField]
-        public string? FourHundredAndTwoApplicationJsonRes { get; set; }
-        
-
-        [SerializeField]
-        public string? FourHundredAndThreeApplicationJsonRes { get; set; }
-        
-
-        [SerializeField]
-        public string? FourHundredAndFourApplicationJsonRes { get; set; }
-        
-
-        [SerializeField]
-        public string? FiveHundredApplicationJsonRes { get; set; }
+        public ApiError? ApiError { get; set; }
         
 
         /// <summary>
@@ -47,6 +28,10 @@ namespace HathoraUnitySDK.Models.Operations
         /// </summary>
         [SerializeField]
         public string? ContentType { get; set; } = default!;
+        
+
+        [SerializeField]
+        public string? RoomId { get; set; }
         
 
         /// <summary>

@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraUnitySDK.Models.Operations
 {
+    using HathoraUnitySDK.Models.Shared;
     using System;
     using UnityEngine.Networking;
     using UnityEngine;
@@ -18,35 +19,8 @@ namespace HathoraUnitySDK.Models.Operations
     public class CreatePublicLobbyDeprecatedResponse: IDisposable
     {
 
-        /// <summary>
-        /// Ok
-        /// </summary>
         [SerializeField]
-        public string? TwoHundredApplicationJsonRoomId { get; set; }
-        
-
-        [SerializeField]
-        public string? FourHundredApplicationJsonRes { get; set; }
-        
-
-        [SerializeField]
-        public string? FourHundredAndOneApplicationJsonRes { get; set; }
-        
-
-        [SerializeField]
-        public string? FourHundredAndFourApplicationJsonRes { get; set; }
-        
-
-        [SerializeField]
-        public string? FourHundredAndTwentyTwoApplicationJsonRes { get; set; }
-        
-
-        [SerializeField]
-        public string? FourHundredAndTwentyNineApplicationJsonRes { get; set; }
-        
-
-        [SerializeField]
-        public string? FiveHundredApplicationJsonRes { get; set; }
+        public ApiError? ApiError { get; set; }
         
 
         /// <summary>
@@ -54,6 +28,13 @@ namespace HathoraUnitySDK.Models.Operations
         /// </summary>
         [SerializeField]
         public string? ContentType { get; set; } = default!;
+        
+
+        /// <summary>
+        /// Ok
+        /// </summary>
+        [SerializeField]
+        public string? RoomId { get; set; }
         
 
         /// <summary>

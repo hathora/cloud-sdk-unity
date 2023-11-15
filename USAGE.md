@@ -1,6 +1,4 @@
 <!-- Start SDK Example Usage -->
-
-
 ```csharp
 using HathoraUnitySDK;
 using HathoraUnitySDK.Models.Shared;

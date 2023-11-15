@@ -20,6 +20,10 @@ namespace HathoraUnitySDK.Models.Operations
     public class GetBuildsResponse: IDisposable
     {
 
+        [SerializeField]
+        public ApiError? ApiError { get; set; }
+        
+
         /// <summary>
         /// HTTP response content type for this operation
         /// </summary>
@@ -46,10 +50,6 @@ namespace HathoraUnitySDK.Models.Operations
         /// </summary>
         [SerializeField]
         public List<Build>? Classes { get; set; }
-        
-
-        [SerializeField]
-        public string? Res { get; set; }
         
         public void Dispose() {
             if (RawResponse != null) {

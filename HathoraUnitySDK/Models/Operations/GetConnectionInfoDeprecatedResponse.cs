@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraUnitySDK.Models.Operations
 {
+    using HathoraUnitySDK.Models.Shared;
     using System;
     using UnityEngine.Networking;
     using UnityEngine;
@@ -18,23 +19,15 @@ namespace HathoraUnitySDK.Models.Operations
     public class GetConnectionInfoDeprecatedResponse: IDisposable
     {
 
+        [SerializeField]
+        public ApiError? ApiError { get; set; }
+        
+
         /// <summary>
         /// Ok
         /// </summary>
         [SerializeField]
-        public object? TwoHundredApplicationJsonConnectionInfo { get; set; }
-        
-
-        [SerializeField]
-        public string? FourHundredApplicationJsonRes { get; set; }
-        
-
-        [SerializeField]
-        public string? FourHundredAndFourApplicationJsonRes { get; set; }
-        
-
-        [SerializeField]
-        public string? FiveHundredApplicationJsonRes { get; set; }
+        public object? ConnectionInfo { get; set; }
         
 
         /// <summary>

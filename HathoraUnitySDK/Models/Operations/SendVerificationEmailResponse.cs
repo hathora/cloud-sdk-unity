@@ -19,6 +19,10 @@ namespace HathoraUnitySDK.Models.Operations
     public class SendVerificationEmailResponse: IDisposable
     {
 
+        [SerializeField]
+        public ApiError? ApiError { get; set; }
+        
+
         /// <summary>
         /// HTTP response content type for this operation
         /// </summary>
@@ -45,10 +49,6 @@ namespace HathoraUnitySDK.Models.Operations
         /// </summary>
         [SerializeField]
         public VerificationEmailResponse? VerificationEmailResponse { get; set; }
-        
-
-        [SerializeField]
-        public string? Res { get; set; }
         
         public void Dispose() {
             if (RawResponse != null) {

@@ -20,11 +20,7 @@ namespace HathoraUnitySDK.Models.Operations
     {
 
         [SerializeField]
-        public string? FourHundredAndOneApplicationJsonRes { get; set; }
-        
-
-        [SerializeField]
-        public string? FourHundredAndFourApplicationJsonRes { get; set; }
+        public ApiError? ApiError { get; set; }
         
 
         /// <summary>

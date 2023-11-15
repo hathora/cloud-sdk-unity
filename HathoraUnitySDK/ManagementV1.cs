@@ -27,10 +27,10 @@ namespace HathoraUnitySDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.23.1";
-        private const string _sdkGenVersion = "2.185.0";
+        private const string _sdkVersion = "0.23.2";
+        private const string _sdkGenVersion = "2.188.3";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.23.1 2.185.0 0.0.1 hathora-unity-sdk";
+        private const string _userAgent = "speakeasy-sdk/unity 0.23.2 2.188.3 0.0.1 hathora-unity-sdk";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -105,7 +105,7 @@ namespace HathoraUnitySDK
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.Res = httpResponse.downloadHandler.text;
+                    response.ApiError = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
                 }
                 
                 return response;

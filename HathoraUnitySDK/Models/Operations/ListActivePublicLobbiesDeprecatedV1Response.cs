@@ -20,19 +20,8 @@ namespace HathoraUnitySDK.Models.Operations
     public class ListActivePublicLobbiesDeprecatedV1Response: IDisposable
     {
 
-        /// <summary>
-        /// Ok
-        /// </summary>
         [SerializeField]
-        public List<Lobby>? TwoHundredApplicationJsonClasses { get; set; }
-        
-
-        [SerializeField]
-        public string? FourHundredAndOneApplicationJsonRes { get; set; }
-        
-
-        [SerializeField]
-        public string? FourHundredAndFourApplicationJsonRes { get; set; }
+        public ApiError? ApiError { get; set; }
         
 
         /// <summary>
@@ -54,6 +43,13 @@ namespace HathoraUnitySDK.Models.Operations
         /// </summary>
         [SerializeField]
         public UnityWebRequest? RawResponse { get; set; }
+        
+
+        /// <summary>
+        /// Ok
+        /// </summary>
+        [SerializeField]
+        public List<Lobby>? Classes { get; set; }
         
         public void Dispose() {
             if (RawResponse != null) {

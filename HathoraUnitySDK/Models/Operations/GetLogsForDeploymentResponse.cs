@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraUnitySDK.Models.Operations
 {
+    using HathoraUnitySDK.Models.Shared;
     using System;
     using UnityEngine.Networking;
     using UnityEngine;
@@ -18,15 +19,8 @@ namespace HathoraUnitySDK.Models.Operations
     public class GetLogsForDeploymentResponse: IDisposable
     {
 
-        /// <summary>
-        /// Ok
-        /// </summary>
         [SerializeField]
-        public string? TwoHundredTextPlainRes { get; set; }
-        
-
-        [SerializeField]
-        public string? FourHundredAndFourApplicationJsonRes { get; set; }
+        public ApiError? ApiError { get; set; }
         
 
         /// <summary>
@@ -48,6 +42,13 @@ namespace HathoraUnitySDK.Models.Operations
         /// </summary>
         [SerializeField]
         public UnityWebRequest? RawResponse { get; set; }
+        
+
+        /// <summary>
+        /// Ok
+        /// </summary>
+        [SerializeField]
+        public string? Res { get; set; }
         
         public void Dispose() {
             if (RawResponse != null) {
