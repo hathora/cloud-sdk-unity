@@ -31,10 +31,10 @@ namespace HathoraUnitySDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.23.2";
-        private const string _sdkGenVersion = "2.188.3";
+        private const string _sdkVersion = "0.23.3";
+        private const string _sdkGenVersion = "2.191.3";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.23.2 2.188.3 0.0.1 hathora-unity-sdk";
+        private const string _userAgent = "speakeasy-sdk/unity 0.23.3 2.191.3 0.0.1 hathora-unity-sdk";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -64,7 +64,7 @@ namespace HathoraUnitySDK
             httpRequest.SetRequestHeader("user-agent", _userAgent);
             
             
-            var client = _securityClient;
+            var client = _defaultClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -124,7 +124,7 @@ namespace HathoraUnitySDK
             httpRequest.SetRequestHeader("user-agent", _userAgent);
             
             
-            var client = _securityClient;
+            var client = _defaultClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -184,7 +184,7 @@ namespace HathoraUnitySDK
             httpRequest.SetRequestHeader("user-agent", _userAgent);
             
             
-            var client = _securityClient;
+            var client = _defaultClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -254,7 +254,7 @@ namespace HathoraUnitySDK
                 httpRequest.SetRequestHeader("Content-Type", serializedBody.ContentType);
             }
             
-            var client = _securityClient;
+            var client = _defaultClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)

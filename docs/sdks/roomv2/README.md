@@ -28,9 +28,6 @@ using HathoraUnitySDK.Models.Shared;
 using HathoraUnitySDK.Models.Operations;
 
 var sdk = new HathoraCloud(
-    security: new Security() {
-        HathoraDevToken = "",
-    },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
 );
 
@@ -70,9 +67,6 @@ using HathoraUnitySDK.Models.Shared;
 using HathoraUnitySDK.Models.Operations;
 
 var sdk = new HathoraCloud(
-    security: new Security() {
-        HathoraDevToken = "",
-    },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
 );
 
@@ -108,9 +102,6 @@ using HathoraUnitySDK.Models.Shared;
 using HathoraUnitySDK.Models.Operations;
 
 var sdk = new HathoraCloud(
-    security: new Security() {
-        HathoraDevToken = "",
-    },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
 );
 
@@ -184,9 +175,6 @@ using HathoraUnitySDK.Models.Shared;
 using HathoraUnitySDK.Models.Operations;
 
 var sdk = new HathoraCloud(
-    security: new Security() {
-        HathoraDevToken = "",
-    },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
 );
 
@@ -222,9 +210,6 @@ using HathoraUnitySDK.Models.Shared;
 using HathoraUnitySDK.Models.Operations;
 
 var sdk = new HathoraCloud(
-    security: new Security() {
-        HathoraDevToken = "",
-    },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
 );
 
@@ -260,9 +245,6 @@ using HathoraUnitySDK.Models.Shared;
 using HathoraUnitySDK.Models.Operations;
 
 var sdk = new HathoraCloud(
-    security: new Security() {
-        HathoraDevToken = "",
-    },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
 );
 
@@ -296,9 +278,6 @@ using HathoraUnitySDK.Models.Shared;
 using HathoraUnitySDK.Models.Operations;
 
 var sdk = new HathoraCloud(
-    security: new Security() {
-        HathoraDevToken = "",
-    },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
 );
 
