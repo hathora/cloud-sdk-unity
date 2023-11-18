@@ -40,10 +40,10 @@ namespace HathoraUnitySDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.23.3";
-        private const string _sdkGenVersion = "2.191.3";
+        private const string _sdkVersion = "0.23.4";
+        private const string _sdkGenVersion = "2.194.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.23.3 2.191.3 0.0.1 hathora-unity-sdk";
+        private const string _userAgent = "speakeasy-sdk/unity 0.23.4 2.194.1 0.0.1 hathora-unity-sdk";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -61,11 +61,7 @@ namespace HathoraUnitySDK
         public async Task<CreateRoomDeprecatedResponse> CreateRoomDeprecatedAsync(CreateRoomDeprecatedRequest request)
         {
             request.AppId ??= Config.AppId;
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v1/{appId}/create", request);
             
 
@@ -85,7 +81,7 @@ namespace HathoraUnitySDK
                 httpRequest.SetRequestHeader("Content-Type", serializedBody.ContentType);
             }
             
-            var client = _defaultClient;
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -133,11 +129,7 @@ namespace HathoraUnitySDK
         public async Task<DestroyRoomDeprecatedResponse> DestroyRoomDeprecatedAsync(DestroyRoomDeprecatedRequest? request = null)
         {
             request.AppId ??= Config.AppId;
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v1/{appId}/destroy/{roomId}", request);
             
 
@@ -147,7 +139,7 @@ namespace HathoraUnitySDK
             httpRequest.SetRequestHeader("user-agent", _userAgent);
             
             
-            var client = _defaultClient;
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -191,11 +183,7 @@ namespace HathoraUnitySDK
         public async Task<GetActiveRoomsForProcessDeprecatedResponse> GetActiveRoomsForProcessDeprecatedAsync(GetActiveRoomsForProcessDeprecatedRequest? request = null)
         {
             request.AppId ??= Config.AppId;
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v1/{appId}/list/{processId}/active", request);
             
 
@@ -205,7 +193,7 @@ namespace HathoraUnitySDK
             httpRequest.SetRequestHeader("user-agent", _userAgent);
             
             
-            var client = _defaultClient;
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -253,11 +241,7 @@ namespace HathoraUnitySDK
         public async Task<GetConnectionInfoDeprecatedResponse> GetConnectionInfoDeprecatedAsync(GetConnectionInfoDeprecatedRequest? request = null)
         {
             request.AppId ??= Config.AppId;
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v1/{appId}/connectioninfo/{roomId}", request);
             
 
@@ -315,11 +299,7 @@ namespace HathoraUnitySDK
         public async Task<GetInactiveRoomsForProcessDeprecatedResponse> GetInactiveRoomsForProcessDeprecatedAsync(GetInactiveRoomsForProcessDeprecatedRequest? request = null)
         {
             request.AppId ??= Config.AppId;
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v1/{appId}/list/{processId}/inactive", request);
             
 
@@ -329,7 +309,7 @@ namespace HathoraUnitySDK
             httpRequest.SetRequestHeader("user-agent", _userAgent);
             
             
-            var client = _defaultClient;
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -377,11 +357,7 @@ namespace HathoraUnitySDK
         public async Task<GetRoomInfoDeprecatedResponse> GetRoomInfoDeprecatedAsync(GetRoomInfoDeprecatedRequest? request = null)
         {
             request.AppId ??= Config.AppId;
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v1/{appId}/info/{roomId}", request);
             
 
@@ -391,7 +367,7 @@ namespace HathoraUnitySDK
             httpRequest.SetRequestHeader("user-agent", _userAgent);
             
             
-            var client = _defaultClient;
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
@@ -439,11 +415,7 @@ namespace HathoraUnitySDK
         public async Task<SuspendRoomDeprecatedResponse> SuspendRoomDeprecatedAsync(SuspendRoomDeprecatedRequest? request = null)
         {
             request.AppId ??= Config.AppId;
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v1/{appId}/suspend/{roomId}", request);
             
 
@@ -453,7 +425,7 @@ namespace HathoraUnitySDK
             httpRequest.SetRequestHeader("user-agent", _userAgent);
             
             
-            var client = _defaultClient;
+            var client = _securityClient;
             
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)

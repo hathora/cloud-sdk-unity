@@ -16,6 +16,8 @@ namespace HathoraUnitySDK
     using System.Threading.Tasks;
     using System;
 
+
+
     /// <summary>
     /// Hathora Cloud API: Welcome to the Hathora Cloud API documentation! Learn how to use the Hathora Cloud APIs to build and scale your game servers globally.
     /// </summary>
@@ -92,7 +94,24 @@ namespace HathoraUnitySDK
     
     public class SDKConfig
     {
+        public static string[] ServerList = new string[]
+        {
+            "https://api.hathora.dev",
+            "https:///",
+        };
+        /// Contains the list of servers available to the SDK
+        public string serverUrl = "";
+        public int serverIndex = 0;
         public string? AppId;
+
+        public string GetTemplatedServerDetails()
+        {
+            if (!String.IsNullOrEmpty(this.serverUrl))
+            {
+                return Utilities.TemplateUrl(Utilities.RemoveSuffix(this.serverUrl, "/"), new Dictionary<string, string>());
+            }
+            return Utilities.TemplateUrl(SDKConfig.ServerList[this.serverIndex], new Dictionary<string, string>());
+        }
     }
 
     /// <summary>
@@ -101,17 +120,12 @@ namespace HathoraUnitySDK
     public class HathoraCloud: IHathoraCloud
     {
         public SDKConfig Config { get; private set; }
-        public static List<string> ServerList = new List<string>()
-        {
-            "https://api.hathora.dev",
-            "https:///",
-        };
 
         private const string _target = "unity";
-        private const string _sdkVersion = "0.23.3";
-        private const string _sdkGenVersion = "2.191.3";
+        private const string _sdkVersion = "0.23.4";
+        private const string _sdkGenVersion = "2.194.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.23.3 2.191.3 0.0.1 hathora-unity-sdk";
+        private const string _userAgent = "speakeasy-sdk/unity 0.23.4 2.194.1 0.0.1 hathora-unity-sdk";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -131,9 +145,14 @@ namespace HathoraUnitySDK
         public IRoomV1 RoomV1 { get; private set; }
         public IRoomV2 RoomV2 { get; private set; }
 
-        public HathoraCloud(Security? security = null, string? appId = null, string? serverUrl = null, ISpeakeasyHttpClient? client = null)
+        public HathoraCloud(Security? security = null, string? appId = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
         {
-            _serverUrl = serverUrl ?? HathoraCloud.ServerList[0];
+            if (serverUrl != null) {
+                if (urlParams != null) {
+                    serverUrl = Utilities.TemplateUrl(serverUrl, urlParams);
+                }
+                _serverUrl = serverUrl;
+            }
 
             _defaultClient = new SpeakeasyHttpClient(client);
             _securityClient = _defaultClient;
@@ -146,6 +165,7 @@ namespace HathoraUnitySDK
             Config = new SDKConfig()
             {
                 AppId = appId,
+                serverUrl = _serverUrl
             };
 
             AppV1 = new AppV1(_defaultClient, _securityClient, _serverUrl, Config);

@@ -36,10 +36,10 @@ namespace HathoraUnitySDK
     {
         public SDKConfig Config { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.23.3";
-        private const string _sdkGenVersion = "2.191.3";
+        private const string _sdkVersion = "0.23.4";
+        private const string _sdkGenVersion = "2.194.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.23.3 2.191.3 0.0.1 hathora-unity-sdk";
+        private const string _userAgent = "speakeasy-sdk/unity 0.23.4 2.194.1 0.0.1 hathora-unity-sdk";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -57,11 +57,7 @@ namespace HathoraUnitySDK
         public async Task<CreatePrivateLobbyDeprecatedResponse> CreatePrivateLobbyDeprecatedAsync(CreatePrivateLobbyDeprecatedSecurity security, CreatePrivateLobbyDeprecatedRequest? request = null)
         {
             request.AppId ??= Config.AppId;
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v1/{appId}/create/private", request);
             
 
@@ -119,11 +115,7 @@ namespace HathoraUnitySDK
         public async Task<CreatePublicLobbyDeprecatedResponse> CreatePublicLobbyDeprecatedAsync(CreatePublicLobbyDeprecatedSecurity security, CreatePublicLobbyDeprecatedRequest? request = null)
         {
             request.AppId ??= Config.AppId;
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v1/{appId}/create/public", request);
             
 
@@ -181,11 +173,7 @@ namespace HathoraUnitySDK
         public async Task<ListActivePublicLobbiesDeprecatedV1Response> ListActivePublicLobbiesDeprecatedV1Async(ListActivePublicLobbiesDeprecatedV1Request? request = null)
         {
             request.AppId ??= Config.AppId;
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v1/{appId}/list", request);
             
 

@@ -38,7 +38,7 @@ namespace HathoraUnitySDK.Models.Operations
         /// Raw HTTP response; suitable for custom response parsing
         /// </summary>
         [SerializeField]
-        public UnityWebRequest? RawResponse { get; set; }
+        public UnityWebRequest RawResponse { get; set; } = default!;
         
 
         /// <summary>

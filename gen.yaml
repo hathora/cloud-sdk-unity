@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: b9c5c06218c4461eaae6d867176f299d
   docVersion: 0.0.1
-  speakeasyVersion: 1.120.2
-  generationVersion: 2.191.3
+  speakeasyVersion: 1.121.1
+  generationVersion: 2.194.1
 generation:
   comments: {}
   sdkClassName: Hathora-Cloud
@@ -15,11 +15,11 @@ features:
     core: 1.1.2
     deprecations: 0.0.1
     globalSecurity: 0.0.1
-    globalServerURLs: 0.0.1
+    globalServerURLs: 0.0.2
     globals: 0.0.1
     methodSecurity: 0.1.0
 unity:
-  version: 0.23.3
+  version: 0.23.4
   author: Hathora
   imports:
     option: openapi
