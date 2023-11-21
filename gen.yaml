@@ -20,6 +20,6 @@ unity:
   version: 0.22.1
   author: Hathora
   maxMethodParams: 0
-  packageName: hathora-unity-sdk
+  packageName: hathora-cloud
   published: true
   repoSubDirectory: .
