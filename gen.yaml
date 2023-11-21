@@ -19,7 +19,7 @@ features:
     globals: 0.0.1
     methodSecurity: 0.1.0
 unity:
-  version: 0.24.0
+  version: 0.25.0
   author: Hathora
   imports:
     option: openapi

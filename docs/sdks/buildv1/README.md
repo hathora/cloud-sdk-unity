@@ -20,9 +20,9 @@ Creates a new [build](https://hathora.dev/docs/concepts/hathora-entities#build).
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -60,9 +60,9 @@ Delete a [build](https://hathora.dev/docs/concepts/hathora-entities#build). All 
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -98,9 +98,9 @@ Get details for a [build](https://hathora.dev/docs/concepts/hathora-entities#bui
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -136,9 +136,9 @@ Returns an array of [builds](https://hathora.dev/docs/concepts/hathora-entities#
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -172,9 +172,9 @@ Builds a game server artifact from a tarball you provide. Pass in the `buildId` 
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloud(
     security: new Security() {

@@ -22,9 +22,9 @@ Deprecated. Use [RoomV2](https://hathora.dev/api#tag/RoomV2).
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -64,9 +64,9 @@ using(var res = await sdk.RoomV1.CreateRoomDeprecatedAsync(new CreateRoomDepreca
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -102,9 +102,9 @@ using(var res = await sdk.RoomV1.DestroyRoomDeprecatedAsync(new DestroyRoomDepre
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -140,9 +140,9 @@ using(var res = await sdk.RoomV1.GetActiveRoomsForProcessDeprecatedAsync(new Get
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -178,9 +178,9 @@ using(var res = await sdk.RoomV1.GetConnectionInfoDeprecatedAsync(new GetConnect
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -216,9 +216,9 @@ using(var res = await sdk.RoomV1.GetInactiveRoomsForProcessDeprecatedAsync(new G
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -254,9 +254,9 @@ using(var res = await sdk.RoomV1.GetRoomInfoDeprecatedAsync(new GetRoomInfoDepre
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloud(
     security: new Security() {

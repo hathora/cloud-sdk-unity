@@ -16,9 +16,9 @@ Get metrics for a [process](https://hathora.dev/docs/concepts/hathora-entities#p
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 using System.Collections.Generic;
 
 var sdk = new HathoraCloud(

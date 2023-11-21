@@ -18,9 +18,9 @@ Get details for a [process](https://hathora.dev/docs/concepts/hathora-entities#p
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -56,9 +56,9 @@ Retrieve 10 most recently started [process](https://hathora.dev/docs/concepts/ha
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -92,9 +92,9 @@ Retrieve 10 most recently stopped [process](https://hathora.dev/docs/concepts/ha
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloud(
     security: new Security() {

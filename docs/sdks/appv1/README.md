@@ -20,8 +20,8 @@ Create a new [application](https://hathora.dev/docs/concepts/hathora-entities#ap
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -64,9 +64,9 @@ Delete an [application](https://hathora.dev/docs/concepts/hathora-entities#appli
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -100,9 +100,9 @@ Get details for an [application](https://hathora.dev/docs/concepts/hathora-entit
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -136,8 +136,8 @@ Returns an unsorted list of your organization’s [applications](https://hathora
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -165,9 +165,9 @@ Update data for an existing [application](https://hathora.dev/docs/concepts/hath
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloud(
     security: new Security() {

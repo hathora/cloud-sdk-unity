@@ -13,8 +13,8 @@
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -40,8 +40,8 @@ using(var res = await sdk.BillingV1.GetBalanceAsync())
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -67,8 +67,8 @@ using(var res = await sdk.BillingV1.GetInvoicesAsync())
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -94,8 +94,8 @@ using(var res = await sdk.BillingV1.GetPaymentMethodAsync())
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
 
 var sdk = new HathoraCloud(
     security: new Security() {

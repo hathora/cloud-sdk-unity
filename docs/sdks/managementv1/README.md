@@ -10,8 +10,8 @@
 ### Example Usage
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
 
 var sdk = new HathoraCloud(
     security: new Security() {

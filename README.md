@@ -24,8 +24,8 @@ To do so open the Package Manager via `Window > Package Manager` and click the `
 ### Example
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
 
 var sdk = new HathoraCloud(
     security: new Security() {
@@ -186,9 +186,9 @@ The following global parameter is available.
 ### Example
 
 ```csharp
-using HathoraUnitySDK;
-using HathoraUnitySDK.Models.Shared;
-using HathoraUnitySDK.Models.Operations;
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloud(
     security: new Security() {
