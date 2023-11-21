@@ -32,6 +32,6 @@ unity:
   inputModelSuffix: input
   maxMethodParams: 0
   outputModelSuffix: output
-  packageName: hathora-unity-sdk
+  packageName: hathora-cloud
   published: true
   repoSubDirectory: .
