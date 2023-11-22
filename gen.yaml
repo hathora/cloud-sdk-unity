@@ -6,7 +6,7 @@ management:
   generationVersion: 2.195.2
 generation:
   comments: {}
-  sdkClassName: Hathora-Cloud
+  sdkClassName: Hathora-Cloud-SDK
   repoURL: https://github.com/hathora/cloud-sdk-unity.git
   usageSnippets:
     optionalPropertyRendering: withExample
