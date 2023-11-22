@@ -6,7 +6,7 @@ management:
   generationVersion: 2.173.0
 generation:
   repoURL: https://github.com/hathora/cloud-sdk-unity.git
-  sdkClassName: Hathora-Cloud
+  sdkClassName: Hathora-Cloud-SDK
   singleTagPerOp: false
 features:
   unity:
