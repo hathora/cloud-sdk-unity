@@ -16,7 +16,7 @@
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloud(
+var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -43,7 +43,7 @@ using(var res = await sdk.BillingV1.GetBalanceAsync())
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloud(
+var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -70,7 +70,7 @@ using(var res = await sdk.BillingV1.GetInvoicesAsync())
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloud(
+var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -97,7 +97,7 @@ using(var res = await sdk.BillingV1.GetPaymentMethodAsync())
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloud(
+var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },

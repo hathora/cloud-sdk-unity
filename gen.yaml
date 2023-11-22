@@ -2,7 +2,7 @@ configVersion: 1.0.0
 management:
   docChecksum: b9c5c06218c4461eaae6d867176f299d
   docVersion: 0.0.1
-  speakeasyVersion: 1.121.3
+  speakeasyVersion: 1.122.0
   generationVersion: 2.195.2
 generation:
   comments: {}
@@ -19,7 +19,7 @@ features:
     globals: 0.0.1
     methodSecurity: 0.1.0
 unity:
-  version: 0.25.0
+  version: 0.26.0
   author: Hathora
   imports:
     option: openapi

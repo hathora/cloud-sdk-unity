@@ -22,7 +22,7 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloud(
+var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -60,7 +60,7 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloud(
+var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -96,7 +96,7 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloud(
+var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },

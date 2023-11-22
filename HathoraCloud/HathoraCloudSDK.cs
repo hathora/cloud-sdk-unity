@@ -21,7 +21,7 @@ namespace HathoraCloud
     /// <summary>
     /// Hathora Cloud API: Welcome to the Hathora Cloud API documentation! Learn how to use the Hathora Cloud APIs to build and scale your game servers globally.
     /// </summary>
-    public interface IHathoraCloud
+    public interface IHathoraCloudSDK
     {
 
         /// <summary>
@@ -117,15 +117,15 @@ namespace HathoraCloud
     /// <summary>
     /// Hathora Cloud API: Welcome to the Hathora Cloud API documentation! Learn how to use the Hathora Cloud APIs to build and scale your game servers globally.
     /// </summary>
-    public class HathoraCloud: IHathoraCloud
+    public class HathoraCloudSDK: IHathoraCloudSDK
     {
         public SDKConfig Config { get; private set; }
 
         private const string _target = "unity";
-        private const string _sdkVersion = "0.25.0";
+        private const string _sdkVersion = "0.26.0";
         private const string _sdkGenVersion = "2.195.2";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.25.0 2.195.2 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.26.0 2.195.2 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -145,7 +145,7 @@ namespace HathoraCloud
         public IRoomV1 RoomV1 { get; private set; }
         public IRoomV2 RoomV2 { get; private set; }
 
-        public HathoraCloud(Security? security = null, string? appId = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
+        public HathoraCloudSDK(Security? security = null, string? appId = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
         {
             if (serverUrl != null) {
                 if (urlParams != null) {

@@ -13,7 +13,7 @@ HathoraCloud/MetricsV1.cs
 HathoraCloud/ProcessesV1.cs
 HathoraCloud/RoomV1.cs
 HathoraCloud/RoomV2.cs
-HathoraCloud/HathoraCloud.cs
+HathoraCloud/HathoraCloudSDK.cs
 HathoraCloud/Utils/DateOnly.cs
 HathoraCloud/Utils/DateOnlyConverter.cs
 HathoraCloud/Utils/DownloadHandlerStream.cs
@@ -393,7 +393,7 @@ docs/Models/Shared/ConnectionInfoV2Status.md
 docs/Models/Shared/ConnectionInfoV2.md
 docs/Models/Shared/UpdateRoomConfigParams.md
 docs/Models/Shared/Security.md
-docs/sdks/hathoracloud/README.md
+docs/sdks/hathoracloudsdk/README.md
 docs/sdks/appv1/README.md
 docs/sdks/authv1/README.md
 docs/sdks/billingv1/README.md

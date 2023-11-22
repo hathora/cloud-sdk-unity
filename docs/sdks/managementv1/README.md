@@ -13,7 +13,7 @@
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloud(
+var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },

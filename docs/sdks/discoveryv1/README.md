@@ -19,7 +19,7 @@ Returns an array of all regions with a host and port that a client can directly 
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloud(
+var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },

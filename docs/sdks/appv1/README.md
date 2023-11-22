@@ -23,7 +23,7 @@ Create a new [application](https://hathora.dev/docs/concepts/hathora-entities#ap
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloud(
+var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -68,7 +68,7 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloud(
+var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -104,7 +104,7 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloud(
+var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -139,7 +139,7 @@ Returns an unsorted list of your organization’s [applications](https://hathora
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloud(
+var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
@@ -169,7 +169,7 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloud(
+var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
