@@ -29,20 +29,22 @@ using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
 var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.LobbyV2.CreateLobbyDeprecatedAsync(new CreateLobbyDeprecatedSecurity() {
-    PlayerAuth = "",
-}, new CreateLobbyDeprecatedRequest() {
+CreateLobbyDeprecatedRequest req = new CreateLobbyDeprecatedRequest() {
     CreateLobbyParams = new CreateLobbyParams() {
         InitialConfig = new LobbyInitialConfig() {},
         Region = Region.Tokyo,
         Visibility = LobbyVisibility.Private,
     },
     RoomId = "2swovpy1fnunu",
-}))
+};
+
+using(var res = await sdk.LobbyV2.CreateLobbyDeprecatedAsync(new CreateLobbyDeprecatedSecurity() {
+    PlayerAuth = "",
+}, req))
 {
+
     // handle response
 }
 ```
@@ -72,19 +74,21 @@ using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
 var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.LobbyV2.CreateLocalLobbyAsync(new CreateLocalLobbySecurity() {
-    PlayerAuth = "",
-}, new CreateLocalLobbyRequest() {
+CreateLocalLobbyRequest req = new CreateLocalLobbyRequest() {
     RequestBody = new CreateLocalLobbyRequestBody() {
         InitialConfig = new LobbyInitialConfig() {},
         Region = Region.Sydney,
     },
     RoomId = "2swovpy1fnunu",
-}))
+};
+
+using(var res = await sdk.LobbyV2.CreateLocalLobbyAsync(new CreateLocalLobbySecurity() {
+    PlayerAuth = "",
+}, req))
 {
+
     // handle response
 }
 ```
@@ -114,19 +118,21 @@ using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
 var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.LobbyV2.CreatePrivateLobbyAsync(new CreatePrivateLobbySecurity() {
-    PlayerAuth = "",
-}, new CreatePrivateLobbyRequest() {
+CreatePrivateLobbyRequest req = new CreatePrivateLobbyRequest() {
     RequestBody = new CreatePrivateLobbyRequestBody() {
         InitialConfig = new LobbyInitialConfig() {},
         Region = Region.Chicago,
     },
     RoomId = "2swovpy1fnunu",
-}))
+};
+
+using(var res = await sdk.LobbyV2.CreatePrivateLobbyAsync(new CreatePrivateLobbySecurity() {
+    PlayerAuth = "",
+}, req))
 {
+
     // handle response
 }
 ```
@@ -156,19 +162,21 @@ using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
 var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.LobbyV2.CreatePublicLobbyAsync(new CreatePublicLobbySecurity() {
-    PlayerAuth = "",
-}, new CreatePublicLobbyRequest() {
+CreatePublicLobbyRequest req = new CreatePublicLobbyRequest() {
     RequestBody = new CreatePublicLobbyRequestBody() {
         InitialConfig = new LobbyInitialConfig() {},
         Region = Region.Sydney,
     },
     RoomId = "2swovpy1fnunu",
-}))
+};
+
+using(var res = await sdk.LobbyV2.CreatePublicLobbyAsync(new CreatePublicLobbySecurity() {
+    PlayerAuth = "",
+}, req))
 {
+
     // handle response
 }
 ```
@@ -203,13 +211,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.LobbyV2.GetLobbyInfoAsync(new GetLobbyInfoRequest() {
+GetLobbyInfoRequest req = new GetLobbyInfoRequest() {
     RoomId = "2swovpy1fnunu",
-}))
+};
+
+using(var res = await sdk.LobbyV2.GetLobbyInfoAsync(req))
 {
+
     // handle response
 }
 ```
@@ -243,11 +253,13 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.LobbyV2.ListActivePublicLobbiesDeprecatedV2Async(new ListActivePublicLobbiesDeprecatedV2Request() {}))
+ListActivePublicLobbiesDeprecatedV2Request req = new ListActivePublicLobbiesDeprecatedV2Request() {};
+
+using(var res = await sdk.LobbyV2.ListActivePublicLobbiesDeprecatedV2Async(req))
 {
+
     // handle response
 }
 ```
@@ -281,16 +293,18 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.LobbyV2.SetLobbyStateAsync(new SetLobbyStateRequest() {
+SetLobbyStateRequest req = new SetLobbyStateRequest() {
     SetLobbyStateParams = new SetLobbyStateParams() {
         State = new SetLobbyStateParamsState() {},
     },
     RoomId = "2swovpy1fnunu",
-}))
+};
+
+using(var res = await sdk.LobbyV2.SetLobbyStateAsync(req))
 {
+
     // handle response
 }
 ```

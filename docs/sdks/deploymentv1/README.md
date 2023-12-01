@@ -27,10 +27,9 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.DeploymentV1.CreateDeploymentAsync(new CreateDeploymentRequest() {
+CreateDeploymentRequest req = new CreateDeploymentRequest() {
     DeploymentConfig = new DeploymentConfig() {
         AdditionalContainerPorts = new List<ContainerPort>() {
             new ContainerPort() {
@@ -51,8 +50,11 @@ using(var res = await sdk.DeploymentV1.CreateDeploymentAsync(new CreateDeploymen
         TransportType = TransportType.Tcp,
     },
     BuildId = 1,
-}))
+};
+
+using(var res = await sdk.DeploymentV1.CreateDeploymentAsync(req))
 {
+
     // handle response
 }
 ```
@@ -84,13 +86,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.DeploymentV1.GetDeploymentInfoAsync(new GetDeploymentInfoRequest() {
+GetDeploymentInfoRequest req = new GetDeploymentInfoRequest() {
     DeploymentId = 1,
-}))
+};
+
+using(var res = await sdk.DeploymentV1.GetDeploymentInfoAsync(req))
 {
+
     // handle response
 }
 ```
@@ -122,11 +126,13 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.DeploymentV1.GetDeploymentsAsync(new GetDeploymentsRequest() {}))
+GetDeploymentsRequest req = new GetDeploymentsRequest() {};
+
+using(var res = await sdk.DeploymentV1.GetDeploymentsAsync(req))
 {
+
     // handle response
 }
 ```

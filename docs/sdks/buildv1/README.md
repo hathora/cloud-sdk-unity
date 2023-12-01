@@ -28,15 +28,17 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.BuildV1.CreateBuildAsync(new CreateBuildRequest() {
+CreateBuildRequest req = new CreateBuildRequest() {
     CreateBuildParams = new CreateBuildParams() {
         BuildTag = "0.1.14-14c793",
     },
-}))
+};
+
+using(var res = await sdk.BuildV1.CreateBuildAsync(req))
 {
+
     // handle response
 }
 ```
@@ -68,13 +70,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.BuildV1.DeleteBuildAsync(new DeleteBuildRequest() {
+DeleteBuildRequest req = new DeleteBuildRequest() {
     BuildId = 1,
-}))
+};
+
+using(var res = await sdk.BuildV1.DeleteBuildAsync(req))
 {
+
     // handle response
 }
 ```
@@ -106,13 +110,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.BuildV1.GetBuildInfoAsync(new GetBuildInfoRequest() {
+GetBuildInfoRequest req = new GetBuildInfoRequest() {
     BuildId = 1,
-}))
+};
+
+using(var res = await sdk.BuildV1.GetBuildInfoAsync(req))
 {
+
     // handle response
 }
 ```
@@ -144,11 +150,13 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.BuildV1.GetBuildsAsync(new GetBuildsRequest() {}))
+GetBuildsRequest req = new GetBuildsRequest() {};
+
+using(var res = await sdk.BuildV1.GetBuildsAsync(req))
 {
+
     // handle response
 }
 ```
@@ -180,10 +188,9 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.BuildV1.RunBuildAsync(new RunBuildRequest() {
+RunBuildRequest req = new RunBuildRequest() {
     RequestBody = new RunBuildRequestBody() {
         File = new File() {
             Content = "0xcBBBDB7B76 as bytes <<<>>>",
@@ -191,8 +198,11 @@ using(var res = await sdk.BuildV1.RunBuildAsync(new RunBuildRequest() {
         },
     },
     BuildId = 1,
-}))
+};
+
+using(var res = await sdk.BuildV1.RunBuildAsync(req))
 {
+
     // handle response
 }
 ```

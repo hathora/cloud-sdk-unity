@@ -31,7 +31,7 @@ namespace HathoraCloud.Models.Operations
         
 
         [SerializeField]
-        public LobbyV3? LobbyV3 { get; set; }
+        public HathoraCloud.Models.Shared.LobbyV3? LobbyV3 { get; set; }
         
 
         /// <summary>

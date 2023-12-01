@@ -27,10 +27,9 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
+AppConfig req = new AppConfig() {
     AppName = "minecraft",
     AuthConfiguration = new AuthConfiguration() {
         Anonymous = new RecordStringNever() {},
@@ -39,8 +38,11 @@ using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
         },
         Nickname = new RecordStringNever() {},
     },
-}))
+};
+
+using(var res = await sdk.AppV1.CreateAppAsync(req))
 {
+
     // handle response
 }
 ```
@@ -72,11 +74,13 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.AppV1.DeleteAppAsync(new DeleteAppRequest() {}))
+DeleteAppRequest req = new DeleteAppRequest() {};
+
+using(var res = await sdk.AppV1.DeleteAppAsync(req))
 {
+
     // handle response
 }
 ```
@@ -108,11 +112,13 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.AppV1.GetAppInfoAsync(new GetAppInfoRequest() {}))
+GetAppInfoRequest req = new GetAppInfoRequest() {};
+
+using(var res = await sdk.AppV1.GetAppInfoAsync(req))
 {
+
     // handle response
 }
 ```
@@ -143,11 +149,11 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 using(var res = await sdk.AppV1.GetAppsAsync())
 {
+
     // handle response
 }
 ```
@@ -173,10 +179,9 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.AppV1.UpdateAppAsync(new UpdateAppRequest() {
+UpdateAppRequest req = new UpdateAppRequest() {
     AppConfig = new AppConfig() {
         AppName = "minecraft",
         AuthConfiguration = new AuthConfiguration() {
@@ -187,8 +192,11 @@ using(var res = await sdk.AppV1.UpdateAppAsync(new UpdateAppRequest() {
             Nickname = new RecordStringNever() {},
         },
     },
-}))
+};
+
+using(var res = await sdk.AppV1.UpdateAppAsync(req))
 {
+
     // handle response
 }
 ```

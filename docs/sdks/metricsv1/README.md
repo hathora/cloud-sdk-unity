@@ -25,16 +25,18 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.MetricsV1.GetMetricsAsync(new GetMetricsRequest() {
+GetMetricsRequest req = new GetMetricsRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
     Metrics = new List<MetricName>() {
         MetricName.RateEgress,
     },
-}))
+};
+
+using(var res = await sdk.MetricsV1.GetMetricsAsync(req))
 {
+
     // handle response
 }
 ```

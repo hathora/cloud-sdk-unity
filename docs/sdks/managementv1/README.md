@@ -17,13 +17,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.ManagementV1.SendVerificationEmailAsync(new VerificationEmailRequest() {
+VerificationEmailRequest req = new VerificationEmailRequest() {
     UserId = "string",
-}))
+};
+
+using(var res = await sdk.ManagementV1.SendVerificationEmailAsync(req))
 {
+
     // handle response
 }
 ```

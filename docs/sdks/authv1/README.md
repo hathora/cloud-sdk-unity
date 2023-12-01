@@ -26,11 +26,13 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.AuthV1.LoginAnonymousAsync(new LoginAnonymousRequest() {}))
+LoginAnonymousRequest req = new LoginAnonymousRequest() {};
+
+using(var res = await sdk.AuthV1.LoginAnonymousAsync(req))
 {
+
     // handle response
 }
 ```
@@ -62,15 +64,17 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.AuthV1.LoginGoogleAsync(new HathoraCloud.Models.Operations.LoginGoogleRequest() {
+HathoraCloud.Models.Operations.LoginGoogleRequest req = new HathoraCloud.Models.Operations.LoginGoogleRequest() {
     LoginGoogleRequest = new HathoraCloud.Models.Shared.LoginGoogleRequest() {
         IdToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImZkNDhhNzUxMzhkOWQ0OGYwYWE2MzVlZjU2OWM0ZTE5NmY3YWU4ZDYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiODQ4NDEyODI2Nzg4LW00bXNyYjZxNDRkbTJ1ZTNrZ3Z1aTBmcTdrZGE1NWxzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiODQ4NDEyODI2Nzg4LW00bXNyYjZxNDRkbTJ1ZTNrZ3Z1aTBmcTdrZGE1NWxzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTE0NTQyMzMwNzI3MTU2MTMzNzc2IiwiZW1haWwiOiJocGFdkeivmeuzQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoidno1NGhhdTNxbnVR",
     },
-}))
+};
+
+using(var res = await sdk.AuthV1.LoginGoogleAsync(req))
 {
+
     // handle response
 }
 ```
@@ -102,15 +106,17 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.AuthV1.LoginNicknameAsync(new HathoraCloud.Models.Operations.LoginNicknameRequest() {
+HathoraCloud.Models.Operations.LoginNicknameRequest req = new HathoraCloud.Models.Operations.LoginNicknameRequest() {
     LoginNicknameRequest = new HathoraCloud.Models.Shared.LoginNicknameRequest() {
         Nickname = "squiddytwoshoes",
     },
-}))
+};
+
+using(var res = await sdk.AuthV1.LoginNicknameAsync(req))
 {
+
     // handle response
 }
 ```

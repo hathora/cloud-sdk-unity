@@ -9,7 +9,7 @@
     
 </div>
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 The SDK can either be compiled using `dotnet build` and the resultant `.dll` file can be copied into your Unity project's `Assets` folder, or you can copy the source code directly into your project.
@@ -17,10 +17,11 @@ The SDK can either be compiled using `dotnet build` and the resultant `.dll` fil
 The SDK relies on Newtonsoft's JSON.NET Package which can be installed via the Unity Package Manager.
 
 To do so open the Package Manager via `Window > Package Manager` and click the `+` button then `Add package from git URL...` and enter `com.unity.nuget.newtonsoft-json` and click `Add`.
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
+<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
-<!-- Start SDK Example Usage -->
+
 ### Example
 
 ```csharp
@@ -31,10 +32,9 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
+AppConfig req = new AppConfig() {
     AppName = "minecraft",
     AuthConfiguration = new AuthConfiguration() {
         Anonymous = new RecordStringNever() {},
@@ -43,16 +43,18 @@ using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
         },
         Nickname = new RecordStringNever() {},
     },
-}))
+};
+
+using(var res = await sdk.AppV1.CreateAppAsync(req))
 {
+
     // handle response
 }
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
-
 
 ### [AppV1](docs/sdks/appv1/README.md)
 
@@ -156,17 +158,15 @@ using(var res = await sdk.AppV1.CreateAppAsync(new AppConfig() {
 * [GetRoomInfo](docs/sdks/roomv2/README.md#getroominfo) - Retreive current and historical allocation data for a [room](https://hathora.dev/docs/concepts/hathora-entities#room).
 * [SuspendRoom](docs/sdks/roomv2/README.md#suspendroom) - Suspend a [room](https://hathora.dev/docs/concepts/hathora-entities#room). The room is unallocated from the process but can be rescheduled later using the same `roomId`.
 * [UpdateRoomConfig](docs/sdks/roomv2/README.md#updateroomconfig)
-<!-- End SDK Available Operations -->
+<!-- End Available Resources and Operations [operations] -->
 
 
 
-<!-- Start Dev Containers -->
-
-<!-- End Dev Containers -->
 
 
+<!-- Start Global Parameters [global-parameters] -->
+## Global Parameters
 
-<!-- Start Global Parameters -->
 ## Global Parameters
 
 A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
@@ -180,7 +180,7 @@ The following global parameter is available.
 
 | Name | Type | Required | Description |
 | ---- | ---- |:--------:| ----------- |
-| appId | string |  | The appId parameter. |
+| appId | string |  | The AppId parameter. |
 
 
 ### Example
@@ -194,15 +194,39 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.AppV1.DeleteAppAsync(new DeleteAppRequest() {}))
+DeleteAppRequest req = new DeleteAppRequest() {};
+
+using(var res = await sdk.AppV1.DeleteAppAsync(req))
 {
+
     // handle response
 }
 ```
-<!-- End Global Parameters -->
+<!-- End Global Parameters [global-parameters] -->
+
+<!-- Start Server Selection [server] -->
+## Server Selection
+
+## Server Selection
+
+### Select Server by Index
+
+You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.hathora.dev` | None |
+| 1 | `https:///` | None |
+
+
+
+
+### Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
+<!-- End Server Selection [server] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

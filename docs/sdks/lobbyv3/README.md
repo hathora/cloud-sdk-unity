@@ -24,12 +24,9 @@ using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
 var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.LobbyV3.CreateLobbyAsync(new CreateLobbySecurity() {
-    PlayerAuth = "",
-}, new CreateLobbyRequest() {
+CreateLobbyRequest req = new CreateLobbyRequest() {
     CreateLobbyV3Params = new CreateLobbyV3Params() {
         Region = Region.Seattle,
         RoomConfig = "{\"name\":\"my-room\"}",
@@ -37,8 +34,13 @@ using(var res = await sdk.LobbyV3.CreateLobbyAsync(new CreateLobbySecurity() {
     },
     RoomId = "2swovpy1fnunu",
     ShortCode = "LFG4",
-}))
+};
+
+using(var res = await sdk.LobbyV3.CreateLobbyAsync(new CreateLobbySecurity() {
+    PlayerAuth = "",
+}, req))
 {
+
     // handle response
 }
 ```
@@ -71,13 +73,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.LobbyV3.GetLobbyInfoByRoomIdAsync(new GetLobbyInfoByRoomIdRequest() {
+GetLobbyInfoByRoomIdRequest req = new GetLobbyInfoByRoomIdRequest() {
     RoomId = "2swovpy1fnunu",
-}))
+};
+
+using(var res = await sdk.LobbyV3.GetLobbyInfoByRoomIdAsync(req))
 {
+
     // handle response
 }
 ```
@@ -109,13 +113,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.LobbyV3.GetLobbyInfoByShortCodeAsync(new GetLobbyInfoByShortCodeRequest() {
+GetLobbyInfoByShortCodeRequest req = new GetLobbyInfoByShortCodeRequest() {
     ShortCode = "LFG4",
-}))
+};
+
+using(var res = await sdk.LobbyV3.GetLobbyInfoByShortCodeAsync(req))
 {
+
     // handle response
 }
 ```
@@ -147,11 +153,13 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.LobbyV3.ListActivePublicLobbiesAsync(new ListActivePublicLobbiesRequest() {}))
+ListActivePublicLobbiesRequest req = new ListActivePublicLobbiesRequest() {};
+
+using(var res = await sdk.LobbyV3.ListActivePublicLobbiesAsync(req))
 {
+
     // handle response
 }
 ```

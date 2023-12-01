@@ -211,7 +211,6 @@ HathoraCloud/Models/Shared/ConnectionInfoV2Status.cs
 HathoraCloud/Models/Shared/ConnectionInfoV2.cs
 HathoraCloud/Models/Shared/UpdateRoomConfigParams.cs
 HathoraCloud/Models/Shared/Security.cs
-USAGE.md
 docs/Models/Operations/CreateAppResponse.md
 docs/Models/Operations/DeleteAppRequest.md
 docs/Models/Operations/DeleteAppResponse.md
@@ -409,4 +408,5 @@ docs/sdks/metricsv1/README.md
 docs/sdks/processesv1/README.md
 docs/sdks/roomv1/README.md
 docs/sdks/roomv2/README.md
+USAGE.md
 .gitattributes

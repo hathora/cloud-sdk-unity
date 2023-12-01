@@ -30,17 +30,19 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.RoomV1.CreateRoomDeprecatedAsync(new CreateRoomDeprecatedRequest() {
+CreateRoomDeprecatedRequest req = new CreateRoomDeprecatedRequest() {
     CreateRoomParams = new CreateRoomParams() {
         Region = Region.Chicago,
         RoomConfig = "{\"name\":\"my-room\"}",
     },
     RoomId = "2swovpy1fnunu",
-}))
+};
+
+using(var res = await sdk.RoomV1.CreateRoomDeprecatedAsync(req))
 {
+
     // handle response
 }
 ```
@@ -72,13 +74,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.RoomV1.DestroyRoomDeprecatedAsync(new DestroyRoomDeprecatedRequest() {
+DestroyRoomDeprecatedRequest req = new DestroyRoomDeprecatedRequest() {
     RoomId = "2swovpy1fnunu",
-}))
+};
+
+using(var res = await sdk.RoomV1.DestroyRoomDeprecatedAsync(req))
 {
+
     // handle response
 }
 ```
@@ -110,13 +114,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.RoomV1.GetActiveRoomsForProcessDeprecatedAsync(new GetActiveRoomsForProcessDeprecatedRequest() {
+GetActiveRoomsForProcessDeprecatedRequest req = new GetActiveRoomsForProcessDeprecatedRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
-}))
+};
+
+using(var res = await sdk.RoomV1.GetActiveRoomsForProcessDeprecatedAsync(req))
 {
+
     // handle response
 }
 ```
@@ -148,13 +154,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.RoomV1.GetConnectionInfoDeprecatedAsync(new GetConnectionInfoDeprecatedRequest() {
+GetConnectionInfoDeprecatedRequest req = new GetConnectionInfoDeprecatedRequest() {
     RoomId = "2swovpy1fnunu",
-}))
+};
+
+using(var res = await sdk.RoomV1.GetConnectionInfoDeprecatedAsync(req))
 {
+
     // handle response
 }
 ```
@@ -186,13 +194,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.RoomV1.GetInactiveRoomsForProcessDeprecatedAsync(new GetInactiveRoomsForProcessDeprecatedRequest() {
+GetInactiveRoomsForProcessDeprecatedRequest req = new GetInactiveRoomsForProcessDeprecatedRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
-}))
+};
+
+using(var res = await sdk.RoomV1.GetInactiveRoomsForProcessDeprecatedAsync(req))
 {
+
     // handle response
 }
 ```
@@ -224,13 +234,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.RoomV1.GetRoomInfoDeprecatedAsync(new GetRoomInfoDeprecatedRequest() {
+GetRoomInfoDeprecatedRequest req = new GetRoomInfoDeprecatedRequest() {
     RoomId = "2swovpy1fnunu",
-}))
+};
+
+using(var res = await sdk.RoomV1.GetRoomInfoDeprecatedAsync(req))
 {
+
     // handle response
 }
 ```
@@ -262,13 +274,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.RoomV1.SuspendRoomDeprecatedAsync(new SuspendRoomDeprecatedRequest() {
+SuspendRoomDeprecatedRequest req = new SuspendRoomDeprecatedRequest() {
     RoomId = "2swovpy1fnunu",
-}))
+};
+
+using(var res = await sdk.RoomV1.SuspendRoomDeprecatedAsync(req))
 {
+
     // handle response
 }
 ```

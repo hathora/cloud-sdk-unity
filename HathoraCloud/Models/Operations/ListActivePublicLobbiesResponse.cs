@@ -45,7 +45,7 @@ namespace HathoraCloud.Models.Operations
         /// Ok
         /// </summary>
         [SerializeField]
-        public List<LobbyV3>? Classes { get; set; }
+        public List<HathoraCloud.Models.Shared.LobbyV3>? Classes { get; set; }
         
         public void Dispose() {
             if (RawResponse != null) {

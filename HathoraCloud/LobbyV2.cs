@@ -54,12 +54,12 @@ namespace HathoraCloud
     /// </summary>
     public class LobbyV2: ILobbyV2
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.26.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "0.26.1";
+        private const string _sdkGenVersion = "2.205.0";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.26.0 2.195.2 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.26.1 2.205.0 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -69,15 +69,15 @@ namespace HathoraCloud
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
+            SDKConfiguration = config;
         }
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<CreateLobbyDeprecatedResponse> CreateLobbyDeprecatedAsync(CreateLobbyDeprecatedSecurity security, CreateLobbyDeprecatedRequest request)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v2/{appId}/create", request);
             
 
@@ -144,8 +144,8 @@ namespace HathoraCloud
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<CreateLocalLobbyResponse> CreateLocalLobbyAsync(CreateLocalLobbySecurity security, CreateLocalLobbyRequest request)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v2/{appId}/create/local", request);
             
 
@@ -212,8 +212,8 @@ namespace HathoraCloud
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<CreatePrivateLobbyResponse> CreatePrivateLobbyAsync(CreatePrivateLobbySecurity security, CreatePrivateLobbyRequest request)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v2/{appId}/create/private", request);
             
 
@@ -280,8 +280,8 @@ namespace HathoraCloud
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<CreatePublicLobbyResponse> CreatePublicLobbyAsync(CreatePublicLobbySecurity security, CreatePublicLobbyRequest request)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v2/{appId}/create/public", request);
             
 
@@ -348,8 +348,8 @@ namespace HathoraCloud
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<GetLobbyInfoResponse> GetLobbyInfoAsync(GetLobbyInfoRequest? request = null)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v2/{appId}/info/{roomId}", request);
             
 
@@ -406,8 +406,8 @@ namespace HathoraCloud
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<ListActivePublicLobbiesDeprecatedV2Response> ListActivePublicLobbiesDeprecatedV2Async(ListActivePublicLobbiesDeprecatedV2Request? request = null)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v2/{appId}/list/public", request);
             
 
@@ -455,8 +455,8 @@ namespace HathoraCloud
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<SetLobbyStateResponse> SetLobbyStateAsync(SetLobbyStateRequest request)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v2/{appId}/setState/{roomId}", request);
             
 

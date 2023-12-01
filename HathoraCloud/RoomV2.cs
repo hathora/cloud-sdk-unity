@@ -67,12 +67,12 @@ namespace HathoraCloud
     /// </summary>
     public class RoomV2: IRoomV2
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.26.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "0.26.1";
+        private const string _sdkGenVersion = "2.205.0";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.26.0 2.195.2 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.26.1 2.205.0 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -82,14 +82,14 @@ namespace HathoraCloud
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
+            SDKConfiguration = config;
         }
         
 
         public async Task<CreateRoomResponse> CreateRoomAsync(CreateRoomRequest request)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v2/{appId}/create", request);
             
 
@@ -155,8 +155,8 @@ namespace HathoraCloud
 
         public async Task<DestroyRoomResponse> DestroyRoomAsync(DestroyRoomRequest? request = null)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v2/{appId}/destroy/{roomId}", request);
             
 
@@ -208,8 +208,8 @@ namespace HathoraCloud
 
         public async Task<GetActiveRoomsForProcessResponse> GetActiveRoomsForProcessAsync(GetActiveRoomsForProcessRequest? request = null)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v2/{appId}/list/{processId}/active", request);
             
 
@@ -265,8 +265,8 @@ namespace HathoraCloud
 
         public async Task<GetConnectionInfoResponse> GetConnectionInfoAsync(GetConnectionInfoRequest? request = null)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v2/{appId}/connectioninfo/{roomId}", request);
             
 
@@ -322,8 +322,8 @@ namespace HathoraCloud
 
         public async Task<GetInactiveRoomsForProcessResponse> GetInactiveRoomsForProcessAsync(GetInactiveRoomsForProcessRequest? request = null)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v2/{appId}/list/{processId}/inactive", request);
             
 
@@ -379,8 +379,8 @@ namespace HathoraCloud
 
         public async Task<GetRoomInfoResponse> GetRoomInfoAsync(GetRoomInfoRequest? request = null)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v2/{appId}/info/{roomId}", request);
             
 
@@ -436,8 +436,8 @@ namespace HathoraCloud
 
         public async Task<SuspendRoomResponse> SuspendRoomAsync(SuspendRoomRequest? request = null)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v2/{appId}/suspend/{roomId}", request);
             
 
@@ -489,8 +489,8 @@ namespace HathoraCloud
 
         public async Task<UpdateRoomConfigResponse> UpdateRoomConfigAsync(UpdateRoomConfigRequest request)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v2/{appId}/update/{roomId}", request);
             
 

@@ -56,12 +56,12 @@ namespace HathoraCloud
     /// </summary>
     public class AppV1: IAppV1
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.26.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "0.26.1";
+        private const string _sdkGenVersion = "2.205.0";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.26.0 2.195.2 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.26.1 2.205.0 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -71,13 +71,13 @@ namespace HathoraCloud
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
+            SDKConfiguration = config;
         }
         
 
         public async Task<CreateAppResponse> CreateAppAsync(AppConfig request)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/apps/v1/create";
             
 
@@ -143,8 +143,8 @@ namespace HathoraCloud
 
         public async Task<DeleteAppResponse> DeleteAppAsync(DeleteAppRequest? request = null)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/apps/v1/delete/{appId}", request);
             
 
@@ -196,8 +196,8 @@ namespace HathoraCloud
 
         public async Task<GetAppInfoResponse> GetAppInfoAsync(GetAppInfoRequest? request = null)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/apps/v1/info/{appId}", request);
             
 
@@ -253,7 +253,7 @@ namespace HathoraCloud
 
         public async Task<GetAppsResponse> GetAppsAsync()
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/apps/v1/list";
             
 
@@ -300,8 +300,8 @@ namespace HathoraCloud
 
         public async Task<UpdateAppResponse> UpdateAppAsync(UpdateAppRequest request)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/apps/v1/update/{appId}", request);
             
 

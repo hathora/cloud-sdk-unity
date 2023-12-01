@@ -119,13 +119,13 @@ namespace HathoraCloud
     /// </summary>
     public class HathoraCloudSDK: IHathoraCloudSDK
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _target = "unity";
-        private const string _sdkVersion = "0.26.0";
-        private const string _sdkGenVersion = "2.195.2";
+        private const string _sdkVersion = "0.26.1";
+        private const string _sdkGenVersion = "2.205.0";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.26.0 2.195.2 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.26.1 2.205.0 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -162,27 +162,27 @@ namespace HathoraCloud
                 _securityClient = SecuritySerializer.Apply(_defaultClient, security);
             }
             
-            Config = new SDKConfig()
+            SDKConfiguration = new SDKConfig()
             {
                 AppId = appId,
                 serverUrl = _serverUrl
             };
 
-            AppV1 = new AppV1(_defaultClient, _securityClient, _serverUrl, Config);
-            AuthV1 = new AuthV1(_defaultClient, _securityClient, _serverUrl, Config);
-            BillingV1 = new BillingV1(_defaultClient, _securityClient, _serverUrl, Config);
-            BuildV1 = new BuildV1(_defaultClient, _securityClient, _serverUrl, Config);
-            DeploymentV1 = new DeploymentV1(_defaultClient, _securityClient, _serverUrl, Config);
-            DiscoveryV1 = new DiscoveryV1(_defaultClient, _securityClient, _serverUrl, Config);
-            LobbyV1 = new LobbyV1(_defaultClient, _securityClient, _serverUrl, Config);
-            LobbyV2 = new LobbyV2(_defaultClient, _securityClient, _serverUrl, Config);
-            LobbyV3 = new LobbyV3(_defaultClient, _securityClient, _serverUrl, Config);
-            LogV1 = new LogV1(_defaultClient, _securityClient, _serverUrl, Config);
-            ManagementV1 = new ManagementV1(_defaultClient, _securityClient, _serverUrl, Config);
-            MetricsV1 = new MetricsV1(_defaultClient, _securityClient, _serverUrl, Config);
-            ProcessesV1 = new ProcessesV1(_defaultClient, _securityClient, _serverUrl, Config);
-            RoomV1 = new RoomV1(_defaultClient, _securityClient, _serverUrl, Config);
-            RoomV2 = new RoomV2(_defaultClient, _securityClient, _serverUrl, Config);
+            AppV1 = new AppV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            AuthV1 = new AuthV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            BillingV1 = new BillingV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            BuildV1 = new BuildV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            DeploymentV1 = new DeploymentV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            DiscoveryV1 = new DiscoveryV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            LobbyV1 = new LobbyV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            LobbyV2 = new LobbyV2(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            LobbyV3 = new LobbyV3(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            LogV1 = new LogV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            ManagementV1 = new ManagementV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            MetricsV1 = new MetricsV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            ProcessesV1 = new ProcessesV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            RoomV1 = new RoomV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            RoomV2 = new RoomV2(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
         }
     }
 }
