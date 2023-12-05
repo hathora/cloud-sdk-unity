@@ -1,0 +1,10 @@
+overlay: 1.0.0
+info:
+  title: Overlay to rename all LobbyV3 tags LobbyV3SDK
+  version: 0.0.1
+actions:
+  - target: $.tags[?(@.name=='LobbyV3')]
+    update:
+      name: LobbyV3SDK
+  - target: $["paths"][*][*][?(@.tags && @.tags[0] == 'LobbyV3')].tags[0]
+    update: LobbyV3SDK
