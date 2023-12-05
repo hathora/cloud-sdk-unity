@@ -22,7 +22,7 @@ namespace HathoraCloud
     /// <summary>
     /// Deprecated. Use <a href="https://hathora.dev/api#tag/LobbyV3">LobbyV3</a>.
     /// </summary>
-    public interface ILobbyV2SDK
+    public interface ILobbyV2
     {
 
         /// <summary>
@@ -52,35 +52,32 @@ namespace HathoraCloud
     /// <summary>
     /// Deprecated. Use <a href="https://hathora.dev/api#tag/LobbyV3">LobbyV3</a>.
     /// </summary>
-    public class LobbyV2SDK: ILobbyV2SDK
+    public class LobbyV2: ILobbyV2
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.22.1";
-        private const string _sdkGenVersion = "2.173.0";
+        private const string _sdkVersion = "0.27.0";
+        private const string _sdkGenVersion = "2.210.3";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.22.1 2.173.0 0.0.1 hathora-unity-sdk";
+        private const string _userAgent = "speakeasy-sdk/unity 0.27.0 2.210.3 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public LobbyV2SDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public LobbyV2(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
+            SDKConfiguration = config;
         }
         
 
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<CreateLobbyDeprecatedResponse> CreateLobbyDeprecatedAsync(CreateLobbyDeprecatedSecurity security, CreateLobbyDeprecatedRequest request)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v2/{appId}/create", request);
             
 
@@ -131,56 +128,11 @@ namespace HathoraCloud
                 
                 return response;
             }
-            if((response.StatusCode == 400))
+            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 422) || (response.StatusCode == 429) || (response.StatusCode == 500))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.CreateLobbyDeprecated400ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 401))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreateLobbyDeprecated401ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 404))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreateLobbyDeprecated404ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 422))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreateLobbyDeprecated422ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 429))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreateLobbyDeprecated429ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 500))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreateLobbyDeprecated500ApplicationJSONString = httpResponse.downloadHandler.text;
+                    response.ApiError = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -192,12 +144,8 @@ namespace HathoraCloud
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<CreateLocalLobbyResponse> CreateLocalLobbyAsync(CreateLocalLobbySecurity security, CreateLocalLobbyRequest request)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v2/{appId}/create/local", request);
             
 
@@ -248,56 +196,11 @@ namespace HathoraCloud
                 
                 return response;
             }
-            if((response.StatusCode == 400))
+            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 422) || (response.StatusCode == 429) || (response.StatusCode == 500))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.CreateLocalLobby400ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 401))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreateLocalLobby401ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 404))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreateLocalLobby404ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 422))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreateLocalLobby422ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 429))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreateLocalLobby429ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 500))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreateLocalLobby500ApplicationJSONString = httpResponse.downloadHandler.text;
+                    response.ApiError = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -309,12 +212,8 @@ namespace HathoraCloud
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<CreatePrivateLobbyResponse> CreatePrivateLobbyAsync(CreatePrivateLobbySecurity security, CreatePrivateLobbyRequest request)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v2/{appId}/create/private", request);
             
 
@@ -365,56 +264,11 @@ namespace HathoraCloud
                 
                 return response;
             }
-            if((response.StatusCode == 400))
+            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 422) || (response.StatusCode == 429) || (response.StatusCode == 500))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.CreatePrivateLobby400ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 401))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreatePrivateLobby401ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 404))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreatePrivateLobby404ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 422))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreatePrivateLobby422ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 429))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreatePrivateLobby429ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 500))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreatePrivateLobby500ApplicationJSONString = httpResponse.downloadHandler.text;
+                    response.ApiError = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -426,12 +280,8 @@ namespace HathoraCloud
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<CreatePublicLobbyResponse> CreatePublicLobbyAsync(CreatePublicLobbySecurity security, CreatePublicLobbyRequest request)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v2/{appId}/create/public", request);
             
 
@@ -482,56 +332,11 @@ namespace HathoraCloud
                 
                 return response;
             }
-            if((response.StatusCode == 400))
+            if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 422) || (response.StatusCode == 429) || (response.StatusCode == 500))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.CreatePublicLobby400ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 401))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreatePublicLobby401ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 404))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreatePublicLobby404ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 422))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreatePublicLobby422ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 429))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreatePublicLobby429ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 500))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.CreatePublicLobby500ApplicationJSONString = httpResponse.downloadHandler.text;
+                    response.ApiError = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -540,14 +345,11 @@ namespace HathoraCloud
         }
         
 
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<GetLobbyInfoResponse> GetLobbyInfoAsync(GetLobbyInfoRequest? request = null)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v2/{appId}/info/{roomId}", request);
             
 
@@ -592,7 +394,7 @@ namespace HathoraCloud
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.GetLobbyInfo404ApplicationJSONString = httpResponse.downloadHandler.text;
+                    response.ApiError = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -601,14 +403,11 @@ namespace HathoraCloud
         }
         
 
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<ListActivePublicLobbiesDeprecatedV2Response> ListActivePublicLobbiesDeprecatedV2Async(ListActivePublicLobbiesDeprecatedV2Request? request = null)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v2/{appId}/list/public", request);
             
 
@@ -644,7 +443,7 @@ namespace HathoraCloud
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.Lobbies = JsonConvert.DeserializeObject<List<Lobby>>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
+                    response.Classes = JsonConvert.DeserializeObject<List<Lobby>>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
                 }
                 
                 return response;
@@ -653,14 +452,11 @@ namespace HathoraCloud
         }
         
 
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<SetLobbyStateResponse> SetLobbyStateAsync(SetLobbyStateRequest request)
         {
-            request.AppId ??= Config.AppId;
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            request.AppId ??= SDKConfiguration.AppId;
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v2/{appId}/setState/{roomId}", request);
             
 
@@ -711,20 +507,11 @@ namespace HathoraCloud
                 
                 return response;
             }
-            if((response.StatusCode == 404))
+            if((response.StatusCode == 404) || (response.StatusCode == 422))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {
-                    response.SetLobbyState404ApplicationJSONString = httpResponse.downloadHandler.text;
-                }
-                
-                return response;
-            }
-            if((response.StatusCode == 422))
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.SetLobbyState422ApplicationJSONString = httpResponse.downloadHandler.text;
+                    response.ApiError = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
                 }
                 
                 return response;

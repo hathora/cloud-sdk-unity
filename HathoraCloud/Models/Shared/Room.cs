@@ -37,7 +37,7 @@ namespace HathoraCloud.Models.Shared
 
         [SerializeField]
         [JsonProperty("currentAllocation")]
-        public RoomCurrentAllocation CurrentAllocation { get; set; } = default!;
+        public CurrentAllocation CurrentAllocation { get; set; } = default!;
         
 
         [SerializeField]

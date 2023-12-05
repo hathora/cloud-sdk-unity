@@ -22,7 +22,7 @@ namespace HathoraCloud
     /// <summary>
     /// Service that allows clients to directly ping all Hathora regions to get latency information
     /// </summary>
-    public interface IDiscoveryV1SDK
+    public interface IDiscoveryV1
     {
 
         /// <summary>
@@ -34,34 +34,30 @@ namespace HathoraCloud
     /// <summary>
     /// Service that allows clients to directly ping all Hathora regions to get latency information
     /// </summary>
-    public class DiscoveryV1SDK: IDiscoveryV1SDK
+    public class DiscoveryV1: IDiscoveryV1
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.22.1";
-        private const string _sdkGenVersion = "2.173.0";
+        private const string _sdkVersion = "0.27.0";
+        private const string _sdkGenVersion = "2.210.3";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.22.1 2.173.0 0.0.1 hathora-unity-sdk";
+        private const string _userAgent = "speakeasy-sdk/unity 0.27.0 2.210.3 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public DiscoveryV1SDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public DiscoveryV1(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
+            SDKConfiguration = config;
         }
         
 
         public async Task<GetPingServiceEndpointsResponse> GetPingServiceEndpointsAsync()
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/discovery/v1/ping";
             
 

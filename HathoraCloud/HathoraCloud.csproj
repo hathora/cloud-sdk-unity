@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <IsPackable>true</IsPackable>
-    <PackageId>hathora-unity-sdk</PackageId>
-    <Version>0.22.1</Version>
+    <PackageId>hathora-cloud</PackageId>
+    <Version>0.27.0</Version>
     <Authors>Hathora</Authors>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <DocumentationFile>docs/hathora-unity-sdk.xml</DocumentationFile>
+    <DocumentationFile>docs/hathora-cloud.xml</DocumentationFile>
     <NoWarn>1591</NoWarn>
   </PropertyGroup>
 

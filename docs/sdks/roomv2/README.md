@@ -31,17 +31,19 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.RoomV2.CreateRoomAsync(new CreateRoomRequest() {
+CreateRoomRequest req = new CreateRoomRequest() {
     CreateRoomParams = new CreateRoomParams() {
-        Region = HathoraCloud.Models.Shared.Region.Sydney,
+        Region = Region.Sydney,
         RoomConfig = "{\"name\":\"my-room\"}",
     },
     RoomId = "2swovpy1fnunu",
-}))
+};
+
+using(var res = await sdk.RoomV2.CreateRoomAsync(req))
 {
+
     // handle response
 }
 ```
@@ -73,13 +75,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.RoomV2.DestroyRoomAsync(new DestroyRoomRequest() {
+DestroyRoomRequest req = new DestroyRoomRequest() {
     RoomId = "2swovpy1fnunu",
-}))
+};
+
+using(var res = await sdk.RoomV2.DestroyRoomAsync(req))
 {
+
     // handle response
 }
 ```
@@ -111,13 +115,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.RoomV2.GetActiveRoomsForProcessAsync(new GetActiveRoomsForProcessRequest() {
+GetActiveRoomsForProcessRequest req = new GetActiveRoomsForProcessRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
-}))
+};
+
+using(var res = await sdk.RoomV2.GetActiveRoomsForProcessAsync(req))
 {
+
     // handle response
 }
 ```
@@ -149,13 +155,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.RoomV2.GetConnectionInfoAsync(new GetConnectionInfoRequest() {
+GetConnectionInfoRequest req = new GetConnectionInfoRequest() {
     RoomId = "2swovpy1fnunu",
-}))
+};
+
+using(var res = await sdk.RoomV2.GetConnectionInfoAsync(req))
 {
+
     // handle response
 }
 ```
@@ -187,13 +195,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.RoomV2.GetInactiveRoomsForProcessAsync(new GetInactiveRoomsForProcessRequest() {
+GetInactiveRoomsForProcessRequest req = new GetInactiveRoomsForProcessRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
-}))
+};
+
+using(var res = await sdk.RoomV2.GetInactiveRoomsForProcessAsync(req))
 {
+
     // handle response
 }
 ```
@@ -225,13 +235,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.RoomV2.GetRoomInfoAsync(new GetRoomInfoRequest() {
+GetRoomInfoRequest req = new GetRoomInfoRequest() {
     RoomId = "2swovpy1fnunu",
-}))
+};
+
+using(var res = await sdk.RoomV2.GetRoomInfoAsync(req))
 {
+
     // handle response
 }
 ```
@@ -263,13 +275,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.RoomV2.SuspendRoomAsync(new SuspendRoomRequest() {
+SuspendRoomRequest req = new SuspendRoomRequest() {
     RoomId = "2swovpy1fnunu",
-}))
+};
+
+using(var res = await sdk.RoomV2.SuspendRoomAsync(req))
 {
+
     // handle response
 }
 ```
@@ -299,16 +313,18 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.RoomV2.UpdateRoomConfigAsync(new UpdateRoomConfigRequest() {
+UpdateRoomConfigRequest req = new UpdateRoomConfigRequest() {
     UpdateRoomConfigParams = new UpdateRoomConfigParams() {
         RoomConfig = "{\"name\":\"my-room\"}",
     },
     RoomId = "2swovpy1fnunu",
-}))
+};
+
+using(var res = await sdk.RoomV2.UpdateRoomConfigAsync(req))
 {
+
     // handle response
 }
 ```

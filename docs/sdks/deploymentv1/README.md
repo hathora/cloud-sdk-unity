@@ -21,21 +21,21 @@ Create a new [deployment](https://hathora.dev/docs/concepts/hathora-entities#dep
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
+using System.Collections.Generic;
 
 var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.DeploymentV1.CreateDeploymentAsync(new CreateDeploymentRequest() {
+CreateDeploymentRequest req = new CreateDeploymentRequest() {
     DeploymentConfig = new DeploymentConfig() {
         AdditionalContainerPorts = new List<ContainerPort>() {
             new ContainerPort() {
                 Name = "default",
                 Port = 8000,
-                TransportType = HathoraCloud.Models.Shared.TransportType.Udp,
+                TransportType = TransportType.Udp,
             },
         },
         ContainerPort = 4000,
@@ -45,13 +45,16 @@ using(var res = await sdk.DeploymentV1.CreateDeploymentAsync(new CreateDeploymen
                 Value = "TRUE",
             },
         },
-        PlanName = HathoraCloud.Models.Shared.PlanName.Tiny,
+        PlanName = PlanName.Tiny,
         RoomsPerProcess = 3,
-        TransportType = HathoraCloud.Models.Shared.TransportType.Tcp,
+        TransportType = TransportType.Tcp,
     },
     BuildId = 1,
-}))
+};
+
+using(var res = await sdk.DeploymentV1.CreateDeploymentAsync(req))
 {
+
     // handle response
 }
 ```
@@ -83,13 +86,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.DeploymentV1.GetDeploymentInfoAsync(new GetDeploymentInfoRequest() {
+GetDeploymentInfoRequest req = new GetDeploymentInfoRequest() {
     DeploymentId = 1,
-}))
+};
+
+using(var res = await sdk.DeploymentV1.GetDeploymentInfoAsync(req))
 {
+
     // handle response
 }
 ```
@@ -121,11 +126,13 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-);
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-using(var res = await sdk.DeploymentV1.GetDeploymentsAsync(new GetDeploymentsRequest() {}))
+GetDeploymentsRequest req = new GetDeploymentsRequest() {};
+
+using(var res = await sdk.DeploymentV1.GetDeploymentsAsync(req))
 {
+
     // handle response
 }
 ```

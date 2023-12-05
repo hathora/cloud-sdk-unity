@@ -86,7 +86,7 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("state")]
-        public LobbyState? State { get; set; }
+        public State? State { get; set; }
         
 
         /// <summary>

@@ -25,6 +25,8 @@ jobs:
       openapi_docs: |
         - https://hathora.dev/swagger.json
       speakeasy_version: latest
+      overlay_docs: |
+        - ./overlay.yaml
     secrets:
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
       openapi_doc_auth_token: ${{ secrets.SPEAKEASY_PROD_API_KEY }}
