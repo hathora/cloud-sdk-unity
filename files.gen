@@ -6,7 +6,7 @@ HathoraCloud/DeploymentV1.cs
 HathoraCloud/DiscoveryV1.cs
 HathoraCloud/LobbyV1.cs
 HathoraCloud/LobbyV2.cs
-HathoraCloud/LobbyV3.cs
+HathoraCloud/LobbyV3SDK.cs
 HathoraCloud/LogV1.cs
 HathoraCloud/ManagementV1.cs
 HathoraCloud/MetricsV1.cs
@@ -401,7 +401,7 @@ docs/sdks/deploymentv1/README.md
 docs/sdks/discoveryv1/README.md
 docs/sdks/lobbyv1/README.md
 docs/sdks/lobbyv2/README.md
-docs/sdks/lobbyv3/README.md
+docs/sdks/lobbyv3sdk/README.md
 docs/sdks/logv1/README.md
 docs/sdks/managementv1/README.md
 docs/sdks/metricsv1/README.md

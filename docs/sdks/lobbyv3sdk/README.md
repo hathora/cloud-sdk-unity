@@ -1,5 +1,5 @@
-# LobbyV3
-(*LobbyV3*)
+# LobbyV3SDK
+(*LobbyV3SDK*)
 
 ## Overview
 
@@ -36,7 +36,7 @@ CreateLobbyRequest req = new CreateLobbyRequest() {
     ShortCode = "LFG4",
 };
 
-using(var res = await sdk.LobbyV3.CreateLobbyAsync(new CreateLobbySecurity() {
+using(var res = await sdk.LobbyV3SDK.CreateLobbyAsync(new CreateLobbySecurity() {
     PlayerAuth = "",
 }, req))
 {
@@ -79,7 +79,7 @@ GetLobbyInfoByRoomIdRequest req = new GetLobbyInfoByRoomIdRequest() {
     RoomId = "2swovpy1fnunu",
 };
 
-using(var res = await sdk.LobbyV3.GetLobbyInfoByRoomIdAsync(req))
+using(var res = await sdk.LobbyV3SDK.GetLobbyInfoByRoomIdAsync(req))
 {
 
     // handle response
@@ -119,7 +119,7 @@ GetLobbyInfoByShortCodeRequest req = new GetLobbyInfoByShortCodeRequest() {
     ShortCode = "LFG4",
 };
 
-using(var res = await sdk.LobbyV3.GetLobbyInfoByShortCodeAsync(req))
+using(var res = await sdk.LobbyV3SDK.GetLobbyInfoByShortCodeAsync(req))
 {
 
     // handle response
@@ -157,7 +157,7 @@ var sdk = new HathoraCloudSDK(
 
 ListActivePublicLobbiesRequest req = new ListActivePublicLobbiesRequest() {};
 
-using(var res = await sdk.LobbyV3.ListActivePublicLobbiesAsync(req))
+using(var res = await sdk.LobbyV3SDK.ListActivePublicLobbiesAsync(req))
 {
 
     // handle response

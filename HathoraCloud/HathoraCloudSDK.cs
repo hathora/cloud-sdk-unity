@@ -63,7 +63,7 @@ namespace HathoraCloud
         /// <summary>
         /// Operations to create and manage lobbies using our <a href="https://hathora.dev/docs/lobbies-and-matchmaking/lobby-service">Lobby Service</a>.
         /// </summary>
-        public ILobbyV3 LobbyV3 { get; }
+        public ILobbyV3SDK LobbyV3SDK { get; }
 
         /// <summary>
         /// Operations to get logs by <a href="https://hathora.dev/docs/concepts/hathora-entities#application">applications</a>, <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a>, and <a href="https://hathora.dev/docs/concepts/hathora-entities#deployment">deployments</a>. We store 20GB of logs data.
@@ -122,10 +122,10 @@ namespace HathoraCloud
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _target = "unity";
-        private const string _sdkVersion = "0.26.1";
-        private const string _sdkGenVersion = "2.205.0";
+        private const string _sdkVersion = "0.27.0";
+        private const string _sdkGenVersion = "2.210.3";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.26.1 2.205.0 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.27.0 2.210.3 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -137,7 +137,7 @@ namespace HathoraCloud
         public IDiscoveryV1 DiscoveryV1 { get; private set; }
         public ILobbyV1 LobbyV1 { get; private set; }
         public ILobbyV2 LobbyV2 { get; private set; }
-        public ILobbyV3 LobbyV3 { get; private set; }
+        public ILobbyV3SDK LobbyV3SDK { get; private set; }
         public ILogV1 LogV1 { get; private set; }
         public IManagementV1 ManagementV1 { get; private set; }
         public IMetricsV1 MetricsV1 { get; private set; }
@@ -176,7 +176,7 @@ namespace HathoraCloud
             DiscoveryV1 = new DiscoveryV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             LobbyV1 = new LobbyV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             LobbyV2 = new LobbyV2(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            LobbyV3 = new LobbyV3(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            LobbyV3SDK = new LobbyV3SDK(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             LogV1 = new LogV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             ManagementV1 = new ManagementV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             MetricsV1 = new MetricsV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
