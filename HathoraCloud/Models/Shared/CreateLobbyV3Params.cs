@@ -28,7 +28,7 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("roomConfig")]
-        public string RoomConfig { get; set; } = default!;
+        public string? RoomConfig { get; set; }
         
 
         /// <summary>

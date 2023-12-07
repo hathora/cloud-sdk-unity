@@ -105,6 +105,8 @@ HathoraCloud/Models/Operations/GetLobbyInfoByShortCodeRequest.cs
 HathoraCloud/Models/Operations/GetLobbyInfoByShortCodeResponse.cs
 HathoraCloud/Models/Operations/ListActivePublicLobbiesRequest.cs
 HathoraCloud/Models/Operations/ListActivePublicLobbiesResponse.cs
+HathoraCloud/Models/Operations/DownloadLogForProcessRequest.cs
+HathoraCloud/Models/Operations/DownloadLogForProcessResponse.cs
 HathoraCloud/Models/Operations/GetLogsForAppRequest.cs
 HathoraCloud/Models/Operations/GetLogsForAppResponse.cs
 HathoraCloud/Models/Operations/GetLogsForDeploymentRequest.cs
@@ -286,6 +288,8 @@ docs/Models/Operations/GetLobbyInfoByShortCodeRequest.md
 docs/Models/Operations/GetLobbyInfoByShortCodeResponse.md
 docs/Models/Operations/ListActivePublicLobbiesRequest.md
 docs/Models/Operations/ListActivePublicLobbiesResponse.md
+docs/Models/Operations/DownloadLogForProcessRequest.md
+docs/Models/Operations/DownloadLogForProcessResponse.md
 docs/Models/Operations/GetLogsForAppRequest.md
 docs/Models/Operations/GetLogsForAppResponse.md
 docs/Models/Operations/GetLogsForDeploymentRequest.md

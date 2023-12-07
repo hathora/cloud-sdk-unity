@@ -56,10 +56,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.27.0";
-        private const string _sdkGenVersion = "2.210.3";
+        private const string _sdkVersion = "0.27.1";
+        private const string _sdkGenVersion = "2.210.6";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.27.0 2.210.3 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.27.1 2.210.6 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
