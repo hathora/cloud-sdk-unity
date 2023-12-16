@@ -57,7 +57,7 @@ using(var res = await sdk.RoomV2.CreateRoomAsync(req))
 
 ### Response
 
-**[CreateRoomResponse](../../models/operations/CreateRoomResponse.md)**
+**[HathoraCloud.Models.Operations.CreateRoomResponse](../../models/operations/CreateRoomResponse.md)**
 
 
 ## DestroyRoom

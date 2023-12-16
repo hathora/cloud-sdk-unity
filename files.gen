@@ -209,6 +209,8 @@ HathoraCloud/Models/Shared/CreateRoomParams.cs
 HathoraCloud/Models/Shared/CurrentAllocation.cs
 HathoraCloud/Models/Shared/Room.cs
 HathoraCloud/Models/Shared/RoomAllocation.cs
+HathoraCloud/Models/Shared/CreateRoomResponseStatus.cs
+HathoraCloud/Models/Shared/CreateRoomResponse.cs
 HathoraCloud/Models/Shared/ConnectionInfoV2Status.cs
 HathoraCloud/Models/Shared/ConnectionInfoV2.cs
 HathoraCloud/Models/Shared/UpdateRoomConfigParams.cs
@@ -392,6 +394,8 @@ docs/Models/Shared/CreateRoomParams.md
 docs/Models/Shared/CurrentAllocation.md
 docs/Models/Shared/Room.md
 docs/Models/Shared/RoomAllocation.md
+docs/Models/Shared/CreateRoomResponseStatus.md
+docs/Models/Shared/CreateRoomResponse.md
 docs/Models/Shared/ConnectionInfoV2Status.md
 docs/Models/Shared/ConnectionInfoV2.md
 docs/Models/Shared/UpdateRoomConfigParams.md
