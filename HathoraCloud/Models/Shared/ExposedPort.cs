@@ -33,7 +33,7 @@ namespace HathoraCloud.Models.Shared
 
         [SerializeField]
         [JsonProperty("port")]
-        public double Port { get; set; } = default!;
+        public int Port { get; set; } = default!;
         
 
         /// <summary>

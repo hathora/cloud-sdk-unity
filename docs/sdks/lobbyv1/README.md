@@ -28,7 +28,7 @@ var sdk = new HathoraCloudSDK(
 CreatePrivateLobbyDeprecatedRequest req = new CreatePrivateLobbyDeprecatedRequest() {};
 
 using(var res = await sdk.LobbyV1.CreatePrivateLobbyDeprecatedAsync(new CreatePrivateLobbyDeprecatedSecurity() {
-    PlayerAuth = "",
+    PlayerAuth = "<YOUR_BEARER_TOKEN_HERE>",
 }, req))
 {
 
@@ -40,7 +40,7 @@ using(var res = await sdk.LobbyV1.CreatePrivateLobbyDeprecatedAsync(new CreatePr
 
 | Parameter                                                                                                                              | Type                                                                                                                                   | Required                                                                                                                               | Description                                                                                                                            |
 | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                              | [CreatePrivateLobbyDeprecatedRequest](../../models/operations/CreatePrivateLobbyDeprecatedRequest.md)                                  | :heavy_check_mark:                                                                                                                     | The request object to use for the request.                                                                                             |
+| `request`                                                                                                                              | [CreatePrivateLobbyDeprecatedRequest](../../Models/Operations/CreatePrivateLobbyDeprecatedRequest.md)                                  | :heavy_check_mark:                                                                                                                     | The request object to use for the request.                                                                                             |
 | `security`                                                                                                                             | [HathoraCloud.Models.Operations.CreatePrivateLobbyDeprecatedSecurity](../../models/operations/CreatePrivateLobbyDeprecatedSecurity.md) | :heavy_check_mark:                                                                                                                     | The security requirements to use for the request.                                                                                      |
 
 
@@ -66,7 +66,7 @@ var sdk = new HathoraCloudSDK(
 CreatePublicLobbyDeprecatedRequest req = new CreatePublicLobbyDeprecatedRequest() {};
 
 using(var res = await sdk.LobbyV1.CreatePublicLobbyDeprecatedAsync(new CreatePublicLobbyDeprecatedSecurity() {
-    PlayerAuth = "",
+    PlayerAuth = "<YOUR_BEARER_TOKEN_HERE>",
 }, req))
 {
 
@@ -78,7 +78,7 @@ using(var res = await sdk.LobbyV1.CreatePublicLobbyDeprecatedAsync(new CreatePub
 
 | Parameter                                                                                                                            | Type                                                                                                                                 | Required                                                                                                                             | Description                                                                                                                          |
 | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                            | [CreatePublicLobbyDeprecatedRequest](../../models/operations/CreatePublicLobbyDeprecatedRequest.md)                                  | :heavy_check_mark:                                                                                                                   | The request object to use for the request.                                                                                           |
+| `request`                                                                                                                            | [CreatePublicLobbyDeprecatedRequest](../../Models/Operations/CreatePublicLobbyDeprecatedRequest.md)                                  | :heavy_check_mark:                                                                                                                   | The request object to use for the request.                                                                                           |
 | `security`                                                                                                                           | [HathoraCloud.Models.Operations.CreatePublicLobbyDeprecatedSecurity](../../models/operations/CreatePublicLobbyDeprecatedSecurity.md) | :heavy_check_mark:                                                                                                                   | The security requirements to use for the request.                                                                                    |
 
 
@@ -100,7 +100,7 @@ using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
     security: new Security() {
-        HathoraDevToken = "",
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
@@ -117,7 +117,7 @@ using(var res = await sdk.LobbyV1.ListActivePublicLobbiesDeprecatedV1Async(req))
 
 | Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
 | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                           | [ListActivePublicLobbiesDeprecatedV1Request](../../models/operations/ListActivePublicLobbiesDeprecatedV1Request.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
+| `request`                                                                                                           | [ListActivePublicLobbiesDeprecatedV1Request](../../Models/Operations/ListActivePublicLobbiesDeprecatedV1Request.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
 
 
 ### Response

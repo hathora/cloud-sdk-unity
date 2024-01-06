@@ -124,7 +124,7 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("requestedMemoryMB")]
-        public double RequestedMemoryMB { get; set; } = default!;
+        public int RequestedMemoryMB { get; set; } = default!;
         
 
         /// <summary>

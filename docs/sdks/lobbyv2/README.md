@@ -41,7 +41,7 @@ CreateLobbyDeprecatedRequest req = new CreateLobbyDeprecatedRequest() {
 };
 
 using(var res = await sdk.LobbyV2.CreateLobbyDeprecatedAsync(new CreateLobbyDeprecatedSecurity() {
-    PlayerAuth = "",
+    PlayerAuth = "<YOUR_BEARER_TOKEN_HERE>",
 }, req))
 {
 
@@ -53,7 +53,7 @@ using(var res = await sdk.LobbyV2.CreateLobbyDeprecatedAsync(new CreateLobbyDepr
 
 | Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
 | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                | [CreateLobbyDeprecatedRequest](../../models/operations/CreateLobbyDeprecatedRequest.md)                                  | :heavy_check_mark:                                                                                                       | The request object to use for the request.                                                                               |
+| `request`                                                                                                                | [CreateLobbyDeprecatedRequest](../../Models/Operations/CreateLobbyDeprecatedRequest.md)                                  | :heavy_check_mark:                                                                                                       | The request object to use for the request.                                                                               |
 | `security`                                                                                                               | [HathoraCloud.Models.Operations.CreateLobbyDeprecatedSecurity](../../models/operations/CreateLobbyDeprecatedSecurity.md) | :heavy_check_mark:                                                                                                       | The security requirements to use for the request.                                                                        |
 
 
@@ -85,7 +85,7 @@ CreateLocalLobbyRequest req = new CreateLocalLobbyRequest() {
 };
 
 using(var res = await sdk.LobbyV2.CreateLocalLobbyAsync(new CreateLocalLobbySecurity() {
-    PlayerAuth = "",
+    PlayerAuth = "<YOUR_BEARER_TOKEN_HERE>",
 }, req))
 {
 
@@ -97,7 +97,7 @@ using(var res = await sdk.LobbyV2.CreateLocalLobbyAsync(new CreateLocalLobbySecu
 
 | Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
 | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                      | [CreateLocalLobbyRequest](../../models/operations/CreateLocalLobbyRequest.md)                                  | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
+| `request`                                                                                                      | [CreateLocalLobbyRequest](../../Models/Operations/CreateLocalLobbyRequest.md)                                  | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
 | `security`                                                                                                     | [HathoraCloud.Models.Operations.CreateLocalLobbySecurity](../../models/operations/CreateLocalLobbySecurity.md) | :heavy_check_mark:                                                                                             | The security requirements to use for the request.                                                              |
 
 
@@ -129,7 +129,7 @@ CreatePrivateLobbyRequest req = new CreatePrivateLobbyRequest() {
 };
 
 using(var res = await sdk.LobbyV2.CreatePrivateLobbyAsync(new CreatePrivateLobbySecurity() {
-    PlayerAuth = "",
+    PlayerAuth = "<YOUR_BEARER_TOKEN_HERE>",
 }, req))
 {
 
@@ -141,7 +141,7 @@ using(var res = await sdk.LobbyV2.CreatePrivateLobbyAsync(new CreatePrivateLobby
 
 | Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
 | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                          | [CreatePrivateLobbyRequest](../../models/operations/CreatePrivateLobbyRequest.md)                                  | :heavy_check_mark:                                                                                                 | The request object to use for the request.                                                                         |
+| `request`                                                                                                          | [CreatePrivateLobbyRequest](../../Models/Operations/CreatePrivateLobbyRequest.md)                                  | :heavy_check_mark:                                                                                                 | The request object to use for the request.                                                                         |
 | `security`                                                                                                         | [HathoraCloud.Models.Operations.CreatePrivateLobbySecurity](../../models/operations/CreatePrivateLobbySecurity.md) | :heavy_check_mark:                                                                                                 | The security requirements to use for the request.                                                                  |
 
 
@@ -173,7 +173,7 @@ CreatePublicLobbyRequest req = new CreatePublicLobbyRequest() {
 };
 
 using(var res = await sdk.LobbyV2.CreatePublicLobbyAsync(new CreatePublicLobbySecurity() {
-    PlayerAuth = "",
+    PlayerAuth = "<YOUR_BEARER_TOKEN_HERE>",
 }, req))
 {
 
@@ -185,7 +185,7 @@ using(var res = await sdk.LobbyV2.CreatePublicLobbyAsync(new CreatePublicLobbySe
 
 | Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
 | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                        | [CreatePublicLobbyRequest](../../models/operations/CreatePublicLobbyRequest.md)                                  | :heavy_check_mark:                                                                                               | The request object to use for the request.                                                                       |
+| `request`                                                                                                        | [CreatePublicLobbyRequest](../../Models/Operations/CreatePublicLobbyRequest.md)                                  | :heavy_check_mark:                                                                                               | The request object to use for the request.                                                                       |
 | `security`                                                                                                       | [HathoraCloud.Models.Operations.CreatePublicLobbySecurity](../../models/operations/CreatePublicLobbySecurity.md) | :heavy_check_mark:                                                                                               | The security requirements to use for the request.                                                                |
 
 
@@ -209,7 +209,7 @@ using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
     security: new Security() {
-        HathoraDevToken = "",
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
@@ -228,7 +228,7 @@ using(var res = await sdk.LobbyV2.GetLobbyInfoAsync(req))
 
 | Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
 | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| `request`                                                             | [GetLobbyInfoRequest](../../models/operations/GetLobbyInfoRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
+| `request`                                                             | [GetLobbyInfoRequest](../../Models/Operations/GetLobbyInfoRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
 
 
 ### Response
@@ -251,7 +251,7 @@ using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
     security: new Security() {
-        HathoraDevToken = "",
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
@@ -268,7 +268,7 @@ using(var res = await sdk.LobbyV2.ListActivePublicLobbiesDeprecatedV2Async(req))
 
 | Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
 | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                           | [ListActivePublicLobbiesDeprecatedV2Request](../../models/operations/ListActivePublicLobbiesDeprecatedV2Request.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
+| `request`                                                                                                           | [ListActivePublicLobbiesDeprecatedV2Request](../../Models/Operations/ListActivePublicLobbiesDeprecatedV2Request.md) | :heavy_check_mark:                                                                                                  | The request object to use for the request.                                                                          |
 
 
 ### Response
@@ -291,7 +291,7 @@ using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
     security: new Security() {
-        HathoraDevToken = "",
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
@@ -313,7 +313,7 @@ using(var res = await sdk.LobbyV2.SetLobbyStateAsync(req))
 
 | Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `request`                                                               | [SetLobbyStateRequest](../../models/operations/SetLobbyStateRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+| `request`                                                               | [SetLobbyStateRequest](../../Models/Operations/SetLobbyStateRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
 
 ### Response

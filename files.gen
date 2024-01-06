@@ -105,6 +105,8 @@ HathoraCloud/Models/Operations/GetLobbyInfoByShortCodeRequest.cs
 HathoraCloud/Models/Operations/GetLobbyInfoByShortCodeResponse.cs
 HathoraCloud/Models/Operations/ListActivePublicLobbiesRequest.cs
 HathoraCloud/Models/Operations/ListActivePublicLobbiesResponse.cs
+HathoraCloud/Models/Operations/DownloadLogForProcessRequest.cs
+HathoraCloud/Models/Operations/DownloadLogForProcessResponse.cs
 HathoraCloud/Models/Operations/GetLogsForAppRequest.cs
 HathoraCloud/Models/Operations/GetLogsForAppResponse.cs
 HathoraCloud/Models/Operations/GetLogsForDeploymentRequest.cs
@@ -207,6 +209,8 @@ HathoraCloud/Models/Shared/CreateRoomParams.cs
 HathoraCloud/Models/Shared/CurrentAllocation.cs
 HathoraCloud/Models/Shared/Room.cs
 HathoraCloud/Models/Shared/RoomAllocation.cs
+HathoraCloud/Models/Shared/CreateRoomResponseStatus.cs
+HathoraCloud/Models/Shared/CreateRoomResponse.cs
 HathoraCloud/Models/Shared/ConnectionInfoV2Status.cs
 HathoraCloud/Models/Shared/ConnectionInfoV2.cs
 HathoraCloud/Models/Shared/UpdateRoomConfigParams.cs
@@ -286,6 +290,8 @@ docs/Models/Operations/GetLobbyInfoByShortCodeRequest.md
 docs/Models/Operations/GetLobbyInfoByShortCodeResponse.md
 docs/Models/Operations/ListActivePublicLobbiesRequest.md
 docs/Models/Operations/ListActivePublicLobbiesResponse.md
+docs/Models/Operations/DownloadLogForProcessRequest.md
+docs/Models/Operations/DownloadLogForProcessResponse.md
 docs/Models/Operations/GetLogsForAppRequest.md
 docs/Models/Operations/GetLogsForAppResponse.md
 docs/Models/Operations/GetLogsForDeploymentRequest.md
@@ -388,6 +394,8 @@ docs/Models/Shared/CreateRoomParams.md
 docs/Models/Shared/CurrentAllocation.md
 docs/Models/Shared/Room.md
 docs/Models/Shared/RoomAllocation.md
+docs/Models/Shared/CreateRoomResponseStatus.md
+docs/Models/Shared/CreateRoomResponse.md
 docs/Models/Shared/ConnectionInfoV2Status.md
 docs/Models/Shared/ConnectionInfoV2.md
 docs/Models/Shared/UpdateRoomConfigParams.md
