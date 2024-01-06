@@ -52,10 +52,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.28.1";
-        private const string _sdkGenVersion = "2.225.2";
+        private const string _sdkVersion = "0.28.2";
+        private const string _sdkGenVersion = "2.228.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.28.1 2.225.2 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.28.2 2.228.1 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -71,11 +71,15 @@ namespace HathoraCloud
 
         public async Task<DownloadLogForProcessResponse> DownloadLogForProcessAsync(DownloadLogForProcessRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new DownloadLogForProcessRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/logs/v1/{appId}/process/{processId}/download", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -129,11 +133,15 @@ namespace HathoraCloud
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<GetLogsForAppResponse> GetLogsForAppAsync(GetLogsForAppRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new GetLogsForAppRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/logs/v1/{appId}/all", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -187,11 +195,15 @@ namespace HathoraCloud
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<GetLogsForDeploymentResponse> GetLogsForDeploymentAsync(GetLogsForDeploymentRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new GetLogsForDeploymentRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/logs/v1/{appId}/deployment/{deploymentId}", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -244,11 +256,15 @@ namespace HathoraCloud
 
         public async Task<GetLogsForProcessResponse> GetLogsForProcessAsync(GetLogsForProcessRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new GetLogsForProcessRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/logs/v1/{appId}/process/{processId}", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;

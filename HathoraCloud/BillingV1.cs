@@ -31,10 +31,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.28.1";
-        private const string _sdkGenVersion = "2.225.2";
+        private const string _sdkVersion = "0.28.2";
+        private const string _sdkGenVersion = "2.228.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.28.1 2.225.2 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.28.2 2.228.1 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -53,7 +53,6 @@ namespace HathoraCloud
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/billing/v1/balance";
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -109,7 +108,6 @@ namespace HathoraCloud
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/billing/v1/invoices";
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -165,7 +163,6 @@ namespace HathoraCloud
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/billing/v1/paymentmethod";
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -221,7 +218,6 @@ namespace HathoraCloud
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/billing/v1/customerportalurl";
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbPOST);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;

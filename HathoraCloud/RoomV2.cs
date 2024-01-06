@@ -69,10 +69,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.28.1";
-        private const string _sdkGenVersion = "2.225.2";
+        private const string _sdkVersion = "0.28.2";
+        private const string _sdkGenVersion = "2.228.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.28.1 2.225.2 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.28.2 2.228.1 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -89,10 +89,10 @@ namespace HathoraCloud
         public async Task<HathoraCloud.Models.Operations.CreateRoomResponse> CreateRoomAsync(CreateRoomRequest request)
         {
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v2/{appId}/create", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbPOST);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -155,11 +155,15 @@ namespace HathoraCloud
 
         public async Task<DestroyRoomResponse> DestroyRoomAsync(DestroyRoomRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new DestroyRoomRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v2/{appId}/destroy/{roomId}", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbPOST);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -208,11 +212,15 @@ namespace HathoraCloud
 
         public async Task<GetActiveRoomsForProcessResponse> GetActiveRoomsForProcessAsync(GetActiveRoomsForProcessRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new GetActiveRoomsForProcessRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v2/{appId}/list/{processId}/active", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -265,11 +273,15 @@ namespace HathoraCloud
 
         public async Task<GetConnectionInfoResponse> GetConnectionInfoAsync(GetConnectionInfoRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new GetConnectionInfoRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v2/{appId}/connectioninfo/{roomId}", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -322,11 +334,15 @@ namespace HathoraCloud
 
         public async Task<GetInactiveRoomsForProcessResponse> GetInactiveRoomsForProcessAsync(GetInactiveRoomsForProcessRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new GetInactiveRoomsForProcessRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v2/{appId}/list/{processId}/inactive", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -379,11 +395,15 @@ namespace HathoraCloud
 
         public async Task<GetRoomInfoResponse> GetRoomInfoAsync(GetRoomInfoRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new GetRoomInfoRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v2/{appId}/info/{roomId}", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -436,11 +456,15 @@ namespace HathoraCloud
 
         public async Task<SuspendRoomResponse> SuspendRoomAsync(SuspendRoomRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new SuspendRoomRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v2/{appId}/suspend/{roomId}", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbPOST);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -490,10 +514,10 @@ namespace HathoraCloud
         public async Task<UpdateRoomConfigResponse> UpdateRoomConfigAsync(UpdateRoomConfigRequest request)
         {
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v2/{appId}/update/{roomId}", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbPOST);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
