@@ -169,10 +169,10 @@ namespace HathoraCloud.Utils
                     }
                     break;
                 case "openIdConnect":
-                    client.AddHeader(valueMetadata.Name, Utilities.ValueToString(value));
+                    client.AddHeader(valueMetadata.Name, Utilities.PrefixBearer(Utilities.ValueToString(value)));
                     break;
                 case "oauth2":
-                    client.AddHeader(valueMetadata.Name, Utilities.ValueToString(value));
+                    client.AddHeader(valueMetadata.Name, Utilities.PrefixBearer(Utilities.ValueToString(value)));
                     break;
                 case "http":
                     switch (schemeMetadata.SubType)
