@@ -16,7 +16,7 @@ namespace HathoraCloud.Models.Operations
     using UnityEngine;
     
     [Serializable]
-    public class GetProcessInfoResponse: IDisposable
+    public class GetProcessInfoDeprecatedResponse: IDisposable
     {
 
         [SerializeField]
@@ -34,7 +34,7 @@ namespace HathoraCloud.Models.Operations
         /// Ok
         /// </summary>
         [SerializeField]
-        public ProcessV2? ProcessV2 { get; set; }
+        public Process? Process { get; set; }
         
 
         /// <summary>

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: bdb34d30-f36e-4c13-bfde-42babcb240db
 management:
-  docChecksum: 2e5375e73fe04d0ee4e4918c7191f71f
+  docChecksum: d84531ebd98bc06b028bf0e99ffcb881
   docVersion: 0.0.1
   speakeasyVersion: internal
-  generationVersion: 2.237.2
-  releaseVersion: 0.28.3
-  configChecksum: c16c2259448d057a58d9f102723d1546
+  generationVersion: 2.239.0
+  releaseVersion: 0.28.4
+  configChecksum: ec433bb32687004f8b78320f15427e16
   repoURL: https://github.com/hathora/cloud-sdk-unity.git
   repoSubDirectory: .
   published: true
@@ -32,6 +32,7 @@ generatedFiles:
   - HathoraCloud/ManagementV1.cs
   - HathoraCloud/MetricsV1.cs
   - HathoraCloud/ProcessesV1.cs
+  - HathoraCloud/ProcessesV2.cs
   - HathoraCloud/RoomV1.cs
   - HathoraCloud/RoomV2.cs
   - HathoraCloud/HathoraCloudSDK.cs
@@ -137,12 +138,16 @@ generatedFiles:
   - HathoraCloud/Models/Operations/SendVerificationEmailResponse.cs
   - HathoraCloud/Models/Operations/GetMetricsRequest.cs
   - HathoraCloud/Models/Operations/GetMetricsResponse.cs
-  - HathoraCloud/Models/Operations/GetProcessInfoRequest.cs
-  - HathoraCloud/Models/Operations/GetProcessInfoResponse.cs
+  - HathoraCloud/Models/Operations/GetProcessInfoDeprecatedRequest.cs
+  - HathoraCloud/Models/Operations/GetProcessInfoDeprecatedResponse.cs
   - HathoraCloud/Models/Operations/GetRunningProcessesRequest.cs
   - HathoraCloud/Models/Operations/GetRunningProcessesResponse.cs
   - HathoraCloud/Models/Operations/GetStoppedProcessesRequest.cs
   - HathoraCloud/Models/Operations/GetStoppedProcessesResponse.cs
+  - HathoraCloud/Models/Operations/GetLatestProcessesRequest.cs
+  - HathoraCloud/Models/Operations/GetLatestProcessesResponse.cs
+  - HathoraCloud/Models/Operations/GetProcessInfoRequest.cs
+  - HathoraCloud/Models/Operations/GetProcessInfoResponse.cs
   - HathoraCloud/Models/Operations/CreateRoomDeprecatedRequest.cs
   - HathoraCloud/Models/Operations/CreateRoomDeprecatedResponse.cs
   - HathoraCloud/Models/Operations/DestroyRoomDeprecatedRequest.cs
@@ -226,6 +231,8 @@ generatedFiles:
   - HathoraCloud/Models/Shared/RoomWithoutAllocationsCurrentAllocation.cs
   - HathoraCloud/Models/Shared/RoomWithoutAllocations.cs
   - HathoraCloud/Models/Shared/RoomStatus.cs
+  - HathoraCloud/Models/Shared/ProcessV2.cs
+  - HathoraCloud/Models/Shared/ProcessStatus.cs
   - HathoraCloud/Models/Shared/CreateRoomParams.cs
   - HathoraCloud/Models/Shared/CurrentAllocation.cs
   - HathoraCloud/Models/Shared/Room.cs
@@ -322,12 +329,16 @@ generatedFiles:
   - docs/Models/Operations/SendVerificationEmailResponse.md
   - docs/Models/Operations/GetMetricsRequest.md
   - docs/Models/Operations/GetMetricsResponse.md
-  - docs/Models/Operations/GetProcessInfoRequest.md
-  - docs/Models/Operations/GetProcessInfoResponse.md
+  - docs/Models/Operations/GetProcessInfoDeprecatedRequest.md
+  - docs/Models/Operations/GetProcessInfoDeprecatedResponse.md
   - docs/Models/Operations/GetRunningProcessesRequest.md
   - docs/Models/Operations/GetRunningProcessesResponse.md
   - docs/Models/Operations/GetStoppedProcessesRequest.md
   - docs/Models/Operations/GetStoppedProcessesResponse.md
+  - docs/Models/Operations/GetLatestProcessesRequest.md
+  - docs/Models/Operations/GetLatestProcessesResponse.md
+  - docs/Models/Operations/GetProcessInfoRequest.md
+  - docs/Models/Operations/GetProcessInfoResponse.md
   - docs/Models/Operations/CreateRoomDeprecatedRequest.md
   - docs/Models/Operations/CreateRoomDeprecatedResponse.md
   - docs/Models/Operations/DestroyRoomDeprecatedRequest.md
@@ -411,6 +422,8 @@ generatedFiles:
   - docs/Models/Shared/RoomWithoutAllocationsCurrentAllocation.md
   - docs/Models/Shared/RoomWithoutAllocations.md
   - docs/Models/Shared/RoomStatus.md
+  - docs/Models/Shared/ProcessV2.md
+  - docs/Models/Shared/ProcessStatus.md
   - docs/Models/Shared/CreateRoomParams.md
   - docs/Models/Shared/CurrentAllocation.md
   - docs/Models/Shared/Room.md
@@ -435,6 +448,7 @@ generatedFiles:
   - docs/sdks/managementv1/README.md
   - docs/sdks/metricsv1/README.md
   - docs/sdks/processesv1/README.md
+  - docs/sdks/processesv2/README.md
   - docs/sdks/roomv1/README.md
   - docs/sdks/roomv2/README.md
   - USAGE.md

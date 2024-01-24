@@ -15,27 +15,9 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    /// <summary>
-    /// A process object represents a runtime instance of your game server and its metadata.
-    /// </summary>
     [Serializable]
-    public class Process
+    public class ProcessV2
     {
-
-        /// <summary>
-        /// Tracks the number of active connections to a process.
-        /// </summary>
-        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
-        [SerializeField]
-        [JsonProperty("activeConnections")]
-        public int ActiveConnections { get; set; } = default!;
-        
-
-        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
-        [SerializeField]
-        [JsonProperty("activeConnectionsUpdatedAt")]
-        public DateTime ActiveConnectionsUpdatedAt { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("additionalExposedPorts")]
@@ -51,6 +33,14 @@ namespace HathoraCloud.Models.Shared
         
 
         /// <summary>
+        /// When the process started being provisioned.
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("createdAt")]
+        public DateTime CreatedAt { get; set; } = default!;
+        
+
+        /// <summary>
         /// System generated id for a deployment. Increments by 1.
         /// </summary>
         [SerializeField]
@@ -59,45 +49,11 @@ namespace HathoraCloud.Models.Shared
         
 
         /// <summary>
-        /// Process in drain will not accept any new rooms.
-        /// </summary>
-        [SerializeField]
-        [JsonProperty("draining")]
-        public bool Draining { get; set; } = default!;
-        
-
-        /// <summary>
-        /// Measures network traffic leaving the process in bytes.
-        /// </summary>
-        [SerializeField]
-        [JsonProperty("egressedBytes")]
-        public int EgressedBytes { get; set; } = default!;
-        
-
-        /// <summary>
         /// Connection details for an active process.
         /// </summary>
         [SerializeField]
         [JsonProperty("exposedPort")]
         public ExposedPort? ExposedPort { get; set; }
-        
-
-        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
-        [SerializeField]
-        [JsonProperty("host")]
-        public string Host { get; set; } = default!;
-        
-
-        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
-        [SerializeField]
-        [JsonProperty("idleSince")]
-        public DateTime IdleSince { get; set; } = default!;
-        
-
-        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
-        [SerializeField]
-        [JsonProperty("port")]
-        public double Port { get; set; } = default!;
         
 
         /// <summary>
@@ -113,29 +69,12 @@ namespace HathoraCloud.Models.Shared
         public Region Region { get; set; } = default!;
         
 
-        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
-        [SerializeField]
-        [JsonProperty("roomSlotsAvailable")]
-        public double RoomSlotsAvailable { get; set; } = default!;
-        
-
-        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
-        [SerializeField]
-        [JsonProperty("roomSlotsAvailableUpdatedAt")]
-        public DateTime RoomSlotsAvailableUpdatedAt { get; set; } = default!;
-        
-
         /// <summary>
         /// Tracks the number of rooms that have been allocated to the process.
         /// </summary>
         [SerializeField]
         [JsonProperty("roomsAllocated")]
         public int RoomsAllocated { get; set; } = default!;
-        
-
-        [SerializeField]
-        [JsonProperty("roomsAllocatedUpdatedAt")]
-        public DateTime RoomsAllocatedUpdatedAt { get; set; } = default!;
         
 
         /// <summary>
@@ -154,12 +93,9 @@ namespace HathoraCloud.Models.Shared
         public DateTime StartedAt { get; set; } = default!;
         
 
-        /// <summary>
-        /// When the process started being provisioned.
-        /// </summary>
         [SerializeField]
-        [JsonProperty("startingAt")]
-        public DateTime StartingAt { get; set; } = default!;
+        [JsonProperty("status")]
+        public ProcessStatus Status { get; set; } = default!;
         
 
         /// <summary>

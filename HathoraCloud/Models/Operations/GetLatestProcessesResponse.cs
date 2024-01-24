@@ -11,12 +11,13 @@
 namespace HathoraCloud.Models.Operations
 {
     using HathoraCloud.Models.Shared;
+    using System.Collections.Generic;
     using System;
     using UnityEngine.Networking;
     using UnityEngine;
     
     [Serializable]
-    public class GetProcessInfoResponse: IDisposable
+    public class GetLatestProcessesResponse: IDisposable
     {
 
         [SerializeField]
@@ -31,13 +32,6 @@ namespace HathoraCloud.Models.Operations
         
 
         /// <summary>
-        /// Ok
-        /// </summary>
-        [SerializeField]
-        public ProcessV2? ProcessV2 { get; set; }
-        
-
-        /// <summary>
         /// HTTP response status code for this operation
         /// </summary>
         [SerializeField]
@@ -49,6 +43,13 @@ namespace HathoraCloud.Models.Operations
         /// </summary>
         [SerializeField]
         public UnityWebRequest RawResponse { get; set; } = default!;
+        
+
+        /// <summary>
+        /// Ok
+        /// </summary>
+        [SerializeField]
+        public List<ProcessV2>? Classes { get; set; }
         
         public void Dispose() {
             if (RawResponse != null) {

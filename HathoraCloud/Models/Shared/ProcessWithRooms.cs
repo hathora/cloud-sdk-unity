@@ -25,6 +25,7 @@ namespace HathoraCloud.Models.Shared
         /// <summary>
         /// Tracks the number of active connections to a process.
         /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [SerializeField]
         [JsonProperty("activeConnections")]
         public int ActiveConnections { get; set; } = default!;
