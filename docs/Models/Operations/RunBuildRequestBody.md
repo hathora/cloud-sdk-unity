@@ -5,4 +5,4 @@
 
 | Field                                   | Type                                    | Required                                | Description                             |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| `File`                                  | [File](../../models/operations/File.md) | :heavy_check_mark:                      | N/A                                     |
+| `File`                                  | [File](../../Models/Operations/File.md) | :heavy_check_mark:                      | N/A                                     |

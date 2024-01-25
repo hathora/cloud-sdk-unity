@@ -34,7 +34,7 @@ namespace HathoraCloud.Models.Operations
         /// Ok
         /// </summary>
         [SerializeField]
-        public Process? Process { get; set; }
+        public ProcessV2? ProcessV2 { get; set; }
         
 
         /// <summary>

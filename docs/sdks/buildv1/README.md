@@ -26,7 +26,7 @@ using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
     security: new Security() {
-        HathoraDevToken = "",
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
@@ -47,7 +47,7 @@ using(var res = await sdk.BuildV1.CreateBuildAsync(req))
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [CreateBuildRequest](../../models/operations/CreateBuildRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `request`                                                           | [CreateBuildRequest](../../Models/Operations/CreateBuildRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 
 
 ### Response
@@ -68,7 +68,7 @@ using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
     security: new Security() {
-        HathoraDevToken = "",
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
@@ -87,7 +87,7 @@ using(var res = await sdk.BuildV1.DeleteBuildAsync(req))
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [DeleteBuildRequest](../../models/operations/DeleteBuildRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `request`                                                           | [DeleteBuildRequest](../../Models/Operations/DeleteBuildRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 
 
 ### Response
@@ -108,7 +108,7 @@ using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
     security: new Security() {
-        HathoraDevToken = "",
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
@@ -127,7 +127,7 @@ using(var res = await sdk.BuildV1.GetBuildInfoAsync(req))
 
 | Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
 | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| `request`                                                             | [GetBuildInfoRequest](../../models/operations/GetBuildInfoRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
+| `request`                                                             | [GetBuildInfoRequest](../../Models/Operations/GetBuildInfoRequest.md) | :heavy_check_mark:                                                    | The request object to use for the request.                            |
 
 
 ### Response
@@ -148,7 +148,7 @@ using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
     security: new Security() {
-        HathoraDevToken = "",
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
@@ -165,7 +165,7 @@ using(var res = await sdk.BuildV1.GetBuildsAsync(req))
 
 | Parameter                                                       | Type                                                            | Required                                                        | Description                                                     |
 | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
-| `request`                                                       | [GetBuildsRequest](../../models/operations/GetBuildsRequest.md) | :heavy_check_mark:                                              | The request object to use for the request.                      |
+| `request`                                                       | [GetBuildsRequest](../../Models/Operations/GetBuildsRequest.md) | :heavy_check_mark:                                              | The request object to use for the request.                      |
 
 
 ### Response
@@ -186,7 +186,7 @@ using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
     security: new Security() {
-        HathoraDevToken = "",
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
@@ -211,7 +211,7 @@ using(var res = await sdk.BuildV1.RunBuildAsync(req))
 
 | Parameter                                                     | Type                                                          | Required                                                      | Description                                                   |
 | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
-| `request`                                                     | [RunBuildRequest](../../models/operations/RunBuildRequest.md) | :heavy_check_mark:                                            | The request object to use for the request.                    |
+| `request`                                                     | [RunBuildRequest](../../Models/Operations/RunBuildRequest.md) | :heavy_check_mark:                                            | The request object to use for the request.                    |
 
 
 ### Response

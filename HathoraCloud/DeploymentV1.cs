@@ -48,10 +48,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.27.0";
-        private const string _sdkGenVersion = "2.210.3";
+        private const string _sdkVersion = "0.28.4";
+        private const string _sdkGenVersion = "2.239.0";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.27.0 2.210.3 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.28.4 2.239.0 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -68,10 +68,10 @@ namespace HathoraCloud
         public async Task<CreateDeploymentResponse> CreateDeploymentAsync(CreateDeploymentRequest request)
         {
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/deployments/v1/{appId}/create/{buildId}", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbPOST);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -134,11 +134,15 @@ namespace HathoraCloud
 
         public async Task<GetDeploymentInfoResponse> GetDeploymentInfoAsync(GetDeploymentInfoRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new GetDeploymentInfoRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/deployments/v1/{appId}/info/{deploymentId}", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -191,11 +195,15 @@ namespace HathoraCloud
 
         public async Task<GetDeploymentsResponse> GetDeploymentsAsync(GetDeploymentsRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new GetDeploymentsRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/deployments/v1/{appId}/list", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;

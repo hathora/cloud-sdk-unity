@@ -24,7 +24,7 @@ using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
     security: new Security() {
-        HathoraDevToken = "",
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
@@ -41,7 +41,7 @@ using(var res = await sdk.AuthV1.LoginAnonymousAsync(req))
 
 | Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
 | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `request`                                                                 | [LoginAnonymousRequest](../../models/operations/LoginAnonymousRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+| `request`                                                                 | [LoginAnonymousRequest](../../Models/Operations/LoginAnonymousRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
 
 
 ### Response
@@ -62,7 +62,7 @@ using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
     security: new Security() {
-        HathoraDevToken = "",
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
@@ -83,7 +83,7 @@ using(var res = await sdk.AuthV1.LoginGoogleAsync(req))
 
 | Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
 | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [HathoraCloud.Models.Operations.LoginGoogleRequest](../../models/operations/LoginGoogleRequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `request`                                                                                          | [HathoraCloud.Models.Operations.LoginGoogleRequest](../../Models/Operations/LoginGoogleRequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
 
 
 ### Response
@@ -104,7 +104,7 @@ using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
     security: new Security() {
-        HathoraDevToken = "",
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
@@ -125,7 +125,7 @@ using(var res = await sdk.AuthV1.LoginNicknameAsync(req))
 
 | Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
 | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [HathoraCloud.Models.Operations.LoginNicknameRequest](../../models/operations/LoginNicknameRequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
+| `request`                                                                                              | [HathoraCloud.Models.Operations.LoginNicknameRequest](../../Models/Operations/LoginNicknameRequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
 
 
 ### Response

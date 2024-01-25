@@ -80,7 +80,7 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("imageSize")]
-        public double ImageSize { get; set; } = default!;
+        public int ImageSize { get; set; } = default!;
         
 
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]

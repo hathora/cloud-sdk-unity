@@ -23,7 +23,7 @@ using System.Collections.Generic;
 
 var sdk = new HathoraCloudSDK(
     security: new Security() {
-        HathoraDevToken = "",
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
@@ -45,7 +45,7 @@ using(var res = await sdk.MetricsV1.GetMetricsAsync(req))
 
 | Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `request`                                                         | [GetMetricsRequest](../../models/operations/GetMetricsRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
+| `request`                                                         | [GetMetricsRequest](../../Models/Operations/GetMetricsRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
 
 
 ### Response

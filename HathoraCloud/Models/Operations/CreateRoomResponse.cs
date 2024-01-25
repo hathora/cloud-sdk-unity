@@ -23,15 +23,15 @@ namespace HathoraCloud.Models.Operations
         public ApiError? ApiError { get; set; }
         
 
-        [SerializeField]
-        public ConnectionInfoV2? ConnectionInfoV2 { get; set; }
-        
-
         /// <summary>
         /// HTTP response content type for this operation
         /// </summary>
         [SerializeField]
         public string? ContentType { get; set; } = default!;
+        
+
+        [SerializeField]
+        public HathoraCloud.Models.Shared.CreateRoomResponse? CreateRoomResponseValue { get; set; }
         
 
         /// <summary>

@@ -40,10 +40,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.27.0";
-        private const string _sdkGenVersion = "2.210.3";
+        private const string _sdkVersion = "0.28.4";
+        private const string _sdkGenVersion = "2.239.0";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.27.0 2.210.3 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.28.4 2.239.0 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -61,10 +61,10 @@ namespace HathoraCloud
         public async Task<CreateRoomDeprecatedResponse> CreateRoomDeprecatedAsync(CreateRoomDeprecatedRequest request)
         {
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v1/{appId}/create", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbPOST);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -128,11 +128,15 @@ namespace HathoraCloud
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<DestroyRoomDeprecatedResponse> DestroyRoomDeprecatedAsync(DestroyRoomDeprecatedRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new DestroyRoomDeprecatedRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v1/{appId}/destroy/{roomId}", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbPOST);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -182,11 +186,15 @@ namespace HathoraCloud
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<GetActiveRoomsForProcessDeprecatedResponse> GetActiveRoomsForProcessDeprecatedAsync(GetActiveRoomsForProcessDeprecatedRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new GetActiveRoomsForProcessDeprecatedRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v1/{appId}/list/{processId}/active", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -240,11 +248,15 @@ namespace HathoraCloud
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<GetConnectionInfoDeprecatedResponse> GetConnectionInfoDeprecatedAsync(GetConnectionInfoDeprecatedRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new GetConnectionInfoDeprecatedRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v1/{appId}/connectioninfo/{roomId}", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -298,11 +310,15 @@ namespace HathoraCloud
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<GetInactiveRoomsForProcessDeprecatedResponse> GetInactiveRoomsForProcessDeprecatedAsync(GetInactiveRoomsForProcessDeprecatedRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new GetInactiveRoomsForProcessDeprecatedRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v1/{appId}/list/{processId}/inactive", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -356,11 +372,15 @@ namespace HathoraCloud
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<GetRoomInfoDeprecatedResponse> GetRoomInfoDeprecatedAsync(GetRoomInfoDeprecatedRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new GetRoomInfoDeprecatedRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v1/{appId}/info/{roomId}", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -414,11 +434,15 @@ namespace HathoraCloud
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<SuspendRoomDeprecatedResponse> SuspendRoomDeprecatedAsync(SuspendRoomDeprecatedRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new SuspendRoomDeprecatedRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/rooms/v1/{appId}/suspend/{roomId}", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbPOST);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;

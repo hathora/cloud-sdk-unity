@@ -20,7 +20,7 @@ namespace HathoraCloud
     using UnityEngine.Networking;
 
     /// <summary>
-    /// Operations to get data on active and stopped <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a>.
+    /// Deprecated. Use <a href="https://hathora.dev/api#tag/ProcessesV2">ProcessesV2</a>.
     /// </summary>
     public interface IProcessesV1
     {
@@ -28,7 +28,7 @@ namespace HathoraCloud
         /// <summary>
         /// Get details for a <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a>.
         /// </summary>
-        Task<GetProcessInfoResponse> GetProcessInfoAsync(GetProcessInfoRequest? request = null);
+        Task<GetProcessInfoDeprecatedResponse> GetProcessInfoDeprecatedAsync(GetProcessInfoDeprecatedRequest? request = null);
 
         /// <summary>
         /// Retrieve 10 most recently started <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> objects for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>. Filter the array by optionally passing in a `region`.
@@ -42,16 +42,16 @@ namespace HathoraCloud
     }
 
     /// <summary>
-    /// Operations to get data on active and stopped <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a>.
+    /// Deprecated. Use <a href="https://hathora.dev/api#tag/ProcessesV2">ProcessesV2</a>.
     /// </summary>
     public class ProcessesV1: IProcessesV1
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.27.0";
-        private const string _sdkGenVersion = "2.210.3";
+        private const string _sdkVersion = "0.28.4";
+        private const string _sdkGenVersion = "2.239.0";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.27.0 2.210.3 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.28.4 2.239.0 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -65,13 +65,18 @@ namespace HathoraCloud
         }
         
 
-        public async Task<GetProcessInfoResponse> GetProcessInfoAsync(GetProcessInfoRequest? request = null)
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
+        public async Task<GetProcessInfoDeprecatedResponse> GetProcessInfoDeprecatedAsync(GetProcessInfoDeprecatedRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new GetProcessInfoDeprecatedRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/processes/v1/{appId}/info/{processId}", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -93,7 +98,7 @@ namespace HathoraCloud
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
             
-            var response = new GetProcessInfoResponse
+            var response = new GetProcessInfoDeprecatedResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
                 ContentType = contentType,
@@ -122,13 +127,18 @@ namespace HathoraCloud
         }
         
 
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<GetRunningProcessesResponse> GetRunningProcessesAsync(GetRunningProcessesRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new GetRunningProcessesRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/processes/v1/{appId}/list/running", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
@@ -179,13 +189,18 @@ namespace HathoraCloud
         }
         
 
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<GetStoppedProcessesResponse> GetStoppedProcessesAsync(GetStoppedProcessesRequest? request = null)
         {
+            if (request == null)
+            {
+                request = new GetStoppedProcessesRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/processes/v1/{appId}/list/stopped", request);
             
-
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;

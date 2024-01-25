@@ -25,9 +25,10 @@ namespace HathoraCloud.Models.Shared
         /// <summary>
         /// Tracks the number of active connections to a process.
         /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [SerializeField]
         [JsonProperty("activeConnections")]
-        public double ActiveConnections { get; set; } = default!;
+        public int ActiveConnections { get; set; } = default!;
         
 
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
@@ -70,7 +71,7 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("egressedBytes")]
-        public double EgressedBytes { get; set; } = default!;
+        public int EgressedBytes { get; set; } = default!;
         
 
         /// <summary>
@@ -134,7 +135,7 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("roomsAllocated")]
-        public double RoomsAllocated { get; set; } = default!;
+        public int RoomsAllocated { get; set; } = default!;
         
 
         [SerializeField]
@@ -184,7 +185,7 @@ namespace HathoraCloud.Models.Shared
 
         [SerializeField]
         [JsonProperty("totalRooms")]
-        public double TotalRooms { get; set; } = default!;
+        public int TotalRooms { get; set; } = default!;
         
     }
 }

@@ -77,9 +77,14 @@ namespace HathoraCloud
         public IMetricsV1 MetricsV1 { get; }
 
         /// <summary>
-        /// Operations to get data on active and stopped <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a>.
+        /// Deprecated. Use <a href="https://hathora.dev/api#tag/ProcessesV2">ProcessesV2</a>.
         /// </summary>
         public IProcessesV1 ProcessesV1 { get; }
+
+        /// <summary>
+        /// Operations to get data on active and stopped <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a>.
+        /// </summary>
+        public IProcessesV2 ProcessesV2 { get; }
 
         /// <summary>
         /// Deprecated. Use <a href="https://hathora.dev/api#tag/RoomV2">RoomV2</a>.
@@ -122,10 +127,10 @@ namespace HathoraCloud
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _target = "unity";
-        private const string _sdkVersion = "0.27.0";
-        private const string _sdkGenVersion = "2.210.3";
+        private const string _sdkVersion = "0.28.4";
+        private const string _sdkGenVersion = "2.239.0";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.27.0 2.210.3 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.28.4 2.239.0 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -142,6 +147,7 @@ namespace HathoraCloud
         public IManagementV1 ManagementV1 { get; private set; }
         public IMetricsV1 MetricsV1 { get; private set; }
         public IProcessesV1 ProcessesV1 { get; private set; }
+        public IProcessesV2 ProcessesV2 { get; private set; }
         public IRoomV1 RoomV1 { get; private set; }
         public IRoomV2 RoomV2 { get; private set; }
 
@@ -181,6 +187,7 @@ namespace HathoraCloud
             ManagementV1 = new ManagementV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             MetricsV1 = new MetricsV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             ProcessesV1 = new ProcessesV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            ProcessesV2 = new ProcessesV2(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             RoomV1 = new RoomV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
             RoomV2 = new RoomV2(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
         }

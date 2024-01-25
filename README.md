@@ -30,7 +30,7 @@ using HathoraCloud.Models.Shared;
 
 var sdk = new HathoraCloudSDK(
     security: new Security() {
-        HathoraDevToken = "",
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
@@ -120,6 +120,7 @@ using(var res = await sdk.AppV1.CreateAppAsync(req))
 
 ### [LogV1](docs/sdks/logv1/README.md)
 
+* [DownloadLogForProcess](docs/sdks/logv1/README.md#downloadlogforprocess) - Download entire log file for a stopped process.
 * [~~GetLogsForApp~~](docs/sdks/logv1/README.md#getlogsforapp) - Returns a stream of logs for an [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. :warning: **Deprecated**
 * [~~GetLogsForDeployment~~](docs/sdks/logv1/README.md#getlogsfordeployment) - Returns a stream of logs for a [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment) using `appId` and `deploymentId`. :warning: **Deprecated**
 * [GetLogsForProcess](docs/sdks/logv1/README.md#getlogsforprocess) - Returns a stream of logs for a [process](https://hathora.dev/docs/concepts/hathora-entities#process) using `appId` and `processId`.
@@ -134,9 +135,14 @@ using(var res = await sdk.AppV1.CreateAppAsync(req))
 
 ### [ProcessesV1](docs/sdks/processesv1/README.md)
 
-* [GetProcessInfo](docs/sdks/processesv1/README.md#getprocessinfo) - Get details for a [process](https://hathora.dev/docs/concepts/hathora-entities#process).
-* [GetRunningProcesses](docs/sdks/processesv1/README.md#getrunningprocesses) - Retrieve 10 most recently started [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `region`.
-* [GetStoppedProcesses](docs/sdks/processesv1/README.md#getstoppedprocesses) - Retrieve 10 most recently stopped [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `region`.
+* [~~GetProcessInfoDeprecated~~](docs/sdks/processesv1/README.md#getprocessinfodeprecated) - Get details for a [process](https://hathora.dev/docs/concepts/hathora-entities#process). :warning: **Deprecated**
+* [~~GetRunningProcesses~~](docs/sdks/processesv1/README.md#getrunningprocesses) - Retrieve 10 most recently started [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `region`. :warning: **Deprecated**
+* [~~GetStoppedProcesses~~](docs/sdks/processesv1/README.md#getstoppedprocesses) - Retrieve 10 most recently stopped [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `region`. :warning: **Deprecated**
+
+### [ProcessesV2](docs/sdks/processesv2/README.md)
+
+* [GetLatestProcesses](docs/sdks/processesv2/README.md#getlatestprocesses) - Retrieve the 10 most recent [processes](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `status` or `region`.
+* [GetProcessInfo](docs/sdks/processesv2/README.md#getprocessinfo) - Get details for a [process](https://hathora.dev/docs/concepts/hathora-entities#process).
 
 ### [RoomV1](docs/sdks/roomv1/README.md)
 
@@ -192,7 +198,7 @@ using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
     security: new Security() {
-        HathoraDevToken = "",
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
