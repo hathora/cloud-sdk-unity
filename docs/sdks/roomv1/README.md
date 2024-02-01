@@ -42,7 +42,6 @@ CreateRoomDeprecatedRequest req = new CreateRoomDeprecatedRequest() {
 
 using(var res = await sdk.RoomV1.CreateRoomDeprecatedAsync(req))
 {
-
     // handle response
 }
 ```
@@ -82,7 +81,6 @@ DestroyRoomDeprecatedRequest req = new DestroyRoomDeprecatedRequest() {
 
 using(var res = await sdk.RoomV1.DestroyRoomDeprecatedAsync(req))
 {
-
     // handle response
 }
 ```
@@ -122,7 +120,6 @@ GetActiveRoomsForProcessDeprecatedRequest req = new GetActiveRoomsForProcessDepr
 
 using(var res = await sdk.RoomV1.GetActiveRoomsForProcessDeprecatedAsync(req))
 {
-
     // handle response
 }
 ```
@@ -162,7 +159,6 @@ GetConnectionInfoDeprecatedRequest req = new GetConnectionInfoDeprecatedRequest(
 
 using(var res = await sdk.RoomV1.GetConnectionInfoDeprecatedAsync(req))
 {
-
     // handle response
 }
 ```
@@ -202,7 +198,6 @@ GetInactiveRoomsForProcessDeprecatedRequest req = new GetInactiveRoomsForProcess
 
 using(var res = await sdk.RoomV1.GetInactiveRoomsForProcessDeprecatedAsync(req))
 {
-
     // handle response
 }
 ```
@@ -242,7 +237,6 @@ GetRoomInfoDeprecatedRequest req = new GetRoomInfoDeprecatedRequest() {
 
 using(var res = await sdk.RoomV1.GetRoomInfoDeprecatedAsync(req))
 {
-
     // handle response
 }
 ```
@@ -282,7 +276,6 @@ SuspendRoomDeprecatedRequest req = new SuspendRoomDeprecatedRequest() {
 
 using(var res = await sdk.RoomV1.SuspendRoomDeprecatedAsync(req))
 {
-
     // handle response
 }
 ```

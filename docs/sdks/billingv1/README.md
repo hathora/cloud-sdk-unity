@@ -24,7 +24,6 @@ var sdk = new HathoraCloudSDK(
 
 using(var res = await sdk.BillingV1.GetBalanceAsync())
 {
-
     // handle response
 }
 ```
@@ -51,7 +50,6 @@ var sdk = new HathoraCloudSDK(
 
 using(var res = await sdk.BillingV1.GetInvoicesAsync())
 {
-
     // handle response
 }
 ```
@@ -78,7 +76,6 @@ var sdk = new HathoraCloudSDK(
 
 using(var res = await sdk.BillingV1.GetPaymentMethodAsync())
 {
-
     // handle response
 }
 ```
@@ -109,7 +106,6 @@ CustomerPortalUrl req = new CustomerPortalUrl() {
 
 using(var res = await sdk.BillingV1.InitStripeCustomerPortalUrlAsync(req))
 {
-
     // handle response
 }
 ```

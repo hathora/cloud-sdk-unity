@@ -36,7 +36,6 @@ GetMetricsRequest req = new GetMetricsRequest() {
 
 using(var res = await sdk.MetricsV1.GetMetricsAsync(req))
 {
-
     // handle response
 }
 ```

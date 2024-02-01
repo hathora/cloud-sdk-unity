@@ -35,7 +35,6 @@ DownloadLogForProcessRequest req = new DownloadLogForProcessRequest() {
 
 using(var res = await sdk.LogV1.DownloadLogForProcessAsync(req))
 {
-
     // handle response
 }
 ```
@@ -77,7 +76,6 @@ GetLogsForAppRequest req = new GetLogsForAppRequest() {
 
 using(var res = await sdk.LogV1.GetLogsForAppAsync(req))
 {
-
     // handle response
 }
 ```
@@ -120,7 +118,6 @@ GetLogsForDeploymentRequest req = new GetLogsForDeploymentRequest() {
 
 using(var res = await sdk.LogV1.GetLogsForDeploymentAsync(req))
 {
-
     // handle response
 }
 ```
@@ -161,7 +158,6 @@ GetLogsForProcessRequest req = new GetLogsForProcessRequest() {
 
 using(var res = await sdk.LogV1.GetLogsForProcessAsync(req))
 {
-
     // handle response
 }
 ```

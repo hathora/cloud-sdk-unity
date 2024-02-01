@@ -36,7 +36,6 @@ GetProcessInfoDeprecatedRequest req = new GetProcessInfoDeprecatedRequest() {
 
 using(var res = await sdk.ProcessesV1.GetProcessInfoDeprecatedAsync(req))
 {
-
     // handle response
 }
 ```
@@ -76,7 +75,6 @@ GetRunningProcessesRequest req = new GetRunningProcessesRequest() {};
 
 using(var res = await sdk.ProcessesV1.GetRunningProcessesAsync(req))
 {
-
     // handle response
 }
 ```
@@ -116,7 +114,6 @@ GetStoppedProcessesRequest req = new GetStoppedProcessesRequest() {};
 
 using(var res = await sdk.ProcessesV1.GetStoppedProcessesAsync(req))
 {
-
     // handle response
 }
 ```

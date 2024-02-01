@@ -6,8 +6,9 @@ generation:
   fixes:
     nameResolutionDec2023: false
 unity:
-  version: 0.28.4
+  version: 0.29.0
   author: Hathora
+  flattenGlobalSecurity: false
   imports:
     option: openapi
     paths:

@@ -22,7 +22,6 @@ AppConfig req = new AppConfig() {
 
 using(var res = await sdk.AppV1.CreateAppAsync(req))
 {
-
     // handle response
 }
 ```

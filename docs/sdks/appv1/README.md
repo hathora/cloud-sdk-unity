@@ -42,7 +42,6 @@ AppConfig req = new AppConfig() {
 
 using(var res = await sdk.AppV1.CreateAppAsync(req))
 {
-
     // handle response
 }
 ```
@@ -80,7 +79,6 @@ DeleteAppRequest req = new DeleteAppRequest() {};
 
 using(var res = await sdk.AppV1.DeleteAppAsync(req))
 {
-
     // handle response
 }
 ```
@@ -118,7 +116,6 @@ GetAppInfoRequest req = new GetAppInfoRequest() {};
 
 using(var res = await sdk.AppV1.GetAppInfoAsync(req))
 {
-
     // handle response
 }
 ```
@@ -153,7 +150,6 @@ var sdk = new HathoraCloudSDK(
 
 using(var res = await sdk.AppV1.GetAppsAsync())
 {
-
     // handle response
 }
 ```
@@ -196,7 +192,6 @@ UpdateAppRequest req = new UpdateAppRequest() {
 
 using(var res = await sdk.AppV1.UpdateAppAsync(req))
 {
-
     // handle response
 }
 ```

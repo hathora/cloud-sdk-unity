@@ -32,7 +32,6 @@ LoginAnonymousRequest req = new LoginAnonymousRequest() {};
 
 using(var res = await sdk.AuthV1.LoginAnonymousAsync(req))
 {
-
     // handle response
 }
 ```
@@ -74,7 +73,6 @@ HathoraCloud.Models.Operations.LoginGoogleRequest req = new HathoraCloud.Models.
 
 using(var res = await sdk.AuthV1.LoginGoogleAsync(req))
 {
-
     // handle response
 }
 ```
@@ -116,7 +114,6 @@ HathoraCloud.Models.Operations.LoginNicknameRequest req = new HathoraCloud.Model
 
 using(var res = await sdk.AuthV1.LoginNicknameAsync(req))
 {
-
     // handle response
 }
 ```

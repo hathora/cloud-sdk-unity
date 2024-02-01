@@ -43,7 +43,6 @@ CreateRoomRequest req = new CreateRoomRequest() {
 
 using(var res = await sdk.RoomV2.CreateRoomAsync(req))
 {
-
     // handle response
 }
 ```
@@ -83,7 +82,6 @@ DestroyRoomRequest req = new DestroyRoomRequest() {
 
 using(var res = await sdk.RoomV2.DestroyRoomAsync(req))
 {
-
     // handle response
 }
 ```
@@ -123,7 +121,6 @@ GetActiveRoomsForProcessRequest req = new GetActiveRoomsForProcessRequest() {
 
 using(var res = await sdk.RoomV2.GetActiveRoomsForProcessAsync(req))
 {
-
     // handle response
 }
 ```
@@ -163,7 +160,6 @@ GetConnectionInfoRequest req = new GetConnectionInfoRequest() {
 
 using(var res = await sdk.RoomV2.GetConnectionInfoAsync(req))
 {
-
     // handle response
 }
 ```
@@ -203,7 +199,6 @@ GetInactiveRoomsForProcessRequest req = new GetInactiveRoomsForProcessRequest() 
 
 using(var res = await sdk.RoomV2.GetInactiveRoomsForProcessAsync(req))
 {
-
     // handle response
 }
 ```
@@ -243,7 +238,6 @@ GetRoomInfoRequest req = new GetRoomInfoRequest() {
 
 using(var res = await sdk.RoomV2.GetRoomInfoAsync(req))
 {
-
     // handle response
 }
 ```
@@ -283,7 +277,6 @@ SuspendRoomRequest req = new SuspendRoomRequest() {
 
 using(var res = await sdk.RoomV2.SuspendRoomAsync(req))
 {
-
     // handle response
 }
 ```
@@ -324,7 +317,6 @@ UpdateRoomConfigRequest req = new UpdateRoomConfigRequest() {
 
 using(var res = await sdk.RoomV2.UpdateRoomConfigAsync(req))
 {
-
     // handle response
 }
 ```

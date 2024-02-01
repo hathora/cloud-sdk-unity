@@ -54,7 +54,6 @@ CreateDeploymentRequest req = new CreateDeploymentRequest() {
 
 using(var res = await sdk.DeploymentV1.CreateDeploymentAsync(req))
 {
-
     // handle response
 }
 ```
@@ -94,7 +93,6 @@ GetDeploymentInfoRequest req = new GetDeploymentInfoRequest() {
 
 using(var res = await sdk.DeploymentV1.GetDeploymentInfoAsync(req))
 {
-
     // handle response
 }
 ```
@@ -132,7 +130,6 @@ GetDeploymentsRequest req = new GetDeploymentsRequest() {};
 
 using(var res = await sdk.DeploymentV1.GetDeploymentsAsync(req))
 {
-
     // handle response
 }
 ```

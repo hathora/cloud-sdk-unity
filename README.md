@@ -47,7 +47,6 @@ AppConfig req = new AppConfig() {
 
 using(var res = await sdk.AppV1.CreateAppAsync(req))
 {
-
     // handle response
 }
 ```
@@ -206,7 +205,6 @@ DeleteAppRequest req = new DeleteAppRequest() {};
 
 using(var res = await sdk.AppV1.DeleteAppAsync(req))
 {
-
     // handle response
 }
 ```
@@ -233,6 +231,68 @@ You can override the default server globally by passing a server index to the `s
 
 The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
 <!-- End Server Selection [server] -->
+
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name              | Type              | Scheme            |
+| ----------------- | ----------------- | ----------------- |
+| `hathoraDevToken` | http              | HTTP Bearer       |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+```csharp
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+AppConfig req = new AppConfig() {
+    AppName = "minecraft",
+    AuthConfiguration = new AuthConfiguration() {
+        Anonymous = new RecordStringNever() {},
+        Google = new Google() {
+            ClientId = "string",
+        },
+        Nickname = new RecordStringNever() {},
+    },
+};
+
+using(var res = await sdk.AppV1.CreateAppAsync(req))
+{
+    // handle response
+}
+```
+
+### Per-Operation Security Schemes
+
+Some operations in this SDK require the security scheme to be specified at the request level. For example:
+```csharp
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
+using HathoraCloud.Models.Shared;
+
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+CreatePrivateLobbyDeprecatedRequest req = new CreatePrivateLobbyDeprecatedRequest() {};
+
+using(var res = await sdk.LobbyV1.CreatePrivateLobbyDeprecatedAsync(
+    new CreatePrivateLobbyDeprecatedSecurity() {
+    PlayerAuth = "<YOUR_BEARER_TOKEN_HERE>",
+},
+    req))
+{
+    // handle response
+}
+```
+<!-- End Authentication [security] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

@@ -38,7 +38,6 @@ CreateBuildRequest req = new CreateBuildRequest() {
 
 using(var res = await sdk.BuildV1.CreateBuildAsync(req))
 {
-
     // handle response
 }
 ```
@@ -78,7 +77,6 @@ DeleteBuildRequest req = new DeleteBuildRequest() {
 
 using(var res = await sdk.BuildV1.DeleteBuildAsync(req))
 {
-
     // handle response
 }
 ```
@@ -118,7 +116,6 @@ GetBuildInfoRequest req = new GetBuildInfoRequest() {
 
 using(var res = await sdk.BuildV1.GetBuildInfoAsync(req))
 {
-
     // handle response
 }
 ```
@@ -156,7 +153,6 @@ GetBuildsRequest req = new GetBuildsRequest() {};
 
 using(var res = await sdk.BuildV1.GetBuildsAsync(req))
 {
-
     // handle response
 }
 ```
@@ -202,7 +198,6 @@ RunBuildRequest req = new RunBuildRequest() {
 
 using(var res = await sdk.BuildV1.RunBuildAsync(req))
 {
-
     // handle response
 }
 ```

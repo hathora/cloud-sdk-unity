@@ -25,7 +25,6 @@ VerificationEmailRequest req = new VerificationEmailRequest() {
 
 using(var res = await sdk.ManagementV1.SendVerificationEmailAsync(req))
 {
-
     // handle response
 }
 ```

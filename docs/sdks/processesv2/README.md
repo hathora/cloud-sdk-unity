@@ -39,7 +39,6 @@ GetLatestProcessesRequest req = new GetLatestProcessesRequest() {
 
 using(var res = await sdk.ProcessesV2.GetLatestProcessesAsync(req))
 {
-
     // handle response
 }
 ```
@@ -79,7 +78,6 @@ GetProcessInfoRequest req = new GetProcessInfoRequest() {
 
 using(var res = await sdk.ProcessesV2.GetProcessInfoAsync(req))
 {
-
     // handle response
 }
 ```

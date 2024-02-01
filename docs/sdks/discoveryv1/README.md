@@ -27,7 +27,6 @@ var sdk = new HathoraCloudSDK(
 
 using(var res = await sdk.DiscoveryV1.GetPingServiceEndpointsAsync())
 {
-
     // handle response
 }
 ```
