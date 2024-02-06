@@ -27,18 +27,18 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.29.0";
-        private const string _sdkGenVersion = "2.245.1";
+        private const string _sdkVersion = "0.30.0";
+        private const string _sdkGenVersion = "2.250.2";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.29.0 2.245.1 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.30.0 2.250.2 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
+        private Func<Security>? _securitySource;
 
-        public ManagementV1(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public ManagementV1(ISpeakeasyHttpClient defaultClient, Func<Security>? securitySource, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
-            _securityClient = securityClient;
+            _securitySource = securitySource;
             _serverUrl = serverUrl;
             SDKConfiguration = config;
         }
@@ -55,7 +55,7 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", _userAgent);
             
             var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json");
-            if (serializedBody == null) 
+            if (serializedBody == null)
             {
                 throw new ArgumentNullException("request body is required");
             }
@@ -65,8 +65,12 @@ namespace HathoraCloud
                 httpRequest.SetRequestHeader("Content-Type", serializedBody.ContentType);
             }
             
-            var client = _securityClient;
-            
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)
             {
@@ -93,7 +97,7 @@ namespace HathoraCloud
                 {
                     response.VerificationEmailResponse = JsonConvert.DeserializeObject<VerificationEmailResponse>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 500))
@@ -102,11 +106,12 @@ namespace HathoraCloud
                 {
                     response.ApiError = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             return response;
         }
+
         
     }
 }
