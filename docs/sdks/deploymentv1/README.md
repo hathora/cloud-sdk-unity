@@ -31,13 +31,6 @@ var sdk = new HathoraCloudSDK(
 
 CreateDeploymentRequest req = new CreateDeploymentRequest() {
     DeploymentConfig = new DeploymentConfig() {
-        AdditionalContainerPorts = new List<ContainerPort>() {
-            new ContainerPort() {
-                Name = "default",
-                Port = 8000,
-                TransportType = TransportType.Udp,
-            },
-        },
         ContainerPort = 4000,
         Env = new List<DeploymentConfigEnv>() {
             new DeploymentConfigEnv() {
@@ -47,7 +40,7 @@ CreateDeploymentRequest req = new CreateDeploymentRequest() {
         },
         PlanName = PlanName.Tiny,
         RoomsPerProcess = 3,
-        TransportType = TransportType.Tcp,
+        TransportType = TransportType.Udp,
     },
     BuildId = 1,
 };

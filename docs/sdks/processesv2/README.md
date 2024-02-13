@@ -28,14 +28,7 @@ var sdk = new HathoraCloudSDK(
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-GetLatestProcessesRequest req = new GetLatestProcessesRequest() {
-    Region = new List<Region>() {
-        Region.Singapore,
-    },
-    Status = new List<ProcessStatus>() {
-        ProcessStatus.Draining,
-    },
-};
+GetLatestProcessesRequest req = new GetLatestProcessesRequest() {};
 
 using(var res = await sdk.ProcessesV2.GetLatestProcessesAsync(req))
 {

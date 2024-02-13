@@ -6,8 +6,9 @@ generation:
   fixes:
     nameResolutionDec2023: false
     parameterOrderingFeb2024: false
+    requestResponseComponentNamesFeb2024: false
 unity:
-  version: 0.30.0
+  version: 0.30.1
   author: Hathora
   flattenGlobalSecurity: false
   imports:

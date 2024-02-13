@@ -36,13 +36,7 @@ var sdk = new HathoraCloudSDK(
 
 AppConfig req = new AppConfig() {
     AppName = "minecraft",
-    AuthConfiguration = new AuthConfiguration() {
-        Anonymous = new RecordStringNever() {},
-        Google = new Google() {
-            ClientId = "string",
-        },
-        Nickname = new RecordStringNever() {},
-    },
+    AuthConfiguration = new AuthConfiguration() {},
 };
 
 using(var res = await sdk.AppV1.CreateAppAsync(req))
@@ -256,13 +250,7 @@ var sdk = new HathoraCloudSDK(
 
 AppConfig req = new AppConfig() {
     AppName = "minecraft",
-    AuthConfiguration = new AuthConfiguration() {
-        Anonymous = new RecordStringNever() {},
-        Google = new Google() {
-            ClientId = "string",
-        },
-        Nickname = new RecordStringNever() {},
-    },
+    AuthConfiguration = new AuthConfiguration() {},
 };
 
 using(var res = await sdk.AppV1.CreateAppAsync(req))
