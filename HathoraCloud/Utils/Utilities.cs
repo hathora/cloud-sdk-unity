@@ -14,6 +14,7 @@ namespace HathoraCloud.Utils
     using System.Linq;
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
+    using System.Numerics;
     using Newtonsoft.Json;
     using System.Net.Http.Headers;
     using UnityEngine;
@@ -23,19 +24,46 @@ namespace HathoraCloud.Utils
 
     public class Utilities
     {
-        public static string SerializeJSON(object obj)
+        public static JsonConverter[] GetJsonConverters(Type type, string format = "")
         {
+            if (format == "string")
+            {
+                if (type == typeof(BigInteger))
+                {
+                    return new JsonConverter[] { new BigIntSerializer() };
+                }
+                if (type == typeof(Decimal))
+                {
+                    return new JsonConverter[] { new DecimalSerializer() };
+                }
+            }
+
+            return new JsonConverter[]
+            {
+                new IsoDateTimeSerializer(),
+                new EnumSerializer(),
+                new DateOnlyConverter()
+            };
+        }
+
+        public static string SerializeJSON(object obj, string format = "")
+        {
+            var type = obj.GetType();
+            if (IsList(obj))
+            {
+                type = type.GetGenericArguments().Single();
+            }
+            else if (IsDictionary(obj))
+            {
+                type = type.GetGenericArguments().Last();
+            }
+
             return JsonConvert.SerializeObject(
                 obj,
                 new JsonSerializerSettings()
                 {
                     NullValueHandling = NullValueHandling.Ignore,
-                    Converters = new JsonConverter[]
-                    {
-                        new IsoDateTimeSerializer(),
-                        new EnumSerializer(),
-                        new DateOnlyConverter()
-                    }
+                    Converters = GetJsonConverters(type, format)
                 }
             );
         }

@@ -101,7 +101,7 @@ var sdk = new HathoraCloudSDK(
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 CustomerPortalUrl req = new CustomerPortalUrl() {
-    ReturnUrl = "string",
+    ReturnUrl = "<value>",
 };
 
 using(var res = await sdk.BillingV1.InitStripeCustomerPortalUrlAsync(req))

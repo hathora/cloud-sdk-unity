@@ -35,7 +35,8 @@ namespace HathoraCloud.Utils
         public static SerializedRequestBody? Serialize(
             object? request,
             string requestFieldName,
-            string serializationMethod
+            string serializationMethod,
+            string format = ""
         )
         {
             if (request == null)
@@ -70,14 +71,15 @@ namespace HathoraCloud.Utils
             }
 
             // Not an object or flattened request
-            return TrySerialize(request, requestFieldName, serializationMethod);
+            return TrySerialize(request, requestFieldName, serializationMethod, "", format);
         }
 
         private static SerializedRequestBody? TrySerialize(
             object request,
             string requestFieldName,
             string serializationMethod,
-            string mediaType = ""
+            string mediaType = "",
+            string format = ""
         )
         {
             if (mediaType == "")
@@ -95,7 +97,7 @@ namespace HathoraCloud.Utils
             switch (serializationMethod)
             {
                 case "json":
-                    return SerializeJson(request, mediaType);
+                    return SerializeJson(request, mediaType, format);
                 case "form":
                     return SerializeForm(request, requestFieldName, mediaType);
                 case "multipart":
@@ -123,11 +125,11 @@ namespace HathoraCloud.Utils
             }
         }
 
-        private static SerializedRequestBody SerializeJson(object request, string mediaType)
+        private static SerializedRequestBody SerializeJson(object request, string mediaType, string format = "")
         {
             return new SerializedRequestBody(
                 mediaType,
-                System.Text.Encoding.UTF8.GetBytes(Utilities.SerializeJSON(request))
+                System.Text.Encoding.UTF8.GetBytes(Utilities.SerializeJSON(request, format))
             );
         }
 
