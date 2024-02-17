@@ -235,7 +235,7 @@ This SDK supports the following security scheme globally:
 
 | Name              | Type              | Scheme            |
 | ----------------- | ----------------- | ----------------- |
-| `hathoraDevToken` | http              | HTTP Bearer       |
+| `HathoraDevToken` | http              | HTTP Bearer       |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
 ```csharp
