@@ -47,6 +47,18 @@ namespace HathoraCloud.Models.Shared
         
 
         /// <summary>
+        /// Option to shut down processes that have had no new connections or rooms<br/>
+        /// 
+        /// <remarks>
+        /// for five minutes.
+        /// </remarks>
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("idleTimeoutEnabled")]
+        public bool? IdleTimeoutEnabled { get; set; }
+        
+
+        /// <summary>
         /// A plan defines how much CPU and memory is required to run an instance of your game server.<br/>
         /// 
         /// <remarks>

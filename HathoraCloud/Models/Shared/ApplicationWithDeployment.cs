@@ -62,7 +62,7 @@ namespace HathoraCloud.Models.Shared
         
 
         /// <summary>
-        /// Email address for the user that deleted the application.
+        /// UserId or email address for the user that created the application.
         /// </summary>
         [SerializeField]
         [JsonProperty("createdBy")]
@@ -78,7 +78,7 @@ namespace HathoraCloud.Models.Shared
         
 
         /// <summary>
-        /// Email address for the user that deleted the application.
+        /// UserId or email address for the user that deleted the application.
         /// </summary>
         [SerializeField]
         [JsonProperty("deletedBy")]
@@ -94,7 +94,7 @@ namespace HathoraCloud.Models.Shared
         
 
         /// <summary>
-        /// System generated unique identifier for an organization.
+        /// System generated unique identifier for an organization. Not guaranteed to have a specific format.
         /// </summary>
         [SerializeField]
         [JsonProperty("orgId")]

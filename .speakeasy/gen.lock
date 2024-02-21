@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: bdb34d30-f36e-4c13-bfde-42babcb240db
 management:
-  docChecksum: d84531ebd98bc06b028bf0e99ffcb881
+  docChecksum: 21f28204746184b089ee069828e705dd
   docVersion: 0.0.1
   speakeasyVersion: internal
-  generationVersion: 2.262.2
-  releaseVersion: 0.30.3
-  configChecksum: 8a602bb8d319cc698ff6b6d7980bde83
+  generationVersion: 2.263.3
+  releaseVersion: 0.30.4
+  configChecksum: d42223e602913ee864db743887f34cd0
   repoURL: https://github.com/hathora/cloud-sdk-unity.git
   repoSubDirectory: .
   published: true
@@ -35,6 +35,7 @@ generatedFiles:
   - HathoraCloud/ProcessesV2.cs
   - HathoraCloud/RoomV1.cs
   - HathoraCloud/RoomV2.cs
+  - HathoraCloud/OrgTokensV1.cs
   - HathoraCloud/HathoraCloudSDK.cs
   - HathoraCloud/Utils/BigIntSerializer.cs
   - HathoraCloud/Utils/DateOnly.cs
@@ -150,6 +151,8 @@ generatedFiles:
   - HathoraCloud/Models/Operations/GetLatestProcessesResponse.cs
   - HathoraCloud/Models/Operations/GetProcessInfoRequest.cs
   - HathoraCloud/Models/Operations/GetProcessInfoResponse.cs
+  - HathoraCloud/Models/Operations/StopProcessRequest.cs
+  - HathoraCloud/Models/Operations/StopProcessResponse.cs
   - HathoraCloud/Models/Operations/CreateRoomDeprecatedRequest.cs
   - HathoraCloud/Models/Operations/CreateRoomDeprecatedResponse.cs
   - HathoraCloud/Models/Operations/DestroyRoomDeprecatedRequest.cs
@@ -180,6 +183,12 @@ generatedFiles:
   - HathoraCloud/Models/Operations/SuspendRoomResponse.cs
   - HathoraCloud/Models/Operations/UpdateRoomConfigRequest.cs
   - HathoraCloud/Models/Operations/UpdateRoomConfigResponse.cs
+  - HathoraCloud/Models/Operations/CreateOrgTokenRequest.cs
+  - HathoraCloud/Models/Operations/CreateOrgTokenResponse.cs
+  - HathoraCloud/Models/Operations/GetOrgTokensRequest.cs
+  - HathoraCloud/Models/Operations/GetOrgTokensResponse.cs
+  - HathoraCloud/Models/Operations/RevokeOrgTokenRequest.cs
+  - HathoraCloud/Models/Operations/RevokeOrgTokenResponse.cs
   - HathoraCloud/Models/Shared/Application.cs
   - HathoraCloud/Models/Shared/Google.cs
   - HathoraCloud/Models/Shared/AuthConfiguration.cs
@@ -244,6 +253,11 @@ generatedFiles:
   - HathoraCloud/Models/Shared/ConnectionInfoV2Status.cs
   - HathoraCloud/Models/Shared/ConnectionInfoV2.cs
   - HathoraCloud/Models/Shared/UpdateRoomConfigParams.cs
+  - HathoraCloud/Models/Shared/CreatedOrgToken.cs
+  - HathoraCloud/Models/Shared/OrgToken.cs
+  - HathoraCloud/Models/Shared/OrgTokenStatus.cs
+  - HathoraCloud/Models/Shared/CreateOrgToken.cs
+  - HathoraCloud/Models/Shared/ListOrgTokens.cs
   - HathoraCloud/Models/Shared/Security.cs
   - docs/Models/Operations/CreateAppResponse.md
   - docs/Models/Operations/DeleteAppRequest.md
@@ -341,6 +355,8 @@ generatedFiles:
   - docs/Models/Operations/GetLatestProcessesResponse.md
   - docs/Models/Operations/GetProcessInfoRequest.md
   - docs/Models/Operations/GetProcessInfoResponse.md
+  - docs/Models/Operations/StopProcessRequest.md
+  - docs/Models/Operations/StopProcessResponse.md
   - docs/Models/Operations/CreateRoomDeprecatedRequest.md
   - docs/Models/Operations/CreateRoomDeprecatedResponse.md
   - docs/Models/Operations/DestroyRoomDeprecatedRequest.md
@@ -371,6 +387,12 @@ generatedFiles:
   - docs/Models/Operations/SuspendRoomResponse.md
   - docs/Models/Operations/UpdateRoomConfigRequest.md
   - docs/Models/Operations/UpdateRoomConfigResponse.md
+  - docs/Models/Operations/CreateOrgTokenRequest.md
+  - docs/Models/Operations/CreateOrgTokenResponse.md
+  - docs/Models/Operations/GetOrgTokensRequest.md
+  - docs/Models/Operations/GetOrgTokensResponse.md
+  - docs/Models/Operations/RevokeOrgTokenRequest.md
+  - docs/Models/Operations/RevokeOrgTokenResponse.md
   - docs/Models/Shared/Application.md
   - docs/Models/Shared/Google.md
   - docs/Models/Shared/AuthConfiguration.md
@@ -435,6 +457,11 @@ generatedFiles:
   - docs/Models/Shared/ConnectionInfoV2Status.md
   - docs/Models/Shared/ConnectionInfoV2.md
   - docs/Models/Shared/UpdateRoomConfigParams.md
+  - docs/Models/Shared/CreatedOrgToken.md
+  - docs/Models/Shared/OrgToken.md
+  - docs/Models/Shared/OrgTokenStatus.md
+  - docs/Models/Shared/CreateOrgToken.md
+  - docs/Models/Shared/ListOrgTokens.md
   - docs/Models/Shared/Security.md
   - docs/sdks/hathoracloudsdk/README.md
   - docs/sdks/appv1/README.md
@@ -453,5 +480,6 @@ generatedFiles:
   - docs/sdks/processesv2/README.md
   - docs/sdks/roomv1/README.md
   - docs/sdks/roomv2/README.md
+  - docs/sdks/orgtokensv1/README.md
   - USAGE.md
   - .gitattributes

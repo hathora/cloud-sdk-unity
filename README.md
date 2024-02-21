@@ -136,6 +136,7 @@ using(var res = await sdk.AppV1.CreateAppAsync(req))
 
 * [GetLatestProcesses](docs/sdks/processesv2/README.md#getlatestprocesses) - Retrieve the 10 most recent [processes](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `status` or `region`.
 * [GetProcessInfo](docs/sdks/processesv2/README.md#getprocessinfo) - Get details for a [process](https://hathora.dev/docs/concepts/hathora-entities#process).
+* [StopProcess](docs/sdks/processesv2/README.md#stopprocess) - Stops a [process](https://hathora.dev/docs/concepts/hathora-entities#process) immediately.
 
 ### [RoomV1](docs/sdks/roomv1/README.md)
 
@@ -157,6 +158,12 @@ using(var res = await sdk.AppV1.CreateAppAsync(req))
 * [GetRoomInfo](docs/sdks/roomv2/README.md#getroominfo) - Retreive current and historical allocation data for a [room](https://hathora.dev/docs/concepts/hathora-entities#room).
 * [SuspendRoom](docs/sdks/roomv2/README.md#suspendroom) - Suspend a [room](https://hathora.dev/docs/concepts/hathora-entities#room). The room is unallocated from the process but can be rescheduled later using the same `roomId`.
 * [UpdateRoomConfig](docs/sdks/roomv2/README.md#updateroomconfig)
+
+### [OrgTokensV1](docs/sdks/orgtokensv1/README.md)
+
+* [CreateOrgToken](docs/sdks/orgtokensv1/README.md#createorgtoken) - Create a new organization token.
+* [GetOrgTokens](docs/sdks/orgtokensv1/README.md#getorgtokens) - List all organization tokens for a given org.
+* [RevokeOrgToken](docs/sdks/orgtokensv1/README.md#revokeorgtoken) - Revoke an organization token.
 <!-- End Available Resources and Operations [operations] -->
 
 

@@ -61,7 +61,7 @@ namespace HathoraCloud.Models.Shared
         
 
         /// <summary>
-        /// Email address for the user that created the deployment.
+        /// UserId or email address for the user that created the deployment.
         /// </summary>
         [SerializeField]
         [JsonProperty("createdBy")]
@@ -90,6 +90,18 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("env")]
         public List<Env> Env { get; set; } = default!;
+        
+
+        /// <summary>
+        /// Option to shut down processes that have had no new connections or rooms<br/>
+        /// 
+        /// <remarks>
+        /// for five minutes.
+        /// </remarks>
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("idleTimeoutEnabled")]
+        public bool? IdleTimeoutEnabled { get; set; }
         
 
         /// <summary>

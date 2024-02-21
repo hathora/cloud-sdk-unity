@@ -14,9 +14,6 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    /// <summary>
-    /// Billing types
-    /// </summary>
     [Serializable]
     public class Invoice
     {

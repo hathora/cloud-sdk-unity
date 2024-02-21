@@ -95,6 +95,7 @@ namespace HathoraCloud
         /// Operations to create, manage, and connect to <a href="https://hathora.dev/docs/concepts/hathora-entities#room">rooms</a>.
         /// </summary>
         public IRoomV2 RoomV2 { get; }
+        public IOrgTokensV1 OrgTokensV1 { get; }
     }
     
     public class SDKConfig
@@ -127,10 +128,10 @@ namespace HathoraCloud
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.3";
-        private const string _sdkGenVersion = "2.262.2";
+        private const string _sdkVersion = "0.30.4";
+        private const string _sdkGenVersion = "2.263.3";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.3 2.262.2 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.30.4 2.263.3 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
@@ -151,6 +152,7 @@ namespace HathoraCloud
         public IProcessesV2 ProcessesV2 { get; private set; }
         public IRoomV1 RoomV1 { get; private set; }
         public IRoomV2 RoomV2 { get; private set; }
+        public IOrgTokensV1 OrgTokensV1 { get; private set; }
 
         public HathoraCloudSDK(Security? security = null, Func<Security>? securitySource = null, string? appId = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
         {
@@ -202,6 +204,7 @@ namespace HathoraCloud
             ProcessesV2 = new ProcessesV2(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
             RoomV1 = new RoomV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
             RoomV2 = new RoomV2(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            OrgTokensV1 = new OrgTokensV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
         }
     }
 }
