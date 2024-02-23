@@ -89,8 +89,8 @@ namespace HathoraCloud.Models.Shared
         /// When the process bound to the specified port. We use this to determine when we should start billing.
         /// </summary>
         [SerializeField]
-        [JsonProperty("startedAt")]
-        public DateTime StartedAt { get; set; } = default!;
+        [JsonProperty("startedAt", NullValueHandling = NullValueHandling.Include)]
+        public DateTime? StartedAt { get; set; } = default!;
         
 
         [SerializeField]
@@ -102,16 +102,16 @@ namespace HathoraCloud.Models.Shared
         /// When the process is issued to stop. We use this to determine when we should stop billing.
         /// </summary>
         [SerializeField]
-        [JsonProperty("stoppingAt")]
-        public DateTime StoppingAt { get; set; } = default!;
+        [JsonProperty("stoppingAt", NullValueHandling = NullValueHandling.Include)]
+        public DateTime? StoppingAt { get; set; } = default!;
         
 
         /// <summary>
         /// When the process has been terminated.
         /// </summary>
         [SerializeField]
-        [JsonProperty("terminatedAt")]
-        public DateTime TerminatedAt { get; set; } = default!;
+        [JsonProperty("terminatedAt", NullValueHandling = NullValueHandling.Include)]
+        public DateTime? TerminatedAt { get; set; } = default!;
         
     }
 }

@@ -36,11 +36,22 @@ namespace HathoraCloud.Utils
             object? request,
             string requestFieldName,
             string serializationMethod,
+            bool nullable = false,
+            bool optional = false,
             string format = ""
         )
         {
             if (request == null)
             {
+                if (!nullable && !optional)
+                {
+                    throw new ArgumentNullException("request body is required");
+                }
+                else if (nullable && serializationMethod == "json")
+                {
+                    return new SerializedRequestBody("application/json", System.Text.Encoding.UTF8.GetBytes("null"));
+                }
+
                 return null;
             }
 

@@ -30,13 +30,13 @@ namespace HathoraCloud.Models.Shared
         
 
         [SerializeField]
-        [JsonProperty("currentAllocation")]
-        public RoomWithoutAllocationsCurrentAllocation CurrentAllocation { get; set; } = default!;
+        [JsonProperty("currentAllocation", NullValueHandling = NullValueHandling.Include)]
+        public RoomWithoutAllocationsCurrentAllocation? CurrentAllocation { get; set; } = default!;
         
 
         [SerializeField]
-        [JsonProperty("roomConfig")]
-        public string RoomConfig { get; set; } = default!;
+        [JsonProperty("roomConfig", NullValueHandling = NullValueHandling.Include)]
+        public string? RoomConfig { get; set; } = default!;
         
 
         /// <summary>

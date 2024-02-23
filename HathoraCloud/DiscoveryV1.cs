@@ -38,10 +38,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.4";
-        private const string _sdkGenVersion = "2.263.3";
+        private const string _sdkVersion = "0.31.0";
+        private const string _sdkGenVersion = "2.269.0";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.4 2.263.3 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.31.0 2.269.0 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -55,17 +55,17 @@ namespace HathoraCloud
         }
         
 
+        
         public async Task<GetPingServiceEndpointsResponse> GetPingServiceEndpointsAsync()
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/discovery/v1/ping";
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -84,14 +84,14 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+
             var response = new GetPingServiceEndpointsResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))

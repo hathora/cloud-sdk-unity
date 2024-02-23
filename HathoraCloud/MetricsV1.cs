@@ -27,7 +27,7 @@ namespace HathoraCloud
         /// <summary>
         /// Get metrics for a <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> using `appId` and `processId`.
         /// </summary>
-        Task<GetMetricsResponse> GetMetricsAsync(GetMetricsRequest? request = null);
+        Task<GetMetricsResponse> GetMetricsAsync(GetMetricsRequest request);
     }
 
     /// <summary>
@@ -37,10 +37,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.4";
-        private const string _sdkGenVersion = "2.263.3";
+        private const string _sdkVersion = "0.31.0";
+        private const string _sdkGenVersion = "2.269.0";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.4 2.263.3 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.31.0 2.269.0 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -54,7 +54,8 @@ namespace HathoraCloud
         }
         
 
-        public async Task<GetMetricsResponse> GetMetricsAsync(GetMetricsRequest? request = null)
+        
+        public async Task<GetMetricsResponse> GetMetricsAsync(GetMetricsRequest request)
         {
             if (request == null)
             {
@@ -64,13 +65,12 @@ namespace HathoraCloud
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/metrics/v1/{appId}/process/{processId}", request);
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -89,14 +89,14 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+
             var response = new GetMetricsResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -106,6 +106,7 @@ namespace HathoraCloud
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 422) || (response.StatusCode == 500))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))

@@ -73,16 +73,16 @@ namespace HathoraCloud.Models.Shared
         /// When the application was deleted.
         /// </summary>
         [SerializeField]
-        [JsonProperty("deletedAt")]
-        public DateTime DeletedAt { get; set; } = default!;
+        [JsonProperty("deletedAt", NullValueHandling = NullValueHandling.Include)]
+        public DateTime? DeletedAt { get; set; } = default!;
         
 
         /// <summary>
         /// UserId or email address for the user that deleted the application.
         /// </summary>
         [SerializeField]
-        [JsonProperty("deletedBy")]
-        public string DeletedBy { get; set; } = default!;
+        [JsonProperty("deletedBy", NullValueHandling = NullValueHandling.Include)]
+        public string? DeletedBy { get; set; } = default!;
         
 
         /// <summary>

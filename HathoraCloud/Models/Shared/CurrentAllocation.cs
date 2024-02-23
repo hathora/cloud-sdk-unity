@@ -43,8 +43,8 @@ namespace HathoraCloud.Models.Shared
         
 
         [SerializeField]
-        [JsonProperty("unscheduledAt")]
-        public DateTime UnscheduledAt { get; set; } = default!;
+        [JsonProperty("unscheduledAt", NullValueHandling = NullValueHandling.Include)]
+        public DateTime? UnscheduledAt { get; set; } = default!;
         
     }
 }

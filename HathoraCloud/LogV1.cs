@@ -27,22 +27,22 @@ namespace HathoraCloud
         /// <summary>
         /// Download entire log file for a stopped process.
         /// </summary>
-        Task<DownloadLogForProcessResponse> DownloadLogForProcessAsync(DownloadLogForProcessRequest? request = null);
+        Task<DownloadLogForProcessResponse> DownloadLogForProcessAsync(DownloadLogForProcessRequest request);
 
         /// <summary>
         /// Returns a stream of logs for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`.
         /// </summary>
-        Task<GetLogsForAppResponse> GetLogsForAppAsync(GetLogsForAppRequest? request = null);
+        Task<GetLogsForAppResponse> GetLogsForAppAsync(GetLogsForAppRequest request);
 
         /// <summary>
         /// Returns a stream of logs for a <a href="https://hathora.dev/docs/concepts/hathora-entities#deployment">deployment</a> using `appId` and `deploymentId`.
         /// </summary>
-        Task<GetLogsForDeploymentResponse> GetLogsForDeploymentAsync(GetLogsForDeploymentRequest? request = null);
+        Task<GetLogsForDeploymentResponse> GetLogsForDeploymentAsync(GetLogsForDeploymentRequest request);
 
         /// <summary>
         /// Returns a stream of logs for a <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> using `appId` and `processId`.
         /// </summary>
-        Task<GetLogsForProcessResponse> GetLogsForProcessAsync(GetLogsForProcessRequest? request = null);
+        Task<GetLogsForProcessResponse> GetLogsForProcessAsync(GetLogsForProcessRequest request);
     }
 
     /// <summary>
@@ -52,10 +52,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.4";
-        private const string _sdkGenVersion = "2.263.3";
+        private const string _sdkVersion = "0.31.0";
+        private const string _sdkGenVersion = "2.269.0";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.4 2.263.3 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.31.0 2.269.0 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -69,7 +69,8 @@ namespace HathoraCloud
         }
         
 
-        public async Task<DownloadLogForProcessResponse> DownloadLogForProcessAsync(DownloadLogForProcessRequest? request = null)
+        
+        public async Task<DownloadLogForProcessResponse> DownloadLogForProcessAsync(DownloadLogForProcessRequest request)
         {
             if (request == null)
             {
@@ -79,13 +80,12 @@ namespace HathoraCloud
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/logs/v1/{appId}/process/{processId}/download", request);
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -104,14 +104,14 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+
             var response = new DownloadLogForProcessResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("text/plain",response.ContentType))
@@ -121,6 +121,7 @@ namespace HathoraCloud
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 410))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -136,7 +137,7 @@ namespace HathoraCloud
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<GetLogsForAppResponse> GetLogsForAppAsync(GetLogsForAppRequest? request = null)
+        public async Task<GetLogsForAppResponse> GetLogsForAppAsync(GetLogsForAppRequest request)
         {
             if (request == null)
             {
@@ -146,13 +147,12 @@ namespace HathoraCloud
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/logs/v1/{appId}/all", request);
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -171,14 +171,14 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+
             var response = new GetLogsForAppResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("text/plain",response.ContentType))
@@ -188,6 +188,7 @@ namespace HathoraCloud
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 404))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -203,7 +204,7 @@ namespace HathoraCloud
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<GetLogsForDeploymentResponse> GetLogsForDeploymentAsync(GetLogsForDeploymentRequest? request = null)
+        public async Task<GetLogsForDeploymentResponse> GetLogsForDeploymentAsync(GetLogsForDeploymentRequest request)
         {
             if (request == null)
             {
@@ -213,13 +214,12 @@ namespace HathoraCloud
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/logs/v1/{appId}/deployment/{deploymentId}", request);
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -238,14 +238,14 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+
             var response = new GetLogsForDeploymentResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("text/plain",response.ContentType))
@@ -255,6 +255,7 @@ namespace HathoraCloud
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 404))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -269,7 +270,8 @@ namespace HathoraCloud
 
         
 
-        public async Task<GetLogsForProcessResponse> GetLogsForProcessAsync(GetLogsForProcessRequest? request = null)
+        
+        public async Task<GetLogsForProcessResponse> GetLogsForProcessAsync(GetLogsForProcessRequest request)
         {
             if (request == null)
             {
@@ -279,13 +281,12 @@ namespace HathoraCloud
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/logs/v1/{appId}/process/{processId}", request);
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -304,14 +305,14 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+
             var response = new GetLogsForProcessResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("text/plain",response.ContentType))
@@ -321,6 +322,7 @@ namespace HathoraCloud
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 410) || (response.StatusCode == 500))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))

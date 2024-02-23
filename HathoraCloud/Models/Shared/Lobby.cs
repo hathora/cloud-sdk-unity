@@ -77,8 +77,8 @@ namespace HathoraCloud.Models.Shared
         
 
         [SerializeField]
-        [JsonProperty("shortCode")]
-        public string ShortCode { get; set; } = default!;
+        [JsonProperty("shortCode", NullValueHandling = NullValueHandling.Include)]
+        public string? ShortCode { get; set; } = default!;
         
 
         /// <summary>

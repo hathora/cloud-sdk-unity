@@ -33,17 +33,17 @@ namespace HathoraCloud
         /// <summary>
         /// Get details for a lobby.
         /// </summary>
-        Task<GetLobbyInfoByRoomIdResponse> GetLobbyInfoByRoomIdAsync(GetLobbyInfoByRoomIdRequest? request = null);
+        Task<GetLobbyInfoByRoomIdResponse> GetLobbyInfoByRoomIdAsync(GetLobbyInfoByRoomIdRequest request);
 
         /// <summary>
         /// Get details for a lobby. If 2 or more lobbies have the same `shortCode`, then the most recently created lobby will be returned.
         /// </summary>
-        Task<GetLobbyInfoByShortCodeResponse> GetLobbyInfoByShortCodeAsync(GetLobbyInfoByShortCodeRequest? request = null);
+        Task<GetLobbyInfoByShortCodeResponse> GetLobbyInfoByShortCodeAsync(GetLobbyInfoByShortCodeRequest request);
 
         /// <summary>
         /// Get all active lobbies for a given <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>. Filter the array by optionally passing in a `region`. Use this endpoint to display all public lobbies that a player can join in the game client.
         /// </summary>
-        Task<ListActivePublicLobbiesResponse> ListActivePublicLobbiesAsync(ListActivePublicLobbiesRequest? request = null);
+        Task<ListActivePublicLobbiesResponse> ListActivePublicLobbiesAsync(ListActivePublicLobbiesRequest request);
     }
 
     /// <summary>
@@ -53,10 +53,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.4";
-        private const string _sdkGenVersion = "2.263.3";
+        private const string _sdkVersion = "0.31.0";
+        private const string _sdkGenVersion = "2.269.0";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.4 2.263.3 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.31.0 2.269.0 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -70,29 +70,30 @@ namespace HathoraCloud
         }
         
 
+        
         public async Task<CreateLobbyResponse> CreateLobbyAsync(CreateLobbySecurity security, CreateLobbyRequest request)
         {
+            if (request == null)
+            {
+                request = new CreateLobbyRequest();
+            }
             request.AppId ??= SDKConfiguration.AppId;
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v3/{appId}/create", request);
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbPOST);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            var serializedBody = RequestBodySerializer.Serialize(request, "CreateLobbyV3Params", "json");
-            if (serializedBody == null)
-            {
-                throw new ArgumentNullException("request body is required");
-            }
-            else
+
+            var serializedBody = RequestBodySerializer.Serialize(request, "CreateLobbyV3Params", "json", false, false);
+            if (serializedBody != null)
             {
                 httpRequest.uploadHandler = new UploadHandlerRaw(serializedBody.Body);
                 httpRequest.SetRequestHeader("Content-Type", serializedBody.ContentType);
             }
-            
+
             var client = SecuritySerializer.Apply(_defaultClient, () => security);
 
             var httpResponse = await client.SendAsync(httpRequest);
@@ -107,14 +108,14 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+
             var response = new CreateLobbyResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 201))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -124,6 +125,7 @@ namespace HathoraCloud
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 404) || (response.StatusCode == 422) || (response.StatusCode == 429) || (response.StatusCode == 500))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -138,7 +140,8 @@ namespace HathoraCloud
 
         
 
-        public async Task<GetLobbyInfoByRoomIdResponse> GetLobbyInfoByRoomIdAsync(GetLobbyInfoByRoomIdRequest? request = null)
+        
+        public async Task<GetLobbyInfoByRoomIdResponse> GetLobbyInfoByRoomIdAsync(GetLobbyInfoByRoomIdRequest request)
         {
             if (request == null)
             {
@@ -148,13 +151,12 @@ namespace HathoraCloud
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v3/{appId}/info/roomid/{roomId}", request);
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -173,14 +175,14 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+
             var response = new GetLobbyInfoByRoomIdResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -190,6 +192,7 @@ namespace HathoraCloud
 
                 return response;
             }
+
             if((response.StatusCode == 404))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -204,7 +207,8 @@ namespace HathoraCloud
 
         
 
-        public async Task<GetLobbyInfoByShortCodeResponse> GetLobbyInfoByShortCodeAsync(GetLobbyInfoByShortCodeRequest? request = null)
+        
+        public async Task<GetLobbyInfoByShortCodeResponse> GetLobbyInfoByShortCodeAsync(GetLobbyInfoByShortCodeRequest request)
         {
             if (request == null)
             {
@@ -214,13 +218,12 @@ namespace HathoraCloud
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v3/{appId}/info/shortcode/{shortCode}", request);
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -239,14 +242,14 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+
             var response = new GetLobbyInfoByShortCodeResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -256,6 +259,7 @@ namespace HathoraCloud
 
                 return response;
             }
+
             if((response.StatusCode == 404))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -270,7 +274,8 @@ namespace HathoraCloud
 
         
 
-        public async Task<ListActivePublicLobbiesResponse> ListActivePublicLobbiesAsync(ListActivePublicLobbiesRequest? request = null)
+        
+        public async Task<ListActivePublicLobbiesResponse> ListActivePublicLobbiesAsync(ListActivePublicLobbiesRequest request)
         {
             if (request == null)
             {
@@ -280,13 +285,12 @@ namespace HathoraCloud
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v3/{appId}/list/public", request);
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -305,14 +309,14 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+
             var response = new ListActivePublicLobbiesResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))

@@ -24,9 +24,9 @@ namespace HathoraCloud
     /// </summary>
     public interface ILobbyV1
     {
-        Task<CreatePrivateLobbyDeprecatedResponse> CreatePrivateLobbyDeprecatedAsync(CreatePrivateLobbyDeprecatedSecurity security, CreatePrivateLobbyDeprecatedRequest? request = null);
-        Task<CreatePublicLobbyDeprecatedResponse> CreatePublicLobbyDeprecatedAsync(CreatePublicLobbyDeprecatedSecurity security, CreatePublicLobbyDeprecatedRequest? request = null);
-        Task<ListActivePublicLobbiesDeprecatedV1Response> ListActivePublicLobbiesDeprecatedV1Async(ListActivePublicLobbiesDeprecatedV1Request? request = null);
+        Task<CreatePrivateLobbyDeprecatedResponse> CreatePrivateLobbyDeprecatedAsync(CreatePrivateLobbyDeprecatedSecurity security, CreatePrivateLobbyDeprecatedRequest request);
+        Task<CreatePublicLobbyDeprecatedResponse> CreatePublicLobbyDeprecatedAsync(CreatePublicLobbyDeprecatedSecurity security, CreatePublicLobbyDeprecatedRequest request);
+        Task<ListActivePublicLobbiesDeprecatedV1Response> ListActivePublicLobbiesDeprecatedV1Async(ListActivePublicLobbiesDeprecatedV1Request request);
     }
 
     /// <summary>
@@ -36,10 +36,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.4";
-        private const string _sdkGenVersion = "2.263.3";
+        private const string _sdkVersion = "0.31.0";
+        private const string _sdkGenVersion = "2.269.0";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.4 2.263.3 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.31.0 2.269.0 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -54,7 +54,7 @@ namespace HathoraCloud
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<CreatePrivateLobbyDeprecatedResponse> CreatePrivateLobbyDeprecatedAsync(CreatePrivateLobbyDeprecatedSecurity security, CreatePrivateLobbyDeprecatedRequest? request = null)
+        public async Task<CreatePrivateLobbyDeprecatedResponse> CreatePrivateLobbyDeprecatedAsync(CreatePrivateLobbyDeprecatedSecurity security, CreatePrivateLobbyDeprecatedRequest request)
         {
             if (request == null)
             {
@@ -64,13 +64,12 @@ namespace HathoraCloud
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v1/{appId}/create/private", request);
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbPOST);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            
+
             var client = SecuritySerializer.Apply(_defaultClient, () => security);
 
             var httpResponse = await client.SendAsync(httpRequest);
@@ -85,14 +84,14 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+
             var response = new CreatePrivateLobbyDeprecatedResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -102,6 +101,7 @@ namespace HathoraCloud
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 404) || (response.StatusCode == 422) || (response.StatusCode == 429) || (response.StatusCode == 500))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -117,7 +117,7 @@ namespace HathoraCloud
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<CreatePublicLobbyDeprecatedResponse> CreatePublicLobbyDeprecatedAsync(CreatePublicLobbyDeprecatedSecurity security, CreatePublicLobbyDeprecatedRequest? request = null)
+        public async Task<CreatePublicLobbyDeprecatedResponse> CreatePublicLobbyDeprecatedAsync(CreatePublicLobbyDeprecatedSecurity security, CreatePublicLobbyDeprecatedRequest request)
         {
             if (request == null)
             {
@@ -127,13 +127,12 @@ namespace HathoraCloud
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v1/{appId}/create/public", request);
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbPOST);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            
+
             var client = SecuritySerializer.Apply(_defaultClient, () => security);
 
             var httpResponse = await client.SendAsync(httpRequest);
@@ -148,14 +147,14 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+
             var response = new CreatePublicLobbyDeprecatedResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -165,6 +164,7 @@ namespace HathoraCloud
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 402) || (response.StatusCode == 404) || (response.StatusCode == 422) || (response.StatusCode == 429) || (response.StatusCode == 500))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -180,7 +180,7 @@ namespace HathoraCloud
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<ListActivePublicLobbiesDeprecatedV1Response> ListActivePublicLobbiesDeprecatedV1Async(ListActivePublicLobbiesDeprecatedV1Request? request = null)
+        public async Task<ListActivePublicLobbiesDeprecatedV1Response> ListActivePublicLobbiesDeprecatedV1Async(ListActivePublicLobbiesDeprecatedV1Request request)
         {
             if (request == null)
             {
@@ -190,13 +190,12 @@ namespace HathoraCloud
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lobby/v1/{appId}/list", request);
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -215,14 +214,14 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+
             var response = new ListActivePublicLobbiesDeprecatedV1Response
             {
                 StatusCode = (int)httpResponse.responseCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -232,6 +231,7 @@ namespace HathoraCloud
 
                 return response;
             }
+
             if((response.StatusCode == 404))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))

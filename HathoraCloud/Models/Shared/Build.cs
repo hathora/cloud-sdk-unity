@@ -39,8 +39,8 @@ namespace HathoraCloud.Models.Shared
         
 
         [SerializeField]
-        [JsonProperty("buildTag")]
-        public string BuildTag { get; set; } = default!;
+        [JsonProperty("buildTag", NullValueHandling = NullValueHandling.Include)]
+        public string? BuildTag { get; set; } = default!;
         
 
         /// <summary>
@@ -63,16 +63,16 @@ namespace HathoraCloud.Models.Shared
         /// When the build was deleted.
         /// </summary>
         [SerializeField]
-        [JsonProperty("deletedAt")]
-        public DateTime DeletedAt { get; set; } = default!;
+        [JsonProperty("deletedAt", NullValueHandling = NullValueHandling.Include)]
+        public DateTime? DeletedAt { get; set; } = default!;
         
 
         /// <summary>
         /// When <a href="">`RunBuild()`</a> finished executing.
         /// </summary>
         [SerializeField]
-        [JsonProperty("finishedAt")]
-        public DateTime FinishedAt { get; set; } = default!;
+        [JsonProperty("finishedAt", NullValueHandling = NullValueHandling.Include)]
+        public DateTime? FinishedAt { get; set; } = default!;
         
 
         /// <summary>
@@ -93,8 +93,8 @@ namespace HathoraCloud.Models.Shared
         /// When <a href="">`RunBuild()`</a> is called.
         /// </summary>
         [SerializeField]
-        [JsonProperty("startedAt")]
-        public DateTime StartedAt { get; set; } = default!;
+        [JsonProperty("startedAt", NullValueHandling = NullValueHandling.Include)]
+        public DateTime? StartedAt { get; set; } = default!;
         
 
         /// <summary>

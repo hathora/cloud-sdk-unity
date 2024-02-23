@@ -68,7 +68,7 @@ namespace HathoraCloud.Utils
             );
         }
 
-        public static bool IsDictionary(object o)
+        public static bool IsDictionary(object? o)
         {
             if (o == null)
                 return false;
@@ -77,7 +77,7 @@ namespace HathoraCloud.Utils
                 && o.GetType().GetGenericTypeDefinition().IsAssignableFrom(typeof(Dictionary<,>));
         }
 
-        public static bool IsList(object o)
+        public static bool IsList(object? o)
         {
             if (o == null)
                 return false;
@@ -86,7 +86,7 @@ namespace HathoraCloud.Utils
                 && o.GetType().GetGenericTypeDefinition().IsAssignableFrom(typeof(List<>));
         }
 
-        public static bool IsClass(object o)
+        public static bool IsClass(object? o)
         {
             if (o == null)
                 return false;
@@ -100,7 +100,7 @@ namespace HathoraCloud.Utils
                 || potentialDescendant == potentialBase;
         }
 
-        public static bool IsString(object obj)
+        public static bool IsString(object? obj)
         {
             if (obj != null)
             {
@@ -113,14 +113,14 @@ namespace HathoraCloud.Utils
             }
         }
 
-        public static bool IsPrimitive(object obj) => obj != null && obj.GetType().IsPrimitive;
+        public static bool IsPrimitive(object? obj) => obj != null && obj.GetType().IsPrimitive;
 
-        public static bool IsEnum(object obj) => obj != null && obj.GetType().IsEnum;
+        public static bool IsEnum(object? obj) => obj != null && obj.GetType().IsEnum;
 
         ///<summary>
         /// Check if the object is a 'date time' or 'date only' object.
         ///</summary>
-        public static bool IsDate(object obj) =>
+        public static bool IsDate(object? obj) =>
             obj != null && (obj.GetType() == typeof(DateTime) || obj.GetType() == typeof(DateOnly));
 
         private static string StripSurroundingQuotes(string input)

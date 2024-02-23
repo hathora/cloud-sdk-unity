@@ -29,22 +29,22 @@ namespace HathoraCloud
         /// <summary>
         /// List all organization tokens for a given org.
         /// </summary>
-        Task<GetOrgTokensResponse> GetOrgTokensAsync(GetOrgTokensRequest? request = null);
+        Task<GetOrgTokensResponse> GetOrgTokensAsync(GetOrgTokensRequest request);
 
         /// <summary>
         /// Revoke an organization token.
         /// </summary>
-        Task<RevokeOrgTokenResponse> RevokeOrgTokenAsync(RevokeOrgTokenRequest? request = null);
+        Task<RevokeOrgTokenResponse> RevokeOrgTokenAsync(RevokeOrgTokenRequest request);
     }
 
     public class OrgTokensV1: IOrgTokensV1
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.4";
-        private const string _sdkGenVersion = "2.263.3";
+        private const string _sdkVersion = "0.31.0";
+        private const string _sdkGenVersion = "2.269.0";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.4 2.263.3 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.31.0 2.269.0 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -58,27 +58,24 @@ namespace HathoraCloud
         }
         
 
+        
         public async Task<CreateOrgTokenResponse> CreateOrgTokenAsync(CreateOrgTokenRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/tokens/v1/orgs/{orgId}/create", request);
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbPOST);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            var serializedBody = RequestBodySerializer.Serialize(request, "CreateOrgToken", "json");
-            if (serializedBody == null)
-            {
-                throw new ArgumentNullException("request body is required");
-            }
-            else
+
+            var serializedBody = RequestBodySerializer.Serialize(request, "CreateOrgToken", "json", false, false);
+            if (serializedBody != null)
             {
                 httpRequest.uploadHandler = new UploadHandlerRaw(serializedBody.Body);
                 httpRequest.SetRequestHeader("Content-Type", serializedBody.ContentType);
             }
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -97,14 +94,14 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+
             var response = new CreateOrgTokenResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 201))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -114,6 +111,7 @@ namespace HathoraCloud
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 404) || (response.StatusCode == 422))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -128,17 +126,17 @@ namespace HathoraCloud
 
         
 
-        public async Task<GetOrgTokensResponse> GetOrgTokensAsync(GetOrgTokensRequest? request = null)
+        
+        public async Task<GetOrgTokensResponse> GetOrgTokensAsync(GetOrgTokensRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/tokens/v1/orgs/{orgId}", request);
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -157,14 +155,14 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+
             var response = new GetOrgTokensResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -174,6 +172,7 @@ namespace HathoraCloud
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 404))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -188,17 +187,17 @@ namespace HathoraCloud
 
         
 
-        public async Task<RevokeOrgTokenResponse> RevokeOrgTokenAsync(RevokeOrgTokenRequest? request = null)
+        
+        public async Task<RevokeOrgTokenResponse> RevokeOrgTokenAsync(RevokeOrgTokenRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/tokens/v1/orgs/{orgId}/tokens/{orgTokenId}/revoke", request);
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbPOST);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -217,14 +216,14 @@ namespace HathoraCloud
             }
 
             var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+
             var response = new RevokeOrgTokenResponse
             {
                 StatusCode = (int)httpResponse.responseCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -234,6 +233,7 @@ namespace HathoraCloud
 
                 return response;
             }
+
             if((response.StatusCode == 401) || (response.StatusCode == 404))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
