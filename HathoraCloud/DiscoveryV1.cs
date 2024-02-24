@@ -38,10 +38,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.31.0";
-        private const string _sdkGenVersion = "2.269.0";
+        private const string _sdkVersion = "0.31.1";
+        private const string _sdkGenVersion = "2.272.4";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.31.0 2.269.0 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.31.1 2.272.4 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -67,10 +67,6 @@ namespace HathoraCloud
             httpRequest.SetRequestHeader("user-agent", _userAgent);
 
             var client = _defaultClient;
-            if (_securitySource != null)
-            {
-                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
-            }
 
             var httpResponse = await client.SendAsync(httpRequest);
             switch (httpResponse.result)

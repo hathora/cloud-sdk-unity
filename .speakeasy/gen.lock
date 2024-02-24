@@ -4,17 +4,17 @@ management:
   docChecksum: 21f28204746184b089ee069828e705dd
   docVersion: 0.0.1
   speakeasyVersion: internal
-  generationVersion: 2.269.0
-  releaseVersion: 0.31.0
-  configChecksum: 09518203113df570d86ccdc5aa9cce7c
+  generationVersion: 2.272.4
+  releaseVersion: 0.31.1
+  configChecksum: 3c8afe666a80297a37a93189eb0de773
   repoURL: https://github.com/hathora/cloud-sdk-unity.git
   repoSubDirectory: .
   published: true
 features:
   unity:
-    core: 1.4.1
+    core: 1.4.2
     deprecations: 0.0.2
-    globalSecurity: 0.2.1
+    globalSecurity: 0.2.2
     globalServerURLs: 0.0.3
     globals: 0.0.2
     methodSecurity: 0.1.1

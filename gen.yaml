@@ -7,8 +7,10 @@ generation:
     nameResolutionDec2023: false
     parameterOrderingFeb2024: false
     requestResponseComponentNamesFeb2024: false
+  auth:
+    oAuth2ClientCredentialsEnabled: false
 unity:
-  version: 0.31.0
+  version: 0.31.1
   author: Hathora
   dotnetVersion: net5.0
   flattenGlobalSecurity: false

@@ -69,11 +69,7 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
-        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 GetLobbyInfoByRoomIdRequest req = new GetLobbyInfoByRoomIdRequest() {
     RoomId = "2swovpy1fnunu",
@@ -108,11 +104,7 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
-        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 GetLobbyInfoByShortCodeRequest req = new GetLobbyInfoByShortCodeRequest() {
     ShortCode = "LFG4",
@@ -147,11 +139,7 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
-        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 ListActivePublicLobbiesRequest req = new ListActivePublicLobbiesRequest() {};
 
