@@ -74,12 +74,9 @@ namespace HathoraCloud.Models.Shared
         public int EgressedBytes { get; set; } = default!;
         
 
-        /// <summary>
-        /// Connection details for an active process.
-        /// </summary>
         [SerializeField]
-        [JsonProperty("exposedPort")]
-        public ExposedPort? ExposedPort { get; set; }
+        [JsonProperty("exposedPort", NullValueHandling = NullValueHandling.Include)]
+        public ProcessWithRoomsExposedPort? ExposedPort { get; set; } = default!;
         
 
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]

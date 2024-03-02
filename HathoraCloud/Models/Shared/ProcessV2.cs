@@ -48,12 +48,9 @@ namespace HathoraCloud.Models.Shared
         public int DeploymentId { get; set; } = default!;
         
 
-        /// <summary>
-        /// Connection details for an active process.
-        /// </summary>
         [SerializeField]
-        [JsonProperty("exposedPort")]
-        public ExposedPort? ExposedPort { get; set; }
+        [JsonProperty("exposedPort", NullValueHandling = NullValueHandling.Include)]
+        public ProcessV2ExposedPort? ExposedPort { get; set; } = default!;
         
 
         /// <summary>

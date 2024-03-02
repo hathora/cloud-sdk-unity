@@ -90,7 +90,7 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("deployment")]
-        public Deployment Deployment { get; set; } = default!;
+        public Deployment? Deployment { get; set; }
         
 
         /// <summary>

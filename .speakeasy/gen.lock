@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: bdb34d30-f36e-4c13-bfde-42babcb240db
 management:
-  docChecksum: 21f28204746184b089ee069828e705dd
+  docChecksum: be7c47e79e8aafd1b6a8d18aa330eade
   docVersion: 0.0.1
   speakeasyVersion: internal
-  generationVersion: 2.272.4
-  releaseVersion: 0.31.1
-  configChecksum: 3c8afe666a80297a37a93189eb0de773
+  generationVersion: 2.277.0
+  releaseVersion: 0.31.2
+  configChecksum: 0cae469410d610cad7c63f12ea0751d3
   repoURL: https://github.com/hathora/cloud-sdk-unity.git
   repoSubDirectory: .
   published: true
@@ -14,7 +14,7 @@ features:
   unity:
     core: 1.4.2
     deprecations: 0.0.2
-    globalSecurity: 0.2.2
+    globalSecurity: 0.2.3
     globalServerURLs: 0.0.3
     globals: 0.0.2
     methodSecurity: 0.1.1
@@ -92,6 +92,8 @@ generatedFiles:
   - HathoraCloud/Models/Operations/GetDeploymentInfoResponse.cs
   - HathoraCloud/Models/Operations/GetDeploymentsRequest.cs
   - HathoraCloud/Models/Operations/GetDeploymentsResponse.cs
+  - HathoraCloud/Models/Operations/GetLatestDeploymentRequest.cs
+  - HathoraCloud/Models/Operations/GetLatestDeploymentResponse.cs
   - HathoraCloud/Models/Operations/GetPingServiceEndpointsResponse.cs
   - HathoraCloud/Models/Operations/CreatePrivateLobbyDeprecatedSecurity.cs
   - HathoraCloud/Models/Operations/CreatePrivateLobbyDeprecatedRequest.cs
@@ -237,12 +239,15 @@ generatedFiles:
   - HathoraCloud/Models/Shared/MetricsResponse.cs
   - HathoraCloud/Models/Shared/MetricValue.cs
   - HathoraCloud/Models/Shared/MetricName.cs
+  - HathoraCloud/Models/Shared/ProcessExposedPort.cs
   - HathoraCloud/Models/Shared/Process.cs
   - HathoraCloud/Models/Shared/ExposedPort.cs
+  - HathoraCloud/Models/Shared/ProcessWithRoomsExposedPort.cs
   - HathoraCloud/Models/Shared/ProcessWithRooms.cs
   - HathoraCloud/Models/Shared/RoomWithoutAllocationsCurrentAllocation.cs
   - HathoraCloud/Models/Shared/RoomWithoutAllocations.cs
   - HathoraCloud/Models/Shared/RoomStatus.cs
+  - HathoraCloud/Models/Shared/ProcessV2ExposedPort.cs
   - HathoraCloud/Models/Shared/ProcessV2.cs
   - HathoraCloud/Models/Shared/ProcessStatus.cs
   - HathoraCloud/Models/Shared/CreateRoomParams.cs
@@ -296,6 +301,8 @@ generatedFiles:
   - docs/Models/Operations/GetDeploymentInfoResponse.md
   - docs/Models/Operations/GetDeploymentsRequest.md
   - docs/Models/Operations/GetDeploymentsResponse.md
+  - docs/Models/Operations/GetLatestDeploymentRequest.md
+  - docs/Models/Operations/GetLatestDeploymentResponse.md
   - docs/Models/Operations/GetPingServiceEndpointsResponse.md
   - docs/Models/Operations/CreatePrivateLobbyDeprecatedSecurity.md
   - docs/Models/Operations/CreatePrivateLobbyDeprecatedRequest.md
@@ -441,12 +448,15 @@ generatedFiles:
   - docs/Models/Shared/MetricsResponse.md
   - docs/Models/Shared/MetricValue.md
   - docs/Models/Shared/MetricName.md
+  - docs/Models/Shared/ProcessExposedPort.md
   - docs/Models/Shared/Process.md
   - docs/Models/Shared/ExposedPort.md
+  - docs/Models/Shared/ProcessWithRoomsExposedPort.md
   - docs/Models/Shared/ProcessWithRooms.md
   - docs/Models/Shared/RoomWithoutAllocationsCurrentAllocation.md
   - docs/Models/Shared/RoomWithoutAllocations.md
   - docs/Models/Shared/RoomStatus.md
+  - docs/Models/Shared/ProcessV2ExposedPort.md
   - docs/Models/Shared/ProcessV2.md
   - docs/Models/Shared/ProcessStatus.md
   - docs/Models/Shared/CreateRoomParams.md
