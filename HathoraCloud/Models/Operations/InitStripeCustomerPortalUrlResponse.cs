@@ -48,7 +48,7 @@ namespace HathoraCloud.Models.Operations
         /// Ok
         /// </summary>
         [SerializeField]
-        public string? Res { get; set; }
+        public string? String { get; set; }
         
         public void Dispose() {
             if (RawResponse != null) {

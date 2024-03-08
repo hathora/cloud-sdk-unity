@@ -16,8 +16,6 @@ namespace HathoraCloud
     using System.Threading.Tasks;
     using System;
 
-
-
     /// <summary>
     /// Hathora Cloud API: Welcome to the Hathora Cloud API documentation! Learn how to use the Hathora Cloud APIs to build and scale your game servers globally.
     /// </summary>
@@ -98,14 +96,17 @@ namespace HathoraCloud
         public IOrgTokensV1 OrgTokensV1 { get; }
     }
     
+
     public class SDKConfig
     {
-        public static string[] ServerList = new string[]
-        {
+        /// <summary>
+        /// List of server URLs available to the SDK.
+        /// </summary>
+        public static readonly string[] ServerList = {
             "https://api.hathora.dev",
             "https:///",
         };
-        /// Contains the list of servers available to the SDK
+
         public string serverUrl = "";
         public int serverIndex = 0;
         public string? AppId;
@@ -128,10 +129,10 @@ namespace HathoraCloud
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _target = "unity";
-        private const string _sdkVersion = "0.31.2";
-        private const string _sdkGenVersion = "2.277.0";
+        private const string _sdkVersion = "0.31.3";
+        private const string _sdkGenVersion = "2.279.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.31.2 2.277.0 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.31.3 2.279.1 0.0.1 hathora-cloud";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
@@ -158,6 +159,10 @@ namespace HathoraCloud
         {
             if (serverIndex != null)
             {
+                if (serverIndex.Value < 0 || serverIndex.Value >= SDKConfig.ServerList.Length)
+                {
+                    throw new Exception($"Invalid server index {serverIndex.Value}");
+                }
                 _serverIndex = serverIndex.Value;
             }
 
