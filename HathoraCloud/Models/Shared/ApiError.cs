@@ -21,6 +21,5 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("message")]
         public string Message { get; set; } = default!;
-        
     }
 }

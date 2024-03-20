@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     using System;
@@ -28,7 +29,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("additionalContainerPorts")]
         public List<ContainerPort> AdditionalContainerPorts { get; set; } = default!;
-        
 
         /// <summary>
         /// System generated unique identifier for an application.
@@ -36,7 +36,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("appId")]
         public string AppId { get; set; } = default!;
-        
 
         /// <summary>
         /// System generated id for a build. Increments by 1.
@@ -44,13 +43,11 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("buildId")]
         public int BuildId { get; set; } = default!;
-        
 
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [SerializeField]
         [JsonProperty("containerPort")]
         public double ContainerPort { get; set; } = default!;
-        
 
         /// <summary>
         /// When the deployment was created.
@@ -58,7 +55,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("createdAt")]
         public DateTime CreatedAt { get; set; } = default!;
-        
 
         /// <summary>
         /// UserId or email address for the user that created the deployment.
@@ -66,7 +62,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("createdBy")]
         public string CreatedBy { get; set; } = default!;
-        
 
         /// <summary>
         /// A container port object represents the transport configruations for how your server will listen.
@@ -74,7 +69,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("defaultContainerPort")]
         public ContainerPort DefaultContainerPort { get; set; } = default!;
-        
 
         /// <summary>
         /// System generated id for a deployment. Increments by 1.
@@ -82,7 +76,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("deploymentId")]
         public int DeploymentId { get; set; } = default!;
-        
 
         /// <summary>
         /// The environment variable that our process will have access to at runtime.
@@ -90,7 +83,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("env")]
         public List<Env> Env { get; set; } = default!;
-        
 
         /// <summary>
         /// Option to shut down processes that have had no new connections or rooms<br/>
@@ -102,7 +94,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("idleTimeoutEnabled")]
         public bool? IdleTimeoutEnabled { get; set; }
-        
 
         /// <summary>
         /// A plan defines how much CPU and memory is required to run an instance of your game server.<br/>
@@ -121,7 +112,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("planName")]
         public PlanName PlanName { get; set; } = default!;
-        
 
         /// <summary>
         /// The number of cores allocated to your process.
@@ -129,7 +119,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("requestedCPU")]
         public double RequestedCPU { get; set; } = default!;
-        
 
         /// <summary>
         /// The amount of memory allocated to your process.
@@ -137,7 +126,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("requestedMemoryMB")]
         public int RequestedMemoryMB { get; set; } = default!;
-        
 
         /// <summary>
         /// Governs how many <a href="https://hathora.dev/docs/concepts/hathora-entities#room">rooms</a> can be scheduled in a process.
@@ -145,12 +133,10 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("roomsPerProcess")]
         public int RoomsPerProcess { get; set; } = default!;
-        
 
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [SerializeField]
         [JsonProperty("transportType")]
         public DeploymentTransportType TransportType { get; set; } = default!;
-        
     }
 }

@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
@@ -24,17 +25,14 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("host")]
         public string Host { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("port")]
         public int Port { get; set; } = default!;
-        
 
         /// <summary>
         /// Transport type specifies the underlying communication protocol to the exposed port.
@@ -42,6 +40,5 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("transportType")]
         public TransportType TransportType { get; set; } = default!;
-        
     }
 }

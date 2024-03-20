@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
@@ -27,7 +28,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("appId")]
         public string AppId { get; set; } = default!;
-        
 
         /// <summary>
         /// When the lobby was created.
@@ -35,7 +35,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("createdAt")]
         public DateTime CreatedAt { get; set; } = default!;
-        
 
         /// <summary>
         /// UserId or email address for the user that created the lobby.
@@ -43,7 +42,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("createdBy")]
         public string CreatedBy { get; set; } = default!;
-        
 
         /// <summary>
         /// User input to initialize the game state. Object must be smaller than 64KB.
@@ -51,18 +49,15 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("initialConfig")]
         public LobbyInitialConfig InitialConfig { get; set; } = default!;
-        
 
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [SerializeField]
         [JsonProperty("local")]
         public bool Local { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("region")]
         public Region Region { get; set; } = default!;
-        
 
         /// <summary>
         /// Unique identifier to a game session or match. Use the default system generated ID or overwrite it with your own.<br/>
@@ -74,12 +69,10 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("roomId")]
         public string RoomId { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("shortCode", NullValueHandling = NullValueHandling.Include)]
         public string? ShortCode { get; set; } = default!;
-        
 
         /// <summary>
         /// JSON blob to store metadata for a room. Must be smaller than 1MB.
@@ -87,7 +80,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("state")]
         public State? State { get; set; }
-        
 
         /// <summary>
         /// Types of lobbies a player can create.<br/>
@@ -104,6 +96,5 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("visibility")]
         public LobbyVisibility Visibility { get; set; } = default!;
-        
     }
 }

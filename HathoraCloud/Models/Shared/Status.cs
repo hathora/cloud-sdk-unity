@@ -14,30 +14,10 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
-    /// <summary>
-    /// Current status of your build.<br/>
-    /// 
-    /// <remarks>
-    /// <br/>
-    /// `created`: a build was created but not yet run<br/>
-    /// <br/>
-    /// `running`: the build process is actively executing<br/>
-    /// <br/>
-    /// `succeeded`: the game server artifact was successfully built and stored in the Hathora registries<br/>
-    /// <br/>
-    /// `failed`: the build process was unsuccessful, most likely due to an error with the `Dockerfile`
-    /// </remarks>
-    /// </summary>
     public enum Status
     {
-        [JsonProperty("created")]
-        Created,
-        [JsonProperty("running")]
-        Running,
-        [JsonProperty("succeeded")]
-        Succeeded,
-        [JsonProperty("failed")]
-        Failed,
+        [JsonProperty("active")]
+        Active,
     }
 
     public static class StatusExtension

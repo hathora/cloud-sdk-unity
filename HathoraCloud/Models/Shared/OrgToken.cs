@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
@@ -21,17 +22,14 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("createdAt")]
         public DateTime CreatedAt { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("createdBy")]
         public string CreatedBy { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("lastFourCharsOfKey")]
         public string LastFourCharsOfKey { get; set; } = default!;
-        
 
         /// <summary>
         /// Readable name for a token. Must be unique within an organization.
@@ -39,12 +37,10 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("orgId")]
         public string OrgId { get; set; } = default!;
-        
 
         /// <summary>
         /// System generated unique identifier for an organization token.
@@ -52,11 +48,9 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("orgTokenId")]
         public string OrgTokenId { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("status")]
         public OrgTokenStatus Status { get; set; } = default!;
-        
     }
 }

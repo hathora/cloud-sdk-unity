@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     using System;
@@ -25,26 +26,21 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("active_connections")]
         public List<MetricValue>? ActiveConnections { get; set; }
-        
 
         [SerializeField]
         [JsonProperty("cpu")]
         public List<MetricValue>? Cpu { get; set; }
-        
 
         [SerializeField]
         [JsonProperty("memory")]
         public List<MetricValue>? Memory { get; set; }
-        
 
         [SerializeField]
         [JsonProperty("rate_egress")]
         public List<MetricValue>? RateEgress { get; set; }
-        
 
         [SerializeField]
         [JsonProperty("total_egress")]
         public List<MetricValue>? TotalEgress { get; set; }
-        
     }
 }

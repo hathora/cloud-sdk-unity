@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     using System;
@@ -28,7 +29,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("appId")]
         public string AppId { get; set; } = default!;
-        
 
         /// <summary>
         /// System generated id for a build. Increments by 1.
@@ -36,12 +36,10 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("buildId")]
         public int BuildId { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("buildTag", NullValueHandling = NullValueHandling.Include)]
         public string? BuildTag { get; set; } = default!;
-        
 
         /// <summary>
         /// When <a href="">`CreateBuild()`</a> is called.
@@ -49,7 +47,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("createdAt")]
         public DateTime CreatedAt { get; set; } = default!;
-        
 
         /// <summary>
         /// UserId or email address for the user that created the build.
@@ -57,7 +54,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("createdBy")]
         public string CreatedBy { get; set; } = default!;
-        
 
         /// <summary>
         /// When the build was deleted.
@@ -65,7 +61,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("deletedAt", NullValueHandling = NullValueHandling.Include)]
         public DateTime? DeletedAt { get; set; } = default!;
-        
 
         /// <summary>
         /// When <a href="">`RunBuild()`</a> finished executing.
@@ -73,7 +68,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("finishedAt", NullValueHandling = NullValueHandling.Include)]
         public DateTime? FinishedAt { get; set; } = default!;
-        
 
         /// <summary>
         /// The size (in bytes) of the Docker image built by Hathora.
@@ -81,13 +75,11 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("imageSize")]
         public int ImageSize { get; set; } = default!;
-        
 
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [SerializeField]
         [JsonProperty("regionalContainerTags")]
         public List<RegionalContainerTags> RegionalContainerTags { get; set; } = default!;
-        
 
         /// <summary>
         /// When <a href="">`RunBuild()`</a> is called.
@@ -95,7 +87,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("startedAt", NullValueHandling = NullValueHandling.Include)]
         public DateTime? StartedAt { get; set; } = default!;
-        
 
         /// <summary>
         /// Current status of your build.<br/>
@@ -113,7 +104,6 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("status")]
-        public Status Status { get; set; } = default!;
-        
+        public BuildStatus Status { get; set; } = default!;
     }
 }

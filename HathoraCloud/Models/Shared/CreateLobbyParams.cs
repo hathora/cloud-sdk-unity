@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
@@ -24,12 +25,10 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("initialConfig")]
         public LobbyInitialConfig InitialConfig { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("region")]
         public Region Region { get; set; } = default!;
-        
 
         /// <summary>
         /// Types of lobbies a player can create.<br/>
@@ -46,6 +45,5 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("visibility")]
         public LobbyVisibility Visibility { get; set; } = default!;
-        
     }
 }

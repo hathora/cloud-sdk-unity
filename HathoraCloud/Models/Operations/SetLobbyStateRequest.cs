@@ -22,16 +22,13 @@ namespace HathoraCloud.Models.Operations
         [SerializeField]
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public SetLobbyStateParams SetLobbyStateParams { get; set; } = default!;
-        
 
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=roomId")]
         public string RoomId { get; set; } = default!;
-        
 
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
         public string? AppId { get; set; }
-        
     }
 }

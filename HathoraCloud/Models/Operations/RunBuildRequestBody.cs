@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Operations
 {
+    using HathoraCloud.Models.Operations;
     using HathoraCloud.Utils;
     using System;
     using UnityEngine;
@@ -21,6 +22,5 @@ namespace HathoraCloud.Models.Operations
         [SerializeField]
         [SpeakeasyMetadata("multipartForm:file")]
         public File File { get; set; } = default!;
-        
     }
 }

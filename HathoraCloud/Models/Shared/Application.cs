@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
@@ -27,7 +28,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("appId")]
         public string AppId { get; set; } = default!;
-        
 
         /// <summary>
         /// Readable name for an application. Must be unique within an organization.
@@ -35,7 +35,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("appName")]
         public string AppName { get; set; } = default!;
-        
 
         /// <summary>
         /// Secret that is used for identity and access management.
@@ -43,7 +42,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("appSecret")]
         public string AppSecret { get; set; } = default!;
-        
 
         /// <summary>
         /// Configure <a href="https://hathora.dev/docs/lobbies-and-matchmaking/auth-service">player authentication</a> for your application. Use Hathora&apos;s built-in auth providers or use your own <a href="https://hathora.dev/docs/lobbies-and-matchmaking/auth-service#custom-auth-provider">custom authentication</a>.
@@ -51,7 +49,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("authConfiguration")]
         public AuthConfiguration AuthConfiguration { get; set; } = default!;
-        
 
         /// <summary>
         /// When the application was created.
@@ -59,7 +56,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("createdAt")]
         public DateTime CreatedAt { get; set; } = default!;
-        
 
         /// <summary>
         /// UserId or email address for the user that created the application.
@@ -67,7 +63,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("createdBy")]
         public string CreatedBy { get; set; } = default!;
-        
 
         /// <summary>
         /// When the application was deleted.
@@ -75,7 +70,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("deletedAt", NullValueHandling = NullValueHandling.Include)]
         public DateTime? DeletedAt { get; set; } = default!;
-        
 
         /// <summary>
         /// UserId or email address for the user that deleted the application.
@@ -83,7 +77,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("deletedBy", NullValueHandling = NullValueHandling.Include)]
         public string? DeletedBy { get; set; } = default!;
-        
 
         /// <summary>
         /// System generated unique identifier for an organization. Not guaranteed to have a specific format.
@@ -91,6 +84,5 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("orgId")]
         public string OrgId { get; set; } = default!;
-        
     }
 }

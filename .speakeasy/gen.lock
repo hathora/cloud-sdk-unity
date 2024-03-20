@@ -3,10 +3,10 @@ id: bdb34d30-f36e-4c13-bfde-42babcb240db
 management:
   docChecksum: be7c47e79e8aafd1b6a8d18aa330eade
   docVersion: 0.0.1
-  speakeasyVersion: 1.204.1
-  generationVersion: 2.279.1
-  releaseVersion: 0.31.3
-  configChecksum: ce280979cb2f214986f3785725de163c
+  speakeasyVersion: 1.213.0
+  generationVersion: 2.283.1
+  releaseVersion: 0.32.0
+  configChecksum: a074d16b380b9f7095f72ad6890302f1
   repoURL: https://github.com/hathora/cloud-sdk-unity.git
   repoSubDirectory: .
   published: true
@@ -14,10 +14,11 @@ features:
   unity:
     core: 1.4.2
     deprecations: 0.0.2
-    globalSecurity: 0.2.3
+    globalSecurity: 0.2.4
     globalServerURLs: 0.0.4
     globals: 0.0.2
     methodSecurity: 0.1.1
+    unions: 0.0.1
 generatedFiles:
   - HathoraCloud/AppV1.cs
   - HathoraCloud/AuthV1.cs
@@ -217,7 +218,7 @@ generatedFiles:
   - HathoraCloud/Models/Shared/AchPaymentMethod.cs
   - HathoraCloud/Models/Shared/CustomerPortalUrl.cs
   - HathoraCloud/Models/Shared/RegionalContainerTags.cs
-  - HathoraCloud/Models/Shared/Status.cs
+  - HathoraCloud/Models/Shared/BuildStatus.cs
   - HathoraCloud/Models/Shared/Build.cs
   - HathoraCloud/Models/Shared/Region.cs
   - HathoraCloud/Models/Shared/CreateBuildParams.cs
@@ -251,6 +252,11 @@ generatedFiles:
   - HathoraCloud/Models/Shared/ProcessV2.cs
   - HathoraCloud/Models/Shared/ProcessStatus.cs
   - HathoraCloud/Models/Shared/CreateRoomParams.cs
+  - HathoraCloud/Models/Shared/ConnectionInfo.cs
+  - HathoraCloud/Models/Shared/StartingConnectionInfoStatus.cs
+  - HathoraCloud/Models/Shared/StartingConnectionInfo.cs
+  - HathoraCloud/Models/Shared/Status.cs
+  - HathoraCloud/Models/Shared/ActiveConnectionInfo.cs
   - HathoraCloud/Models/Shared/CurrentAllocation.cs
   - HathoraCloud/Models/Shared/Room.cs
   - HathoraCloud/Models/Shared/RoomAllocation.cs
@@ -426,7 +432,7 @@ generatedFiles:
   - docs/Models/Shared/AchPaymentMethod.md
   - docs/Models/Shared/CustomerPortalUrl.md
   - docs/Models/Shared/RegionalContainerTags.md
-  - docs/Models/Shared/Status.md
+  - docs/Models/Shared/BuildStatus.md
   - docs/Models/Shared/Build.md
   - docs/Models/Shared/Region.md
   - docs/Models/Shared/CreateBuildParams.md
@@ -460,6 +466,11 @@ generatedFiles:
   - docs/Models/Shared/ProcessV2.md
   - docs/Models/Shared/ProcessStatus.md
   - docs/Models/Shared/CreateRoomParams.md
+  - docs/Models/Shared/ConnectionInfo.md
+  - docs/Models/Shared/StartingConnectionInfoStatus.md
+  - docs/Models/Shared/StartingConnectionInfo.md
+  - docs/Models/Shared/Status.md
+  - docs/Models/Shared/ActiveConnectionInfo.md
   - docs/Models/Shared/CurrentAllocation.md
   - docs/Models/Shared/Room.md
   - docs/Models/Shared/RoomAllocation.md

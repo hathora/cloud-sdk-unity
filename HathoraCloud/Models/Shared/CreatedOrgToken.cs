@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
@@ -21,11 +22,9 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("orgToken")]
         public OrgToken OrgToken { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("plainTextToken")]
         public string PlainTextToken { get; set; } = default!;
-        
     }
 }

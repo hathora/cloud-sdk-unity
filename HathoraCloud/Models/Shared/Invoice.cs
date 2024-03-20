@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
@@ -21,36 +22,29 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("amountDue")]
         public double AmountDue { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("dueDate")]
         public DateTime DueDate { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("month")]
         public double Month { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("pdfUrl")]
         public string PdfUrl { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("status")]
         public InvoiceStatus Status { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("year")]
         public double Year { get; set; } = default!;
-        
     }
 }

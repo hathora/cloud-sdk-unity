@@ -22,11 +22,9 @@ namespace HathoraCloud.Models.Operations
         [SerializeField]
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public AppConfig AppConfig { get; set; } = default!;
-        
 
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
         public string? AppId { get; set; }
-        
     }
 }

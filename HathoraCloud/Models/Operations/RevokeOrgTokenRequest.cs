@@ -21,11 +21,9 @@ namespace HathoraCloud.Models.Operations
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=orgId")]
         public string OrgId { get; set; } = default!;
-        
 
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=orgTokenId")]
         public string OrgTokenId { get; set; } = default!;
-        
     }
 }

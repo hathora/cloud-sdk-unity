@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
@@ -27,7 +28,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("appId")]
         public string AppId { get; set; } = default!;
-        
 
         /// <summary>
         /// When the lobby was created.
@@ -35,7 +35,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("createdAt")]
         public DateTime CreatedAt { get; set; } = default!;
-        
 
         /// <summary>
         /// UserId or email address for the user that created the lobby.
@@ -43,17 +42,14 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("createdBy")]
         public string CreatedBy { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("region")]
         public Region Region { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("roomConfig", NullValueHandling = NullValueHandling.Include)]
         public string? RoomConfig { get; set; } = default!;
-        
 
         /// <summary>
         /// Unique identifier to a game session or match. Use the default system generated ID or overwrite it with your own.<br/>
@@ -65,7 +61,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("roomId")]
         public string RoomId { get; set; } = default!;
-        
 
         /// <summary>
         /// User-defined identifier for a lobby.
@@ -73,7 +68,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("shortCode")]
         public string ShortCode { get; set; } = default!;
-        
 
         /// <summary>
         /// Types of lobbies a player can create.<br/>
@@ -90,6 +84,5 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("visibility")]
         public LobbyVisibility Visibility { get; set; } = default!;
-        
     }
 }

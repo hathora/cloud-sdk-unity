@@ -42,7 +42,8 @@ namespace HathoraCloud.Utils
             {
                 new IsoDateTimeSerializer(),
                 new EnumSerializer(),
-                new DateOnlyConverter()
+                new DateOnlyConverter(),
+                new FlexibleObjectDeserializer()
             };
         }
 
