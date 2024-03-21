@@ -42,7 +42,7 @@ namespace HathoraCloud.Models.Operations
         /// Ok
         /// </summary>
         [SerializeField]
-        public List<ApplicationWithDeployment>? Classes { get; set; }
+        public List<ApplicationWithLatestDeploymentAndBuild>? Classes { get; set; }
         public void Dispose() {
             if (RawResponse != null) {
                 RawResponse.Dispose();

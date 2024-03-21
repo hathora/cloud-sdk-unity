@@ -59,7 +59,7 @@ using(var res = await sdk.LobbyV2.CreateLobbyDeprecatedAsync(
 
 ### Response
 
-**[CreateLobbyDeprecatedResponse](../../models/operations/CreateLobbyDeprecatedResponse.md)**
+**[CreateLobbyDeprecatedResponse](../../Models/Operations/CreateLobbyDeprecatedResponse.md)**
 
 
 ## ~~CreateLocalLobby~~
@@ -103,7 +103,7 @@ using(var res = await sdk.LobbyV2.CreateLocalLobbyAsync(
 
 ### Response
 
-**[CreateLocalLobbyResponse](../../models/operations/CreateLocalLobbyResponse.md)**
+**[CreateLocalLobbyResponse](../../Models/Operations/CreateLocalLobbyResponse.md)**
 
 
 ## ~~CreatePrivateLobby~~
@@ -147,7 +147,7 @@ using(var res = await sdk.LobbyV2.CreatePrivateLobbyAsync(
 
 ### Response
 
-**[CreatePrivateLobbyResponse](../../models/operations/CreatePrivateLobbyResponse.md)**
+**[CreatePrivateLobbyResponse](../../Models/Operations/CreatePrivateLobbyResponse.md)**
 
 
 ## ~~CreatePublicLobby~~
@@ -191,7 +191,7 @@ using(var res = await sdk.LobbyV2.CreatePublicLobbyAsync(
 
 ### Response
 
-**[CreatePublicLobbyResponse](../../models/operations/CreatePublicLobbyResponse.md)**
+**[CreatePublicLobbyResponse](../../Models/Operations/CreatePublicLobbyResponse.md)**
 
 
 ## ~~GetLobbyInfo~~
@@ -228,7 +228,7 @@ using(var res = await sdk.LobbyV2.GetLobbyInfoAsync(req))
 
 ### Response
 
-**[GetLobbyInfoResponse](../../models/operations/GetLobbyInfoResponse.md)**
+**[GetLobbyInfoResponse](../../Models/Operations/GetLobbyInfoResponse.md)**
 
 
 ## ~~ListActivePublicLobbiesDeprecatedV2~~
@@ -263,7 +263,7 @@ using(var res = await sdk.LobbyV2.ListActivePublicLobbiesDeprecatedV2Async(req))
 
 ### Response
 
-**[ListActivePublicLobbiesDeprecatedV2Response](../../models/operations/ListActivePublicLobbiesDeprecatedV2Response.md)**
+**[ListActivePublicLobbiesDeprecatedV2Response](../../Models/Operations/ListActivePublicLobbiesDeprecatedV2Response.md)**
 
 
 ## ~~SetLobbyState~~
@@ -307,5 +307,5 @@ using(var res = await sdk.LobbyV2.SetLobbyStateAsync(req))
 
 ### Response
 
-**[SetLobbyStateResponse](../../models/operations/SetLobbyStateResponse.md)**
+**[SetLobbyStateResponse](../../Models/Operations/SetLobbyStateResponse.md)**
 

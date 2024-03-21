@@ -31,7 +31,7 @@ using(var res = await sdk.BillingV1.GetBalanceAsync())
 
 ### Response
 
-**[GetBalanceResponse](../../models/operations/GetBalanceResponse.md)**
+**[GetBalanceResponse](../../Models/Operations/GetBalanceResponse.md)**
 
 
 ## GetInvoices
@@ -57,7 +57,7 @@ using(var res = await sdk.BillingV1.GetInvoicesAsync())
 
 ### Response
 
-**[GetInvoicesResponse](../../models/operations/GetInvoicesResponse.md)**
+**[GetInvoicesResponse](../../Models/Operations/GetInvoicesResponse.md)**
 
 
 ## GetPaymentMethod
@@ -83,7 +83,7 @@ using(var res = await sdk.BillingV1.GetPaymentMethodAsync())
 
 ### Response
 
-**[GetPaymentMethodResponse](../../models/operations/GetPaymentMethodResponse.md)**
+**[GetPaymentMethodResponse](../../Models/Operations/GetPaymentMethodResponse.md)**
 
 
 ## InitStripeCustomerPortalUrl
@@ -119,5 +119,5 @@ using(var res = await sdk.BillingV1.InitStripeCustomerPortalUrlAsync(req))
 
 ### Response
 
-**[InitStripeCustomerPortalUrlResponse](../../models/operations/InitStripeCustomerPortalUrlResponse.md)**
+**[InitStripeCustomerPortalUrlResponse](../../Models/Operations/InitStripeCustomerPortalUrlResponse.md)**
 

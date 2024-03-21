@@ -41,7 +41,7 @@ using(var res = await sdk.AuthV1.LoginAnonymousAsync(req))
 
 ### Response
 
-**[LoginAnonymousResponse](../../models/operations/LoginAnonymousResponse.md)**
+**[LoginAnonymousResponse](../../Models/Operations/LoginAnonymousResponse.md)**
 
 
 ## LoginGoogle
@@ -78,7 +78,7 @@ using(var res = await sdk.AuthV1.LoginGoogleAsync(req))
 
 ### Response
 
-**[LoginGoogleResponse](../../models/operations/LoginGoogleResponse.md)**
+**[LoginGoogleResponse](../../Models/Operations/LoginGoogleResponse.md)**
 
 
 ## LoginNickname
@@ -115,5 +115,5 @@ using(var res = await sdk.AuthV1.LoginNicknameAsync(req))
 
 ### Response
 
-**[LoginNicknameResponse](../../models/operations/LoginNicknameResponse.md)**
+**[LoginNicknameResponse](../../Models/Operations/LoginNicknameResponse.md)**
 

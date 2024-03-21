@@ -34,5 +34,5 @@ using(var res = await sdk.ManagementV1.SendVerificationEmailAsync(req))
 
 ### Response
 
-**[SendVerificationEmailResponse](../../models/operations/SendVerificationEmailResponse.md)**
+**[SendVerificationEmailResponse](../../Models/Operations/SendVerificationEmailResponse.md)**
 

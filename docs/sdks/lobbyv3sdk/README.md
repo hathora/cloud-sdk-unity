@@ -55,7 +55,7 @@ using(var res = await sdk.LobbyV3SDK.CreateLobbyAsync(
 
 ### Response
 
-**[CreateLobbyResponse](../../models/operations/CreateLobbyResponse.md)**
+**[CreateLobbyResponse](../../Models/Operations/CreateLobbyResponse.md)**
 
 
 ## GetLobbyInfoByRoomId
@@ -90,7 +90,7 @@ using(var res = await sdk.LobbyV3SDK.GetLobbyInfoByRoomIdAsync(req))
 
 ### Response
 
-**[GetLobbyInfoByRoomIdResponse](../../models/operations/GetLobbyInfoByRoomIdResponse.md)**
+**[GetLobbyInfoByRoomIdResponse](../../Models/Operations/GetLobbyInfoByRoomIdResponse.md)**
 
 
 ## GetLobbyInfoByShortCode
@@ -125,7 +125,7 @@ using(var res = await sdk.LobbyV3SDK.GetLobbyInfoByShortCodeAsync(req))
 
 ### Response
 
-**[GetLobbyInfoByShortCodeResponse](../../models/operations/GetLobbyInfoByShortCodeResponse.md)**
+**[GetLobbyInfoByShortCodeResponse](../../Models/Operations/GetLobbyInfoByShortCodeResponse.md)**
 
 
 ## ListActivePublicLobbies
@@ -158,5 +158,5 @@ using(var res = await sdk.LobbyV3SDK.ListActivePublicLobbiesAsync(req))
 
 ### Response
 
-**[ListActivePublicLobbiesResponse](../../models/operations/ListActivePublicLobbiesResponse.md)**
+**[ListActivePublicLobbiesResponse](../../Models/Operations/ListActivePublicLobbiesResponse.md)**
 

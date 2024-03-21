@@ -46,5 +46,5 @@ using(var res = await sdk.MetricsV1.GetMetricsAsync(req))
 
 ### Response
 
-**[GetMetricsResponse](../../models/operations/GetMetricsResponse.md)**
+**[GetMetricsResponse](../../Models/Operations/GetMetricsResponse.md)**
 

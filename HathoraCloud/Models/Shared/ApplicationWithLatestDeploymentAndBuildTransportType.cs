@@ -13,29 +13,28 @@ namespace HathoraCloud.Models.Shared
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
-    
-    public enum BuildStatus
+    [Obsolete("This enum will be removed in a future release, please migrate away from it as soon as possible")]
+    public enum ApplicationWithLatestDeploymentAndBuildTransportType
     {
-        [JsonProperty("created")]
-        Created,
-        [JsonProperty("running")]
-        Running,
-        [JsonProperty("succeeded")]
-        Succeeded,
-        [JsonProperty("failed")]
-        Failed,
+        [JsonProperty("tcp")]
+        Tcp,
+        [JsonProperty("udp")]
+        Udp,
+        [JsonProperty("tls")]
+        Tls,
     }
 
-    public static class BuildStatusExtension
+#pragma warning disable 0618
+    public static class ApplicationWithLatestDeploymentAndBuildTransportTypeExtension
     {
-        public static string Value(this BuildStatus value)
+        public static string Value(this ApplicationWithLatestDeploymentAndBuildTransportType value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static BuildStatus ToEnum(this string value)
+        public static ApplicationWithLatestDeploymentAndBuildTransportType ToEnum(this string value)
         {
-            foreach(var field in typeof(BuildStatus).GetFields())
+            foreach(var field in typeof(ApplicationWithLatestDeploymentAndBuildTransportType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)
@@ -46,12 +45,13 @@ namespace HathoraCloud.Models.Shared
                 var attribute = attributes[0] as JsonPropertyAttribute;
                 if (attribute != null && attribute.PropertyName == value)
                 {
-                    return (BuildStatus)field.GetValue(null);
+                    return (ApplicationWithLatestDeploymentAndBuildTransportType)field.GetValue(null);
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum BuildStatus");
+            throw new Exception($"Unknown value {value} for enum ApplicationWithLatestDeploymentAndBuildTransportType");
         }
     }
+#pragma warning restore 0618
 
 }

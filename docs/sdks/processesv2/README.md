@@ -46,7 +46,7 @@ using(var res = await sdk.ProcessesV2.GetLatestProcessesAsync(req))
 
 ### Response
 
-**[GetLatestProcessesResponse](../../models/operations/GetLatestProcessesResponse.md)**
+**[GetLatestProcessesResponse](../../Models/Operations/GetLatestProcessesResponse.md)**
 
 
 ## GetProcessInfo
@@ -85,7 +85,7 @@ using(var res = await sdk.ProcessesV2.GetProcessInfoAsync(req))
 
 ### Response
 
-**[GetProcessInfoResponse](../../models/operations/GetProcessInfoResponse.md)**
+**[GetProcessInfoResponse](../../Models/Operations/GetProcessInfoResponse.md)**
 
 
 ## StopProcess
@@ -124,5 +124,5 @@ using(var res = await sdk.ProcessesV2.StopProcessAsync(req))
 
 ### Response
 
-**[StopProcessResponse](../../models/operations/StopProcessResponse.md)**
+**[StopProcessResponse](../../Models/Operations/StopProcessResponse.md)**
 

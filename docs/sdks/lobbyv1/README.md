@@ -46,7 +46,7 @@ using(var res = await sdk.LobbyV1.CreatePrivateLobbyDeprecatedAsync(
 
 ### Response
 
-**[CreatePrivateLobbyDeprecatedResponse](../../models/operations/CreatePrivateLobbyDeprecatedResponse.md)**
+**[CreatePrivateLobbyDeprecatedResponse](../../Models/Operations/CreatePrivateLobbyDeprecatedResponse.md)**
 
 
 ## ~~CreatePublicLobbyDeprecated~~
@@ -84,7 +84,7 @@ using(var res = await sdk.LobbyV1.CreatePublicLobbyDeprecatedAsync(
 
 ### Response
 
-**[CreatePublicLobbyDeprecatedResponse](../../models/operations/CreatePublicLobbyDeprecatedResponse.md)**
+**[CreatePublicLobbyDeprecatedResponse](../../Models/Operations/CreatePublicLobbyDeprecatedResponse.md)**
 
 
 ## ~~ListActivePublicLobbiesDeprecatedV1~~
@@ -117,5 +117,5 @@ using(var res = await sdk.LobbyV1.ListActivePublicLobbiesDeprecatedV1Async(req))
 
 ### Response
 
-**[ListActivePublicLobbiesDeprecatedV1Response](../../models/operations/ListActivePublicLobbiesDeprecatedV1Response.md)**
+**[ListActivePublicLobbiesDeprecatedV1Response](../../Models/Operations/ListActivePublicLobbiesDeprecatedV1Response.md)**
 

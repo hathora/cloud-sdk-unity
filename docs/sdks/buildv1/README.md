@@ -51,7 +51,7 @@ using(var res = await sdk.BuildV1.CreateBuildAsync(req))
 
 ### Response
 
-**[CreateBuildResponse](../../models/operations/CreateBuildResponse.md)**
+**[CreateBuildResponse](../../Models/Operations/CreateBuildResponse.md)**
 
 
 ## DeleteBuild
@@ -90,7 +90,7 @@ using(var res = await sdk.BuildV1.DeleteBuildAsync(req))
 
 ### Response
 
-**[DeleteBuildResponse](../../models/operations/DeleteBuildResponse.md)**
+**[DeleteBuildResponse](../../Models/Operations/DeleteBuildResponse.md)**
 
 
 ## GetBuildInfo
@@ -129,7 +129,7 @@ using(var res = await sdk.BuildV1.GetBuildInfoAsync(req))
 
 ### Response
 
-**[GetBuildInfoResponse](../../models/operations/GetBuildInfoResponse.md)**
+**[GetBuildInfoResponse](../../Models/Operations/GetBuildInfoResponse.md)**
 
 
 ## GetBuilds
@@ -166,7 +166,7 @@ using(var res = await sdk.BuildV1.GetBuildsAsync(req))
 
 ### Response
 
-**[GetBuildsResponse](../../models/operations/GetBuildsResponse.md)**
+**[GetBuildsResponse](../../Models/Operations/GetBuildsResponse.md)**
 
 
 ## RunBuild
@@ -211,5 +211,5 @@ using(var res = await sdk.BuildV1.RunBuildAsync(req))
 
 ### Response
 
-**[RunBuildResponse](../../models/operations/RunBuildResponse.md)**
+**[RunBuildResponse](../../Models/Operations/RunBuildResponse.md)**
 

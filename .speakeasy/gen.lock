@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: bdb34d30-f36e-4c13-bfde-42babcb240db
 management:
-  docChecksum: be7c47e79e8aafd1b6a8d18aa330eade
+  docChecksum: 32fc2e84c761600b0152a44189da7ebf
   docVersion: 0.0.1
-  speakeasyVersion: 1.213.0
-  generationVersion: 2.283.1
-  releaseVersion: 0.32.0
-  configChecksum: a074d16b380b9f7095f72ad6890302f1
+  speakeasyVersion: 1.215.1
+  generationVersion: 2.286.4
+  releaseVersion: 0.32.1
+  configChecksum: 9fad42b387ceb6b5085e85fbc02a219b
   repoURL: https://github.com/hathora/cloud-sdk-unity.git
   repoSubDirectory: .
   published: true
@@ -199,29 +199,32 @@ generatedFiles:
   - HathoraCloud/Models/Shared/RecordStringNever.cs
   - HathoraCloud/Models/Shared/ApiError.cs
   - HathoraCloud/Models/Shared/AppConfig.cs
-  - HathoraCloud/Models/Shared/ApplicationWithDeployment.cs
-  - HathoraCloud/Models/Shared/Env.cs
-  - HathoraCloud/Models/Shared/DeploymentTransportType.cs
-  - HathoraCloud/Models/Shared/Deployment.cs
+  - HathoraCloud/Models/Shared/ApplicationWithLatestDeploymentAndBuildEnv.cs
+  - HathoraCloud/Models/Shared/ApplicationWithLatestDeploymentAndBuildTransportType.cs
+  - HathoraCloud/Models/Shared/ApplicationWithLatestDeploymentAndBuildDeployment.cs
+  - HathoraCloud/Models/Shared/ApplicationWithLatestDeploymentAndBuild.cs
   - HathoraCloud/Models/Shared/PlanName.cs
   - HathoraCloud/Models/Shared/ContainerPort.cs
   - HathoraCloud/Models/Shared/TransportType.cs
+  - HathoraCloud/Models/Shared/RegionalContainerTags.cs
+  - HathoraCloud/Models/Shared/Build.cs
+  - HathoraCloud/Models/Shared/BuildStatus.cs
+  - HathoraCloud/Models/Shared/Region.cs
   - HathoraCloud/Models/Shared/LoginResponse.cs
   - HathoraCloud/Models/Shared/LoginGoogleRequest.cs
   - HathoraCloud/Models/Shared/LoginNicknameRequest.cs
-  - HathoraCloud/Models/Shared/InvoiceStatus.cs
   - HathoraCloud/Models/Shared/Invoice.cs
+  - HathoraCloud/Models/Shared/InvoiceStatus.cs
   - HathoraCloud/Models/Shared/PaymentMethod.cs
   - HathoraCloud/Models/Shared/LinkPaymentMethod.cs
   - HathoraCloud/Models/Shared/CardPaymentMethod.cs
   - HathoraCloud/Models/Shared/CardBrand.cs
   - HathoraCloud/Models/Shared/AchPaymentMethod.cs
   - HathoraCloud/Models/Shared/CustomerPortalUrl.cs
-  - HathoraCloud/Models/Shared/RegionalContainerTags.cs
-  - HathoraCloud/Models/Shared/BuildStatus.cs
-  - HathoraCloud/Models/Shared/Build.cs
-  - HathoraCloud/Models/Shared/Region.cs
   - HathoraCloud/Models/Shared/CreateBuildParams.cs
+  - HathoraCloud/Models/Shared/Env.cs
+  - HathoraCloud/Models/Shared/DeploymentTransportType.cs
+  - HathoraCloud/Models/Shared/Deployment.cs
   - HathoraCloud/Models/Shared/DeploymentConfigEnv.cs
   - HathoraCloud/Models/Shared/DeploymentConfig.cs
   - HathoraCloud/Models/Shared/DiscoveryResponse.cs
@@ -413,29 +416,32 @@ generatedFiles:
   - docs/Models/Shared/RecordStringNever.md
   - docs/Models/Shared/ApiError.md
   - docs/Models/Shared/AppConfig.md
-  - docs/Models/Shared/ApplicationWithDeployment.md
-  - docs/Models/Shared/Env.md
-  - docs/Models/Shared/DeploymentTransportType.md
-  - docs/Models/Shared/Deployment.md
+  - docs/Models/Shared/ApplicationWithLatestDeploymentAndBuildEnv.md
+  - docs/Models/Shared/ApplicationWithLatestDeploymentAndBuildTransportType.md
+  - docs/Models/Shared/ApplicationWithLatestDeploymentAndBuildDeployment.md
+  - docs/Models/Shared/ApplicationWithLatestDeploymentAndBuild.md
   - docs/Models/Shared/PlanName.md
   - docs/Models/Shared/ContainerPort.md
   - docs/Models/Shared/TransportType.md
+  - docs/Models/Shared/RegionalContainerTags.md
+  - docs/Models/Shared/Build.md
+  - docs/Models/Shared/BuildStatus.md
+  - docs/Models/Shared/Region.md
   - docs/Models/Shared/LoginResponse.md
   - docs/Models/Shared/LoginGoogleRequest.md
   - docs/Models/Shared/LoginNicknameRequest.md
-  - docs/Models/Shared/InvoiceStatus.md
   - docs/Models/Shared/Invoice.md
+  - docs/Models/Shared/InvoiceStatus.md
   - docs/Models/Shared/PaymentMethod.md
   - docs/Models/Shared/LinkPaymentMethod.md
   - docs/Models/Shared/CardPaymentMethod.md
   - docs/Models/Shared/CardBrand.md
   - docs/Models/Shared/AchPaymentMethod.md
   - docs/Models/Shared/CustomerPortalUrl.md
-  - docs/Models/Shared/RegionalContainerTags.md
-  - docs/Models/Shared/BuildStatus.md
-  - docs/Models/Shared/Build.md
-  - docs/Models/Shared/Region.md
   - docs/Models/Shared/CreateBuildParams.md
+  - docs/Models/Shared/Env.md
+  - docs/Models/Shared/DeploymentTransportType.md
+  - docs/Models/Shared/Deployment.md
   - docs/Models/Shared/DeploymentConfigEnv.md
   - docs/Models/Shared/DeploymentConfig.md
   - docs/Models/Shared/DiscoveryResponse.md

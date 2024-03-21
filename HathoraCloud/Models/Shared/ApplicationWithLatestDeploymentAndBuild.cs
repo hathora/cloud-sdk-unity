@@ -19,7 +19,7 @@ namespace HathoraCloud.Models.Shared
     /// An application object is the top level namespace for the game server.
     /// </summary>
     [Serializable]
-    public class ApplicationWithDeployment
+    public class ApplicationWithLatestDeploymentAndBuild
     {
 
         /// <summary>
@@ -78,12 +78,9 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("deletedBy", NullValueHandling = NullValueHandling.Include)]
         public string? DeletedBy { get; set; } = default!;
 
-        /// <summary>
-        /// Deployment is a versioned configuration for a build that describes runtime behavior.
-        /// </summary>
         [SerializeField]
         [JsonProperty("deployment")]
-        public Deployment? Deployment { get; set; }
+        public ApplicationWithLatestDeploymentAndBuildDeployment? Deployment { get; set; }
 
         /// <summary>
         /// System generated unique identifier for an organization. Not guaranteed to have a specific format.

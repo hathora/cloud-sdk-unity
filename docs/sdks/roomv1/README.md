@@ -55,7 +55,7 @@ using(var res = await sdk.RoomV1.CreateRoomDeprecatedAsync(req))
 
 ### Response
 
-**[CreateRoomDeprecatedResponse](../../models/operations/CreateRoomDeprecatedResponse.md)**
+**[CreateRoomDeprecatedResponse](../../Models/Operations/CreateRoomDeprecatedResponse.md)**
 
 
 ## ~~DestroyRoomDeprecated~~
@@ -94,7 +94,7 @@ using(var res = await sdk.RoomV1.DestroyRoomDeprecatedAsync(req))
 
 ### Response
 
-**[DestroyRoomDeprecatedResponse](../../models/operations/DestroyRoomDeprecatedResponse.md)**
+**[DestroyRoomDeprecatedResponse](../../Models/Operations/DestroyRoomDeprecatedResponse.md)**
 
 
 ## ~~GetActiveRoomsForProcessDeprecated~~
@@ -133,7 +133,7 @@ using(var res = await sdk.RoomV1.GetActiveRoomsForProcessDeprecatedAsync(req))
 
 ### Response
 
-**[GetActiveRoomsForProcessDeprecatedResponse](../../models/operations/GetActiveRoomsForProcessDeprecatedResponse.md)**
+**[GetActiveRoomsForProcessDeprecatedResponse](../../Models/Operations/GetActiveRoomsForProcessDeprecatedResponse.md)**
 
 
 ## ~~GetConnectionInfoDeprecated~~
@@ -168,7 +168,7 @@ using(var res = await sdk.RoomV1.GetConnectionInfoDeprecatedAsync(req))
 
 ### Response
 
-**[GetConnectionInfoDeprecatedResponse](../../models/operations/GetConnectionInfoDeprecatedResponse.md)**
+**[GetConnectionInfoDeprecatedResponse](../../Models/Operations/GetConnectionInfoDeprecatedResponse.md)**
 
 
 ## ~~GetInactiveRoomsForProcessDeprecated~~
@@ -207,7 +207,7 @@ using(var res = await sdk.RoomV1.GetInactiveRoomsForProcessDeprecatedAsync(req))
 
 ### Response
 
-**[GetInactiveRoomsForProcessDeprecatedResponse](../../models/operations/GetInactiveRoomsForProcessDeprecatedResponse.md)**
+**[GetInactiveRoomsForProcessDeprecatedResponse](../../Models/Operations/GetInactiveRoomsForProcessDeprecatedResponse.md)**
 
 
 ## ~~GetRoomInfoDeprecated~~
@@ -246,7 +246,7 @@ using(var res = await sdk.RoomV1.GetRoomInfoDeprecatedAsync(req))
 
 ### Response
 
-**[GetRoomInfoDeprecatedResponse](../../models/operations/GetRoomInfoDeprecatedResponse.md)**
+**[GetRoomInfoDeprecatedResponse](../../Models/Operations/GetRoomInfoDeprecatedResponse.md)**
 
 
 ## ~~SuspendRoomDeprecated~~
@@ -285,5 +285,5 @@ using(var res = await sdk.RoomV1.SuspendRoomDeprecatedAsync(req))
 
 ### Response
 
-**[SuspendRoomDeprecatedResponse](../../models/operations/SuspendRoomDeprecatedResponse.md)**
+**[SuspendRoomDeprecatedResponse](../../Models/Operations/SuspendRoomDeprecatedResponse.md)**
 

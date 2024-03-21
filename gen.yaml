@@ -10,7 +10,7 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
 unity:
-  version: 0.32.0
+  version: 0.32.1
   author: Hathora
   dotnetVersion: net5.0
   flattenGlobalSecurity: false

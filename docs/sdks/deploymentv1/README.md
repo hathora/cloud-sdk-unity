@@ -61,7 +61,7 @@ using(var res = await sdk.DeploymentV1.CreateDeploymentAsync(req))
 
 ### Response
 
-**[CreateDeploymentResponse](../../models/operations/CreateDeploymentResponse.md)**
+**[CreateDeploymentResponse](../../Models/Operations/CreateDeploymentResponse.md)**
 
 
 ## GetDeploymentInfo
@@ -100,7 +100,7 @@ using(var res = await sdk.DeploymentV1.GetDeploymentInfoAsync(req))
 
 ### Response
 
-**[GetDeploymentInfoResponse](../../models/operations/GetDeploymentInfoResponse.md)**
+**[GetDeploymentInfoResponse](../../Models/Operations/GetDeploymentInfoResponse.md)**
 
 
 ## GetDeployments
@@ -137,7 +137,7 @@ using(var res = await sdk.DeploymentV1.GetDeploymentsAsync(req))
 
 ### Response
 
-**[GetDeploymentsResponse](../../models/operations/GetDeploymentsResponse.md)**
+**[GetDeploymentsResponse](../../Models/Operations/GetDeploymentsResponse.md)**
 
 
 ## GetLatestDeployment
@@ -174,5 +174,5 @@ using(var res = await sdk.DeploymentV1.GetLatestDeploymentAsync(req))
 
 ### Response
 
-**[GetLatestDeploymentResponse](../../models/operations/GetLatestDeploymentResponse.md)**
+**[GetLatestDeploymentResponse](../../Models/Operations/GetLatestDeploymentResponse.md)**
 

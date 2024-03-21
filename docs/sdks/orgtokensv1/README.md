@@ -46,7 +46,7 @@ using(var res = await sdk.OrgTokensV1.CreateOrgTokenAsync(req))
 
 ### Response
 
-**[CreateOrgTokenResponse](../../models/operations/CreateOrgTokenResponse.md)**
+**[CreateOrgTokenResponse](../../Models/Operations/CreateOrgTokenResponse.md)**
 
 
 ## GetOrgTokens
@@ -85,7 +85,7 @@ using(var res = await sdk.OrgTokensV1.GetOrgTokensAsync(req))
 
 ### Response
 
-**[GetOrgTokensResponse](../../models/operations/GetOrgTokensResponse.md)**
+**[GetOrgTokensResponse](../../Models/Operations/GetOrgTokensResponse.md)**
 
 
 ## RevokeOrgToken
@@ -125,5 +125,5 @@ using(var res = await sdk.OrgTokensV1.RevokeOrgTokenAsync(req))
 
 ### Response
 
-**[RevokeOrgTokenResponse](../../models/operations/RevokeOrgTokenResponse.md)**
+**[RevokeOrgTokenResponse](../../Models/Operations/RevokeOrgTokenResponse.md)**
 

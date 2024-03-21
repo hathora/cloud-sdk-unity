@@ -49,7 +49,7 @@ using(var res = await sdk.ProcessesV1.GetProcessInfoDeprecatedAsync(req))
 
 ### Response
 
-**[GetProcessInfoDeprecatedResponse](../../models/operations/GetProcessInfoDeprecatedResponse.md)**
+**[GetProcessInfoDeprecatedResponse](../../Models/Operations/GetProcessInfoDeprecatedResponse.md)**
 
 
 ## ~~GetRunningProcesses~~
@@ -88,7 +88,7 @@ using(var res = await sdk.ProcessesV1.GetRunningProcessesAsync(req))
 
 ### Response
 
-**[GetRunningProcessesResponse](../../models/operations/GetRunningProcessesResponse.md)**
+**[GetRunningProcessesResponse](../../Models/Operations/GetRunningProcessesResponse.md)**
 
 
 ## ~~GetStoppedProcesses~~
@@ -127,5 +127,5 @@ using(var res = await sdk.ProcessesV1.GetStoppedProcessesAsync(req))
 
 ### Response
 
-**[GetStoppedProcessesResponse](../../models/operations/GetStoppedProcessesResponse.md)**
+**[GetStoppedProcessesResponse](../../Models/Operations/GetStoppedProcessesResponse.md)**
 

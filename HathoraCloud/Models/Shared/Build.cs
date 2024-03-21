@@ -38,8 +38,8 @@ namespace HathoraCloud.Models.Shared
         public int BuildId { get; set; } = default!;
 
         [SerializeField]
-        [JsonProperty("buildTag", NullValueHandling = NullValueHandling.Include)]
-        public string? BuildTag { get; set; } = default!;
+        [JsonProperty("buildTag")]
+        public string? BuildTag { get; set; }
 
         /// <summary>
         /// When <a href="">`CreateBuild()`</a> is called.
@@ -88,20 +88,6 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("startedAt", NullValueHandling = NullValueHandling.Include)]
         public DateTime? StartedAt { get; set; } = default!;
 
-        /// <summary>
-        /// Current status of your build.<br/>
-        /// 
-        /// <remarks>
-        /// <br/>
-        /// `created`: a build was created but not yet run<br/>
-        /// <br/>
-        /// `running`: the build process is actively executing<br/>
-        /// <br/>
-        /// `succeeded`: the game server artifact was successfully built and stored in the Hathora registries<br/>
-        /// <br/>
-        /// `failed`: the build process was unsuccessful, most likely due to an error with the `Dockerfile`
-        /// </remarks>
-        /// </summary>
         [SerializeField]
         [JsonProperty("status")]
         public BuildStatus Status { get; set; } = default!;
