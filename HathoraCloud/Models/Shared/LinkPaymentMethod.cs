@@ -21,6 +21,5 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("email")]
         public string? Email { get; set; }
-        
     }
 }

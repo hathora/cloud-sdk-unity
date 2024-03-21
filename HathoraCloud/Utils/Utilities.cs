@@ -14,6 +14,7 @@ namespace HathoraCloud.Utils
     using System.Linq;
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
+    using System.Numerics;
     using Newtonsoft.Json;
     using System.Net.Http.Headers;
     using UnityEngine;
@@ -23,24 +24,52 @@ namespace HathoraCloud.Utils
 
     public class Utilities
     {
-        public static string SerializeJSON(object obj)
+        public static JsonConverter[] GetJsonConverters(Type type, string format = "")
         {
+            if (format == "string")
+            {
+                if (type == typeof(BigInteger))
+                {
+                    return new JsonConverter[] { new BigIntSerializer() };
+                }
+                if (type == typeof(Decimal))
+                {
+                    return new JsonConverter[] { new DecimalSerializer() };
+                }
+            }
+
+            return new JsonConverter[]
+            {
+                new IsoDateTimeSerializer(),
+                new EnumSerializer(),
+                new DateOnlyConverter(),
+                new FlexibleObjectDeserializer()
+            };
+        }
+
+        public static string SerializeJSON(object obj, string format = "")
+        {
+            var type = obj.GetType();
+            if (IsList(obj))
+            {
+                type = type.GetGenericArguments().Single();
+            }
+            else if (IsDictionary(obj))
+            {
+                type = type.GetGenericArguments().Last();
+            }
+
             return JsonConvert.SerializeObject(
                 obj,
                 new JsonSerializerSettings()
                 {
                     NullValueHandling = NullValueHandling.Ignore,
-                    Converters = new JsonConverter[]
-                    {
-                        new IsoDateTimeSerializer(),
-                        new EnumSerializer(),
-                        new DateOnlyConverter()
-                    }
+                    Converters = GetJsonConverters(type, format)
                 }
             );
         }
 
-        public static bool IsDictionary(object o)
+        public static bool IsDictionary(object? o)
         {
             if (o == null)
                 return false;
@@ -49,7 +78,7 @@ namespace HathoraCloud.Utils
                 && o.GetType().GetGenericTypeDefinition().IsAssignableFrom(typeof(Dictionary<,>));
         }
 
-        public static bool IsList(object o)
+        public static bool IsList(object? o)
         {
             if (o == null)
                 return false;
@@ -58,7 +87,7 @@ namespace HathoraCloud.Utils
                 && o.GetType().GetGenericTypeDefinition().IsAssignableFrom(typeof(List<>));
         }
 
-        public static bool IsClass(object o)
+        public static bool IsClass(object? o)
         {
             if (o == null)
                 return false;
@@ -72,7 +101,7 @@ namespace HathoraCloud.Utils
                 || potentialDescendant == potentialBase;
         }
 
-        public static bool IsString(object obj)
+        public static bool IsString(object? obj)
         {
             if (obj != null)
             {
@@ -85,14 +114,14 @@ namespace HathoraCloud.Utils
             }
         }
 
-        public static bool IsPrimitive(object obj) => obj != null && obj.GetType().IsPrimitive;
+        public static bool IsPrimitive(object? obj) => obj != null && obj.GetType().IsPrimitive;
 
-        public static bool IsEnum(object obj) => obj != null && obj.GetType().IsEnum;
+        public static bool IsEnum(object? obj) => obj != null && obj.GetType().IsEnum;
 
         ///<summary>
         /// Check if the object is a 'date time' or 'date only' object.
         ///</summary>
-        public static bool IsDate(object obj) =>
+        public static bool IsDate(object? obj) =>
             obj != null && (obj.GetType() == typeof(DateTime) || obj.GetType() == typeof(DateOnly));
 
         private static string StripSurroundingQuotes(string input)

@@ -25,11 +25,9 @@ namespace HathoraCloud.Models.Operations
         [SerializeField]
         [JsonProperty("initialConfig")]
         public LobbyInitialConfig InitialConfig { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("region")]
         public Region Region { get; set; } = default!;
-        
     }
 }

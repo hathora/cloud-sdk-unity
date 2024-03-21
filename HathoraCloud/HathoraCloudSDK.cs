@@ -16,8 +16,6 @@ namespace HathoraCloud
     using System.Threading.Tasks;
     using System;
 
-
-
     /// <summary>
     /// Hathora Cloud API: Welcome to the Hathora Cloud API documentation! Learn how to use the Hathora Cloud APIs to build and scale your game servers globally.
     /// </summary>
@@ -95,16 +93,20 @@ namespace HathoraCloud
         /// Operations to create, manage, and connect to <a href="https://hathora.dev/docs/concepts/hathora-entities#room">rooms</a>.
         /// </summary>
         public IRoomV2 RoomV2 { get; }
+        public IOrgTokensV1 OrgTokensV1 { get; }
     }
     
+
     public class SDKConfig
     {
-        public static string[] ServerList = new string[]
-        {
+        /// <summary>
+        /// List of server URLs available to the SDK.
+        /// </summary>
+        public static readonly string[] ServerList = {
             "https://api.hathora.dev",
             "https:///",
         };
-        /// Contains the list of servers available to the SDK
+
         public string serverUrl = "";
         public int serverIndex = 0;
         public string? AppId;
@@ -127,13 +129,14 @@ namespace HathoraCloud
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _target = "unity";
-        private const string _sdkVersion = "0.28.4";
-        private const string _sdkGenVersion = "2.239.0";
+        private const string _sdkVersion = "0.32.1";
+        private const string _sdkGenVersion = "2.286.4";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.28.4 2.239.0 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.32.1 2.286.4 0.0.1 hathora-cloud";
         private string _serverUrl = "";
+        private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
+        private Func<Security>? _securitySource;
         public IAppV1 AppV1 { get; private set; }
         public IAuthV1 AuthV1 { get; private set; }
         public IBillingV1 BillingV1 { get; private set; }
@@ -150,46 +153,63 @@ namespace HathoraCloud
         public IProcessesV2 ProcessesV2 { get; private set; }
         public IRoomV1 RoomV1 { get; private set; }
         public IRoomV2 RoomV2 { get; private set; }
+        public IOrgTokensV1 OrgTokensV1 { get; private set; }
 
-        public HathoraCloudSDK(Security? security = null, string? appId = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
+        public HathoraCloudSDK(Security? security = null, Func<Security>? securitySource = null, string? appId = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
         {
-            if (serverUrl != null) {
-                if (urlParams != null) {
+            if (serverIndex != null)
+            {
+                if (serverIndex.Value < 0 || serverIndex.Value >= SDKConfig.ServerList.Length)
+                {
+                    throw new Exception($"Invalid server index {serverIndex.Value}");
+                }
+                _serverIndex = serverIndex.Value;
+            }
+
+            if (serverUrl != null)
+            {
+                if (urlParams != null)
+                {
                     serverUrl = Utilities.TemplateUrl(serverUrl, urlParams);
                 }
                 _serverUrl = serverUrl;
             }
 
             _defaultClient = new SpeakeasyHttpClient(client);
-            _securityClient = _defaultClient;
-            
-            if(security != null)
+
+            if(securitySource != null)
             {
-                _securityClient = SecuritySerializer.Apply(_defaultClient, security);
+                _securitySource = securitySource;
             }
-            
+            else if(security != null)
+            {
+                _securitySource = () => security;
+            }
+
             SDKConfiguration = new SDKConfig()
             {
                 AppId = appId,
+                serverIndex = _serverIndex,
                 serverUrl = _serverUrl
             };
 
-            AppV1 = new AppV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            AuthV1 = new AuthV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            BillingV1 = new BillingV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            BuildV1 = new BuildV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            DeploymentV1 = new DeploymentV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            DiscoveryV1 = new DiscoveryV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            LobbyV1 = new LobbyV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            LobbyV2 = new LobbyV2(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            LobbyV3SDK = new LobbyV3SDK(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            LogV1 = new LogV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            ManagementV1 = new ManagementV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            MetricsV1 = new MetricsV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            ProcessesV1 = new ProcessesV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            ProcessesV2 = new ProcessesV2(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            RoomV1 = new RoomV1(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            RoomV2 = new RoomV2(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            AppV1 = new AppV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            AuthV1 = new AuthV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            BillingV1 = new BillingV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            BuildV1 = new BuildV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            DeploymentV1 = new DeploymentV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            DiscoveryV1 = new DiscoveryV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            LobbyV1 = new LobbyV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            LobbyV2 = new LobbyV2(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            LobbyV3SDK = new LobbyV3SDK(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            LogV1 = new LogV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            ManagementV1 = new ManagementV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            MetricsV1 = new MetricsV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            ProcessesV1 = new ProcessesV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            ProcessesV2 = new ProcessesV2(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            RoomV1 = new RoomV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            RoomV2 = new RoomV2(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            OrgTokensV1 = new OrgTokensV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
         }
     }
 }

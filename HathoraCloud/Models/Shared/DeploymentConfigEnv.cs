@@ -21,11 +21,9 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("value")]
         public string Value { get; set; } = default!;
-        
     }
 }

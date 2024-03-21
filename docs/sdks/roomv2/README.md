@@ -43,7 +43,6 @@ CreateRoomRequest req = new CreateRoomRequest() {
 
 using(var res = await sdk.RoomV2.CreateRoomAsync(req))
 {
-
     // handle response
 }
 ```
@@ -57,7 +56,7 @@ using(var res = await sdk.RoomV2.CreateRoomAsync(req))
 
 ### Response
 
-**[HathoraCloud.Models.Operations.CreateRoomResponse](../../models/operations/CreateRoomResponse.md)**
+**[HathoraCloud.Models.Operations.CreateRoomResponse](../../Models/Operations/CreateRoomResponse.md)**
 
 
 ## DestroyRoom
@@ -83,7 +82,6 @@ DestroyRoomRequest req = new DestroyRoomRequest() {
 
 using(var res = await sdk.RoomV2.DestroyRoomAsync(req))
 {
-
     // handle response
 }
 ```
@@ -97,7 +95,7 @@ using(var res = await sdk.RoomV2.DestroyRoomAsync(req))
 
 ### Response
 
-**[DestroyRoomResponse](../../models/operations/DestroyRoomResponse.md)**
+**[DestroyRoomResponse](../../Models/Operations/DestroyRoomResponse.md)**
 
 
 ## GetActiveRoomsForProcess
@@ -123,7 +121,6 @@ GetActiveRoomsForProcessRequest req = new GetActiveRoomsForProcessRequest() {
 
 using(var res = await sdk.RoomV2.GetActiveRoomsForProcessAsync(req))
 {
-
     // handle response
 }
 ```
@@ -137,7 +134,7 @@ using(var res = await sdk.RoomV2.GetActiveRoomsForProcessAsync(req))
 
 ### Response
 
-**[GetActiveRoomsForProcessResponse](../../models/operations/GetActiveRoomsForProcessResponse.md)**
+**[GetActiveRoomsForProcessResponse](../../Models/Operations/GetActiveRoomsForProcessResponse.md)**
 
 
 ## GetConnectionInfo
@@ -151,11 +148,7 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
-        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 GetConnectionInfoRequest req = new GetConnectionInfoRequest() {
     RoomId = "2swovpy1fnunu",
@@ -163,7 +156,6 @@ GetConnectionInfoRequest req = new GetConnectionInfoRequest() {
 
 using(var res = await sdk.RoomV2.GetConnectionInfoAsync(req))
 {
-
     // handle response
 }
 ```
@@ -177,7 +169,7 @@ using(var res = await sdk.RoomV2.GetConnectionInfoAsync(req))
 
 ### Response
 
-**[GetConnectionInfoResponse](../../models/operations/GetConnectionInfoResponse.md)**
+**[GetConnectionInfoResponse](../../Models/Operations/GetConnectionInfoResponse.md)**
 
 
 ## GetInactiveRoomsForProcess
@@ -203,7 +195,6 @@ GetInactiveRoomsForProcessRequest req = new GetInactiveRoomsForProcessRequest() 
 
 using(var res = await sdk.RoomV2.GetInactiveRoomsForProcessAsync(req))
 {
-
     // handle response
 }
 ```
@@ -217,7 +208,7 @@ using(var res = await sdk.RoomV2.GetInactiveRoomsForProcessAsync(req))
 
 ### Response
 
-**[GetInactiveRoomsForProcessResponse](../../models/operations/GetInactiveRoomsForProcessResponse.md)**
+**[GetInactiveRoomsForProcessResponse](../../Models/Operations/GetInactiveRoomsForProcessResponse.md)**
 
 
 ## GetRoomInfo
@@ -243,7 +234,6 @@ GetRoomInfoRequest req = new GetRoomInfoRequest() {
 
 using(var res = await sdk.RoomV2.GetRoomInfoAsync(req))
 {
-
     // handle response
 }
 ```
@@ -257,7 +247,7 @@ using(var res = await sdk.RoomV2.GetRoomInfoAsync(req))
 
 ### Response
 
-**[GetRoomInfoResponse](../../models/operations/GetRoomInfoResponse.md)**
+**[GetRoomInfoResponse](../../Models/Operations/GetRoomInfoResponse.md)**
 
 
 ## SuspendRoom
@@ -283,7 +273,6 @@ SuspendRoomRequest req = new SuspendRoomRequest() {
 
 using(var res = await sdk.RoomV2.SuspendRoomAsync(req))
 {
-
     // handle response
 }
 ```
@@ -297,7 +286,7 @@ using(var res = await sdk.RoomV2.SuspendRoomAsync(req))
 
 ### Response
 
-**[SuspendRoomResponse](../../models/operations/SuspendRoomResponse.md)**
+**[SuspendRoomResponse](../../Models/Operations/SuspendRoomResponse.md)**
 
 
 ## UpdateRoomConfig
@@ -324,7 +313,6 @@ UpdateRoomConfigRequest req = new UpdateRoomConfigRequest() {
 
 using(var res = await sdk.RoomV2.UpdateRoomConfigAsync(req))
 {
-
     // handle response
 }
 ```
@@ -338,5 +326,5 @@ using(var res = await sdk.RoomV2.UpdateRoomConfigAsync(req))
 
 ### Response
 
-**[UpdateRoomConfigResponse](../../models/operations/UpdateRoomConfigResponse.md)**
+**[UpdateRoomConfigResponse](../../Models/Operations/UpdateRoomConfigResponse.md)**
 

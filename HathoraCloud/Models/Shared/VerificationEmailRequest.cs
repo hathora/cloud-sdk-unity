@@ -21,6 +21,5 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("userId")]
         public string UserId { get; set; } = default!;
-        
     }
 }

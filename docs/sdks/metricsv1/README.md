@@ -29,14 +29,10 @@ var sdk = new HathoraCloudSDK(
 
 GetMetricsRequest req = new GetMetricsRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
-    Metrics = new List<MetricName>() {
-        MetricName.RateEgress,
-    },
 };
 
 using(var res = await sdk.MetricsV1.GetMetricsAsync(req))
 {
-
     // handle response
 }
 ```
@@ -50,5 +46,5 @@ using(var res = await sdk.MetricsV1.GetMetricsAsync(req))
 
 ### Response
 
-**[GetMetricsResponse](../../models/operations/GetMetricsResponse.md)**
+**[GetMetricsResponse](../../Models/Operations/GetMetricsResponse.md)**
 

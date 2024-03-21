@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
@@ -24,7 +25,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("appName")]
         public string AppName { get; set; } = default!;
-        
 
         /// <summary>
         /// Configure <a href="https://hathora.dev/docs/lobbies-and-matchmaking/auth-service">player authentication</a> for your application. Use Hathora&apos;s built-in auth providers or use your own <a href="https://hathora.dev/docs/lobbies-and-matchmaking/auth-service#custom-auth-provider">custom authentication</a>.
@@ -32,6 +32,5 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("authConfiguration")]
         public AuthConfiguration AuthConfiguration { get; set; } = default!;
-        
     }
 }

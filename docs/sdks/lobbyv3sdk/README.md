@@ -23,8 +23,7 @@ using HathoraCloud;
 using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 CreateLobbyRequest req = new CreateLobbyRequest() {
     CreateLobbyV3Params = new CreateLobbyV3Params() {
@@ -36,11 +35,12 @@ CreateLobbyRequest req = new CreateLobbyRequest() {
     ShortCode = "LFG4",
 };
 
-using(var res = await sdk.LobbyV3SDK.CreateLobbyAsync(new CreateLobbySecurity() {
+using(var res = await sdk.LobbyV3SDK.CreateLobbyAsync(
+    new CreateLobbySecurity() {
     PlayerAuth = "<YOUR_BEARER_TOKEN_HERE>",
-}, req))
+},
+    req))
 {
-
     // handle response
 }
 ```
@@ -55,7 +55,7 @@ using(var res = await sdk.LobbyV3SDK.CreateLobbyAsync(new CreateLobbySecurity() 
 
 ### Response
 
-**[CreateLobbyResponse](../../models/operations/CreateLobbyResponse.md)**
+**[CreateLobbyResponse](../../Models/Operations/CreateLobbyResponse.md)**
 
 
 ## GetLobbyInfoByRoomId
@@ -69,11 +69,7 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
-        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 GetLobbyInfoByRoomIdRequest req = new GetLobbyInfoByRoomIdRequest() {
     RoomId = "2swovpy1fnunu",
@@ -81,7 +77,6 @@ GetLobbyInfoByRoomIdRequest req = new GetLobbyInfoByRoomIdRequest() {
 
 using(var res = await sdk.LobbyV3SDK.GetLobbyInfoByRoomIdAsync(req))
 {
-
     // handle response
 }
 ```
@@ -95,7 +90,7 @@ using(var res = await sdk.LobbyV3SDK.GetLobbyInfoByRoomIdAsync(req))
 
 ### Response
 
-**[GetLobbyInfoByRoomIdResponse](../../models/operations/GetLobbyInfoByRoomIdResponse.md)**
+**[GetLobbyInfoByRoomIdResponse](../../Models/Operations/GetLobbyInfoByRoomIdResponse.md)**
 
 
 ## GetLobbyInfoByShortCode
@@ -109,11 +104,7 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
-        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 GetLobbyInfoByShortCodeRequest req = new GetLobbyInfoByShortCodeRequest() {
     ShortCode = "LFG4",
@@ -121,7 +112,6 @@ GetLobbyInfoByShortCodeRequest req = new GetLobbyInfoByShortCodeRequest() {
 
 using(var res = await sdk.LobbyV3SDK.GetLobbyInfoByShortCodeAsync(req))
 {
-
     // handle response
 }
 ```
@@ -135,7 +125,7 @@ using(var res = await sdk.LobbyV3SDK.GetLobbyInfoByShortCodeAsync(req))
 
 ### Response
 
-**[GetLobbyInfoByShortCodeResponse](../../models/operations/GetLobbyInfoByShortCodeResponse.md)**
+**[GetLobbyInfoByShortCodeResponse](../../Models/Operations/GetLobbyInfoByShortCodeResponse.md)**
 
 
 ## ListActivePublicLobbies
@@ -149,17 +139,12 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
-        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 ListActivePublicLobbiesRequest req = new ListActivePublicLobbiesRequest() {};
 
 using(var res = await sdk.LobbyV3SDK.ListActivePublicLobbiesAsync(req))
 {
-
     // handle response
 }
 ```
@@ -173,5 +158,5 @@ using(var res = await sdk.LobbyV3SDK.ListActivePublicLobbiesAsync(req))
 
 ### Response
 
-**[ListActivePublicLobbiesResponse](../../models/operations/ListActivePublicLobbiesResponse.md)**
+**[ListActivePublicLobbiesResponse](../../Models/Operations/ListActivePublicLobbiesResponse.md)**
 

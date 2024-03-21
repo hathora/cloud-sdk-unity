@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     using System;
@@ -25,7 +26,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("allocations")]
         public List<RoomAllocation> Allocations { get; set; } = default!;
-        
 
         /// <summary>
         /// System generated unique identifier for an application.
@@ -33,17 +33,14 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("appId")]
         public string AppId { get; set; } = default!;
-        
 
         [SerializeField]
-        [JsonProperty("currentAllocation")]
-        public CurrentAllocation CurrentAllocation { get; set; } = default!;
-        
+        [JsonProperty("currentAllocation", NullValueHandling = NullValueHandling.Include)]
+        public CurrentAllocation? CurrentAllocation { get; set; } = default!;
 
         [SerializeField]
-        [JsonProperty("roomConfig")]
-        public string RoomConfig { get; set; } = default!;
-        
+        [JsonProperty("roomConfig", NullValueHandling = NullValueHandling.Include)]
+        public string? RoomConfig { get; set; } = default!;
 
         /// <summary>
         /// Unique identifier to a game session or match. Use the default system generated ID or overwrite it with your own.<br/>
@@ -55,7 +52,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("roomId")]
         public string RoomId { get; set; } = default!;
-        
 
         /// <summary>
         /// The allocation status of a room.<br/>
@@ -74,6 +70,5 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("status")]
         public RoomStatus Status { get; set; } = default!;
-        
     }
 }

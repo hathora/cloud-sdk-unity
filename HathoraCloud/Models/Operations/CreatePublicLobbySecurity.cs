@@ -21,6 +21,5 @@ namespace HathoraCloud.Models.Operations
         [SerializeField]
         [SpeakeasyMetadata("security:scheme=true,type=http,subType=bearer,name=Authorization")]
         public string PlayerAuth { get; set; } = default!;
-        
     }
 }

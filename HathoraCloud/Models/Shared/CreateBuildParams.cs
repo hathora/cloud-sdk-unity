@@ -24,6 +24,5 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("buildTag")]
         public string? BuildTag { get; set; }
-        
     }
 }

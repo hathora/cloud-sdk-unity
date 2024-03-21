@@ -22,7 +22,6 @@ namespace HathoraCloud.Models.Operations
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
         public string? AppId { get; set; }
-        
 
         /// <summary>
         /// Region to filter by. If omitted, active public lobbies in all regions will be returned.
@@ -30,6 +29,5 @@ namespace HathoraCloud.Models.Operations
         [SerializeField]
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=region")]
         public Region? Region { get; set; }
-        
     }
 }

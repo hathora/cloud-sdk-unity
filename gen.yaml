@@ -5,9 +5,15 @@ generation:
     optionalPropertyRendering: withExample
   fixes:
     nameResolutionDec2023: false
+    parameterOrderingFeb2024: false
+    requestResponseComponentNamesFeb2024: false
+  auth:
+    oAuth2ClientCredentialsEnabled: false
 unity:
-  version: 0.28.4
+  version: 0.32.1
   author: Hathora
+  dotnetVersion: net5.0
+  flattenGlobalSecurity: false
   imports:
     option: openapi
     paths:

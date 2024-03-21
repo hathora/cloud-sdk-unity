@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Operations
 {
+    using HathoraCloud.Models.Operations;
     using HathoraCloud.Utils;
     using System;
     using UnityEngine;
@@ -21,16 +22,13 @@ namespace HathoraCloud.Models.Operations
         [SerializeField]
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public CreatePrivateLobbyRequestBody RequestBody { get; set; } = default!;
-        
 
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
         public string? AppId { get; set; }
-        
 
         [SerializeField]
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=roomId")]
         public string? RoomId { get; set; }
-        
     }
 }

@@ -1,7 +1,5 @@
 # Invoice
 
-Billing types
-
 
 ## Fields
 

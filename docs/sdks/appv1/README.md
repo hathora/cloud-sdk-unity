@@ -31,18 +31,11 @@ var sdk = new HathoraCloudSDK(
 
 AppConfig req = new AppConfig() {
     AppName = "minecraft",
-    AuthConfiguration = new AuthConfiguration() {
-        Anonymous = new RecordStringNever() {},
-        Google = new Google() {
-            ClientId = "string",
-        },
-        Nickname = new RecordStringNever() {},
-    },
+    AuthConfiguration = new AuthConfiguration() {},
 };
 
 using(var res = await sdk.AppV1.CreateAppAsync(req))
 {
-
     // handle response
 }
 ```
@@ -56,7 +49,7 @@ using(var res = await sdk.AppV1.CreateAppAsync(req))
 
 ### Response
 
-**[CreateAppResponse](../../models/operations/CreateAppResponse.md)**
+**[CreateAppResponse](../../Models/Operations/CreateAppResponse.md)**
 
 
 ## DeleteApp
@@ -80,7 +73,6 @@ DeleteAppRequest req = new DeleteAppRequest() {};
 
 using(var res = await sdk.AppV1.DeleteAppAsync(req))
 {
-
     // handle response
 }
 ```
@@ -94,7 +86,7 @@ using(var res = await sdk.AppV1.DeleteAppAsync(req))
 
 ### Response
 
-**[DeleteAppResponse](../../models/operations/DeleteAppResponse.md)**
+**[DeleteAppResponse](../../Models/Operations/DeleteAppResponse.md)**
 
 
 ## GetAppInfo
@@ -118,7 +110,6 @@ GetAppInfoRequest req = new GetAppInfoRequest() {};
 
 using(var res = await sdk.AppV1.GetAppInfoAsync(req))
 {
-
     // handle response
 }
 ```
@@ -132,7 +123,7 @@ using(var res = await sdk.AppV1.GetAppInfoAsync(req))
 
 ### Response
 
-**[GetAppInfoResponse](../../models/operations/GetAppInfoResponse.md)**
+**[GetAppInfoResponse](../../Models/Operations/GetAppInfoResponse.md)**
 
 
 ## GetApps
@@ -153,7 +144,6 @@ var sdk = new HathoraCloudSDK(
 
 using(var res = await sdk.AppV1.GetAppsAsync())
 {
-
     // handle response
 }
 ```
@@ -161,7 +151,7 @@ using(var res = await sdk.AppV1.GetAppsAsync())
 
 ### Response
 
-**[GetAppsResponse](../../models/operations/GetAppsResponse.md)**
+**[GetAppsResponse](../../Models/Operations/GetAppsResponse.md)**
 
 
 ## UpdateApp
@@ -184,19 +174,12 @@ var sdk = new HathoraCloudSDK(
 UpdateAppRequest req = new UpdateAppRequest() {
     AppConfig = new AppConfig() {
         AppName = "minecraft",
-        AuthConfiguration = new AuthConfiguration() {
-            Anonymous = new RecordStringNever() {},
-            Google = new Google() {
-                ClientId = "string",
-            },
-            Nickname = new RecordStringNever() {},
-        },
+        AuthConfiguration = new AuthConfiguration() {},
     },
 };
 
 using(var res = await sdk.AppV1.UpdateAppAsync(req))
 {
-
     // handle response
 }
 ```
@@ -210,5 +193,5 @@ using(var res = await sdk.AppV1.UpdateAppAsync(req))
 
 ### Response
 
-**[UpdateAppResponse](../../models/operations/UpdateAppResponse.md)**
+**[UpdateAppResponse](../../Models/Operations/UpdateAppResponse.md)**
 

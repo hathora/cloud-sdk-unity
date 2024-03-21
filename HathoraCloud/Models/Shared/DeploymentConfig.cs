@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     using System;
@@ -28,7 +29,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("additionalContainerPorts")]
         public List<ContainerPort>? AdditionalContainerPorts { get; set; }
-        
 
         /// <summary>
         /// Default port the server listens on.
@@ -36,7 +36,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("containerPort")]
         public int ContainerPort { get; set; } = default!;
-        
 
         /// <summary>
         /// The environment variable that our process will have access to at runtime.
@@ -44,7 +43,17 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("env")]
         public List<DeploymentConfigEnv> Env { get; set; } = default!;
-        
+
+        /// <summary>
+        /// Option to shut down processes that have had no new connections or rooms<br/>
+        /// 
+        /// <remarks>
+        /// for five minutes.
+        /// </remarks>
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("idleTimeoutEnabled")]
+        public bool? IdleTimeoutEnabled { get; set; }
 
         /// <summary>
         /// A plan defines how much CPU and memory is required to run an instance of your game server.<br/>
@@ -63,7 +72,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("planName")]
         public PlanName PlanName { get; set; } = default!;
-        
 
         /// <summary>
         /// Governs how many <a href="https://hathora.dev/docs/concepts/hathora-entities#room">rooms</a> can be scheduled in a process.
@@ -71,7 +79,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("roomsPerProcess")]
         public int RoomsPerProcess { get; set; } = default!;
-        
 
         /// <summary>
         /// Transport type specifies the underlying communication protocol to the exposed port.
@@ -79,6 +86,5 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("transportType")]
         public TransportType TransportType { get; set; } = default!;
-        
     }
 }

@@ -34,18 +34,11 @@ var sdk = new HathoraCloudSDK(
 
 AppConfig req = new AppConfig() {
     AppName = "minecraft",
-    AuthConfiguration = new AuthConfiguration() {
-        Anonymous = new RecordStringNever() {},
-        Google = new Google() {
-            ClientId = "string",
-        },
-        Nickname = new RecordStringNever() {},
-    },
+    AuthConfiguration = new AuthConfiguration() {},
 };
 
 using(var res = await sdk.AppV1.CreateAppAsync(req))
 {
-
     // handle response
 }
 ```
@@ -88,6 +81,7 @@ using(var res = await sdk.AppV1.CreateAppAsync(req))
 * [CreateDeployment](docs/sdks/deploymentv1/README.md#createdeployment) - Create a new [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment). Creating a new deployment means all new rooms created will use the latest deployment configuration, but existing games in progress will not be affected.
 * [GetDeploymentInfo](docs/sdks/deploymentv1/README.md#getdeploymentinfo) - Get details for a [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment).
 * [GetDeployments](docs/sdks/deploymentv1/README.md#getdeployments) - Returns an array of [deployments](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application).
+* [GetLatestDeployment](docs/sdks/deploymentv1/README.md#getlatestdeployment) - Get the latest [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application).
 
 ### [DiscoveryV1](docs/sdks/discoveryv1/README.md)
 
@@ -141,6 +135,7 @@ using(var res = await sdk.AppV1.CreateAppAsync(req))
 
 * [GetLatestProcesses](docs/sdks/processesv2/README.md#getlatestprocesses) - Retrieve the 10 most recent [processes](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `status` or `region`.
 * [GetProcessInfo](docs/sdks/processesv2/README.md#getprocessinfo) - Get details for a [process](https://hathora.dev/docs/concepts/hathora-entities#process).
+* [StopProcess](docs/sdks/processesv2/README.md#stopprocess) - Stops a [process](https://hathora.dev/docs/concepts/hathora-entities#process) immediately.
 
 ### [RoomV1](docs/sdks/roomv1/README.md)
 
@@ -162,6 +157,12 @@ using(var res = await sdk.AppV1.CreateAppAsync(req))
 * [GetRoomInfo](docs/sdks/roomv2/README.md#getroominfo) - Retreive current and historical allocation data for a [room](https://hathora.dev/docs/concepts/hathora-entities#room).
 * [SuspendRoom](docs/sdks/roomv2/README.md#suspendroom) - Suspend a [room](https://hathora.dev/docs/concepts/hathora-entities#room). The room is unallocated from the process but can be rescheduled later using the same `roomId`.
 * [UpdateRoomConfig](docs/sdks/roomv2/README.md#updateroomconfig)
+
+### [OrgTokensV1](docs/sdks/orgtokensv1/README.md)
+
+* [CreateOrgToken](docs/sdks/orgtokensv1/README.md#createorgtoken) - Create a new organization token.
+* [GetOrgTokens](docs/sdks/orgtokensv1/README.md#getorgtokens) - List all organization tokens for a given org.
+* [RevokeOrgToken](docs/sdks/orgtokensv1/README.md#revokeorgtoken) - Revoke an organization token.
 <!-- End Available Resources and Operations [operations] -->
 
 
@@ -204,7 +205,6 @@ DeleteAppRequest req = new DeleteAppRequest() {};
 
 using(var res = await sdk.AppV1.DeleteAppAsync(req))
 {
-
     // handle response
 }
 ```
@@ -231,6 +231,62 @@ You can override the default server globally by passing a server index to the `s
 
 The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
 <!-- End Server Selection [server] -->
+
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name              | Type              | Scheme            |
+| ----------------- | ----------------- | ----------------- |
+| `HathoraDevToken` | http              | HTTP Bearer       |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+```csharp
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+AppConfig req = new AppConfig() {
+    AppName = "minecraft",
+    AuthConfiguration = new AuthConfiguration() {},
+};
+
+using(var res = await sdk.AppV1.CreateAppAsync(req))
+{
+    // handle response
+}
+```
+
+### Per-Operation Security Schemes
+
+Some operations in this SDK require the security scheme to be specified at the request level. For example:
+```csharp
+using HathoraCloud;
+using HathoraCloud.Models.Operations;
+using HathoraCloud.Models.Shared;
+
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+CreatePrivateLobbyDeprecatedRequest req = new CreatePrivateLobbyDeprecatedRequest() {};
+
+using(var res = await sdk.LobbyV1.CreatePrivateLobbyDeprecatedAsync(
+    new CreatePrivateLobbyDeprecatedSecurity() {
+    PlayerAuth = "<YOUR_BEARER_TOKEN_HERE>",
+},
+    req))
+{
+    // handle response
+}
+```
+<!-- End Authentication [security] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

@@ -35,7 +35,6 @@ DownloadLogForProcessRequest req = new DownloadLogForProcessRequest() {
 
 using(var res = await sdk.LogV1.DownloadLogForProcessAsync(req))
 {
-
     // handle response
 }
 ```
@@ -49,7 +48,7 @@ using(var res = await sdk.LogV1.DownloadLogForProcessAsync(req))
 
 ### Response
 
-**[DownloadLogForProcessResponse](../../models/operations/DownloadLogForProcessResponse.md)**
+**[DownloadLogForProcessResponse](../../Models/Operations/DownloadLogForProcessResponse.md)**
 
 
 ## ~~GetLogsForApp~~
@@ -77,7 +76,6 @@ GetLogsForAppRequest req = new GetLogsForAppRequest() {
 
 using(var res = await sdk.LogV1.GetLogsForAppAsync(req))
 {
-
     // handle response
 }
 ```
@@ -91,7 +89,7 @@ using(var res = await sdk.LogV1.GetLogsForAppAsync(req))
 
 ### Response
 
-**[GetLogsForAppResponse](../../models/operations/GetLogsForAppResponse.md)**
+**[GetLogsForAppResponse](../../Models/Operations/GetLogsForAppResponse.md)**
 
 
 ## ~~GetLogsForDeployment~~
@@ -120,7 +118,6 @@ GetLogsForDeploymentRequest req = new GetLogsForDeploymentRequest() {
 
 using(var res = await sdk.LogV1.GetLogsForDeploymentAsync(req))
 {
-
     // handle response
 }
 ```
@@ -134,7 +131,7 @@ using(var res = await sdk.LogV1.GetLogsForDeploymentAsync(req))
 
 ### Response
 
-**[GetLogsForDeploymentResponse](../../models/operations/GetLogsForDeploymentResponse.md)**
+**[GetLogsForDeploymentResponse](../../Models/Operations/GetLogsForDeploymentResponse.md)**
 
 
 ## GetLogsForProcess
@@ -161,7 +158,6 @@ GetLogsForProcessRequest req = new GetLogsForProcessRequest() {
 
 using(var res = await sdk.LogV1.GetLogsForProcessAsync(req))
 {
-
     // handle response
 }
 ```
@@ -175,5 +171,5 @@ using(var res = await sdk.LogV1.GetLogsForProcessAsync(req))
 
 ### Response
 
-**[GetLogsForProcessResponse](../../models/operations/GetLogsForProcessResponse.md)**
+**[GetLogsForProcessResponse](../../Models/Operations/GetLogsForProcessResponse.md)**
 

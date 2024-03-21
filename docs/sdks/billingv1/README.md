@@ -24,7 +24,6 @@ var sdk = new HathoraCloudSDK(
 
 using(var res = await sdk.BillingV1.GetBalanceAsync())
 {
-
     // handle response
 }
 ```
@@ -32,7 +31,7 @@ using(var res = await sdk.BillingV1.GetBalanceAsync())
 
 ### Response
 
-**[GetBalanceResponse](../../models/operations/GetBalanceResponse.md)**
+**[GetBalanceResponse](../../Models/Operations/GetBalanceResponse.md)**
 
 
 ## GetInvoices
@@ -51,7 +50,6 @@ var sdk = new HathoraCloudSDK(
 
 using(var res = await sdk.BillingV1.GetInvoicesAsync())
 {
-
     // handle response
 }
 ```
@@ -59,7 +57,7 @@ using(var res = await sdk.BillingV1.GetInvoicesAsync())
 
 ### Response
 
-**[GetInvoicesResponse](../../models/operations/GetInvoicesResponse.md)**
+**[GetInvoicesResponse](../../Models/Operations/GetInvoicesResponse.md)**
 
 
 ## GetPaymentMethod
@@ -78,7 +76,6 @@ var sdk = new HathoraCloudSDK(
 
 using(var res = await sdk.BillingV1.GetPaymentMethodAsync())
 {
-
     // handle response
 }
 ```
@@ -86,7 +83,7 @@ using(var res = await sdk.BillingV1.GetPaymentMethodAsync())
 
 ### Response
 
-**[GetPaymentMethodResponse](../../models/operations/GetPaymentMethodResponse.md)**
+**[GetPaymentMethodResponse](../../Models/Operations/GetPaymentMethodResponse.md)**
 
 
 ## InitStripeCustomerPortalUrl
@@ -104,12 +101,11 @@ var sdk = new HathoraCloudSDK(
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 CustomerPortalUrl req = new CustomerPortalUrl() {
-    ReturnUrl = "string",
+    ReturnUrl = "<value>",
 };
 
 using(var res = await sdk.BillingV1.InitStripeCustomerPortalUrlAsync(req))
 {
-
     // handle response
 }
 ```
@@ -123,5 +119,5 @@ using(var res = await sdk.BillingV1.InitStripeCustomerPortalUrlAsync(req))
 
 ### Response
 
-**[InitStripeCustomerPortalUrlResponse](../../models/operations/InitStripeCustomerPortalUrlResponse.md)**
+**[InitStripeCustomerPortalUrlResponse](../../Models/Operations/InitStripeCustomerPortalUrlResponse.md)**
 

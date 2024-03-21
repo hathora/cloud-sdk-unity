@@ -38,7 +38,6 @@ CreateBuildRequest req = new CreateBuildRequest() {
 
 using(var res = await sdk.BuildV1.CreateBuildAsync(req))
 {
-
     // handle response
 }
 ```
@@ -52,7 +51,7 @@ using(var res = await sdk.BuildV1.CreateBuildAsync(req))
 
 ### Response
 
-**[CreateBuildResponse](../../models/operations/CreateBuildResponse.md)**
+**[CreateBuildResponse](../../Models/Operations/CreateBuildResponse.md)**
 
 
 ## DeleteBuild
@@ -78,7 +77,6 @@ DeleteBuildRequest req = new DeleteBuildRequest() {
 
 using(var res = await sdk.BuildV1.DeleteBuildAsync(req))
 {
-
     // handle response
 }
 ```
@@ -92,7 +90,7 @@ using(var res = await sdk.BuildV1.DeleteBuildAsync(req))
 
 ### Response
 
-**[DeleteBuildResponse](../../models/operations/DeleteBuildResponse.md)**
+**[DeleteBuildResponse](../../Models/Operations/DeleteBuildResponse.md)**
 
 
 ## GetBuildInfo
@@ -118,7 +116,6 @@ GetBuildInfoRequest req = new GetBuildInfoRequest() {
 
 using(var res = await sdk.BuildV1.GetBuildInfoAsync(req))
 {
-
     // handle response
 }
 ```
@@ -132,7 +129,7 @@ using(var res = await sdk.BuildV1.GetBuildInfoAsync(req))
 
 ### Response
 
-**[GetBuildInfoResponse](../../models/operations/GetBuildInfoResponse.md)**
+**[GetBuildInfoResponse](../../Models/Operations/GetBuildInfoResponse.md)**
 
 
 ## GetBuilds
@@ -156,7 +153,6 @@ GetBuildsRequest req = new GetBuildsRequest() {};
 
 using(var res = await sdk.BuildV1.GetBuildsAsync(req))
 {
-
     // handle response
 }
 ```
@@ -170,7 +166,7 @@ using(var res = await sdk.BuildV1.GetBuildsAsync(req))
 
 ### Response
 
-**[GetBuildsResponse](../../models/operations/GetBuildsResponse.md)**
+**[GetBuildsResponse](../../Models/Operations/GetBuildsResponse.md)**
 
 
 ## RunBuild
@@ -202,7 +198,6 @@ RunBuildRequest req = new RunBuildRequest() {
 
 using(var res = await sdk.BuildV1.RunBuildAsync(req))
 {
-
     // handle response
 }
 ```
@@ -216,5 +211,5 @@ using(var res = await sdk.BuildV1.RunBuildAsync(req))
 
 ### Response
 
-**[RunBuildResponse](../../models/operations/RunBuildResponse.md)**
+**[RunBuildResponse](../../Models/Operations/RunBuildResponse.md)**
 

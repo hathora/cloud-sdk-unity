@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
@@ -21,16 +22,13 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("host")]
         public string Host { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("port")]
         public double Port { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("region")]
         public Region Region { get; set; } = default!;
-        
     }
 }

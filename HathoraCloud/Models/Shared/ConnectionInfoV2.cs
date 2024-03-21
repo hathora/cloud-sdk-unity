@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     using System;
@@ -25,7 +26,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("additionalExposedPorts")]
         public List<ExposedPort> AdditionalExposedPorts { get; set; } = default!;
-        
 
         /// <summary>
         /// Connection details for an active process.
@@ -33,7 +33,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("exposedPort")]
         public ExposedPort? ExposedPort { get; set; }
-        
 
         /// <summary>
         /// Unique identifier to a game session or match. Use the default system generated ID or overwrite it with your own.<br/>
@@ -45,7 +44,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("roomId")]
         public string RoomId { get; set; } = default!;
-        
 
         /// <summary>
         /// `exposedPort` will only be available when the `status` of a room is &quot;active&quot;.
@@ -53,6 +51,5 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("status")]
         public ConnectionInfoV2Status Status { get; set; } = default!;
-        
     }
 }

@@ -24,6 +24,5 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("token")]
         public string Token { get; set; } = default!;
-        
     }
 }

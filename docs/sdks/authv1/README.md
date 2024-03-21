@@ -22,17 +22,12 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
-        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 LoginAnonymousRequest req = new LoginAnonymousRequest() {};
 
 using(var res = await sdk.AuthV1.LoginAnonymousAsync(req))
 {
-
     // handle response
 }
 ```
@@ -46,7 +41,7 @@ using(var res = await sdk.AuthV1.LoginAnonymousAsync(req))
 
 ### Response
 
-**[LoginAnonymousResponse](../../models/operations/LoginAnonymousResponse.md)**
+**[LoginAnonymousResponse](../../Models/Operations/LoginAnonymousResponse.md)**
 
 
 ## LoginGoogle
@@ -60,11 +55,7 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
-        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 HathoraCloud.Models.Operations.LoginGoogleRequest req = new HathoraCloud.Models.Operations.LoginGoogleRequest() {
     LoginGoogleRequest = new HathoraCloud.Models.Shared.LoginGoogleRequest() {
@@ -74,7 +65,6 @@ HathoraCloud.Models.Operations.LoginGoogleRequest req = new HathoraCloud.Models.
 
 using(var res = await sdk.AuthV1.LoginGoogleAsync(req))
 {
-
     // handle response
 }
 ```
@@ -88,7 +78,7 @@ using(var res = await sdk.AuthV1.LoginGoogleAsync(req))
 
 ### Response
 
-**[LoginGoogleResponse](../../models/operations/LoginGoogleResponse.md)**
+**[LoginGoogleResponse](../../Models/Operations/LoginGoogleResponse.md)**
 
 
 ## LoginNickname
@@ -102,11 +92,7 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
-        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 HathoraCloud.Models.Operations.LoginNicknameRequest req = new HathoraCloud.Models.Operations.LoginNicknameRequest() {
     LoginNicknameRequest = new HathoraCloud.Models.Shared.LoginNicknameRequest() {
@@ -116,7 +102,6 @@ HathoraCloud.Models.Operations.LoginNicknameRequest req = new HathoraCloud.Model
 
 using(var res = await sdk.AuthV1.LoginNicknameAsync(req))
 {
-
     // handle response
 }
 ```
@@ -130,5 +115,5 @@ using(var res = await sdk.AuthV1.LoginNicknameAsync(req))
 
 ### Response
 
-**[LoginNicknameResponse](../../models/operations/LoginNicknameResponse.md)**
+**[LoginNicknameResponse](../../Models/Operations/LoginNicknameResponse.md)**
 

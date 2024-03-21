@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
@@ -21,7 +22,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("region")]
         public Region Region { get; set; } = default!;
-        
 
         /// <summary>
         /// Optional configuration parameters for the room. Can be any string including stringified JSON. It is accessible from the room via <a href="">`GetRoomInfo()`</a>.
@@ -29,6 +29,5 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("roomConfig")]
         public string? RoomConfig { get; set; }
-        
     }
 }

@@ -1,23 +1,24 @@
 lockVersion: 2.0.0
 id: bdb34d30-f36e-4c13-bfde-42babcb240db
 management:
-  docChecksum: d84531ebd98bc06b028bf0e99ffcb881
+  docChecksum: 32fc2e84c761600b0152a44189da7ebf
   docVersion: 0.0.1
-  speakeasyVersion: internal
-  generationVersion: 2.239.0
-  releaseVersion: 0.28.4
-  configChecksum: ec433bb32687004f8b78320f15427e16
+  speakeasyVersion: 1.215.1
+  generationVersion: 2.286.4
+  releaseVersion: 0.32.1
+  configChecksum: 9fad42b387ceb6b5085e85fbc02a219b
   repoURL: https://github.com/hathora/cloud-sdk-unity.git
   repoSubDirectory: .
   published: true
 features:
   unity:
-    core: 1.3.1
+    core: 1.4.2
     deprecations: 0.0.2
-    globalSecurity: 0.0.3
-    globalServerURLs: 0.0.3
+    globalSecurity: 0.2.4
+    globalServerURLs: 0.0.4
     globals: 0.0.2
     methodSecurity: 0.1.1
+    unions: 0.0.1
 generatedFiles:
   - HathoraCloud/AppV1.cs
   - HathoraCloud/AuthV1.cs
@@ -35,9 +36,13 @@ generatedFiles:
   - HathoraCloud/ProcessesV2.cs
   - HathoraCloud/RoomV1.cs
   - HathoraCloud/RoomV2.cs
+  - HathoraCloud/OrgTokensV1.cs
   - HathoraCloud/HathoraCloudSDK.cs
+  - global.json
+  - HathoraCloud/Utils/BigIntSerializer.cs
   - HathoraCloud/Utils/DateOnly.cs
   - HathoraCloud/Utils/DateOnlyConverter.cs
+  - HathoraCloud/Utils/DecimalSerializer.cs
   - HathoraCloud/Utils/DownloadHandlerStream.cs
   - HathoraCloud/Utils/EnumSerializer.cs
   - HathoraCloud/Utils/FlexibleObjectDeserializer.cs
@@ -88,6 +93,8 @@ generatedFiles:
   - HathoraCloud/Models/Operations/GetDeploymentInfoResponse.cs
   - HathoraCloud/Models/Operations/GetDeploymentsRequest.cs
   - HathoraCloud/Models/Operations/GetDeploymentsResponse.cs
+  - HathoraCloud/Models/Operations/GetLatestDeploymentRequest.cs
+  - HathoraCloud/Models/Operations/GetLatestDeploymentResponse.cs
   - HathoraCloud/Models/Operations/GetPingServiceEndpointsResponse.cs
   - HathoraCloud/Models/Operations/CreatePrivateLobbyDeprecatedSecurity.cs
   - HathoraCloud/Models/Operations/CreatePrivateLobbyDeprecatedRequest.cs
@@ -148,6 +155,8 @@ generatedFiles:
   - HathoraCloud/Models/Operations/GetLatestProcessesResponse.cs
   - HathoraCloud/Models/Operations/GetProcessInfoRequest.cs
   - HathoraCloud/Models/Operations/GetProcessInfoResponse.cs
+  - HathoraCloud/Models/Operations/StopProcessRequest.cs
+  - HathoraCloud/Models/Operations/StopProcessResponse.cs
   - HathoraCloud/Models/Operations/CreateRoomDeprecatedRequest.cs
   - HathoraCloud/Models/Operations/CreateRoomDeprecatedResponse.cs
   - HathoraCloud/Models/Operations/DestroyRoomDeprecatedRequest.cs
@@ -178,35 +187,44 @@ generatedFiles:
   - HathoraCloud/Models/Operations/SuspendRoomResponse.cs
   - HathoraCloud/Models/Operations/UpdateRoomConfigRequest.cs
   - HathoraCloud/Models/Operations/UpdateRoomConfigResponse.cs
+  - HathoraCloud/Models/Operations/CreateOrgTokenRequest.cs
+  - HathoraCloud/Models/Operations/CreateOrgTokenResponse.cs
+  - HathoraCloud/Models/Operations/GetOrgTokensRequest.cs
+  - HathoraCloud/Models/Operations/GetOrgTokensResponse.cs
+  - HathoraCloud/Models/Operations/RevokeOrgTokenRequest.cs
+  - HathoraCloud/Models/Operations/RevokeOrgTokenResponse.cs
   - HathoraCloud/Models/Shared/Application.cs
   - HathoraCloud/Models/Shared/Google.cs
   - HathoraCloud/Models/Shared/AuthConfiguration.cs
   - HathoraCloud/Models/Shared/RecordStringNever.cs
   - HathoraCloud/Models/Shared/ApiError.cs
   - HathoraCloud/Models/Shared/AppConfig.cs
-  - HathoraCloud/Models/Shared/ApplicationWithDeployment.cs
-  - HathoraCloud/Models/Shared/Env.cs
-  - HathoraCloud/Models/Shared/DeploymentTransportType.cs
-  - HathoraCloud/Models/Shared/Deployment.cs
+  - HathoraCloud/Models/Shared/ApplicationWithLatestDeploymentAndBuildEnv.cs
+  - HathoraCloud/Models/Shared/ApplicationWithLatestDeploymentAndBuildTransportType.cs
+  - HathoraCloud/Models/Shared/ApplicationWithLatestDeploymentAndBuildDeployment.cs
+  - HathoraCloud/Models/Shared/ApplicationWithLatestDeploymentAndBuild.cs
   - HathoraCloud/Models/Shared/PlanName.cs
   - HathoraCloud/Models/Shared/ContainerPort.cs
   - HathoraCloud/Models/Shared/TransportType.cs
+  - HathoraCloud/Models/Shared/RegionalContainerTags.cs
+  - HathoraCloud/Models/Shared/Build.cs
+  - HathoraCloud/Models/Shared/BuildStatus.cs
+  - HathoraCloud/Models/Shared/Region.cs
   - HathoraCloud/Models/Shared/LoginResponse.cs
   - HathoraCloud/Models/Shared/LoginGoogleRequest.cs
   - HathoraCloud/Models/Shared/LoginNicknameRequest.cs
-  - HathoraCloud/Models/Shared/InvoiceStatus.cs
   - HathoraCloud/Models/Shared/Invoice.cs
+  - HathoraCloud/Models/Shared/InvoiceStatus.cs
   - HathoraCloud/Models/Shared/PaymentMethod.cs
   - HathoraCloud/Models/Shared/LinkPaymentMethod.cs
   - HathoraCloud/Models/Shared/CardPaymentMethod.cs
   - HathoraCloud/Models/Shared/CardBrand.cs
   - HathoraCloud/Models/Shared/AchPaymentMethod.cs
   - HathoraCloud/Models/Shared/CustomerPortalUrl.cs
-  - HathoraCloud/Models/Shared/RegionalContainerTags.cs
-  - HathoraCloud/Models/Shared/Status.cs
-  - HathoraCloud/Models/Shared/Build.cs
-  - HathoraCloud/Models/Shared/Region.cs
   - HathoraCloud/Models/Shared/CreateBuildParams.cs
+  - HathoraCloud/Models/Shared/Env.cs
+  - HathoraCloud/Models/Shared/DeploymentTransportType.cs
+  - HathoraCloud/Models/Shared/Deployment.cs
   - HathoraCloud/Models/Shared/DeploymentConfigEnv.cs
   - HathoraCloud/Models/Shared/DeploymentConfig.cs
   - HathoraCloud/Models/Shared/DiscoveryResponse.cs
@@ -225,15 +243,23 @@ generatedFiles:
   - HathoraCloud/Models/Shared/MetricsResponse.cs
   - HathoraCloud/Models/Shared/MetricValue.cs
   - HathoraCloud/Models/Shared/MetricName.cs
+  - HathoraCloud/Models/Shared/ProcessExposedPort.cs
   - HathoraCloud/Models/Shared/Process.cs
   - HathoraCloud/Models/Shared/ExposedPort.cs
+  - HathoraCloud/Models/Shared/ProcessWithRoomsExposedPort.cs
   - HathoraCloud/Models/Shared/ProcessWithRooms.cs
   - HathoraCloud/Models/Shared/RoomWithoutAllocationsCurrentAllocation.cs
   - HathoraCloud/Models/Shared/RoomWithoutAllocations.cs
   - HathoraCloud/Models/Shared/RoomStatus.cs
+  - HathoraCloud/Models/Shared/ProcessV2ExposedPort.cs
   - HathoraCloud/Models/Shared/ProcessV2.cs
   - HathoraCloud/Models/Shared/ProcessStatus.cs
   - HathoraCloud/Models/Shared/CreateRoomParams.cs
+  - HathoraCloud/Models/Shared/ConnectionInfo.cs
+  - HathoraCloud/Models/Shared/StartingConnectionInfoStatus.cs
+  - HathoraCloud/Models/Shared/StartingConnectionInfo.cs
+  - HathoraCloud/Models/Shared/Status.cs
+  - HathoraCloud/Models/Shared/ActiveConnectionInfo.cs
   - HathoraCloud/Models/Shared/CurrentAllocation.cs
   - HathoraCloud/Models/Shared/Room.cs
   - HathoraCloud/Models/Shared/RoomAllocation.cs
@@ -242,6 +268,11 @@ generatedFiles:
   - HathoraCloud/Models/Shared/ConnectionInfoV2Status.cs
   - HathoraCloud/Models/Shared/ConnectionInfoV2.cs
   - HathoraCloud/Models/Shared/UpdateRoomConfigParams.cs
+  - HathoraCloud/Models/Shared/CreatedOrgToken.cs
+  - HathoraCloud/Models/Shared/OrgToken.cs
+  - HathoraCloud/Models/Shared/OrgTokenStatus.cs
+  - HathoraCloud/Models/Shared/CreateOrgToken.cs
+  - HathoraCloud/Models/Shared/ListOrgTokens.cs
   - HathoraCloud/Models/Shared/Security.cs
   - docs/Models/Operations/CreateAppResponse.md
   - docs/Models/Operations/DeleteAppRequest.md
@@ -279,6 +310,8 @@ generatedFiles:
   - docs/Models/Operations/GetDeploymentInfoResponse.md
   - docs/Models/Operations/GetDeploymentsRequest.md
   - docs/Models/Operations/GetDeploymentsResponse.md
+  - docs/Models/Operations/GetLatestDeploymentRequest.md
+  - docs/Models/Operations/GetLatestDeploymentResponse.md
   - docs/Models/Operations/GetPingServiceEndpointsResponse.md
   - docs/Models/Operations/CreatePrivateLobbyDeprecatedSecurity.md
   - docs/Models/Operations/CreatePrivateLobbyDeprecatedRequest.md
@@ -339,6 +372,8 @@ generatedFiles:
   - docs/Models/Operations/GetLatestProcessesResponse.md
   - docs/Models/Operations/GetProcessInfoRequest.md
   - docs/Models/Operations/GetProcessInfoResponse.md
+  - docs/Models/Operations/StopProcessRequest.md
+  - docs/Models/Operations/StopProcessResponse.md
   - docs/Models/Operations/CreateRoomDeprecatedRequest.md
   - docs/Models/Operations/CreateRoomDeprecatedResponse.md
   - docs/Models/Operations/DestroyRoomDeprecatedRequest.md
@@ -369,35 +404,44 @@ generatedFiles:
   - docs/Models/Operations/SuspendRoomResponse.md
   - docs/Models/Operations/UpdateRoomConfigRequest.md
   - docs/Models/Operations/UpdateRoomConfigResponse.md
+  - docs/Models/Operations/CreateOrgTokenRequest.md
+  - docs/Models/Operations/CreateOrgTokenResponse.md
+  - docs/Models/Operations/GetOrgTokensRequest.md
+  - docs/Models/Operations/GetOrgTokensResponse.md
+  - docs/Models/Operations/RevokeOrgTokenRequest.md
+  - docs/Models/Operations/RevokeOrgTokenResponse.md
   - docs/Models/Shared/Application.md
   - docs/Models/Shared/Google.md
   - docs/Models/Shared/AuthConfiguration.md
   - docs/Models/Shared/RecordStringNever.md
   - docs/Models/Shared/ApiError.md
   - docs/Models/Shared/AppConfig.md
-  - docs/Models/Shared/ApplicationWithDeployment.md
-  - docs/Models/Shared/Env.md
-  - docs/Models/Shared/DeploymentTransportType.md
-  - docs/Models/Shared/Deployment.md
+  - docs/Models/Shared/ApplicationWithLatestDeploymentAndBuildEnv.md
+  - docs/Models/Shared/ApplicationWithLatestDeploymentAndBuildTransportType.md
+  - docs/Models/Shared/ApplicationWithLatestDeploymentAndBuildDeployment.md
+  - docs/Models/Shared/ApplicationWithLatestDeploymentAndBuild.md
   - docs/Models/Shared/PlanName.md
   - docs/Models/Shared/ContainerPort.md
   - docs/Models/Shared/TransportType.md
+  - docs/Models/Shared/RegionalContainerTags.md
+  - docs/Models/Shared/Build.md
+  - docs/Models/Shared/BuildStatus.md
+  - docs/Models/Shared/Region.md
   - docs/Models/Shared/LoginResponse.md
   - docs/Models/Shared/LoginGoogleRequest.md
   - docs/Models/Shared/LoginNicknameRequest.md
-  - docs/Models/Shared/InvoiceStatus.md
   - docs/Models/Shared/Invoice.md
+  - docs/Models/Shared/InvoiceStatus.md
   - docs/Models/Shared/PaymentMethod.md
   - docs/Models/Shared/LinkPaymentMethod.md
   - docs/Models/Shared/CardPaymentMethod.md
   - docs/Models/Shared/CardBrand.md
   - docs/Models/Shared/AchPaymentMethod.md
   - docs/Models/Shared/CustomerPortalUrl.md
-  - docs/Models/Shared/RegionalContainerTags.md
-  - docs/Models/Shared/Status.md
-  - docs/Models/Shared/Build.md
-  - docs/Models/Shared/Region.md
   - docs/Models/Shared/CreateBuildParams.md
+  - docs/Models/Shared/Env.md
+  - docs/Models/Shared/DeploymentTransportType.md
+  - docs/Models/Shared/Deployment.md
   - docs/Models/Shared/DeploymentConfigEnv.md
   - docs/Models/Shared/DeploymentConfig.md
   - docs/Models/Shared/DiscoveryResponse.md
@@ -416,15 +460,23 @@ generatedFiles:
   - docs/Models/Shared/MetricsResponse.md
   - docs/Models/Shared/MetricValue.md
   - docs/Models/Shared/MetricName.md
+  - docs/Models/Shared/ProcessExposedPort.md
   - docs/Models/Shared/Process.md
   - docs/Models/Shared/ExposedPort.md
+  - docs/Models/Shared/ProcessWithRoomsExposedPort.md
   - docs/Models/Shared/ProcessWithRooms.md
   - docs/Models/Shared/RoomWithoutAllocationsCurrentAllocation.md
   - docs/Models/Shared/RoomWithoutAllocations.md
   - docs/Models/Shared/RoomStatus.md
+  - docs/Models/Shared/ProcessV2ExposedPort.md
   - docs/Models/Shared/ProcessV2.md
   - docs/Models/Shared/ProcessStatus.md
   - docs/Models/Shared/CreateRoomParams.md
+  - docs/Models/Shared/ConnectionInfo.md
+  - docs/Models/Shared/StartingConnectionInfoStatus.md
+  - docs/Models/Shared/StartingConnectionInfo.md
+  - docs/Models/Shared/Status.md
+  - docs/Models/Shared/ActiveConnectionInfo.md
   - docs/Models/Shared/CurrentAllocation.md
   - docs/Models/Shared/Room.md
   - docs/Models/Shared/RoomAllocation.md
@@ -433,6 +485,11 @@ generatedFiles:
   - docs/Models/Shared/ConnectionInfoV2Status.md
   - docs/Models/Shared/ConnectionInfoV2.md
   - docs/Models/Shared/UpdateRoomConfigParams.md
+  - docs/Models/Shared/CreatedOrgToken.md
+  - docs/Models/Shared/OrgToken.md
+  - docs/Models/Shared/OrgTokenStatus.md
+  - docs/Models/Shared/CreateOrgToken.md
+  - docs/Models/Shared/ListOrgTokens.md
   - docs/Models/Shared/Security.md
   - docs/sdks/hathoracloudsdk/README.md
   - docs/sdks/appv1/README.md
@@ -451,5 +508,6 @@ generatedFiles:
   - docs/sdks/processesv2/README.md
   - docs/sdks/roomv1/README.md
   - docs/sdks/roomv2/README.md
+  - docs/sdks/orgtokensv1/README.md
   - USAGE.md
   - .gitattributes
