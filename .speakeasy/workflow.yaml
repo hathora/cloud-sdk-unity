@@ -4,6 +4,8 @@ sources:
     my-source:
         inputs:
             - location: https://hathora.dev/swagger.json
+        overlays:
+            - location: overlay.yaml
 targets:
     cloud-sdk-unity:
         target: unity
