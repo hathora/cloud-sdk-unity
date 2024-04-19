@@ -19,4 +19,4 @@ unity:
   inputModelSuffix: input
   maxMethodParams: 0
   outputModelSuffix: output
-  packageName: hathora-cloud
+  packageName: HathoraCloud
