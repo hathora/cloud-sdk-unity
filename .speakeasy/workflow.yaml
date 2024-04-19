@@ -1,0 +1,11 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    my-source:
+        inputs:
+            - location: https://hathora.dev/swagger.json
+targets:
+    cloud-sdk-unity:
+        target: unity
+        source: my-source
+        output: .
