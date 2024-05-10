@@ -1,6 +1,10 @@
 # BillingV1
 (*BillingV1*)
 
+## Overview
+
+ 
+
 ### Available Operations
 
 * [GetBalance](#getbalance)
@@ -22,18 +26,25 @@ var sdk = new HathoraCloudSDK(
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
+
 using(var res = await sdk.BillingV1.GetBalanceAsync())
 {
-
     // handle response
 }
+
+
 ```
 
 
 ### Response
 
-**[GetBalanceResponse](../../models/operations/GetBalanceResponse.md)**
+**[GetBalanceResponse](../../Models/Operations/GetBalanceResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401,404                                 | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## GetInvoices
 
@@ -49,18 +60,25 @@ var sdk = new HathoraCloudSDK(
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
+
 using(var res = await sdk.BillingV1.GetInvoicesAsync())
 {
-
     // handle response
 }
+
+
 ```
 
 
 ### Response
 
-**[GetInvoicesResponse](../../models/operations/GetInvoicesResponse.md)**
+**[GetInvoicesResponse](../../Models/Operations/GetInvoicesResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401,404                                 | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## GetPaymentMethod
 
@@ -76,18 +94,25 @@ var sdk = new HathoraCloudSDK(
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
+
 using(var res = await sdk.BillingV1.GetPaymentMethodAsync())
 {
-
     // handle response
 }
+
+
 ```
 
 
 ### Response
 
-**[GetPaymentMethodResponse](../../models/operations/GetPaymentMethodResponse.md)**
+**[GetPaymentMethodResponse](../../Models/Operations/GetPaymentMethodResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,500                             | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## InitStripeCustomerPortalUrl
 
@@ -104,14 +129,16 @@ var sdk = new HathoraCloudSDK(
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 CustomerPortalUrl req = new CustomerPortalUrl() {
-    ReturnUrl = "string",
+    ReturnUrl = "<value>",
 };
+
 
 using(var res = await sdk.BillingV1.InitStripeCustomerPortalUrlAsync(req))
 {
-
     // handle response
 }
+
+
 ```
 
 ### Parameters
@@ -123,5 +150,10 @@ using(var res = await sdk.BillingV1.InitStripeCustomerPortalUrlAsync(req))
 
 ### Response
 
-**[InitStripeCustomerPortalUrlResponse](../../models/operations/InitStripeCustomerPortalUrlResponse.md)**
+**[InitStripeCustomerPortalUrlResponse](../../Models/Operations/InitStripeCustomerPortalUrlResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |

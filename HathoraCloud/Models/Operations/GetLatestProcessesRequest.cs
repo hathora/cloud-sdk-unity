@@ -23,16 +23,13 @@ namespace HathoraCloud.Models.Operations
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
         public string? AppId { get; set; }
-        
 
         [SerializeField]
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=region")]
         public List<Region>? Region { get; set; }
-        
 
         [SerializeField]
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=status")]
         public List<ProcessStatus>? Status { get; set; }
-        
     }
 }

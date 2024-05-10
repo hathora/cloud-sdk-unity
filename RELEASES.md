@@ -359,3 +359,11 @@ Based on:
 - Speakeasy CLI 1.151.0 (2.239.0) https://github.com/speakeasy-api/speakeasy
 ### Generated
 - [unity v0.28.4] .
+
+## 2024-05-10 00:02:59
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.285.3 (2.326.3) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [unity v0.29.0] .

@@ -21,11 +21,9 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("timestamp")]
         public double Timestamp { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("value")]
         public double Value { get; set; } = default!;
-        
     }
 }

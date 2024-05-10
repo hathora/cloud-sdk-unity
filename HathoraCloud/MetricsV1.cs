@@ -10,10 +10,13 @@
 #nullable enable
 namespace HathoraCloud
 {
+    using HathoraCloud.Models.Errors;
     using HathoraCloud.Models.Operations;
     using HathoraCloud.Models.Shared;
     using HathoraCloud.Utils;
     using Newtonsoft.Json;
+    using System.Collections.Generic;
+    using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using System;
     using UnityEngine.Networking;
@@ -27,7 +30,7 @@ namespace HathoraCloud
         /// <summary>
         /// Get metrics for a <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> using `appId` and `processId`.
         /// </summary>
-        Task<GetMetricsResponse> GetMetricsAsync(GetMetricsRequest? request = null);
+        Task<GetMetricsResponse> GetMetricsAsync(GetMetricsRequest request);
     }
 
     /// <summary>
@@ -37,24 +40,25 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.28.4";
-        private const string _sdkGenVersion = "2.239.0";
+        private const string _sdkVersion = "0.29.0";
+        private const string _sdkGenVersion = "2.326.3";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.28.4 2.239.0 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.29.0 2.326.3 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
+        private Func<Security>? _securitySource;
 
-        public MetricsV1(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public MetricsV1(ISpeakeasyHttpClient defaultClient, Func<Security>? securitySource, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
-            _securityClient = securityClient;
+            _securitySource = securitySource;
             _serverUrl = serverUrl;
             SDKConfiguration = config;
         }
         
 
-        public async Task<GetMetricsResponse> GetMetricsAsync(GetMetricsRequest? request = null)
+        
+        public async Task<GetMetricsResponse> GetMetricsAsync(GetMetricsRequest request)
         {
             if (request == null)
             {
@@ -64,55 +68,81 @@ namespace HathoraCloud
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/metrics/v1/{appId}/process/{processId}", request);
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            
-            var client = _securityClient;
-            
+
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
+            int? errorCode = null;
+            string? contentType = null;
             switch (httpResponse.result)
             {
                 case UnityWebRequest.Result.ConnectionError:
                 case UnityWebRequest.Result.DataProcessingError:
                 case UnityWebRequest.Result.ProtocolError:
-                    var errorMsg = httpResponse.error;
+                    errorCode = (int)httpRequest.responseCode;
+                    contentType = httpRequest.GetResponseHeader("Content-Type");
                     httpRequest.Dispose();
-                    throw new Exception(errorMsg);
+                    break;
+                case UnityWebRequest.Result.Success:
+                    Console.WriteLine("Success");
+                    break;
             }
 
-            var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+            if (contentType == null)
+            {
+                contentType = httpResponse.GetResponseHeader("Content-Type") ?? "application/octet-stream";
+            }
+            int httpCode = errorCode ?? (int)httpResponse.responseCode;
             var response = new GetMetricsResponse
             {
-                StatusCode = (int)httpResponse.responseCode,
+                StatusCode = httpCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
-            if((response.StatusCode == 200))
+            if (httpCode == 200)
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.MetricsResponse = JsonConvert.DeserializeObject<MetricsResponse>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
+                {                    
+                    var obj = JsonConvert.DeserializeObject<MetricsData>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    response.MetricsData = obj;
                 }
-                
-                return response;
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
             }
-            if((response.StatusCode == 404) || (response.StatusCode == 422) || (response.StatusCode == 500))
+            else if (new List<int>{401, 404, 422, 500}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.ApiError = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
                 }
-                
-                return response;
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else
+            {
+                throw new SDKException("unknown status code received", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
             return response;
         }
+
         
     }
 }

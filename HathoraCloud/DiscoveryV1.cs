@@ -10,95 +10,117 @@
 #nullable enable
 namespace HathoraCloud
 {
+    using HathoraCloud.Models.Errors;
     using HathoraCloud.Models.Operations;
     using HathoraCloud.Models.Shared;
     using HathoraCloud.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
+    using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using System;
     using UnityEngine.Networking;
 
     /// <summary>
-    /// Service that allows clients to directly ping all Hathora regions to get latency information
+    /// Deprecated. Does not include latest Regions (missing Dallas region). Use <a href="https://hathora.dev/api#tag/DiscoveryV2">DiscoveryV2</a>.
     /// </summary>
     public interface IDiscoveryV1
     {
 
         /// <summary>
-        /// Returns an array of all regions with a host and port that a client can directly ping. Open a websocket connection to `wss://&lt;host&gt;:&lt;port&gt;/ws` and send a packet. To calculate ping, measure the time it takes to get an echo packet back.
+        /// Returns an array of V1 regions with a host and port that a client can directly ping. Open a websocket connection to `wss://&lt;host&gt;:&lt;port&gt;/ws` and send a packet. To calculate ping, measure the time it takes to get an echo packet back.
         /// </summary>
-        Task<GetPingServiceEndpointsResponse> GetPingServiceEndpointsAsync();
+        Task<GetPingServiceEndpointsDeprecatedResponse> GetPingServiceEndpointsDeprecatedAsync();
     }
 
     /// <summary>
-    /// Service that allows clients to directly ping all Hathora regions to get latency information
+    /// Deprecated. Does not include latest Regions (missing Dallas region). Use <a href="https://hathora.dev/api#tag/DiscoveryV2">DiscoveryV2</a>.
     /// </summary>
     public class DiscoveryV1: IDiscoveryV1
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.28.4";
-        private const string _sdkGenVersion = "2.239.0";
+        private const string _sdkVersion = "0.29.0";
+        private const string _sdkGenVersion = "2.326.3";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.28.4 2.239.0 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.29.0 2.326.3 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
+        private Func<Security>? _securitySource;
 
-        public DiscoveryV1(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public DiscoveryV1(ISpeakeasyHttpClient defaultClient, Func<Security>? securitySource, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
-            _securityClient = securityClient;
+            _securitySource = securitySource;
             _serverUrl = serverUrl;
             SDKConfiguration = config;
         }
         
 
-        public async Task<GetPingServiceEndpointsResponse> GetPingServiceEndpointsAsync()
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
+        public async Task<GetPingServiceEndpointsDeprecatedResponse> GetPingServiceEndpointsDeprecatedAsync()
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/discovery/v1/ping";
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            
-            var client = _securityClient;
-            
+
+            var client = _defaultClient;
+
             var httpResponse = await client.SendAsync(httpRequest);
+            int? errorCode = null;
+            string? contentType = null;
             switch (httpResponse.result)
             {
                 case UnityWebRequest.Result.ConnectionError:
                 case UnityWebRequest.Result.DataProcessingError:
                 case UnityWebRequest.Result.ProtocolError:
-                    var errorMsg = httpResponse.error;
+                    errorCode = (int)httpRequest.responseCode;
+                    contentType = httpRequest.GetResponseHeader("Content-Type");
                     httpRequest.Dispose();
-                    throw new Exception(errorMsg);
+                    break;
+                case UnityWebRequest.Result.Success:
+                    Console.WriteLine("Success");
+                    break;
             }
 
-            var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
-            var response = new GetPingServiceEndpointsResponse
+            if (contentType == null)
             {
-                StatusCode = (int)httpResponse.responseCode,
+                contentType = httpResponse.GetResponseHeader("Content-Type") ?? "application/octet-stream";
+            }
+            int httpCode = errorCode ?? (int)httpResponse.responseCode;
+            var response = new GetPingServiceEndpointsDeprecatedResponse
+            {
+                StatusCode = httpCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
-            if((response.StatusCode == 200))
+            if (httpCode == 200)
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.DiscoveryResponse = JsonConvert.DeserializeObject<List<DiscoveryResponse>>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
+                {                    
+                    var obj = JsonConvert.DeserializeObject<List<PingEndpoints>>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    response.PingEndpoints = obj;
                 }
-                
-                return response;
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else
+            {
+                throw new SDKException("unknown status code received", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
             return response;
         }
+
         
     }
 }

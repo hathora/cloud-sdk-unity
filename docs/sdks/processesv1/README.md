@@ -34,11 +34,13 @@ GetProcessInfoDeprecatedRequest req = new GetProcessInfoDeprecatedRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
 };
 
+
 using(var res = await sdk.ProcessesV1.GetProcessInfoDeprecatedAsync(req))
 {
-
     // handle response
 }
+
+
 ```
 
 ### Parameters
@@ -50,8 +52,13 @@ using(var res = await sdk.ProcessesV1.GetProcessInfoDeprecatedAsync(req))
 
 ### Response
 
-**[GetProcessInfoDeprecatedResponse](../../models/operations/GetProcessInfoDeprecatedResponse.md)**
+**[GetProcessInfoDeprecatedResponse](../../Models/Operations/GetProcessInfoDeprecatedResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,500                             | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## ~~GetRunningProcesses~~
 
@@ -74,11 +81,13 @@ var sdk = new HathoraCloudSDK(
 
 GetRunningProcessesRequest req = new GetRunningProcessesRequest() {};
 
+
 using(var res = await sdk.ProcessesV1.GetRunningProcessesAsync(req))
 {
-
     // handle response
 }
+
+
 ```
 
 ### Parameters
@@ -90,8 +99,13 @@ using(var res = await sdk.ProcessesV1.GetRunningProcessesAsync(req))
 
 ### Response
 
-**[GetRunningProcessesResponse](../../models/operations/GetRunningProcessesResponse.md)**
+**[GetRunningProcessesResponse](../../Models/Operations/GetRunningProcessesResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401,404                                 | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## ~~GetStoppedProcesses~~
 
@@ -114,11 +128,13 @@ var sdk = new HathoraCloudSDK(
 
 GetStoppedProcessesRequest req = new GetStoppedProcessesRequest() {};
 
+
 using(var res = await sdk.ProcessesV1.GetStoppedProcessesAsync(req))
 {
-
     // handle response
 }
+
+
 ```
 
 ### Parameters
@@ -130,5 +146,10 @@ using(var res = await sdk.ProcessesV1.GetStoppedProcessesAsync(req))
 
 ### Response
 
-**[GetStoppedProcessesResponse](../../models/operations/GetStoppedProcessesResponse.md)**
+**[GetStoppedProcessesResponse](../../Models/Operations/GetStoppedProcessesResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401,404                                 | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |

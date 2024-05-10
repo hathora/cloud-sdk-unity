@@ -21,12 +21,10 @@ namespace HathoraCloud.Models.Operations
 
         [SerializeField]
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public HathoraCloud.Models.Shared.LoginGoogleRequest LoginGoogleRequestValue { get; set; } = default!;
-        
+        public GoogleIdTokenObject GoogleIdTokenObject { get; set; } = default!;
 
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
         public string? AppId { get; set; }
-        
     }
 }

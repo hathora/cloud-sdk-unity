@@ -21,6 +21,5 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("returnUrl")]
         public string ReturnUrl { get; set; } = default!;
-        
     }
 }
