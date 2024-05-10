@@ -23,8 +23,7 @@ using HathoraCloud;
 using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 CreateLobbyRequest req = new CreateLobbyRequest() {
     CreateLobbyV3Params = new CreateLobbyV3Params() {
@@ -36,13 +35,17 @@ CreateLobbyRequest req = new CreateLobbyRequest() {
     ShortCode = "LFG4",
 };
 
-using(var res = await sdk.LobbyV3SDK.CreateLobbyAsync(new CreateLobbySecurity() {
-    PlayerAuth = "<YOUR_BEARER_TOKEN_HERE>",
-}, req))
-{
 
+using(var res = await sdk.LobbyV3SDK.CreateLobbyAsync(
+    new CreateLobbySecurity() {
+    PlayerAuth = "<YOUR_BEARER_TOKEN_HERE>",
+},
+    req))
+{
     // handle response
 }
+
+
 ```
 
 ### Parameters
@@ -55,8 +58,13 @@ using(var res = await sdk.LobbyV3SDK.CreateLobbyAsync(new CreateLobbySecurity() 
 
 ### Response
 
-**[CreateLobbyResponse](../../models/operations/CreateLobbyResponse.md)**
+**[CreateLobbyResponse](../../Models/Operations/CreateLobbyResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 400,401,402,404,422,429,500             | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## GetLobbyInfoByRoomId
 
@@ -69,21 +77,19 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
-        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 GetLobbyInfoByRoomIdRequest req = new GetLobbyInfoByRoomIdRequest() {
     RoomId = "2swovpy1fnunu",
 };
 
+
 using(var res = await sdk.LobbyV3SDK.GetLobbyInfoByRoomIdAsync(req))
 {
-
     // handle response
 }
+
+
 ```
 
 ### Parameters
@@ -95,8 +101,13 @@ using(var res = await sdk.LobbyV3SDK.GetLobbyInfoByRoomIdAsync(req))
 
 ### Response
 
-**[GetLobbyInfoByRoomIdResponse](../../models/operations/GetLobbyInfoByRoomIdResponse.md)**
+**[GetLobbyInfoByRoomIdResponse](../../Models/Operations/GetLobbyInfoByRoomIdResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 404                                     | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## GetLobbyInfoByShortCode
 
@@ -109,21 +120,19 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
-        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 GetLobbyInfoByShortCodeRequest req = new GetLobbyInfoByShortCodeRequest() {
     ShortCode = "LFG4",
 };
 
+
 using(var res = await sdk.LobbyV3SDK.GetLobbyInfoByShortCodeAsync(req))
 {
-
     // handle response
 }
+
+
 ```
 
 ### Parameters
@@ -135,8 +144,13 @@ using(var res = await sdk.LobbyV3SDK.GetLobbyInfoByShortCodeAsync(req))
 
 ### Response
 
-**[GetLobbyInfoByShortCodeResponse](../../models/operations/GetLobbyInfoByShortCodeResponse.md)**
+**[GetLobbyInfoByShortCodeResponse](../../Models/Operations/GetLobbyInfoByShortCodeResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 404                                     | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## ListActivePublicLobbies
 
@@ -149,19 +163,17 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
-        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 ListActivePublicLobbiesRequest req = new ListActivePublicLobbiesRequest() {};
 
+
 using(var res = await sdk.LobbyV3SDK.ListActivePublicLobbiesAsync(req))
 {
-
     // handle response
 }
+
+
 ```
 
 ### Parameters
@@ -173,5 +185,9 @@ using(var res = await sdk.LobbyV3SDK.ListActivePublicLobbiesAsync(req))
 
 ### Response
 
-**[ListActivePublicLobbiesResponse](../../models/operations/ListActivePublicLobbiesResponse.md)**
+**[ListActivePublicLobbiesResponse](../../Models/Operations/ListActivePublicLobbiesResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |

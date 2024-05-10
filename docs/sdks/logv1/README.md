@@ -33,11 +33,13 @@ DownloadLogForProcessRequest req = new DownloadLogForProcessRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
 };
 
+
 using(var res = await sdk.LogV1.DownloadLogForProcessAsync(req))
 {
-
     // handle response
 }
+
+
 ```
 
 ### Parameters
@@ -49,8 +51,13 @@ using(var res = await sdk.LogV1.DownloadLogForProcessAsync(req))
 
 ### Response
 
-**[DownloadLogForProcessResponse](../../models/operations/DownloadLogForProcessResponse.md)**
+**[DownloadLogForProcessResponse](../../Models/Operations/DownloadLogForProcessResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 400,401,404,410                         | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## ~~GetLogsForApp~~
 
@@ -75,11 +82,13 @@ GetLogsForAppRequest req = new GetLogsForAppRequest() {
     TailLines = 100,
 };
 
+
 using(var res = await sdk.LogV1.GetLogsForAppAsync(req))
 {
-
     // handle response
 }
+
+
 ```
 
 ### Parameters
@@ -91,8 +100,13 @@ using(var res = await sdk.LogV1.GetLogsForAppAsync(req))
 
 ### Response
 
-**[GetLogsForAppResponse](../../models/operations/GetLogsForAppResponse.md)**
+**[GetLogsForAppResponse](../../Models/Operations/GetLogsForAppResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401,404                                 | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## ~~GetLogsForDeployment~~
 
@@ -118,11 +132,13 @@ GetLogsForDeploymentRequest req = new GetLogsForDeploymentRequest() {
     TailLines = 100,
 };
 
+
 using(var res = await sdk.LogV1.GetLogsForDeploymentAsync(req))
 {
-
     // handle response
 }
+
+
 ```
 
 ### Parameters
@@ -134,8 +150,13 @@ using(var res = await sdk.LogV1.GetLogsForDeploymentAsync(req))
 
 ### Response
 
-**[GetLogsForDeploymentResponse](../../models/operations/GetLogsForDeploymentResponse.md)**
+**[GetLogsForDeploymentResponse](../../Models/Operations/GetLogsForDeploymentResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401,404                                 | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## GetLogsForProcess
 
@@ -159,11 +180,13 @@ GetLogsForProcessRequest req = new GetLogsForProcessRequest() {
     TailLines = 100,
 };
 
+
 using(var res = await sdk.LogV1.GetLogsForProcessAsync(req))
 {
-
     // handle response
 }
+
+
 ```
 
 ### Parameters
@@ -175,5 +198,10 @@ using(var res = await sdk.LogV1.GetLogsForProcessAsync(req))
 
 ### Response
 
-**[GetLogsForProcessResponse](../../models/operations/GetLogsForProcessResponse.md)**
+**[GetLogsForProcessResponse](../../Models/Operations/GetLogsForProcessResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 400,401,404,410,500                     | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |

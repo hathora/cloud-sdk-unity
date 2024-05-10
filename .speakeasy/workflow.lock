@@ -1,0 +1,17 @@
+speakeasyVersion: 1.285.3
+sources: {}
+targets: {}
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        my-source:
+            inputs:
+                - location: https://hathora.dev/swagger.json
+            overlays:
+                - location: overlay.yaml
+    targets:
+        cloud-sdk-unity:
+            target: unity
+            source: my-source
+            output: .

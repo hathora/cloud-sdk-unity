@@ -27,7 +27,6 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("processId")]
         public string ProcessId { get; set; } = default!;
-        
 
         /// <summary>
         /// System generated unique identifier to an allocated instance of a room.
@@ -35,16 +34,13 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("roomAllocationId")]
         public string RoomAllocationId { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("scheduledAt")]
         public DateTime ScheduledAt { get; set; } = default!;
-        
 
         [SerializeField]
-        [JsonProperty("unscheduledAt")]
-        public DateTime UnscheduledAt { get; set; } = default!;
-        
+        [JsonProperty("unscheduledAt", NullValueHandling = NullValueHandling.Include)]
+        public DateTime? UnscheduledAt { get; set; } = default!;
     }
 }

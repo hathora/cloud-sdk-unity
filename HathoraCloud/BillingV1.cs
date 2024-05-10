@@ -10,15 +10,20 @@
 #nullable enable
 namespace HathoraCloud
 {
+    using HathoraCloud.Models.Errors;
     using HathoraCloud.Models.Operations;
     using HathoraCloud.Models.Shared;
     using HathoraCloud.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
+    using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using System;
     using UnityEngine.Networking;
 
+    /// <summary>
+    ///  
+    /// </summary>
     public interface IBillingV1
     {
         Task<GetBalanceResponse> GetBalanceAsync();
@@ -27,255 +32,363 @@ namespace HathoraCloud
         Task<InitStripeCustomerPortalUrlResponse> InitStripeCustomerPortalUrlAsync(CustomerPortalUrl request);
     }
 
+    /// <summary>
+    ///  
+    /// </summary>
     public class BillingV1: IBillingV1
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.28.4";
-        private const string _sdkGenVersion = "2.239.0";
+        private const string _sdkVersion = "0.29.0";
+        private const string _sdkGenVersion = "2.326.3";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.28.4 2.239.0 0.0.1 hathora-cloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.29.0 2.326.3 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
+        private Func<Security>? _securitySource;
 
-        public BillingV1(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public BillingV1(ISpeakeasyHttpClient defaultClient, Func<Security>? securitySource, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
-            _securityClient = securityClient;
+            _securitySource = securitySource;
             _serverUrl = serverUrl;
             SDKConfiguration = config;
         }
         
 
+        
         public async Task<GetBalanceResponse> GetBalanceAsync()
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/billing/v1/balance";
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            
-            var client = _securityClient;
-            
+
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
+            int? errorCode = null;
+            string? contentType = null;
             switch (httpResponse.result)
             {
                 case UnityWebRequest.Result.ConnectionError:
                 case UnityWebRequest.Result.DataProcessingError:
                 case UnityWebRequest.Result.ProtocolError:
-                    var errorMsg = httpResponse.error;
+                    errorCode = (int)httpRequest.responseCode;
+                    contentType = httpRequest.GetResponseHeader("Content-Type");
                     httpRequest.Dispose();
-                    throw new Exception(errorMsg);
+                    break;
+                case UnityWebRequest.Result.Success:
+                    Console.WriteLine("Success");
+                    break;
             }
 
-            var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+            if (contentType == null)
+            {
+                contentType = httpResponse.GetResponseHeader("Content-Type") ?? "application/octet-stream";
+            }
+            int httpCode = errorCode ?? (int)httpResponse.responseCode;
             var response = new GetBalanceResponse
             {
-                StatusCode = (int)httpResponse.responseCode,
+                StatusCode = httpCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
-            if((response.StatusCode == 200))
+            if (httpCode == 200)
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.Number = JsonConvert.DeserializeObject<double>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
+                {                    
+                    var obj = JsonConvert.DeserializeObject<double>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    response.Number = obj;
                 }
-                
-                return response;
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
             }
-            if((response.StatusCode == 404))
+            else if (new List<int>{401, 404}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.ApiError = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
                 }
-                
-                return response;
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else
+            {
+                throw new SDKException("unknown status code received", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
             return response;
         }
+
         
 
+        
         public async Task<GetInvoicesResponse> GetInvoicesAsync()
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/billing/v1/invoices";
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            
-            var client = _securityClient;
-            
+
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
+            int? errorCode = null;
+            string? contentType = null;
             switch (httpResponse.result)
             {
                 case UnityWebRequest.Result.ConnectionError:
                 case UnityWebRequest.Result.DataProcessingError:
                 case UnityWebRequest.Result.ProtocolError:
-                    var errorMsg = httpResponse.error;
+                    errorCode = (int)httpRequest.responseCode;
+                    contentType = httpRequest.GetResponseHeader("Content-Type");
                     httpRequest.Dispose();
-                    throw new Exception(errorMsg);
+                    break;
+                case UnityWebRequest.Result.Success:
+                    Console.WriteLine("Success");
+                    break;
             }
 
-            var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+            if (contentType == null)
+            {
+                contentType = httpResponse.GetResponseHeader("Content-Type") ?? "application/octet-stream";
+            }
+            int httpCode = errorCode ?? (int)httpResponse.responseCode;
             var response = new GetInvoicesResponse
             {
-                StatusCode = (int)httpResponse.responseCode,
+                StatusCode = httpCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
-            if((response.StatusCode == 200))
+            if (httpCode == 200)
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.Classes = JsonConvert.DeserializeObject<List<Invoice>>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
+                {                    
+                    var obj = JsonConvert.DeserializeObject<List<Invoice>>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    response.Classes = obj;
                 }
-                
-                return response;
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
             }
-            if((response.StatusCode == 404))
+            else if (new List<int>{401, 404}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.ApiError = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
                 }
-                
-                return response;
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else
+            {
+                throw new SDKException("unknown status code received", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
             return response;
         }
+
         
 
+        
         public async Task<GetPaymentMethodResponse> GetPaymentMethodAsync()
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/billing/v1/paymentmethod";
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            
-            var client = _securityClient;
-            
+
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
+            int? errorCode = null;
+            string? contentType = null;
             switch (httpResponse.result)
             {
                 case UnityWebRequest.Result.ConnectionError:
                 case UnityWebRequest.Result.DataProcessingError:
                 case UnityWebRequest.Result.ProtocolError:
-                    var errorMsg = httpResponse.error;
+                    errorCode = (int)httpRequest.responseCode;
+                    contentType = httpRequest.GetResponseHeader("Content-Type");
                     httpRequest.Dispose();
-                    throw new Exception(errorMsg);
+                    break;
+                case UnityWebRequest.Result.Success:
+                    Console.WriteLine("Success");
+                    break;
             }
 
-            var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+            if (contentType == null)
+            {
+                contentType = httpResponse.GetResponseHeader("Content-Type") ?? "application/octet-stream";
+            }
+            int httpCode = errorCode ?? (int)httpResponse.responseCode;
             var response = new GetPaymentMethodResponse
             {
-                StatusCode = (int)httpResponse.responseCode,
+                StatusCode = httpCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
-            if((response.StatusCode == 200))
+            if (httpCode == 200)
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.PaymentMethod = JsonConvert.DeserializeObject<PaymentMethod>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
+                {                    
+                    var obj = JsonConvert.DeserializeObject<PaymentMethod>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    response.PaymentMethod = obj;
                 }
-                
-                return response;
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
             }
-            if((response.StatusCode == 404) || (response.StatusCode == 500))
+            else if (new List<int>{401, 404, 500}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.ApiError = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
                 }
-                
-                return response;
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else
+            {
+                throw new SDKException("unknown status code received", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
             return response;
         }
+
         
 
+        
         public async Task<InitStripeCustomerPortalUrlResponse> InitStripeCustomerPortalUrlAsync(CustomerPortalUrl request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/billing/v1/customerportalurl";
-            
+
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbPOST);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
-            
-            var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json");
-            if (serializedBody == null) 
-            {
-                throw new ArgumentNullException("request body is required");
-            }
-            else
+
+            var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json", false, false);
+            if (serializedBody != null)
             {
                 httpRequest.uploadHandler = new UploadHandlerRaw(serializedBody.Body);
                 httpRequest.SetRequestHeader("Content-Type", serializedBody.ContentType);
             }
-            
-            var client = _securityClient;
-            
+
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
+            int? errorCode = null;
+            string? contentType = null;
             switch (httpResponse.result)
             {
                 case UnityWebRequest.Result.ConnectionError:
                 case UnityWebRequest.Result.DataProcessingError:
                 case UnityWebRequest.Result.ProtocolError:
-                    var errorMsg = httpResponse.error;
+                    errorCode = (int)httpRequest.responseCode;
+                    contentType = httpRequest.GetResponseHeader("Content-Type");
                     httpRequest.Dispose();
-                    throw new Exception(errorMsg);
+                    break;
+                case UnityWebRequest.Result.Success:
+                    Console.WriteLine("Success");
+                    break;
             }
 
-            var contentType = httpResponse.GetResponseHeader("Content-Type");
-            
+            if (contentType == null)
+            {
+                contentType = httpResponse.GetResponseHeader("Content-Type") ?? "application/octet-stream";
+            }
+            int httpCode = errorCode ?? (int)httpResponse.responseCode;
             var response = new InitStripeCustomerPortalUrlResponse
             {
-                StatusCode = (int)httpResponse.responseCode,
+                StatusCode = httpCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
-            if((response.StatusCode == 200))
+            if (httpCode == 200)
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.Res = httpResponse.downloadHandler.text;
+                {                    
+                    var obj = JsonConvert.DeserializeObject<string>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    response.String = obj;
                 }
-                
-                return response;
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
             }
-            if((response.StatusCode == 404))
+            else if (new List<int>{401, 404, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {
-                    response.ApiError = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new DateOnlyConverter(), new EnumSerializer() }});
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
                 }
-                
-                return response;
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else
+            {
+                throw new SDKException("unknown status code received", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
             return response;
         }
+
         
     }
 }

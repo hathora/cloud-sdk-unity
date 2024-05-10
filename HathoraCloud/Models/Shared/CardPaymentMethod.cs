@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
@@ -21,11 +22,9 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("brand")]
         public CardBrand Brand { get; set; } = default!;
-        
 
         [SerializeField]
         [JsonProperty("last4")]
         public string Last4 { get; set; } = default!;
-        
     }
 }

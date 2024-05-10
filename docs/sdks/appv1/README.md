@@ -31,20 +31,16 @@ var sdk = new HathoraCloudSDK(
 
 AppConfig req = new AppConfig() {
     AppName = "minecraft",
-    AuthConfiguration = new AuthConfiguration() {
-        Anonymous = new RecordStringNever() {},
-        Google = new Google() {
-            ClientId = "string",
-        },
-        Nickname = new RecordStringNever() {},
-    },
+    AuthConfiguration = new AuthConfiguration() {},
 };
+
 
 using(var res = await sdk.AppV1.CreateAppAsync(req))
 {
-
     // handle response
 }
+
+
 ```
 
 ### Parameters
@@ -56,8 +52,13 @@ using(var res = await sdk.AppV1.CreateAppAsync(req))
 
 ### Response
 
-**[CreateAppResponse](../../models/operations/CreateAppResponse.md)**
+**[CreateAppResponse](../../Models/Operations/CreateAppResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401,422,429,500                         | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## DeleteApp
 
@@ -78,11 +79,13 @@ var sdk = new HathoraCloudSDK(
 
 DeleteAppRequest req = new DeleteAppRequest() {};
 
+
 using(var res = await sdk.AppV1.DeleteAppAsync(req))
 {
-
     // handle response
 }
+
+
 ```
 
 ### Parameters
@@ -94,8 +97,13 @@ using(var res = await sdk.AppV1.DeleteAppAsync(req))
 
 ### Response
 
-**[DeleteAppResponse](../../models/operations/DeleteAppResponse.md)**
+**[DeleteAppResponse](../../Models/Operations/DeleteAppResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,429,500                         | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## GetAppInfo
 
@@ -116,11 +124,13 @@ var sdk = new HathoraCloudSDK(
 
 GetAppInfoRequest req = new GetAppInfoRequest() {};
 
+
 using(var res = await sdk.AppV1.GetAppInfoAsync(req))
 {
-
     // handle response
 }
+
+
 ```
 
 ### Parameters
@@ -132,8 +142,13 @@ using(var res = await sdk.AppV1.GetAppInfoAsync(req))
 
 ### Response
 
-**[GetAppInfoResponse](../../models/operations/GetAppInfoResponse.md)**
+**[GetAppInfoResponse](../../Models/Operations/GetAppInfoResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401,404                                 | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## GetApps
 
@@ -151,18 +166,24 @@ var sdk = new HathoraCloudSDK(
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
+
 using(var res = await sdk.AppV1.GetAppsAsync())
 {
-
     // handle response
 }
+
+
 ```
 
 
 ### Response
 
-**[GetAppsResponse](../../models/operations/GetAppsResponse.md)**
+**[GetAppsResponse](../../Models/Operations/GetAppsResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## UpdateApp
 
@@ -184,21 +205,17 @@ var sdk = new HathoraCloudSDK(
 UpdateAppRequest req = new UpdateAppRequest() {
     AppConfig = new AppConfig() {
         AppName = "minecraft",
-        AuthConfiguration = new AuthConfiguration() {
-            Anonymous = new RecordStringNever() {},
-            Google = new Google() {
-                ClientId = "string",
-            },
-            Nickname = new RecordStringNever() {},
-        },
+        AuthConfiguration = new AuthConfiguration() {},
     },
 };
 
+
 using(var res = await sdk.AppV1.UpdateAppAsync(req))
 {
-
     // handle response
 }
+
+
 ```
 
 ### Parameters
@@ -210,5 +227,10 @@ using(var res = await sdk.AppV1.UpdateAppAsync(req))
 
 ### Response
 
-**[UpdateAppResponse](../../models/operations/UpdateAppResponse.md)**
+**[UpdateAppResponse](../../Models/Operations/UpdateAppResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,422,429,500                     | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |

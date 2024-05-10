@@ -3,17 +3,20 @@
 
 ## Overview
 
-Operations that allow you configure and manage an application's [build](https://hathora.dev/docs/concepts/hathora-entities#build) at runtime.
+Deprecated. Use [DeploymentV2](https://hathora.dev/api#tag/DeploymentV2).
 
 ### Available Operations
 
-* [CreateDeployment](#createdeployment) - Create a new [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment). Creating a new deployment means all new rooms created will use the latest deployment configuration, but existing games in progress will not be affected.
-* [GetDeploymentInfo](#getdeploymentinfo) - Get details for a [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment).
-* [GetDeployments](#getdeployments) - Returns an array of [deployments](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application).
+* [~~CreateDeploymentDeprecated~~](#createdeploymentdeprecated) - Create a new [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment). Creating a new deployment means all new rooms created will use the latest deployment configuration, but existing games in progress will not be affected. :warning: **Deprecated**
+* [~~GetDeploymentInfoDeprecated~~](#getdeploymentinfodeprecated) - Get details for a [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment). :warning: **Deprecated**
+* [~~GetDeploymentsDeprecated~~](#getdeploymentsdeprecated) - Returns an array of [deployments](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). :warning: **Deprecated**
+* [~~GetLatestDeploymentDeprecated~~](#getlatestdeploymentdeprecated) - Get the latest [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). :warning: **Deprecated**
 
-## CreateDeployment
+## ~~CreateDeploymentDeprecated~~
 
 Create a new [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment). Creating a new deployment means all new rooms created will use the latest deployment configuration, but existing games in progress will not be affected.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -29,7 +32,7 @@ var sdk = new HathoraCloudSDK(
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-CreateDeploymentRequest req = new CreateDeploymentRequest() {
+CreateDeploymentDeprecatedRequest req = new CreateDeploymentDeprecatedRequest() {
     DeploymentConfig = new DeploymentConfig() {
         AdditionalContainerPorts = new List<ContainerPort>() {
             new ContainerPort() {
@@ -47,34 +50,43 @@ CreateDeploymentRequest req = new CreateDeploymentRequest() {
         },
         PlanName = PlanName.Tiny,
         RoomsPerProcess = 3,
-        TransportType = TransportType.Tcp,
+        TransportType = TransportType.Tls,
     },
     BuildId = 1,
 };
 
-using(var res = await sdk.DeploymentV1.CreateDeploymentAsync(req))
-{
 
+using(var res = await sdk.DeploymentV1.CreateDeploymentDeprecatedAsync(req))
+{
     // handle response
 }
+
+
 ```
 
 ### Parameters
 
-| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `request`                                                                     | [CreateDeploymentRequest](../../Models/Operations/CreateDeploymentRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `request`                                                                                         | [CreateDeploymentDeprecatedRequest](../../Models/Operations/CreateDeploymentDeprecatedRequest.md) | :heavy_check_mark:                                                                                | The request object to use for the request.                                                        |
 
 
 ### Response
 
-**[CreateDeploymentResponse](../../models/operations/CreateDeploymentResponse.md)**
+**[CreateDeploymentDeprecatedResponse](../../Models/Operations/CreateDeploymentDeprecatedResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 400,401,404,429,500                     | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
-## GetDeploymentInfo
+## ~~GetDeploymentInfoDeprecated~~
 
 Get details for a [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment).
 
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+
 ### Example Usage
 
 ```csharp
@@ -88,32 +100,41 @@ var sdk = new HathoraCloudSDK(
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-GetDeploymentInfoRequest req = new GetDeploymentInfoRequest() {
+GetDeploymentInfoDeprecatedRequest req = new GetDeploymentInfoDeprecatedRequest() {
     DeploymentId = 1,
 };
 
-using(var res = await sdk.DeploymentV1.GetDeploymentInfoAsync(req))
-{
 
+using(var res = await sdk.DeploymentV1.GetDeploymentInfoDeprecatedAsync(req))
+{
     // handle response
 }
+
+
 ```
 
 ### Parameters
 
-| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `request`                                                                       | [GetDeploymentInfoRequest](../../Models/Operations/GetDeploymentInfoRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [GetDeploymentInfoDeprecatedRequest](../../Models/Operations/GetDeploymentInfoDeprecatedRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
 
 
 ### Response
 
-**[GetDeploymentInfoResponse](../../models/operations/GetDeploymentInfoResponse.md)**
+**[GetDeploymentInfoDeprecatedResponse](../../Models/Operations/GetDeploymentInfoDeprecatedResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401,404                                 | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
-## GetDeployments
+## ~~GetDeploymentsDeprecated~~
 
 Returns an array of [deployments](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application).
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -128,23 +149,77 @@ var sdk = new HathoraCloudSDK(
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-GetDeploymentsRequest req = new GetDeploymentsRequest() {};
+GetDeploymentsDeprecatedRequest req = new GetDeploymentsDeprecatedRequest() {};
 
-using(var res = await sdk.DeploymentV1.GetDeploymentsAsync(req))
+
+using(var res = await sdk.DeploymentV1.GetDeploymentsDeprecatedAsync(req))
 {
-
     // handle response
 }
+
+
 ```
 
 ### Parameters
 
-| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `request`                                                                 | [GetDeploymentsRequest](../../Models/Operations/GetDeploymentsRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `request`                                                                                     | [GetDeploymentsDeprecatedRequest](../../Models/Operations/GetDeploymentsDeprecatedRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
 
 ### Response
 
-**[GetDeploymentsResponse](../../models/operations/GetDeploymentsResponse.md)**
+**[GetDeploymentsDeprecatedResponse](../../Models/Operations/GetDeploymentsDeprecatedResponse.md)**
+### Errors
 
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401,404                                 | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
+
+## ~~GetLatestDeploymentDeprecated~~
+
+Get the latest [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application).
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+
+### Example Usage
+
+```csharp
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
+
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+GetLatestDeploymentDeprecatedRequest req = new GetLatestDeploymentDeprecatedRequest() {};
+
+
+using(var res = await sdk.DeploymentV1.GetLatestDeploymentDeprecatedAsync(req))
+{
+    // handle response
+}
+
+
+```
+
+### Parameters
+
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                               | [GetLatestDeploymentDeprecatedRequest](../../Models/Operations/GetLatestDeploymentDeprecatedRequest.md) | :heavy_check_mark:                                                                                      | The request object to use for the request.                                                              |
+
+
+### Response
+
+**[GetLatestDeploymentDeprecatedResponse](../../Models/Operations/GetLatestDeploymentDeprecatedResponse.md)**
+### Errors
+
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401,404                                 | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |

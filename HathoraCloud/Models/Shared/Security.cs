@@ -21,6 +21,5 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [SpeakeasyMetadata("security:scheme=true,type=http,subType=bearer,name=Authorization")]
         public string? HathoraDevToken { get; set; }
-        
     }
 }

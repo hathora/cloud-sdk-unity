@@ -21,12 +21,10 @@ namespace HathoraCloud.Models.Operations
 
         [SerializeField]
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public HathoraCloud.Models.Shared.LoginNicknameRequest LoginNicknameRequestValue { get; set; } = default!;
-        
+        public NicknameObject NicknameObject { get; set; } = default!;
 
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
         public string? AppId { get; set; }
-        
     }
 }

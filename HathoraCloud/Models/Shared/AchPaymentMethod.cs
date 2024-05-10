@@ -21,11 +21,9 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("bankName")]
         public string? BankName { get; set; }
-        
 
         [SerializeField]
         [JsonProperty("last4")]
         public string? Last4 { get; set; }
-        
     }
 }

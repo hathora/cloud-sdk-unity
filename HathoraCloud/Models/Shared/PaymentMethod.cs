@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
@@ -24,16 +25,13 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("ach")]
         public AchPaymentMethod? Ach { get; set; }
-        
 
         [SerializeField]
         [JsonProperty("card")]
         public CardPaymentMethod? Card { get; set; }
-        
 
         [SerializeField]
         [JsonProperty("link")]
         public LinkPaymentMethod? Link { get; set; }
-        
     }
 }
