@@ -1,6 +1,19 @@
-speakeasyVersion: 1.285.3
-sources: {}
-targets: {}
+speakeasyVersion: 1.300.1
+sources:
+    my-source:
+        sourceNamespace: my-source
+        sourceRevisionDigest: sha256:d78a01c8bf992a56542769d0c0d3afa21f200ec983b31492ce8a53865696c7ee
+        sourceBlobDigest: sha256:9570839388ac06849e1e2c3e3690a300858bc10e1cca8ccabd324da4d491c04e
+        tags:
+            - latest
+            - main
+targets:
+    cloud-sdk-unity:
+        source: my-source
+        sourceNamespace: my-source
+        sourceRevisionDigest: sha256:d78a01c8bf992a56542769d0c0d3afa21f200ec983b31492ce8a53865696c7ee
+        sourceBlobDigest: sha256:9570839388ac06849e1e2c3e3690a300858bc10e1cca8ccabd324da4d491c04e
+        outLocation: .
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -10,6 +23,8 @@ workflow:
                 - location: https://hathora.dev/swagger.json
             overlays:
                 - location: overlay.yaml
+            registry:
+                location: registry.speakeasyapi.dev/hathora/hathora/my-source
     targets:
         cloud-sdk-unity:
             target: unity
