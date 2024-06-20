@@ -41,14 +41,14 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("createdBy")]
-        public string CreatedBy { get; set; } = default!;
+        public CreatedBy CreatedBy { get; set; } = default!;
 
         /// <summary>
         /// User input to initialize the game state. Object must be smaller than 64KB.
         /// </summary>
         [SerializeField]
         [JsonProperty("initialConfig")]
-        public LobbyInitialConfig InitialConfig { get; set; } = default!;
+        public object InitialConfig { get; set; } = default!;
 
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [SerializeField]
@@ -79,7 +79,7 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("state")]
-        public State? State { get; set; }
+        public object? State { get; set; }
 
         /// <summary>
         /// Types of lobbies a player can create.<br/>

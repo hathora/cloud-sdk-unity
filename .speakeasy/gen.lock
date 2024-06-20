@@ -1,47 +1,48 @@
 lockVersion: 2.0.0
 id: bdb34d30-f36e-4c13-bfde-42babcb240db
 management:
-  docChecksum: fcb959b0773dc9aadc1dfb0c7c60a487
+  docChecksum: 749bb34eb19c578466425452227efaff
   docVersion: 0.0.1
-  speakeasyVersion: 1.285.3
-  generationVersion: 2.326.3
-  releaseVersion: 0.29.0
-  configChecksum: 68d0329b2ae95c369fcf10ed1f225cfa
+  speakeasyVersion: 1.310.0
+  generationVersion: 2.347.4
+  releaseVersion: 0.30.0
+  configChecksum: f3f563130b172fcc9145ba334a9469c4
   repoURL: https://github.com/hathora/cloud-sdk-unity.git
   repoSubDirectory: .
   published: true
 features:
   unity:
-    core: 1.7.2
+    core: 1.7.4
     deprecations: 0.0.2
     downloadStreams: 0.0.2
     globalSecurity: 0.2.4
     globalServerURLs: 0.0.4
     globals: 0.1.1
+    groups: 0.0.2
     methodSecurity: 0.1.1
-    unions: 0.0.2
+    unions: 0.0.3
 generatedFiles:
-  - HathoraCloud/AppV1.cs
+  - HathoraCloud/AppsV1.cs
   - HathoraCloud/AuthV1.cs
   - HathoraCloud/BillingV1.cs
-  - HathoraCloud/BuildV1.cs
-  - HathoraCloud/BuildV2.cs
-  - HathoraCloud/DeploymentV1.cs
-  - HathoraCloud/DeploymentV2.cs
+  - HathoraCloud/BuildsV1.cs
+  - HathoraCloud/BuildsV2.cs
+  - HathoraCloud/DeploymentsV1.cs
+  - HathoraCloud/DeploymentsV2.cs
   - HathoraCloud/DiscoveryV1.cs
   - HathoraCloud/DiscoveryV2.cs
-  - HathoraCloud/LobbyV1.cs
-  - HathoraCloud/LobbyV2.cs
-  - HathoraCloud/LobbyV3SDK.cs
-  - HathoraCloud/LogV1.cs
+  - HathoraCloud/LobbiesV1.cs
+  - HathoraCloud/LobbiesV2.cs
+  - HathoraCloud/LobbiesV3.cs
+  - HathoraCloud/LogsV1.cs
   - HathoraCloud/ManagementV1.cs
   - HathoraCloud/MetricsV1.cs
   - HathoraCloud/OrganizationsV1.cs
   - HathoraCloud/ProcessesV1.cs
   - HathoraCloud/ProcessesV2.cs
-  - HathoraCloud/RoomV1.cs
-  - HathoraCloud/RoomV2.cs
-  - HathoraCloud/OrgTokensV1.cs
+  - HathoraCloud/RoomsV1.cs
+  - HathoraCloud/RoomsV2.cs
+  - HathoraCloud/TokensV1.cs
   - HathoraCloud/HathoraCloudSDK.cs
   - global.json
   - HathoraCloud.sln
@@ -96,6 +97,8 @@ generatedFiles:
   - HathoraCloud/Models/Operations/RunBuildDeprecatedResponse.cs
   - HathoraCloud/Models/Operations/CreateBuildRequest.cs
   - HathoraCloud/Models/Operations/CreateBuildResponse.cs
+  - HathoraCloud/Models/Operations/CreateBuildWithUploadUrlRequest.cs
+  - HathoraCloud/Models/Operations/CreateBuildWithUploadUrlResponse.cs
   - HathoraCloud/Models/Operations/DeleteBuildRequest.cs
   - HathoraCloud/Models/Operations/DeleteBuildResponse.cs
   - HathoraCloud/Models/Operations/GetBuildInfoRequest.cs
@@ -175,8 +178,11 @@ generatedFiles:
   - HathoraCloud/Models/Operations/GetMetricsResponse.cs
   - HathoraCloud/Models/Operations/AcceptInviteRequest.cs
   - HathoraCloud/Models/Operations/AcceptInviteResponse.cs
+  - HathoraCloud/Models/Operations/GetOrgMembersRequest.cs
+  - HathoraCloud/Models/Operations/GetOrgMembersResponse.cs
   - HathoraCloud/Models/Operations/GetOrgPendingInvitesRequest.cs
   - HathoraCloud/Models/Operations/GetOrgPendingInvitesResponse.cs
+  - HathoraCloud/Models/Operations/GetOrgsResponse.cs
   - HathoraCloud/Models/Operations/GetUserPendingInvitesResponse.cs
   - HathoraCloud/Models/Operations/InviteUserRequest.cs
   - HathoraCloud/Models/Operations/InviteUserResponse.cs
@@ -260,6 +266,9 @@ generatedFiles:
   - HathoraCloud/Models/Shared/AchPaymentMethod.cs
   - HathoraCloud/Models/Shared/CustomerPortalUrl.cs
   - HathoraCloud/Models/Shared/CreateBuildParams.cs
+  - HathoraCloud/Models/Shared/BuildWithUploadUrlRegionalContainerTags.cs
+  - HathoraCloud/Models/Shared/UploadBodyParams.cs
+  - HathoraCloud/Models/Shared/BuildWithUploadUrl.cs
   - HathoraCloud/Models/Shared/Env.cs
   - HathoraCloud/Models/Shared/DeploymentTransportType.cs
   - HathoraCloud/Models/Shared/Deployment.cs
@@ -271,13 +280,12 @@ generatedFiles:
   - HathoraCloud/Models/Shared/DeploymentConfigV2Env.cs
   - HathoraCloud/Models/Shared/DeploymentConfigV2.cs
   - HathoraCloud/Models/Shared/PingEndpoints.cs
-  - HathoraCloud/Models/Shared/State.cs
+  - HathoraCloud/Models/Shared/CreatedBy.cs
   - HathoraCloud/Models/Shared/Lobby.cs
   - HathoraCloud/Models/Shared/LobbyVisibility.cs
-  - HathoraCloud/Models/Shared/LobbyInitialConfig.cs
   - HathoraCloud/Models/Shared/CreateLobbyParams.cs
-  - HathoraCloud/Models/Shared/SetLobbyStateParamsState.cs
   - HathoraCloud/Models/Shared/SetLobbyStateParams.cs
+  - HathoraCloud/Models/Shared/LobbyV3CreatedBy.cs
   - HathoraCloud/Models/Shared/LobbyV3.cs
   - HathoraCloud/Models/Shared/CreateLobbyV3Params.cs
   - HathoraCloud/Models/Shared/VerificationEmailSuccess.cs
@@ -285,6 +293,8 @@ generatedFiles:
   - HathoraCloud/Models/Shared/MetricsData.cs
   - HathoraCloud/Models/Shared/MetricValue.cs
   - HathoraCloud/Models/Shared/MetricName.cs
+  - HathoraCloud/Models/Shared/OrgMembersPage.cs
+  - HathoraCloud/Models/Shared/OrgMember.cs
   - HathoraCloud/Models/Shared/OrgInvitesPage.cs
   - HathoraCloud/Models/Shared/OrgPermission.cs
   - HathoraCloud/Models/Shared/OrganizationInviteStatus.cs
@@ -296,6 +306,8 @@ generatedFiles:
   - HathoraCloud/Models/Shared/InviteStatusRejected.cs
   - HathoraCloud/Models/Shared/InviteStatusRescindedType.cs
   - HathoraCloud/Models/Shared/InviteStatusRescinded.cs
+  - HathoraCloud/Models/Shared/OrgsPage.cs
+  - HathoraCloud/Models/Shared/Organization.cs
   - HathoraCloud/Models/Shared/CreateUserInvite.cs
   - HathoraCloud/Models/Shared/RescindUserInvite.cs
   - HathoraCloud/Models/Shared/ProcessExposedPort.cs
@@ -361,6 +373,8 @@ generatedFiles:
   - docs/Models/Operations/RunBuildDeprecatedResponse.md
   - docs/Models/Operations/CreateBuildRequest.md
   - docs/Models/Operations/CreateBuildResponse.md
+  - docs/Models/Operations/CreateBuildWithUploadUrlRequest.md
+  - docs/Models/Operations/CreateBuildWithUploadUrlResponse.md
   - docs/Models/Operations/DeleteBuildRequest.md
   - docs/Models/Operations/DeleteBuildResponse.md
   - docs/Models/Operations/GetBuildInfoRequest.md
@@ -440,8 +454,11 @@ generatedFiles:
   - docs/Models/Operations/GetMetricsResponse.md
   - docs/Models/Operations/AcceptInviteRequest.md
   - docs/Models/Operations/AcceptInviteResponse.md
+  - docs/Models/Operations/GetOrgMembersRequest.md
+  - docs/Models/Operations/GetOrgMembersResponse.md
   - docs/Models/Operations/GetOrgPendingInvitesRequest.md
   - docs/Models/Operations/GetOrgPendingInvitesResponse.md
+  - docs/Models/Operations/GetOrgsResponse.md
   - docs/Models/Operations/GetUserPendingInvitesResponse.md
   - docs/Models/Operations/InviteUserRequest.md
   - docs/Models/Operations/InviteUserResponse.md
@@ -525,6 +542,9 @@ generatedFiles:
   - docs/Models/Shared/AchPaymentMethod.md
   - docs/Models/Shared/CustomerPortalUrl.md
   - docs/Models/Shared/CreateBuildParams.md
+  - docs/Models/Shared/BuildWithUploadUrlRegionalContainerTags.md
+  - docs/Models/Shared/UploadBodyParams.md
+  - docs/Models/Shared/BuildWithUploadUrl.md
   - docs/Models/Shared/Env.md
   - docs/Models/Shared/DeploymentTransportType.md
   - docs/Models/Shared/Deployment.md
@@ -536,13 +556,12 @@ generatedFiles:
   - docs/Models/Shared/DeploymentConfigV2Env.md
   - docs/Models/Shared/DeploymentConfigV2.md
   - docs/Models/Shared/PingEndpoints.md
-  - docs/Models/Shared/State.md
+  - docs/Models/Shared/CreatedBy.md
   - docs/Models/Shared/Lobby.md
   - docs/Models/Shared/LobbyVisibility.md
-  - docs/Models/Shared/LobbyInitialConfig.md
   - docs/Models/Shared/CreateLobbyParams.md
-  - docs/Models/Shared/SetLobbyStateParamsState.md
   - docs/Models/Shared/SetLobbyStateParams.md
+  - docs/Models/Shared/LobbyV3CreatedBy.md
   - docs/Models/Shared/LobbyV3.md
   - docs/Models/Shared/CreateLobbyV3Params.md
   - docs/Models/Shared/VerificationEmailSuccess.md
@@ -550,6 +569,8 @@ generatedFiles:
   - docs/Models/Shared/MetricsData.md
   - docs/Models/Shared/MetricValue.md
   - docs/Models/Shared/MetricName.md
+  - docs/Models/Shared/OrgMembersPage.md
+  - docs/Models/Shared/OrgMember.md
   - docs/Models/Shared/OrgInvitesPage.md
   - docs/Models/Shared/OrgPermission.md
   - docs/Models/Shared/OrganizationInviteStatus.md
@@ -561,6 +582,8 @@ generatedFiles:
   - docs/Models/Shared/InviteStatusRejected.md
   - docs/Models/Shared/InviteStatusRescindedType.md
   - docs/Models/Shared/InviteStatusRescinded.md
+  - docs/Models/Shared/OrgsPage.md
+  - docs/Models/Shared/Organization.md
   - docs/Models/Shared/CreateUserInvite.md
   - docs/Models/Shared/RescindUserInvite.md
   - docs/Models/Shared/ProcessExposedPort.md
@@ -595,26 +618,26 @@ generatedFiles:
   - docs/Models/Shared/Security.md
   - docs/Models/Errors/ApiError.md
   - docs/sdks/hathoracloudsdk/README.md
-  - docs/sdks/appv1/README.md
+  - docs/sdks/appsv1/README.md
   - docs/sdks/authv1/README.md
   - docs/sdks/billingv1/README.md
-  - docs/sdks/buildv1/README.md
-  - docs/sdks/buildv2/README.md
-  - docs/sdks/deploymentv1/README.md
-  - docs/sdks/deploymentv2/README.md
+  - docs/sdks/buildsv1/README.md
+  - docs/sdks/buildsv2/README.md
+  - docs/sdks/deploymentsv1/README.md
+  - docs/sdks/deploymentsv2/README.md
   - docs/sdks/discoveryv1/README.md
   - docs/sdks/discoveryv2/README.md
-  - docs/sdks/lobbyv1/README.md
-  - docs/sdks/lobbyv2/README.md
-  - docs/sdks/lobbyv3sdk/README.md
-  - docs/sdks/logv1/README.md
+  - docs/sdks/lobbiesv1/README.md
+  - docs/sdks/lobbiesv2/README.md
+  - docs/sdks/lobbiesv3/README.md
+  - docs/sdks/logsv1/README.md
   - docs/sdks/managementv1/README.md
   - docs/sdks/metricsv1/README.md
   - docs/sdks/organizationsv1/README.md
   - docs/sdks/processesv1/README.md
   - docs/sdks/processesv2/README.md
-  - docs/sdks/roomv1/README.md
-  - docs/sdks/roomv2/README.md
-  - docs/sdks/orgtokensv1/README.md
+  - docs/sdks/roomsv1/README.md
+  - docs/sdks/roomsv2/README.md
+  - docs/sdks/tokensv1/README.md
   - USAGE.md
   - .gitattributes

@@ -10,7 +10,6 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
-    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
@@ -24,6 +23,6 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("state")]
-        public SetLobbyStateParamsState State { get; set; } = default!;
+        public object State { get; set; } = default!;
     }
 }

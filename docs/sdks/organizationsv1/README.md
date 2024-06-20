@@ -4,7 +4,9 @@
 ### Available Operations
 
 * [AcceptInvite](#acceptinvite)
+* [GetOrgMembers](#getorgmembers)
 * [GetOrgPendingInvites](#getorgpendinginvites)
+* [GetOrgs](#getorgs) - Returns an unsorted list of all organizations that you are a member of (an accepted membership invite). An organization is uniquely identified by an `orgId`.
 * [GetUserPendingInvites](#getuserpendinginvites)
 * [InviteUser](#inviteuser)
 * [RejectInvite](#rejectinvite)
@@ -55,6 +57,51 @@ using(var res = await sdk.OrganizationsV1.AcceptInviteAsync(req))
 | HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
+## GetOrgMembers
+
+### Example Usage
+
+```csharp
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
+
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+GetOrgMembersRequest req = new GetOrgMembersRequest() {
+    OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+};
+
+
+using(var res = await sdk.OrganizationsV1.GetOrgMembersAsync(req))
+{
+    // handle response
+}
+
+
+```
+
+### Parameters
+
+| Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `request`                                                               | [GetOrgMembersRequest](../../Models/Operations/GetOrgMembersRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
+
+
+### Response
+
+**[GetOrgMembersResponse](../../Models/Operations/GetOrgMembersResponse.md)**
+### Errors
+
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401,429                                 | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
+
 ## GetOrgPendingInvites
 
 ### Example Usage
@@ -98,6 +145,42 @@ using(var res = await sdk.OrganizationsV1.GetOrgPendingInvitesAsync(req))
 | Error Object                            | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
 | HathoraCloud.Models.Errors.ApiError     | 401,429                                 | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
+
+## GetOrgs
+
+Returns an unsorted list of all organizations that you are a member of (an accepted membership invite). An organization is uniquely identified by an `orgId`.
+
+### Example Usage
+
+```csharp
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+
+var sdk = new HathoraCloudSDK(
+    security: new Security() {
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+    },
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+
+using(var res = await sdk.OrganizationsV1.GetOrgsAsync())
+{
+    // handle response
+}
+
+
+```
+
+
+### Response
+
+**[GetOrgsResponse](../../Models/Operations/GetOrgsResponse.md)**
+### Errors
+
+| Error Object                            | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## GetUserPendingInvites

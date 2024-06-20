@@ -41,7 +41,7 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("createdBy")]
-        public string CreatedBy { get; set; } = default!;
+        public LobbyV3CreatedBy CreatedBy { get; set; } = default!;
 
         [SerializeField]
         [JsonProperty("region")]
