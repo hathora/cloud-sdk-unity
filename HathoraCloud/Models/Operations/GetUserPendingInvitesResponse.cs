@@ -29,7 +29,7 @@ namespace HathoraCloud.Models.Operations
         /// Ok
         /// </summary>
         [SerializeField]
-        public OrgInvitesPage? OrgInvitesPage { get; set; }
+        public PendingOrgInvitesPage? PendingOrgInvitesPage { get; set; }
 
         /// <summary>
         /// HTTP response status code for this operation

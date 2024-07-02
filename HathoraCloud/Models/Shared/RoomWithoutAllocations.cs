@@ -34,8 +34,8 @@ namespace HathoraCloud.Models.Shared
         public RoomWithoutAllocationsCurrentAllocation? CurrentAllocation { get; set; } = default!;
 
         [SerializeField]
-        [JsonProperty("roomConfig", NullValueHandling = NullValueHandling.Include)]
-        public string? RoomConfig { get; set; } = default!;
+        [JsonProperty("roomConfig")]
+        public string? RoomConfig { get; set; }
 
         /// <summary>
         /// Unique identifier to a game session or match. Use the default system generated ID or overwrite it with your own.<br/>
@@ -56,8 +56,6 @@ namespace HathoraCloud.Models.Shared
         /// `scheduling`: a process is not allocated yet and the room is waiting to be scheduled<br/>
         /// <br/>
         /// `active`: ready to accept connections<br/>
-        /// <br/>
-        /// `suspended`: room is unallocated from the process but can be rescheduled later with the same `roomId`<br/>
         /// <br/>
         /// `destroyed`: all associated metadata is deleted
         /// </remarks>

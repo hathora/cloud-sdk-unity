@@ -54,5 +54,5 @@ using(var res = await sdk.MetricsV1.GetMetricsAsync(req))
 
 | Error Object                            | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,422,500                         | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,422,429,500                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |

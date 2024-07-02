@@ -29,7 +29,7 @@ namespace HathoraCloud.Models.Operations
         /// Ok
         /// </summary>
         [SerializeField]
-        public OrgPermission? OrgPermission { get; set; }
+        public PendingOrgInvite? PendingOrgInvite { get; set; }
 
         /// <summary>
         /// HTTP response status code for this operation

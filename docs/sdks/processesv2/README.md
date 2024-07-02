@@ -56,7 +56,7 @@ using(var res = await sdk.ProcessesV2.CreateProcessAsync(req))
 
 | Error Object                            | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,402,404,500                         | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401,402,404,429,500                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## GetLatestProcesses
@@ -102,7 +102,7 @@ using(var res = await sdk.ProcessesV2.GetLatestProcessesAsync(req))
 
 | Error Object                            | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404                                 | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## GetProcessInfo
@@ -149,7 +149,7 @@ using(var res = await sdk.ProcessesV2.GetProcessInfoAsync(req))
 
 | Error Object                            | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404                                 | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## StopProcess
@@ -196,5 +196,5 @@ using(var res = await sdk.ProcessesV2.StopProcessAsync(req))
 
 | Error Object                            | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,500                             | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,429,500                         | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
