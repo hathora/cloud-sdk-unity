@@ -57,9 +57,6 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("createdAt")]
         public DateTime CreatedAt { get; set; } = default!;
 
-        /// <summary>
-        /// UserId or email address for the user that created the application.
-        /// </summary>
         [SerializeField]
         [JsonProperty("createdBy")]
         public string CreatedBy { get; set; } = default!;
@@ -72,7 +69,7 @@ namespace HathoraCloud.Models.Shared
         public DateTime? DeletedAt { get; set; } = default!;
 
         /// <summary>
-        /// UserId or email address for the user that deleted the application.
+        /// The email address or token id for the user that deleted the application.
         /// </summary>
         [SerializeField]
         [JsonProperty("deletedBy", NullValueHandling = NullValueHandling.Include)]

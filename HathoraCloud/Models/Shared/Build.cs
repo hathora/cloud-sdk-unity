@@ -48,9 +48,6 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("createdAt")]
         public DateTime CreatedAt { get; set; } = default!;
 
-        /// <summary>
-        /// UserId or email address for the user that created the build.
-        /// </summary>
         [SerializeField]
         [JsonProperty("createdBy")]
         public string CreatedBy { get; set; } = default!;

@@ -18,6 +18,9 @@ namespace HathoraCloud.Models.Shared
     public class RescindUserInvite
     {
 
+        /// <summary>
+        /// A user&apos;s email.
+        /// </summary>
         [SerializeField]
         [JsonProperty("userEmail")]
         public string UserEmail { get; set; } = default!;

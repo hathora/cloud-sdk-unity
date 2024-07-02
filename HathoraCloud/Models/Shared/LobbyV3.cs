@@ -41,15 +41,15 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("createdBy")]
-        public string CreatedBy { get; set; } = default!;
+        public LobbyV3CreatedBy CreatedBy { get; set; } = default!;
 
         [SerializeField]
         [JsonProperty("region")]
         public Region Region { get; set; } = default!;
 
         [SerializeField]
-        [JsonProperty("roomConfig", NullValueHandling = NullValueHandling.Include)]
-        public string? RoomConfig { get; set; } = default!;
+        [JsonProperty("roomConfig")]
+        public string? RoomConfig { get; set; }
 
         /// <summary>
         /// Unique identifier to a game session or match. Use the default system generated ID or overwrite it with your own.<br/>

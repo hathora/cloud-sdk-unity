@@ -29,7 +29,7 @@ namespace HathoraCloud.Models.Operations
         /// Ok
         /// </summary>
         [SerializeField]
-        public HathoraCloud.Models.Shared.DeploymentV2? DeploymentV2 { get; set; }
+        public DeploymentV2? DeploymentV2 { get; set; }
 
         /// <summary>
         /// HTTP response status code for this operation

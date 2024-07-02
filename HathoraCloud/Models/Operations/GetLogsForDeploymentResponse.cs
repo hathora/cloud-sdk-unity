@@ -41,7 +41,7 @@ namespace HathoraCloud.Models.Operations
         /// Ok
         /// </summary>
         [SerializeField]
-        public MemoryQueueBufferStream? Stream { get; set; }
+        public MemoryQueueBufferStream? ResponseStream { get; set; }
         public void Dispose() {
             if (RawResponse != null) {
                 RawResponse.Dispose();
