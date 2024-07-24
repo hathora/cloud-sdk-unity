@@ -11,3 +11,7 @@ targets:
         target: unity
         source: my-source
         output: .
+        codeSamples:
+            output: codeSamples.yaml
+            registry:
+                location: registry.speakeasyapi.dev/hathora/hathora/code-samples-unity-cloud-sdk-unity
