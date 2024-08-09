@@ -57,7 +57,7 @@ using(var res = await sdk.ProcessesV1.GetProcessInfoDeprecatedAsync(req))
 
 | Error Object                            | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,500                             | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,429,500                         | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## ~~GetRunningProcesses~~
@@ -104,7 +104,7 @@ using(var res = await sdk.ProcessesV1.GetRunningProcessesAsync(req))
 
 | Error Object                            | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404                                 | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## ~~GetStoppedProcesses~~
@@ -151,5 +151,5 @@ using(var res = await sdk.ProcessesV1.GetStoppedProcessesAsync(req))
 
 | Error Object                            | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404                                 | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |

@@ -43,7 +43,7 @@ using(var res = await sdk.BillingV1.GetBalanceAsync())
 
 | Error Object                            | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404                                 | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## GetInvoices
@@ -77,7 +77,7 @@ using(var res = await sdk.BillingV1.GetInvoicesAsync())
 
 | Error Object                            | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404                                 | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## GetPaymentMethod
@@ -111,7 +111,7 @@ using(var res = await sdk.BillingV1.GetPaymentMethodAsync())
 
 | Error Object                            | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,500                             | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,429,500                         | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
 
 ## InitStripeCustomerPortalUrl
