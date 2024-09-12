@@ -38,10 +38,10 @@ using(var res = await sdk.ManagementV1.SendVerificationEmailAsync(req))
 | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | `request`                                                                   | [VerificationEmailRequest](../../Models/Shared/VerificationEmailRequest.md) | :heavy_check_mark:                                                          | The request object to use for the request.                                  |
 
-
 ### Response
 
 **[SendVerificationEmailResponse](../../Models/Operations/SendVerificationEmailResponse.md)**
+
 ### Errors
 
 | Error Object                            | Status Code                             | Content Type                            |

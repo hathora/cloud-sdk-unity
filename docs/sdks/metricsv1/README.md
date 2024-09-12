@@ -46,13 +46,13 @@ using(var res = await sdk.MetricsV1.GetMetricsAsync(req))
 | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
 | `request`                                                         | [GetMetricsRequest](../../Models/Operations/GetMetricsRequest.md) | :heavy_check_mark:                                                | The request object to use for the request.                        |
 
-
 ### Response
 
 **[GetMetricsResponse](../../Models/Operations/GetMetricsResponse.md)**
+
 ### Errors
 
 | Error Object                            | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,422,500                         | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,422,429,500                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |

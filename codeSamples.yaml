@@ -1,0 +1,2731 @@
+overlay: 1.0.0
+info:
+  title: CodeSamples overlay for unity target
+  version: 0.0.0
+actions:
+  - target: $["paths"]["/apps/v1/create"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreateAppV1Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            AppConfig req = new AppConfig() {
+                AuthConfiguration = new AuthConfiguration() {},
+                AppName = "minecraft",
+            };
+
+
+            using(var res = await sdk.AppsV1.CreateAppV1DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/apps/v1/delete/{appId}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: DeleteAppV1Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            DeleteAppV1DeprecatedRequest req = new DeleteAppV1DeprecatedRequest() {};
+
+
+            using(var res = await sdk.AppsV1.DeleteAppV1DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/apps/v1/info/{appId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetAppInfoV1Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetAppInfoV1DeprecatedRequest req = new GetAppInfoV1DeprecatedRequest() {};
+
+
+            using(var res = await sdk.AppsV1.GetAppInfoV1DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/apps/v1/list"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetAppsV1Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+
+            using(var res = await sdk.AppsV1.GetAppsV1DeprecatedAsync())
+            {
+                // handle response
+            }
+  - target: $["paths"]["/apps/v1/update/{appId}"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: UpdateAppV1Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            UpdateAppV1DeprecatedRequest req = new UpdateAppV1DeprecatedRequest() {
+                AppConfig = new AppConfig() {
+                    AuthConfiguration = new AuthConfiguration() {},
+                    AppName = "minecraft",
+                },
+            };
+
+
+            using(var res = await sdk.AppsV1.UpdateAppV1DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/apps/v2/apps"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetApps
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetAppsRequest req = new GetAppsRequest() {
+                OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+            };
+
+
+            using(var res = await sdk.AppsV2.GetAppsAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/apps/v2/apps"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreateApp
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreateAppRequest req = new CreateAppRequest() {
+                OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+                AppConfig = new AppConfig() {
+                    AuthConfiguration = new AuthConfiguration() {},
+                    AppName = "minecraft",
+                },
+            };
+
+
+            using(var res = await sdk.AppsV2.CreateAppAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/apps/v2/apps/{appId}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: DeleteApp
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            DeleteAppRequest req = new DeleteAppRequest() {};
+
+
+            using(var res = await sdk.AppsV2.DeleteAppAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/apps/v2/apps/{appId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetApp
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetAppRequest req = new GetAppRequest() {};
+
+
+            using(var res = await sdk.AppsV2.GetAppAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/apps/v2/apps/{appId}"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: UpdateApp
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            UpdateAppRequest req = new UpdateAppRequest() {
+                AppConfig = new AppConfig() {
+                    AuthConfiguration = new AuthConfiguration() {},
+                    AppName = "minecraft",
+                },
+            };
+
+
+            using(var res = await sdk.AppsV2.UpdateAppAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/auth/v1/{appId}/login/anonymous"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: LoginAnonymous
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            LoginAnonymousRequest req = new LoginAnonymousRequest() {};
+
+
+            using(var res = await sdk.AuthV1.LoginAnonymousAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/auth/v1/{appId}/login/google"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: LoginGoogle
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            LoginGoogleRequest req = new LoginGoogleRequest() {
+                GoogleIdTokenObject = new GoogleIdTokenObject() {
+                    IdToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImZkNDhhNzUxMzhkOWQ0OGYwYWE2MzVlZjU2OWM0ZTE5NmY3YWU4ZDYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiODQ4NDEyODI2Nzg4LW00bXNyYjZxNDRkbTJ1ZTNrZ3Z1aTBmcTdrZGE1NWxzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiODQ4NDEyODI2Nzg4LW00bXNyYjZxNDRkbTJ1ZTNrZ3Z1aTBmcTdrZGE1NWxzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTE0NTQyMzMwNzI3MTU2MTMzNzc2IiwiZW1haWwiOiJocGFdkeivmeuzQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoidno1NGhhdTNxbnVR",
+                },
+            };
+
+
+            using(var res = await sdk.AuthV1.LoginGoogleAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/auth/v1/{appId}/login/nickname"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: LoginNickname
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            LoginNicknameRequest req = new LoginNicknameRequest() {
+                NicknameObject = new NicknameObject() {
+                    Nickname = "squiddytwoshoes",
+                },
+            };
+
+
+            using(var res = await sdk.AuthV1.LoginNicknameAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/billing/v1/balance"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetBalance
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+
+            using(var res = await sdk.BillingV1.GetBalanceAsync())
+            {
+                // handle response
+            }
+  - target: $["paths"]["/billing/v1/customerportalurl"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: InitStripeCustomerPortalUrl
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CustomerPortalUrl req = new CustomerPortalUrl() {
+                ReturnUrl = "<value>",
+            };
+
+
+            using(var res = await sdk.BillingV1.InitStripeCustomerPortalUrlAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/billing/v1/invoices"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetInvoices
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+
+            using(var res = await sdk.BillingV1.GetInvoicesAsync())
+            {
+                // handle response
+            }
+  - target: $["paths"]["/billing/v1/paymentmethod"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetPaymentMethod
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+
+            using(var res = await sdk.BillingV1.GetPaymentMethodAsync())
+            {
+                // handle response
+            }
+  - target: $["paths"]["/billing/v1/upcoming/items"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetUpcomingInvoiceItems
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+
+            using(var res = await sdk.BillingV1.GetUpcomingInvoiceItemsAsync())
+            {
+                // handle response
+            }
+  - target: $["paths"]["/billing/v1/upcoming/total"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetUpcomingInvoiceTotal
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+
+            using(var res = await sdk.BillingV1.GetUpcomingInvoiceTotalAsync())
+            {
+                // handle response
+            }
+  - target: $["paths"]["/builds/v1/{appId}/create"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreateBuildDeprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreateBuildDeprecatedRequest req = new CreateBuildDeprecatedRequest() {
+                CreateBuildParams = new CreateBuildParams() {
+                    BuildTag = "0.1.14-14c793",
+                },
+            };
+
+
+            using(var res = await sdk.BuildsV1.CreateBuildDeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/builds/v1/{appId}/delete/{buildId}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: DeleteBuildDeprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            DeleteBuildDeprecatedRequest req = new DeleteBuildDeprecatedRequest() {
+                BuildId = 1,
+            };
+
+
+            using(var res = await sdk.BuildsV1.DeleteBuildDeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/builds/v1/{appId}/info/{buildId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetBuildInfoDeprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetBuildInfoDeprecatedRequest req = new GetBuildInfoDeprecatedRequest() {
+                BuildId = 1,
+            };
+
+
+            using(var res = await sdk.BuildsV1.GetBuildInfoDeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/builds/v1/{appId}/list"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetBuildsDeprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetBuildsDeprecatedRequest req = new GetBuildsDeprecatedRequest() {};
+
+
+            using(var res = await sdk.BuildsV1.GetBuildsDeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/builds/v1/{appId}/run/{buildId}"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: RunBuildDeprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            RunBuildDeprecatedRequest req = new RunBuildDeprecatedRequest() {
+                BuildId = 1,
+                RequestBody = new RunBuildDeprecatedRequestBody() {
+                    File = new File() {
+                        FileName = "your_file_here",
+                        Content = System.Text.Encoding.UTF8.GetBytes("0x96Cf4be63b"),
+                    },
+                },
+            };
+
+
+            using(var res = await sdk.BuildsV1.RunBuildDeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/builds/v2/{appId}/create"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreateBuildV2Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreateBuildV2DeprecatedRequest req = new CreateBuildV2DeprecatedRequest() {
+                CreateBuildParams = new CreateBuildParams() {
+                    BuildTag = "0.1.14-14c793",
+                },
+            };
+
+
+            using(var res = await sdk.BuildsV2.CreateBuildV2DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/builds/v2/{appId}/createWithMultipartUploads"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreateWithMultipartUploadsV2Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreateWithMultipartUploadsV2DeprecatedRequest req = new CreateWithMultipartUploadsV2DeprecatedRequest() {
+                CreateMultipartBuildParams = new CreateMultipartBuildParams() {
+                    BuildTag = "0.1.14-14c793",
+                    BuildSizeInBytes = 3146.66D,
+                },
+            };
+
+
+            using(var res = await sdk.BuildsV2.CreateWithMultipartUploadsV2DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/builds/v2/{appId}/createWithUploadUrl"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreateBuildWithUploadUrlV2Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreateBuildWithUploadUrlV2DeprecatedRequest req = new CreateBuildWithUploadUrlV2DeprecatedRequest() {
+                CreateBuildParams = new CreateBuildParams() {
+                    BuildTag = "0.1.14-14c793",
+                },
+            };
+
+
+            using(var res = await sdk.BuildsV2.CreateBuildWithUploadUrlV2DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/builds/v2/{appId}/delete/{buildId}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: DeleteBuildV2Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            DeleteBuildV2DeprecatedRequest req = new DeleteBuildV2DeprecatedRequest() {
+                BuildId = 1,
+            };
+
+
+            using(var res = await sdk.BuildsV2.DeleteBuildV2DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/builds/v2/{appId}/info/{buildId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetBuildInfoV2Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetBuildInfoV2DeprecatedRequest req = new GetBuildInfoV2DeprecatedRequest() {
+                BuildId = 1,
+            };
+
+
+            using(var res = await sdk.BuildsV2.GetBuildInfoV2DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/builds/v2/{appId}/list"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetBuildsV2Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetBuildsV2DeprecatedRequest req = new GetBuildsV2DeprecatedRequest() {};
+
+
+            using(var res = await sdk.BuildsV2.GetBuildsV2DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/builds/v2/{appId}/run/{buildId}"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: RunBuildV2Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            RunBuildV2DeprecatedRequest req = new RunBuildV2DeprecatedRequest() {
+                BuildId = 1,
+                RequestBody = new RunBuildV2DeprecatedRequestBody() {},
+            };
+
+
+            using(var res = await sdk.BuildsV2.RunBuildV2DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/builds/v3/builds"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetBuilds
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetBuildsRequest req = new GetBuildsRequest() {
+                OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+            };
+
+
+            using(var res = await sdk.BuildsV3.GetBuildsAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/builds/v3/builds"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreateBuild
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreateBuildRequest req = new CreateBuildRequest() {
+                OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+                CreateMultipartBuildParams = new CreateMultipartBuildParams() {
+                    BuildTag = "0.1.14-14c793",
+                    BuildSizeInBytes = 5387.85D,
+                },
+            };
+
+
+            using(var res = await sdk.BuildsV3.CreateBuildAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/builds/v3/builds/{buildId}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: DeleteBuild
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            DeleteBuildRequest req = new DeleteBuildRequest() {
+                BuildId = "<value>",
+                OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+            };
+
+
+            using(var res = await sdk.BuildsV3.DeleteBuildAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/builds/v3/builds/{buildId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetBuild
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetBuildRequest req = new GetBuildRequest() {
+                BuildId = "<value>",
+                OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+            };
+
+
+            using(var res = await sdk.BuildsV3.GetBuildAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/builds/v3/builds/{buildId}/run"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: RunBuild
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            RunBuildRequest req = new RunBuildRequest() {
+                BuildId = "<value>",
+                OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+            };
+
+
+            using(var res = await sdk.BuildsV3.RunBuildAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/deployments/v1/{appId}/create/{buildId}"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreateDeploymentV1Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+            using System.Collections.Generic;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreateDeploymentV1DeprecatedRequest req = new CreateDeploymentV1DeprecatedRequest() {
+                BuildId = 1,
+                DeploymentConfig = new DeploymentConfig() {
+                    Env = new List<DeploymentConfigEnv>() {
+                        new DeploymentConfigEnv() {
+                            Value = "TRUE",
+                            Name = "EULA",
+                        },
+                    },
+                    RoomsPerProcess = 3,
+                    PlanName = PlanName.Tiny,
+                    AdditionalContainerPorts = new List<ContainerPort>() {
+                        new ContainerPort() {
+                            TransportType = TransportType.Tcp,
+                            Port = 8000,
+                            Name = "default",
+                        },
+                    },
+                    TransportType = TransportType.Tcp,
+                    ContainerPort = 4000,
+                },
+            };
+
+
+            using(var res = await sdk.DeploymentsV1.CreateDeploymentV1DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/deployments/v1/{appId}/info/{deploymentId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetDeploymentInfoV1Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetDeploymentInfoV1DeprecatedRequest req = new GetDeploymentInfoV1DeprecatedRequest() {
+                DeploymentId = 1,
+            };
+
+
+            using(var res = await sdk.DeploymentsV1.GetDeploymentInfoV1DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/deployments/v1/{appId}/latest"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetLatestDeploymentV1Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetLatestDeploymentV1DeprecatedRequest req = new GetLatestDeploymentV1DeprecatedRequest() {};
+
+
+            using(var res = await sdk.DeploymentsV1.GetLatestDeploymentV1DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/deployments/v1/{appId}/list"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetDeploymentsV1Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetDeploymentsV1DeprecatedRequest req = new GetDeploymentsV1DeprecatedRequest() {};
+
+
+            using(var res = await sdk.DeploymentsV1.GetDeploymentsV1DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/deployments/v2/{appId}/create/{buildId}"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreateDeploymentV2Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+            using System.Collections.Generic;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreateDeploymentV2DeprecatedRequest req = new CreateDeploymentV2DeprecatedRequest() {
+                BuildId = 1,
+                DeploymentConfigV2 = new DeploymentConfigV2() {
+                    IdleTimeoutEnabled = false,
+                    Env = new List<DeploymentConfigV2Env>() {
+                        new DeploymentConfigV2Env() {
+                            Value = "TRUE",
+                            Name = "EULA",
+                        },
+                    },
+                    RoomsPerProcess = 3,
+                    AdditionalContainerPorts = new List<ContainerPort>() {
+                        new ContainerPort() {
+                            TransportType = TransportType.Tls,
+                            Port = 8000,
+                            Name = "default",
+                        },
+                    },
+                    TransportType = TransportType.Tcp,
+                    ContainerPort = 4000,
+                    RequestedMemoryMB = 1024D,
+                    RequestedCPU = 0.5D,
+                },
+            };
+
+
+            using(var res = await sdk.DeploymentsV2.CreateDeploymentV2DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/deployments/v2/{appId}/info/{deploymentId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetDeploymentInfoV2Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetDeploymentInfoV2DeprecatedRequest req = new GetDeploymentInfoV2DeprecatedRequest() {
+                DeploymentId = 1,
+            };
+
+
+            using(var res = await sdk.DeploymentsV2.GetDeploymentInfoV2DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/deployments/v2/{appId}/latest"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetLatestDeploymentV2Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetLatestDeploymentV2DeprecatedRequest req = new GetLatestDeploymentV2DeprecatedRequest() {};
+
+
+            using(var res = await sdk.DeploymentsV2.GetLatestDeploymentV2DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/deployments/v2/{appId}/list"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetDeploymentsV2Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetDeploymentsV2DeprecatedRequest req = new GetDeploymentsV2DeprecatedRequest() {};
+
+
+            using(var res = await sdk.DeploymentsV2.GetDeploymentsV2DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/deployments/v3/apps/{appId}/deployments"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetDeployments
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetDeploymentsRequest req = new GetDeploymentsRequest() {};
+
+
+            using(var res = await sdk.DeploymentsV3.GetDeploymentsAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/deployments/v3/apps/{appId}/deployments"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreateDeployment
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+            using System.Collections.Generic;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreateDeploymentRequest req = new CreateDeploymentRequest() {
+                DeploymentConfigV3 = new DeploymentConfigV3() {
+                    IdleTimeoutEnabled = false,
+                    Env = new List<DeploymentConfigV3Env>() {
+                        new DeploymentConfigV3Env() {
+                            Value = "TRUE",
+                            Name = "EULA",
+                        },
+                    },
+                    RoomsPerProcess = 3,
+                    AdditionalContainerPorts = new List<ContainerPort>() {
+                        new ContainerPort() {
+                            TransportType = TransportType.Udp,
+                            Port = 8000,
+                            Name = "default",
+                        },
+                    },
+                    TransportType = TransportType.Tcp,
+                    ContainerPort = 4000,
+                    RequestedMemoryMB = 1024D,
+                    RequestedCPU = 0.5D,
+                    BuildId = "<value>",
+                },
+            };
+
+
+            using(var res = await sdk.DeploymentsV3.CreateDeploymentAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/deployments/v3/apps/{appId}/deployments/latest"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetLatestDeployment
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetLatestDeploymentRequest req = new GetLatestDeploymentRequest() {};
+
+
+            using(var res = await sdk.DeploymentsV3.GetLatestDeploymentAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/deployments/v3/apps/{appId}/deployments/{deploymentId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetDeployment
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetDeploymentRequest req = new GetDeploymentRequest() {
+                DeploymentId = "<value>",
+            };
+
+
+            using(var res = await sdk.DeploymentsV3.GetDeploymentAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/discovery/v1/ping"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetPingServiceEndpointsDeprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+
+            using(var res = await sdk.DiscoveryV1.GetPingServiceEndpointsDeprecatedAsync())
+            {
+                // handle response
+            }
+  - target: $["paths"]["/discovery/v2/ping"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetPingServiceEndpoints
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+
+            using(var res = await sdk.DiscoveryV2.GetPingServiceEndpointsAsync())
+            {
+                // handle response
+            }
+  - target: $["paths"]["/lobby/v1/{appId}/create/private"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreatePrivateLobbyDeprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Operations;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreatePrivateLobbyDeprecatedRequest req = new CreatePrivateLobbyDeprecatedRequest() {};
+
+
+            using(var res = await sdk.LobbiesV1.CreatePrivateLobbyDeprecatedAsync(
+                security: new CreatePrivateLobbyDeprecatedSecurity() {
+                    PlayerAuth = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/lobby/v1/{appId}/create/public"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreatePublicLobbyDeprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Operations;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreatePublicLobbyDeprecatedRequest req = new CreatePublicLobbyDeprecatedRequest() {};
+
+
+            using(var res = await sdk.LobbiesV1.CreatePublicLobbyDeprecatedAsync(
+                security: new CreatePublicLobbyDeprecatedSecurity() {
+                    PlayerAuth = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/lobby/v1/{appId}/list"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: ListActivePublicLobbiesDeprecatedV1
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            ListActivePublicLobbiesDeprecatedV1Request req = new ListActivePublicLobbiesDeprecatedV1Request() {};
+
+
+            using(var res = await sdk.LobbiesV1.ListActivePublicLobbiesDeprecatedV1Async(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/lobby/v2/{appId}/create"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreateLobbyDeprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Operations;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreateLobbyDeprecatedRequest req = new CreateLobbyDeprecatedRequest() {
+                RoomId = "2swovpy1fnunu",
+                CreateLobbyParams = new CreateLobbyParams() {
+                    Visibility = LobbyVisibility.Private,
+                    InitialConfig = "<value>",
+                    Region = Region.Tokyo,
+                },
+            };
+
+
+            using(var res = await sdk.LobbiesV2.CreateLobbyDeprecatedAsync(
+                security: new CreateLobbyDeprecatedSecurity() {
+                    PlayerAuth = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/lobby/v2/{appId}/create/local"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreateLocalLobby
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Operations;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreateLocalLobbyRequest req = new CreateLocalLobbyRequest() {
+                RoomId = "2swovpy1fnunu",
+                RequestBody = new CreateLocalLobbyRequestBody() {
+                    InitialConfig = "<value>",
+                    Region = Region.SaoPaulo,
+                },
+            };
+
+
+            using(var res = await sdk.LobbiesV2.CreateLocalLobbyAsync(
+                security: new CreateLocalLobbySecurity() {
+                    PlayerAuth = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/lobby/v2/{appId}/create/private"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreatePrivateLobby
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Operations;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreatePrivateLobbyRequest req = new CreatePrivateLobbyRequest() {
+                RoomId = "2swovpy1fnunu",
+                RequestBody = new CreatePrivateLobbyRequestBody() {
+                    InitialConfig = "<value>",
+                    Region = Region.Chicago,
+                },
+            };
+
+
+            using(var res = await sdk.LobbiesV2.CreatePrivateLobbyAsync(
+                security: new CreatePrivateLobbySecurity() {
+                    PlayerAuth = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/lobby/v2/{appId}/create/public"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreatePublicLobby
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Operations;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreatePublicLobbyRequest req = new CreatePublicLobbyRequest() {
+                RoomId = "2swovpy1fnunu",
+                RequestBody = new CreatePublicLobbyRequestBody() {
+                    InitialConfig = "<value>",
+                    Region = Region.SaoPaulo,
+                },
+            };
+
+
+            using(var res = await sdk.LobbiesV2.CreatePublicLobbyAsync(
+                security: new CreatePublicLobbySecurity() {
+                    PlayerAuth = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/lobby/v2/{appId}/info/{roomId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetLobbyInfo
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetLobbyInfoRequest req = new GetLobbyInfoRequest() {
+                RoomId = "2swovpy1fnunu",
+            };
+
+
+            using(var res = await sdk.LobbiesV2.GetLobbyInfoAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/lobby/v2/{appId}/list/public"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: ListActivePublicLobbiesDeprecatedV2
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            ListActivePublicLobbiesDeprecatedV2Request req = new ListActivePublicLobbiesDeprecatedV2Request() {};
+
+
+            using(var res = await sdk.LobbiesV2.ListActivePublicLobbiesDeprecatedV2Async(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/lobby/v2/{appId}/setState/{roomId}"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: SetLobbyState
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            SetLobbyStateRequest req = new SetLobbyStateRequest() {
+                RoomId = "2swovpy1fnunu",
+                SetLobbyStateParams = new SetLobbyStateParams() {
+                    State = "<value>",
+                },
+            };
+
+
+            using(var res = await sdk.LobbiesV2.SetLobbyStateAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/lobby/v3/{appId}/create"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreateLobby
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Operations;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreateLobbyRequest req = new CreateLobbyRequest() {
+                ShortCode = "LFG4",
+                RoomId = "2swovpy1fnunu",
+                CreateLobbyV3Params = new CreateLobbyV3Params() {
+                    Visibility = LobbyVisibility.Private,
+                    RoomConfig = "{\"name\":\"my-room\"}",
+                    Region = Region.Seattle,
+                },
+            };
+
+
+            using(var res = await sdk.LobbiesV3.CreateLobbyAsync(
+                security: new CreateLobbySecurity() {
+                    PlayerAuth = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/lobby/v3/{appId}/info/roomid/{roomId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetLobbyInfoByRoomId
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetLobbyInfoByRoomIdRequest req = new GetLobbyInfoByRoomIdRequest() {
+                RoomId = "2swovpy1fnunu",
+            };
+
+
+            using(var res = await sdk.LobbiesV3.GetLobbyInfoByRoomIdAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/lobby/v3/{appId}/info/shortcode/{shortCode}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetLobbyInfoByShortCode
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetLobbyInfoByShortCodeRequest req = new GetLobbyInfoByShortCodeRequest() {
+                ShortCode = "LFG4",
+            };
+
+
+            using(var res = await sdk.LobbiesV3.GetLobbyInfoByShortCodeAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/lobby/v3/{appId}/list/public"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: ListActivePublicLobbies
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            ListActivePublicLobbiesRequest req = new ListActivePublicLobbiesRequest() {};
+
+
+            using(var res = await sdk.LobbiesV3.ListActivePublicLobbiesAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/logs/v1/{appId}/all"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetLogsForApp
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetLogsForAppRequest req = new GetLogsForAppRequest() {
+                TailLines = 100,
+            };
+
+
+            using(var res = await sdk.LogsV1.GetLogsForAppAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/logs/v1/{appId}/deployment/{deploymentId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetLogsForDeployment
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetLogsForDeploymentRequest req = new GetLogsForDeploymentRequest() {
+                DeploymentId = 1,
+                TailLines = 100,
+            };
+
+
+            using(var res = await sdk.LogsV1.GetLogsForDeploymentAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/logs/v1/{appId}/process/{processId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetLogsForProcess
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetLogsForProcessRequest req = new GetLogsForProcessRequest() {
+                ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
+                TailLines = 100,
+            };
+
+
+            using(var res = await sdk.LogsV1.GetLogsForProcessAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/logs/v1/{appId}/process/{processId}/download"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: DownloadLogForProcess
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            DownloadLogForProcessRequest req = new DownloadLogForProcessRequest() {
+                ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
+            };
+
+
+            using(var res = await sdk.LogsV1.DownloadLogForProcessAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/management/v1/sendverificationemail"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: SendVerificationEmail
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            VerificationEmailRequest req = new VerificationEmailRequest() {
+                UserId = "<value>",
+            };
+
+
+            using(var res = await sdk.ManagementV1.SendVerificationEmailAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/metrics/v1/{appId}/process/{processId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetMetrics
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+            using System.Collections.Generic;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetMetricsRequest req = new GetMetricsRequest() {
+                ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
+            };
+
+
+            using(var res = await sdk.MetricsV1.GetMetricsAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/orgs/v1"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetOrgs
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+
+            using(var res = await sdk.OrganizationsV1.GetOrgsAsync())
+            {
+                // handle response
+            }
+  - target: $["paths"]["/orgs/v1/user/invites/pending"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetUserPendingInvites
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+
+            using(var res = await sdk.OrganizationsV1.GetUserPendingInvitesAsync())
+            {
+                // handle response
+            }
+  - target: $["paths"]["/orgs/v1/{orgId}/invites"]["put"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: InviteUser
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            InviteUserRequest req = new InviteUserRequest() {
+                OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+                CreateUserInvite = new CreateUserInvite() {
+                    UserEmail = "noreply@hathora.dev",
+                },
+            };
+
+
+            using(var res = await sdk.OrganizationsV1.InviteUserAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/orgs/v1/{orgId}/invites/accept"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: AcceptInvite
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            AcceptInviteRequest req = new AcceptInviteRequest() {
+                OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+            };
+
+
+            using(var res = await sdk.OrganizationsV1.AcceptInviteAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/orgs/v1/{orgId}/invites/pending"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetOrgPendingInvites
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetOrgPendingInvitesRequest req = new GetOrgPendingInvitesRequest() {
+                OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+            };
+
+
+            using(var res = await sdk.OrganizationsV1.GetOrgPendingInvitesAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/orgs/v1/{orgId}/invites/reject"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: RejectInvite
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            RejectInviteRequest req = new RejectInviteRequest() {
+                OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+            };
+
+
+            using(var res = await sdk.OrganizationsV1.RejectInviteAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/orgs/v1/{orgId}/invites/rescind"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: RescindInvite
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            RescindInviteRequest req = new RescindInviteRequest() {
+                OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+                RescindUserInvite = new RescindUserInvite() {
+                    UserEmail = "noreply@hathora.dev",
+                },
+            };
+
+
+            using(var res = await sdk.OrganizationsV1.RescindInviteAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/orgs/v1/{orgId}/members"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetOrgMembers
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetOrgMembersRequest req = new GetOrgMembersRequest() {
+                OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+            };
+
+
+            using(var res = await sdk.OrganizationsV1.GetOrgMembersAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/processes/v1/{appId}/info/{processId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetProcessInfoDeprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetProcessInfoDeprecatedRequest req = new GetProcessInfoDeprecatedRequest() {
+                ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
+            };
+
+
+            using(var res = await sdk.ProcessesV1.GetProcessInfoDeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/processes/v1/{appId}/list/running"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetRunningProcesses
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetRunningProcessesRequest req = new GetRunningProcessesRequest() {};
+
+
+            using(var res = await sdk.ProcessesV1.GetRunningProcessesAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/processes/v1/{appId}/list/stopped"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetStoppedProcesses
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetStoppedProcessesRequest req = new GetStoppedProcessesRequest() {};
+
+
+            using(var res = await sdk.ProcessesV1.GetStoppedProcessesAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/processes/v2/{appId}/count"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetProcessesCountExperimentalV2Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+            using System.Collections.Generic;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetProcessesCountExperimentalV2DeprecatedRequest req = new GetProcessesCountExperimentalV2DeprecatedRequest() {};
+
+
+            using(var res = await sdk.ProcessesV2.GetProcessesCountExperimentalV2DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/processes/v2/{appId}/create/{region}"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreateProcessV2Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreateProcessV2DeprecatedRequest req = new CreateProcessV2DeprecatedRequest() {
+                Region = Region.Mumbai,
+            };
+
+
+            using(var res = await sdk.ProcessesV2.CreateProcessV2DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/processes/v2/{appId}/info/{processId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetProcessInfoV2Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetProcessInfoV2DeprecatedRequest req = new GetProcessInfoV2DeprecatedRequest() {
+                ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
+            };
+
+
+            using(var res = await sdk.ProcessesV2.GetProcessInfoV2DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/processes/v2/{appId}/list/latest"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetLatestProcessesV2Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+            using System.Collections.Generic;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetLatestProcessesV2DeprecatedRequest req = new GetLatestProcessesV2DeprecatedRequest() {};
+
+
+            using(var res = await sdk.ProcessesV2.GetLatestProcessesV2DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/processes/v2/{appId}/stop/{processId}"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: StopProcessV2Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            StopProcessV2DeprecatedRequest req = new StopProcessV2DeprecatedRequest() {
+                ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
+            };
+
+
+            using(var res = await sdk.ProcessesV2.StopProcessV2DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/processes/v3/apps/{appId}/processes/count"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetProcessesCountExperimental
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+            using System.Collections.Generic;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetProcessesCountExperimentalRequest req = new GetProcessesCountExperimentalRequest() {};
+
+
+            using(var res = await sdk.ProcessesV3.GetProcessesCountExperimentalAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/processes/v3/apps/{appId}/processes/latest"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetLatestProcesses
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+            using System.Collections.Generic;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetLatestProcessesRequest req = new GetLatestProcessesRequest() {};
+
+
+            using(var res = await sdk.ProcessesV3.GetLatestProcessesAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/processes/v3/apps/{appId}/processes/regions/{region}"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreateProcess
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreateProcessRequest req = new CreateProcessRequest() {
+                Region = Region.Tokyo,
+            };
+
+
+            using(var res = await sdk.ProcessesV3.CreateProcessAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/processes/v3/apps/{appId}/processes/{processId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetProcess
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetProcessRequest req = new GetProcessRequest() {
+                ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
+            };
+
+
+            using(var res = await sdk.ProcessesV3.GetProcessAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/processes/v3/apps/{appId}/processes/{processId}/stop"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: StopProcess
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            StopProcessRequest req = new StopProcessRequest() {
+                ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
+            };
+
+
+            using(var res = await sdk.ProcessesV3.StopProcessAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/rooms/v1/{appId}/connectioninfo/{roomId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetConnectionInfoDeprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetConnectionInfoDeprecatedRequest req = new GetConnectionInfoDeprecatedRequest() {
+                RoomId = "2swovpy1fnunu",
+            };
+
+
+            using(var res = await sdk.RoomsV1.GetConnectionInfoDeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/rooms/v1/{appId}/create"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreateRoomDeprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+            using System.Collections.Generic;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreateRoomDeprecatedRequest req = new CreateRoomDeprecatedRequest() {
+                RoomId = "2swovpy1fnunu",
+                CreateRoomParams = new CreateRoomParams() {
+                    RoomConfig = "{\"name\":\"my-room\"}",
+                    Region = Region.Chicago,
+                },
+            };
+
+
+            using(var res = await sdk.RoomsV1.CreateRoomDeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/rooms/v1/{appId}/destroy/{roomId}"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: DestroyRoomDeprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            DestroyRoomDeprecatedRequest req = new DestroyRoomDeprecatedRequest() {
+                RoomId = "2swovpy1fnunu",
+            };
+
+
+            using(var res = await sdk.RoomsV1.DestroyRoomDeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/rooms/v1/{appId}/info/{roomId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetRoomInfoDeprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetRoomInfoDeprecatedRequest req = new GetRoomInfoDeprecatedRequest() {
+                RoomId = "2swovpy1fnunu",
+            };
+
+
+            using(var res = await sdk.RoomsV1.GetRoomInfoDeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/rooms/v1/{appId}/list/{processId}/active"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetActiveRoomsForProcessDeprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetActiveRoomsForProcessDeprecatedRequest req = new GetActiveRoomsForProcessDeprecatedRequest() {
+                ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
+            };
+
+
+            using(var res = await sdk.RoomsV1.GetActiveRoomsForProcessDeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/rooms/v1/{appId}/list/{processId}/inactive"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetInactiveRoomsForProcessDeprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetInactiveRoomsForProcessDeprecatedRequest req = new GetInactiveRoomsForProcessDeprecatedRequest() {
+                ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
+            };
+
+
+            using(var res = await sdk.RoomsV1.GetInactiveRoomsForProcessDeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/rooms/v1/{appId}/suspend/{roomId}"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: SuspendRoomDeprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            SuspendRoomDeprecatedRequest req = new SuspendRoomDeprecatedRequest() {
+                RoomId = "2swovpy1fnunu",
+            };
+
+
+            using(var res = await sdk.RoomsV1.SuspendRoomDeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/rooms/v2/{appId}/connectioninfo/{roomId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetConnectionInfo
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetConnectionInfoRequest req = new GetConnectionInfoRequest() {
+                RoomId = "2swovpy1fnunu",
+            };
+
+
+            using(var res = await sdk.RoomsV2.GetConnectionInfoAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/rooms/v2/{appId}/create"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreateRoom
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+            using System.Collections.Generic;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreateRoomRequest req = new CreateRoomRequest() {
+                RoomId = "2swovpy1fnunu",
+                CreateRoomParams = new CreateRoomParams() {
+                    RoomConfig = "{\"name\":\"my-room\"}",
+                    Region = Region.SaoPaulo,
+                },
+            };
+
+
+            using(var res = await sdk.RoomsV2.CreateRoomAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/rooms/v2/{appId}/destroy/{roomId}"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: DestroyRoom
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            DestroyRoomRequest req = new DestroyRoomRequest() {
+                RoomId = "2swovpy1fnunu",
+            };
+
+
+            using(var res = await sdk.RoomsV2.DestroyRoomAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/rooms/v2/{appId}/info/{roomId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetRoomInfo
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetRoomInfoRequest req = new GetRoomInfoRequest() {
+                RoomId = "2swovpy1fnunu",
+            };
+
+
+            using(var res = await sdk.RoomsV2.GetRoomInfoAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/rooms/v2/{appId}/list/{processId}/active"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetActiveRoomsForProcess
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetActiveRoomsForProcessRequest req = new GetActiveRoomsForProcessRequest() {
+                ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
+            };
+
+
+            using(var res = await sdk.RoomsV2.GetActiveRoomsForProcessAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/rooms/v2/{appId}/list/{processId}/inactive"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetInactiveRoomsForProcess
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetInactiveRoomsForProcessRequest req = new GetInactiveRoomsForProcessRequest() {
+                ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
+            };
+
+
+            using(var res = await sdk.RoomsV2.GetInactiveRoomsForProcessAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/rooms/v2/{appId}/suspend/{roomId}"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: SuspendRoomV2Deprecated
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            SuspendRoomV2DeprecatedRequest req = new SuspendRoomV2DeprecatedRequest() {
+                RoomId = "2swovpy1fnunu",
+            };
+
+
+            using(var res = await sdk.RoomsV2.SuspendRoomV2DeprecatedAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/rooms/v2/{appId}/update/{roomId}"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: UpdateRoomConfig
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            UpdateRoomConfigRequest req = new UpdateRoomConfigRequest() {
+                RoomId = "2swovpy1fnunu",
+                UpdateRoomConfigParams = new UpdateRoomConfigParams() {
+                    RoomConfig = "{\"name\":\"my-room\"}",
+                },
+            };
+
+
+            using(var res = await sdk.RoomsV2.UpdateRoomConfigAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/tokens/v1/orgs/{orgId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: GetOrgTokens
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            GetOrgTokensRequest req = new GetOrgTokensRequest() {
+                OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+            };
+
+
+            using(var res = await sdk.TokensV1.GetOrgTokensAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/tokens/v1/orgs/{orgId}/create"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: CreateOrgToken
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            CreateOrgTokenRequest req = new CreateOrgTokenRequest() {
+                OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+                CreateOrgToken = new CreateOrgToken() {
+                    Name = "ci-token",
+                },
+            };
+
+
+            using(var res = await sdk.TokensV1.CreateOrgTokenAsync(req))
+            {
+                // handle response
+            }
+  - target: $["paths"]["/tokens/v1/orgs/{orgId}/tokens/{orgTokenId}/revoke"]["post"]
+    update:
+      x-codeSamples:
+        - lang: unity
+          label: RevokeOrgToken
+          source: |-
+            using HathoraCloud;
+            using HathoraCloud.Models.Shared;
+            using HathoraCloud.Models.Operations;
+
+            var sdk = new HathoraCloudSDK(
+                security: new Security() {
+                    HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+                },
+                appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+
+            RevokeOrgTokenRequest req = new RevokeOrgTokenRequest() {
+                OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+                OrgTokenId = "org-token-af469a92-5b45-4565-b3c4-b79878de67d2",
+            };
+
+
+            using(var res = await sdk.TokensV1.RevokeOrgTokenAsync(req))
+            {
+                // handle response
+            }

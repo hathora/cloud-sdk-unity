@@ -49,16 +49,17 @@ using(var res = await sdk.ProcessesV1.GetProcessInfoDeprecatedAsync(req))
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `request`                                                                                     | [GetProcessInfoDeprecatedRequest](../../Models/Operations/GetProcessInfoDeprecatedRequest.md) | :heavy_check_mark:                                                                            | The request object to use for the request.                                                    |
 
-
 ### Response
 
 **[GetProcessInfoDeprecatedResponse](../../Models/Operations/GetProcessInfoDeprecatedResponse.md)**
+
 ### Errors
 
 | Error Object                            | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,500                             | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,429,500                         | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
+
 
 ## ~~GetRunningProcesses~~
 
@@ -96,16 +97,17 @@ using(var res = await sdk.ProcessesV1.GetRunningProcessesAsync(req))
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | `request`                                                                           | [GetRunningProcessesRequest](../../Models/Operations/GetRunningProcessesRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
-
 ### Response
 
 **[GetRunningProcessesResponse](../../Models/Operations/GetRunningProcessesResponse.md)**
+
 ### Errors
 
 | Error Object                            | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404                                 | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
+
 
 ## ~~GetStoppedProcesses~~
 
@@ -143,13 +145,13 @@ using(var res = await sdk.ProcessesV1.GetStoppedProcessesAsync(req))
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | `request`                                                                           | [GetStoppedProcessesRequest](../../Models/Operations/GetStoppedProcessesRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
-
 ### Response
 
 **[GetStoppedProcessesResponse](../../Models/Operations/GetStoppedProcessesResponse.md)**
+
 ### Errors
 
 | Error Object                            | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404                                 | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |

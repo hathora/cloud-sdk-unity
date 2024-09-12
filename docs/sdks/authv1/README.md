@@ -41,16 +41,17 @@ using(var res = await sdk.AuthV1.LoginAnonymousAsync(req))
 | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
 | `request`                                                                 | [LoginAnonymousRequest](../../Models/Operations/LoginAnonymousRequest.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
 
-
 ### Response
 
 **[LoginAnonymousResponse](../../Models/Operations/LoginAnonymousResponse.md)**
+
 ### Errors
 
 | Error Object                            | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 404                                     | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 404,429                                 | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
+
 
 ## LoginGoogle
 
@@ -86,16 +87,17 @@ using(var res = await sdk.AuthV1.LoginGoogleAsync(req))
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `request`                                                           | [LoginGoogleRequest](../../Models/Operations/LoginGoogleRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 
-
 ### Response
 
 **[LoginGoogleResponse](../../Models/Operations/LoginGoogleResponse.md)**
+
 ### Errors
 
 | Error Object                            | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404                                 | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
+
 
 ## LoginNickname
 
@@ -131,13 +133,13 @@ using(var res = await sdk.AuthV1.LoginNicknameAsync(req))
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | `request`                                                               | [LoginNicknameRequest](../../Models/Operations/LoginNicknameRequest.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 
-
 ### Response
 
 **[LoginNicknameResponse](../../Models/Operations/LoginNicknameResponse.md)**
+
 ### Errors
 
 | Error Object                            | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 404                                     | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 404,429                                 | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |

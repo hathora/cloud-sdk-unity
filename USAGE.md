@@ -15,7 +15,7 @@ AppConfig req = new AppConfig() {
 };
 
 
-using(var res = await sdk.AppV1.CreateAppAsync(req))
+using(var res = await sdk.AppsV1.CreateAppV1DeprecatedAsync(req))
 {
     // handle response
 }
