@@ -32,10 +32,10 @@ using(var res = await sdk.DiscoveryV1.GetPingServiceEndpointsDeprecatedAsync())
 
 ```
 
-
 ### Response
 
 **[GetPingServiceEndpointsDeprecatedResponse](../../Models/Operations/GetPingServiceEndpointsDeprecatedResponse.md)**
+
 ### Errors
 
 | Error Object                            | Status Code                             | Content Type                            |

@@ -30,10 +30,10 @@ using(var res = await sdk.DiscoveryV2.GetPingServiceEndpointsAsync())
 
 ```
 
-
 ### Response
 
 **[GetPingServiceEndpointsResponse](../../Models/Operations/GetPingServiceEndpointsResponse.md)**
+
 ### Errors
 
 | Error Object                            | Status Code                             | Content Type                            |

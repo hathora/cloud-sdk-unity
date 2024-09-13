@@ -6,6 +6,8 @@ sources:
             - location: https://hathora.dev/swagger.json
         overlays:
             - location: overlay.yaml
+        registry:
+            location: registry.speakeasyapi.dev/hathora/hathora/my-source
 targets:
     cloud-sdk-unity:
         target: unity
