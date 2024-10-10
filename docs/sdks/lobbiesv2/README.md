@@ -31,7 +31,7 @@ var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2")
 CreateLobbyDeprecatedRequest req = new CreateLobbyDeprecatedRequest() {
     CreateLobbyParams = new CreateLobbyParams() {
         InitialConfig = "<value>",
-        Region = Region.Tokyo,
+        Region = Region.SaoPaulo,
         Visibility = LobbyVisibility.Private,
     },
     RoomId = "2swovpy1fnunu",
@@ -63,11 +63,10 @@ using(var res = await sdk.LobbiesV2.CreateLobbyDeprecatedAsync(
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400,401,402,404,422,429,500             | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 422, 429, 500       | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~CreateLocalLobby~~
 
@@ -85,7 +84,7 @@ var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2")
 CreateLocalLobbyRequest req = new CreateLocalLobbyRequest() {
     RequestBody = new CreateLocalLobbyRequestBody() {
         InitialConfig = "<value>",
-        Region = Region.SaoPaulo,
+        Region = Region.Johannesburg,
     },
     RoomId = "2swovpy1fnunu",
 };
@@ -116,11 +115,10 @@ using(var res = await sdk.LobbiesV2.CreateLocalLobbyAsync(
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400,401,402,404,422,429,500             | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 422, 429, 500       | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~CreatePrivateLobby~~
 
@@ -138,7 +136,7 @@ var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2")
 CreatePrivateLobbyRequest req = new CreatePrivateLobbyRequest() {
     RequestBody = new CreatePrivateLobbyRequestBody() {
         InitialConfig = "<value>",
-        Region = Region.Chicago,
+        Region = Region.London,
     },
     RoomId = "2swovpy1fnunu",
 };
@@ -169,11 +167,10 @@ using(var res = await sdk.LobbiesV2.CreatePrivateLobbyAsync(
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400,401,402,404,422,429,500             | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 422, 429, 500       | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~CreatePublicLobby~~
 
@@ -191,7 +188,7 @@ var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2")
 CreatePublicLobbyRequest req = new CreatePublicLobbyRequest() {
     RequestBody = new CreatePublicLobbyRequestBody() {
         InitialConfig = "<value>",
-        Region = Region.SaoPaulo,
+        Region = Region.Johannesburg,
     },
     RoomId = "2swovpy1fnunu",
 };
@@ -222,11 +219,10 @@ using(var res = await sdk.LobbiesV2.CreatePublicLobbyAsync(
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400,401,402,404,422,429,500             | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 422, 429, 500       | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~GetLobbyInfo~~
 
@@ -268,11 +264,10 @@ using(var res = await sdk.LobbiesV2.GetLobbyInfoAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 404,429                                 | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 404, 429                                | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~ListActivePublicLobbiesDeprecatedV2~~
 
@@ -312,11 +307,10 @@ using(var res = await sdk.LobbiesV2.ListActivePublicLobbiesDeprecatedV2Async(req
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,429                                 | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 401, 429                                | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~SetLobbyState~~
 
@@ -365,7 +359,7 @@ using(var res = await sdk.LobbiesV2.SetLobbyStateAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,422,429                         | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429                      | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |

@@ -43,6 +43,7 @@ To do so open the Package Manager via `Window > Package Manager` and click the `
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
     security: new Security() {
@@ -50,13 +51,16 @@ var sdk = new HathoraCloudSDK(
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-AppConfig req = new AppConfig() {
-    AppName = "minecraft",
-    AuthConfiguration = new AuthConfiguration() {},
+CreateAppRequest req = new CreateAppRequest() {
+    AppConfig = new AppConfig() {
+        AppName = "minecraft",
+        AuthConfiguration = new AuthConfiguration() {},
+    },
+    OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
 };
 
 
-using(var res = await sdk.AppsV1.CreateAppV1DeprecatedAsync(req))
+using(var res = await sdk.AppsV2.CreateAppAsync(req))
 {
     // handle response
 }
@@ -68,13 +72,16 @@ using(var res = await sdk.AppsV1.CreateAppV1DeprecatedAsync(req))
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
-### [AppsV1](docs/sdks/appsv1/README.md)
+<details open>
+<summary>Available methods</summary>
 
-* [CreateAppV1Deprecated](docs/sdks/appsv1/README.md#createappv1deprecated) - Create a new [application](https://hathora.dev/docs/concepts/hathora-entities#application).
-* [DeleteAppV1Deprecated](docs/sdks/appsv1/README.md#deleteappv1deprecated) - Delete an [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Your organization will lose access to this application.
-* [GetAppInfoV1Deprecated](docs/sdks/appsv1/README.md#getappinfov1deprecated) - Get details for an [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`.
-* [GetAppsV1Deprecated](docs/sdks/appsv1/README.md#getappsv1deprecated) - Returns an unsorted list of your organization’s [applications](https://hathora.dev/docs/concepts/hathora-entities#application). An application is uniquely identified by an `appId`.
-* [UpdateAppV1Deprecated](docs/sdks/appsv1/README.md#updateappv1deprecated) - Update data for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`.
+### [~~AppsV1~~](docs/sdks/appsv1/README.md)
+
+* [~~CreateAppV1Deprecated~~](docs/sdks/appsv1/README.md#createappv1deprecated) - Create a new [application](https://hathora.dev/docs/concepts/hathora-entities#application). :warning: **Deprecated**
+* [~~DeleteAppV1Deprecated~~](docs/sdks/appsv1/README.md#deleteappv1deprecated) - Delete an [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. Your organization will lose access to this application. :warning: **Deprecated**
+* [~~GetAppInfoV1Deprecated~~](docs/sdks/appsv1/README.md#getappinfov1deprecated) - Get details for an [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. :warning: **Deprecated**
+* [~~GetAppsV1Deprecated~~](docs/sdks/appsv1/README.md#getappsv1deprecated) - Returns an unsorted list of your organization’s [applications](https://hathora.dev/docs/concepts/hathora-entities#application). An application is uniquely identified by an `appId`. :warning: **Deprecated**
+* [~~UpdateAppV1Deprecated~~](docs/sdks/appsv1/README.md#updateappv1deprecated) - Update data for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`. :warning: **Deprecated**
 
 ### [AppsV2](docs/sdks/appsv2/README.md)
 
@@ -99,7 +106,7 @@ using(var res = await sdk.AppsV1.CreateAppV1DeprecatedAsync(req))
 * [GetUpcomingInvoiceTotal](docs/sdks/billingv1/README.md#getupcominginvoicetotal)
 * [InitStripeCustomerPortalUrl](docs/sdks/billingv1/README.md#initstripecustomerportalurl)
 
-### [BuildsV1](docs/sdks/buildsv1/README.md)
+### [~~BuildsV1~~](docs/sdks/buildsv1/README.md)
 
 * [~~CreateBuildDeprecated~~](docs/sdks/buildsv1/README.md#createbuilddeprecated) - Creates a new [build](https://hathora.dev/docs/concepts/hathora-entities#build). Responds with a `buildId` that you must pass to [`RunBuild()`](https://hathora.dev/api#tag/BuildV1/operation/RunBuild) to build the game server artifact. You can optionally pass in a `buildTag` to associate an external version with a build. :warning: **Deprecated**
 * [~~DeleteBuildDeprecated~~](docs/sdks/buildsv1/README.md#deletebuilddeprecated) - Delete a [build](https://hathora.dev/docs/concepts/hathora-entities#build). All associated metadata is deleted. :warning: **Deprecated**
@@ -107,15 +114,15 @@ using(var res = await sdk.AppsV1.CreateAppV1DeprecatedAsync(req))
 * [~~GetBuildsDeprecated~~](docs/sdks/buildsv1/README.md#getbuildsdeprecated) - Returns an array of [builds](https://hathora.dev/docs/concepts/hathora-entities#build) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). :warning: **Deprecated**
 * [~~RunBuildDeprecated~~](docs/sdks/buildsv1/README.md#runbuilddeprecated) - Builds a game server artifact from a tarball you provide. Pass in the `buildId` generated from [`CreateBuild()`](https://hathora.dev/api#tag/BuildV1/operation/CreateBuild). :warning: **Deprecated**
 
-### [BuildsV2](docs/sdks/buildsv2/README.md)
+### [~~BuildsV2~~](docs/sdks/buildsv2/README.md)
 
-* [CreateBuildV2Deprecated](docs/sdks/buildsv2/README.md#createbuildv2deprecated) - Creates a new [build](https://hathora.dev/docs/concepts/hathora-entities#build). Responds with a `buildId` that you must pass to [`RunBuild()`](https://hathora.dev/api#tag/BuildV1/operation/RunBuild) to build the game server artifact. You can optionally pass in a `buildTag` to associate an external version with a build.
-* [CreateBuildWithUploadUrlV2Deprecated](docs/sdks/buildsv2/README.md#createbuildwithuploadurlv2deprecated) - Creates a new [build](https://hathora.dev/docs/concepts/hathora-entities#build) with `uploadUrl` that can be used to upload the build to before calling `runBuild`. Responds with a `buildId` that you must pass to [`RunBuild()`](https://hathora.dev/api#tag/BuildV1/operation/RunBuild) to build the game server artifact. You can optionally pass in a `buildTag` to associate an external version with a build.
-* [CreateWithMultipartUploadsV2Deprecated](docs/sdks/buildsv2/README.md#createwithmultipartuploadsv2deprecated) - Creates a new [build](https://hathora.dev/docs/concepts/hathora-entities#build) with optional `multipartUploadUrls` that can be used to upload larger builds in parts before calling `runBuild`. Responds with a `buildId` that you must pass to [`RunBuild()`](https://hathora.dev/api#tag/BuildV1/operation/RunBuild) to build the game server artifact. You can optionally pass in a `buildTag` to associate an external version with a build.
-* [DeleteBuildV2Deprecated](docs/sdks/buildsv2/README.md#deletebuildv2deprecated) - Delete a [build](https://hathora.dev/docs/concepts/hathora-entities#build). All associated metadata is deleted.
-* [GetBuildInfoV2Deprecated](docs/sdks/buildsv2/README.md#getbuildinfov2deprecated) - Get details for a [build](https://hathora.dev/docs/concepts/hathora-entities#build).
-* [GetBuildsV2Deprecated](docs/sdks/buildsv2/README.md#getbuildsv2deprecated) - Returns an array of [builds](https://hathora.dev/docs/concepts/hathora-entities#build) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application).
-* [RunBuildV2Deprecated](docs/sdks/buildsv2/README.md#runbuildv2deprecated) - Builds a game server artifact from a tarball you provide. Pass in the `buildId` generated from [`CreateBuild()`](https://hathora.dev/api#tag/BuildV1/operation/CreateBuild).
+* [~~CreateBuildV2Deprecated~~](docs/sdks/buildsv2/README.md#createbuildv2deprecated) - Creates a new [build](https://hathora.dev/docs/concepts/hathora-entities#build). Responds with a `buildId` that you must pass to [`RunBuild()`](https://hathora.dev/api#tag/BuildV1/operation/RunBuild) to build the game server artifact. You can optionally pass in a `buildTag` to associate an external version with a build. :warning: **Deprecated**
+* [~~CreateBuildWithUploadUrlV2Deprecated~~](docs/sdks/buildsv2/README.md#createbuildwithuploadurlv2deprecated) - Creates a new [build](https://hathora.dev/docs/concepts/hathora-entities#build) with `uploadUrl` that can be used to upload the build to before calling `runBuild`. Responds with a `buildId` that you must pass to [`RunBuild()`](https://hathora.dev/api#tag/BuildV1/operation/RunBuild) to build the game server artifact. You can optionally pass in a `buildTag` to associate an external version with a build. :warning: **Deprecated**
+* [~~CreateWithMultipartUploadsV2Deprecated~~](docs/sdks/buildsv2/README.md#createwithmultipartuploadsv2deprecated) - Creates a new [build](https://hathora.dev/docs/concepts/hathora-entities#build) with optional `multipartUploadUrls` that can be used to upload larger builds in parts before calling `runBuild`. Responds with a `buildId` that you must pass to [`RunBuild()`](https://hathora.dev/api#tag/BuildV1/operation/RunBuild) to build the game server artifact. You can optionally pass in a `buildTag` to associate an external version with a build. :warning: **Deprecated**
+* [~~DeleteBuildV2Deprecated~~](docs/sdks/buildsv2/README.md#deletebuildv2deprecated) - Delete a [build](https://hathora.dev/docs/concepts/hathora-entities#build). All associated metadata is deleted. :warning: **Deprecated**
+* [~~GetBuildInfoV2Deprecated~~](docs/sdks/buildsv2/README.md#getbuildinfov2deprecated) - Get details for a [build](https://hathora.dev/docs/concepts/hathora-entities#build). :warning: **Deprecated**
+* [~~GetBuildsV2Deprecated~~](docs/sdks/buildsv2/README.md#getbuildsv2deprecated) - Returns an array of [builds](https://hathora.dev/docs/concepts/hathora-entities#build) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). :warning: **Deprecated**
+* [~~RunBuildV2Deprecated~~](docs/sdks/buildsv2/README.md#runbuildv2deprecated) - Builds a game server artifact from a tarball you provide. Pass in the `buildId` generated from [`CreateBuild()`](https://hathora.dev/api#tag/BuildV1/operation/CreateBuild). :warning: **Deprecated**
 
 ### [BuildsV3](docs/sdks/buildsv3/README.md)
 
@@ -127,19 +134,19 @@ Deleting a build that is actively build used by an app's deployment will cause f
 * [GetBuilds](docs/sdks/buildsv3/README.md#getbuilds) - Returns an array of [builds](https://hathora.dev/docs/concepts/hathora-entities#build) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application).
 * [RunBuild](docs/sdks/buildsv3/README.md#runbuild) - Builds a game server artifact from a tarball you provide. Pass in the `buildId` generated from [`CreateBuild()`](https://hathora.dev/api#tag/BuildV1/operation/CreateBuild).
 
-### [DeploymentsV1](docs/sdks/deploymentsv1/README.md)
+### [~~DeploymentsV1~~](docs/sdks/deploymentsv1/README.md)
 
 * [~~CreateDeploymentV1Deprecated~~](docs/sdks/deploymentsv1/README.md#createdeploymentv1deprecated) - Create a new [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment). Creating a new deployment means all new rooms created will use the latest deployment configuration, but existing games in progress will not be affected. :warning: **Deprecated**
 * [~~GetDeploymentInfoV1Deprecated~~](docs/sdks/deploymentsv1/README.md#getdeploymentinfov1deprecated) - Get details for a [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment). :warning: **Deprecated**
 * [~~GetDeploymentsV1Deprecated~~](docs/sdks/deploymentsv1/README.md#getdeploymentsv1deprecated) - Returns an array of [deployments](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). :warning: **Deprecated**
 * [~~GetLatestDeploymentV1Deprecated~~](docs/sdks/deploymentsv1/README.md#getlatestdeploymentv1deprecated) - Get the latest [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). :warning: **Deprecated**
 
-### [DeploymentsV2](docs/sdks/deploymentsv2/README.md)
+### [~~DeploymentsV2~~](docs/sdks/deploymentsv2/README.md)
 
-* [CreateDeploymentV2Deprecated](docs/sdks/deploymentsv2/README.md#createdeploymentv2deprecated) - Create a new [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment). Creating a new deployment means all new rooms created will use the latest deployment configuration, but existing games in progress will not be affected.
-* [GetDeploymentInfoV2Deprecated](docs/sdks/deploymentsv2/README.md#getdeploymentinfov2deprecated) - Get details for a [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment).
-* [GetDeploymentsV2Deprecated](docs/sdks/deploymentsv2/README.md#getdeploymentsv2deprecated) - Returns an array of [deployments](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application).
-* [GetLatestDeploymentV2Deprecated](docs/sdks/deploymentsv2/README.md#getlatestdeploymentv2deprecated) - Get the latest [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application).
+* [~~CreateDeploymentV2Deprecated~~](docs/sdks/deploymentsv2/README.md#createdeploymentv2deprecated) - Create a new [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment). Creating a new deployment means all new rooms created will use the latest deployment configuration, but existing games in progress will not be affected. :warning: **Deprecated**
+* [~~GetDeploymentInfoV2Deprecated~~](docs/sdks/deploymentsv2/README.md#getdeploymentinfov2deprecated) - Get details for a [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment). :warning: **Deprecated**
+* [~~GetDeploymentsV2Deprecated~~](docs/sdks/deploymentsv2/README.md#getdeploymentsv2deprecated) - Returns an array of [deployments](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). :warning: **Deprecated**
+* [~~GetLatestDeploymentV2Deprecated~~](docs/sdks/deploymentsv2/README.md#getlatestdeploymentv2deprecated) - Get the latest [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). :warning: **Deprecated**
 
 ### [DeploymentsV3](docs/sdks/deploymentsv3/README.md)
 
@@ -148,7 +155,7 @@ Deleting a build that is actively build used by an app's deployment will cause f
 * [GetDeployments](docs/sdks/deploymentsv3/README.md#getdeployments) - Returns an array of [deployments](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application).
 * [GetLatestDeployment](docs/sdks/deploymentsv3/README.md#getlatestdeployment) - Get the latest [deployment](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application).
 
-### [DiscoveryV1](docs/sdks/discoveryv1/README.md)
+### [~~DiscoveryV1~~](docs/sdks/discoveryv1/README.md)
 
 * [~~GetPingServiceEndpointsDeprecated~~](docs/sdks/discoveryv1/README.md#getpingserviceendpointsdeprecated) - Returns an array of V1 regions with a host and port that a client can directly ping. Open a websocket connection to `wss://<host>:<port>/ws` and send a packet. To calculate ping, measure the time it takes to get an echo packet back. :warning: **Deprecated**
 
@@ -156,13 +163,20 @@ Deleting a build that is actively build used by an app's deployment will cause f
 
 * [GetPingServiceEndpoints](docs/sdks/discoveryv2/README.md#getpingserviceendpoints) - Returns an array of all regions with a host and port that a client can directly ping. Open a websocket connection to `wss://<host>:<port>/ws` and send a packet. To calculate ping, measure the time it takes to get an echo packet back.
 
-### [LobbiesV1](docs/sdks/lobbiesv1/README.md)
+### [FleetsV1](docs/sdks/fleetsv1/README.md)
+
+* [GetFleetRegion](docs/sdks/fleetsv1/README.md#getfleetregion)
+* [GetFleets](docs/sdks/fleetsv1/README.md#getfleets)
+* [UpdateFleetRegion](docs/sdks/fleetsv1/README.md#updatefleetregion)
+
+
+### [~~LobbiesV1~~](docs/sdks/lobbiesv1/README.md)
 
 * [~~CreatePrivateLobbyDeprecated~~](docs/sdks/lobbiesv1/README.md#createprivatelobbydeprecated) - :warning: **Deprecated**
 * [~~CreatePublicLobbyDeprecated~~](docs/sdks/lobbiesv1/README.md#createpubliclobbydeprecated) - :warning: **Deprecated**
 * [~~ListActivePublicLobbiesDeprecatedV1~~](docs/sdks/lobbiesv1/README.md#listactivepubliclobbiesdeprecatedv1) - :warning: **Deprecated**
 
-### [LobbiesV2](docs/sdks/lobbiesv2/README.md)
+### [~~LobbiesV2~~](docs/sdks/lobbiesv2/README.md)
 
 * [~~CreateLobbyDeprecated~~](docs/sdks/lobbiesv2/README.md#createlobbydeprecated) - Create a new lobby for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). A lobby object is a wrapper around a [room](https://hathora.dev/docs/concepts/hathora-entities#room) object. With a lobby, you get additional functionality like configuring the visibility of the room, managing the state of a match, and retrieving a list of public lobbies to display to players. :warning: **Deprecated**
 * [~~CreateLocalLobby~~](docs/sdks/lobbiesv2/README.md#createlocallobby) - :warning: **Deprecated**
@@ -205,19 +219,19 @@ Deleting a build that is actively build used by an app's deployment will cause f
 * [RejectInvite](docs/sdks/organizationsv1/README.md#rejectinvite)
 * [RescindInvite](docs/sdks/organizationsv1/README.md#rescindinvite)
 
-### [ProcessesV1](docs/sdks/processesv1/README.md)
+### [~~ProcessesV1~~](docs/sdks/processesv1/README.md)
 
 * [~~GetProcessInfoDeprecated~~](docs/sdks/processesv1/README.md#getprocessinfodeprecated) - Get details for a [process](https://hathora.dev/docs/concepts/hathora-entities#process). :warning: **Deprecated**
 * [~~GetRunningProcesses~~](docs/sdks/processesv1/README.md#getrunningprocesses) - Retrieve 10 most recently started [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `region`. :warning: **Deprecated**
 * [~~GetStoppedProcesses~~](docs/sdks/processesv1/README.md#getstoppedprocesses) - Retrieve 10 most recently stopped [process](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `region`. :warning: **Deprecated**
 
-### [ProcessesV2](docs/sdks/processesv2/README.md)
+### [~~ProcessesV2~~](docs/sdks/processesv2/README.md)
 
-* [CreateProcessV2Deprecated](docs/sdks/processesv2/README.md#createprocessv2deprecated) - Creates a [process](https://hathora.dev/docs/concepts/hathora-entities#process) without a room. Use this to pre-allocate processes ahead of time so that subsequent room assignment via [CreateRoom()](https://hathora.dev/api#tag/RoomV2/operation/CreateRoom) can be instant.
-* [GetLatestProcessesV2Deprecated](docs/sdks/processesv2/README.md#getlatestprocessesv2deprecated) - Retrieve the 10 most recent [processes](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `status` or `region`.
-* [GetProcessInfoV2Deprecated](docs/sdks/processesv2/README.md#getprocessinfov2deprecated) - Get details for a [process](https://hathora.dev/docs/concepts/hathora-entities#process).
-* [GetProcessesCountExperimentalV2Deprecated](docs/sdks/processesv2/README.md#getprocessescountexperimentalv2deprecated) - Count the number of [processes](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter by optionally passing in a `status` or `region`.
-* [StopProcessV2Deprecated](docs/sdks/processesv2/README.md#stopprocessv2deprecated) - Stops a [process](https://hathora.dev/docs/concepts/hathora-entities#process) immediately.
+* [~~CreateProcessV2Deprecated~~](docs/sdks/processesv2/README.md#createprocessv2deprecated) - Creates a [process](https://hathora.dev/docs/concepts/hathora-entities#process) without a room. Use this to pre-allocate processes ahead of time so that subsequent room assignment via [CreateRoom()](https://hathora.dev/api#tag/RoomV2/operation/CreateRoom) can be instant. :warning: **Deprecated**
+* [~~GetLatestProcessesV2Deprecated~~](docs/sdks/processesv2/README.md#getlatestprocessesv2deprecated) - Retrieve the 10 most recent [processes](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter the array by optionally passing in a `status` or `region`. :warning: **Deprecated**
+* [~~GetProcessInfoV2Deprecated~~](docs/sdks/processesv2/README.md#getprocessinfov2deprecated) - Get details for a [process](https://hathora.dev/docs/concepts/hathora-entities#process). :warning: **Deprecated**
+* [~~GetProcessesCountExperimentalV2Deprecated~~](docs/sdks/processesv2/README.md#getprocessescountexperimentalv2deprecated) - Count the number of [processes](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter by optionally passing in a `status` or `region`. :warning: **Deprecated**
+* [~~StopProcessV2Deprecated~~](docs/sdks/processesv2/README.md#stopprocessv2deprecated) - Stops a [process](https://hathora.dev/docs/concepts/hathora-entities#process) immediately. :warning: **Deprecated**
 
 ### [ProcessesV3](docs/sdks/processesv3/README.md)
 
@@ -227,7 +241,7 @@ Deleting a build that is actively build used by an app's deployment will cause f
 * [GetProcessesCountExperimental](docs/sdks/processesv3/README.md#getprocessescountexperimental) - Count the number of [processes](https://hathora.dev/docs/concepts/hathora-entities#process) objects for an [application](https://hathora.dev/docs/concepts/hathora-entities#application). Filter by optionally passing in a `status` or `region`.
 * [StopProcess](docs/sdks/processesv3/README.md#stopprocess) - Stops a [process](https://hathora.dev/docs/concepts/hathora-entities#process) immediately.
 
-### [RoomsV1](docs/sdks/roomsv1/README.md)
+### [~~RoomsV1~~](docs/sdks/roomsv1/README.md)
 
 * [~~CreateRoomDeprecated~~](docs/sdks/roomsv1/README.md#createroomdeprecated) - :warning: **Deprecated**
 * [~~DestroyRoomDeprecated~~](docs/sdks/roomsv1/README.md#destroyroomdeprecated) - :warning: **Deprecated**
@@ -253,6 +267,8 @@ Deleting a build that is actively build used by an app's deployment will cause f
 * [CreateOrgToken](docs/sdks/tokensv1/README.md#createorgtoken) - Create a new organization token.
 * [GetOrgTokens](docs/sdks/tokensv1/README.md#getorgtokens) - List all organization tokens for a given org.
 * [RevokeOrgToken](docs/sdks/tokensv1/README.md#revokeorgtoken) - Revoke an organization token.
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 
@@ -266,7 +282,7 @@ Deleting a build that is actively build used by an app's deployment will cause f
 
 A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
 
-For example, you can set `appId` to `"app-af469a92-5b45-4565-b3c4-b79878de67d2"` at SDK initialization and then you do not have to pass the same value on calls to operations like `DeleteAppV1Deprecated`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
+For example, you can set `appId` to `"app-af469a92-5b45-4565-b3c4-b79878de67d2"` at SDK initialization and then you do not have to pass the same value on calls to operations like `DeleteApp`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
 
 
 ### Available Globals
@@ -291,10 +307,10 @@ var sdk = new HathoraCloudSDK(
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-DeleteAppV1DeprecatedRequest req = new DeleteAppV1DeprecatedRequest() {};
+DeleteAppRequest req = new DeleteAppRequest() {};
 
 
-using(var res = await sdk.AppsV1.DeleteAppV1DeprecatedAsync(req))
+using(var res = await sdk.AppsV2.DeleteAppAsync(req))
 {
     // handle response
 }
@@ -328,12 +344,23 @@ The default server can also be overridden globally by passing a URL to the `serv
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations.  All operations return a response object or thow an exception.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate type.
+Handling errors in this SDK should largely match your expectations. All operations return a response object or throw an exception.
 
-| Error Object                            | Status Code                             | Content Type                            |
+By default, an API error will raise a `HathoraCloud.Models.Errors.SDKException` exception, which has the following properties:
+
+| Property      | Type                  | Description           |
+|---------------|-----------------------|-----------------------|
+| `Message`     | *string*              | The error message     |
+| `StatusCode`  | *int*                 | The raw HTTP response |
+| `RawResponse` | *HttpResponseMessage* | The raw HTTP response |
+| `Body`        | *string*              | The response content  |
+
+When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `CreateAppAsync` method throws the following exceptions:
+
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,422,429,500                         | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429, 500                 | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ### Example
 
@@ -342,6 +369,7 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using System;
 using HathoraCloud.Models.Errors;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
     security: new Security() {
@@ -349,14 +377,17 @@ var sdk = new HathoraCloudSDK(
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-AppConfig req = new AppConfig() {
-    AppName = "minecraft",
-    AuthConfiguration = new AuthConfiguration() {},
+CreateAppRequest req = new CreateAppRequest() {
+    AppConfig = new AppConfig() {
+        AppName = "minecraft",
+        AuthConfiguration = new AuthConfiguration() {},
+    },
+    OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
 };
 
 try
 {
-    using(var res = await sdk.AppsV1.CreateAppV1DeprecatedAsync(req))
+    using(var res = await sdk.AppsV2.CreateAppAsync(req))
     {
             // handle response
     }
@@ -391,6 +422,7 @@ You can set the security parameters through the `security` optional parameter wh
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
     security: new Security() {
@@ -398,13 +430,16 @@ var sdk = new HathoraCloudSDK(
     },
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-AppConfig req = new AppConfig() {
-    AppName = "minecraft",
-    AuthConfiguration = new AuthConfiguration() {},
+CreateAppRequest req = new CreateAppRequest() {
+    AppConfig = new AppConfig() {
+        AppName = "minecraft",
+        AuthConfiguration = new AuthConfiguration() {},
+    },
+    OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
 };
 
 
-using(var res = await sdk.AppsV1.CreateAppV1DeprecatedAsync(req))
+using(var res = await sdk.AppsV2.CreateAppAsync(req))
 {
     // handle response
 }
@@ -422,11 +457,19 @@ using HathoraCloud.Models.Shared;
 
 var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-CreatePrivateLobbyDeprecatedRequest req = new CreatePrivateLobbyDeprecatedRequest() {};
+CreateLobbyRequest req = new CreateLobbyRequest() {
+    CreateLobbyV3Params = new CreateLobbyV3Params() {
+        Region = Region.Seattle,
+        RoomConfig = "{\"name\":\"my-room\"}",
+        Visibility = LobbyVisibility.Private,
+    },
+    RoomId = "2swovpy1fnunu",
+    ShortCode = "LFG4",
+};
 
 
-using(var res = await sdk.LobbiesV1.CreatePrivateLobbyDeprecatedAsync(
-    security: new CreatePrivateLobbyDeprecatedSecurity() {
+using(var res = await sdk.LobbiesV3.CreateLobbyAsync(
+    security: new CreateLobbySecurity() {
         PlayerAuth = "<YOUR_BEARER_TOKEN_HERE>",
     },
     req))

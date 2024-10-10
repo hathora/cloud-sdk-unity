@@ -42,7 +42,7 @@ namespace HathoraCloud
         /// <summary>
         /// Returns an array of <a href="https://hathora.dev/docs/concepts/hathora-entities#build">builds</a> for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>.
         /// </summary>
-        Task<GetBuildsDeprecatedResponse> GetBuildsDeprecatedAsync(GetBuildsDeprecatedRequest request);
+        Task<GetBuildsDeprecatedResponse> GetBuildsDeprecatedAsync(GetBuildsDeprecatedRequest? request = null);
 
         /// <summary>
         /// Builds a game server artifact from a tarball you provide. Pass in the `buildId` generated from <a href="">`CreateBuild()`</a>.
@@ -54,10 +54,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.0";
-        private const string _sdkGenVersion = "2.415.0";
+        private const string _sdkVersion = "0.30.1";
+        private const string _sdkGenVersion = "2.437.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.0 2.415.0 0.0.1 HathoraCloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.30.1 2.437.1 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -334,12 +334,8 @@ namespace HathoraCloud
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<GetBuildsDeprecatedResponse> GetBuildsDeprecatedAsync(GetBuildsDeprecatedRequest request)
+        public async Task<GetBuildsDeprecatedResponse> GetBuildsDeprecatedAsync(GetBuildsDeprecatedRequest? request = null)
         {
-            if (request == null)
-            {
-                request = new GetBuildsDeprecatedRequest();
-            }
             request.AppId ??= SDKConfiguration.AppId;
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();

@@ -21,6 +21,9 @@ namespace HathoraCloud
     using System;
     using UnityEngine.Networking;
 
+    /// <summary>
+    /// Operations that allow you create and manage your <a href="https://hathora.dev/docs/concepts/hathora-entities#build">builds</a>.
+    /// </summary>
     public interface IBuildsV3
     {
 
@@ -44,7 +47,7 @@ namespace HathoraCloud
         /// <summary>
         /// Returns an array of <a href="https://hathora.dev/docs/concepts/hathora-entities#build">builds</a> for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>.
         /// </summary>
-        Task<GetBuildsResponse> GetBuildsAsync(GetBuildsRequest request);
+        Task<GetBuildsResponse> GetBuildsAsync(GetBuildsRequest? request = null);
 
         /// <summary>
         /// Builds a game server artifact from a tarball you provide. Pass in the `buildId` generated from <a href="">`CreateBuild()`</a>.
@@ -52,14 +55,17 @@ namespace HathoraCloud
         Task<RunBuildResponse> RunBuildAsync(RunBuildRequest request);
     }
 
+    /// <summary>
+    /// Operations that allow you create and manage your <a href="https://hathora.dev/docs/concepts/hathora-entities#build">builds</a>.
+    /// </summary>
     public class BuildsV3: IBuildsV3
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.0";
-        private const string _sdkGenVersion = "2.415.0";
+        private const string _sdkVersion = "0.30.1";
+        private const string _sdkGenVersion = "2.437.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.0 2.415.0 0.0.1 HathoraCloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.30.1 2.437.1 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -327,7 +333,7 @@ namespace HathoraCloud
         
 
         
-        public async Task<GetBuildsResponse> GetBuildsAsync(GetBuildsRequest request)
+        public async Task<GetBuildsResponse> GetBuildsAsync(GetBuildsRequest? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/builds/v3/builds", request);
@@ -383,7 +389,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{401, 404, 429}.Contains(httpCode))
+            else if (new List<int>{401, 404, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
