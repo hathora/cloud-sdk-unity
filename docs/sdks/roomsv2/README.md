@@ -34,7 +34,10 @@ var sdk = new HathoraCloudSDK(
 
 CreateRoomRequest req = new CreateRoomRequest() {
     CreateRoomParams = new CreateRoomParams() {
-        Region = Region.SaoPaulo,
+        ClientIPs = new List<string>() {
+            "123.123.123.123",
+        },
+        Region = Region.Dallas,
         RoomConfig = "{\"name\":\"my-room\"}",
     },
     RoomId = "2swovpy1fnunu",
@@ -61,11 +64,10 @@ using(var res = await sdk.RoomsV2.CreateRoomAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400,401,402,404,422,429,500             | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 422, 429, 500       | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## DestroyRoom
 
@@ -109,11 +111,10 @@ using(var res = await sdk.RoomsV2.DestroyRoomAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,429,500                         | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429, 500                      | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetActiveRoomsForProcess
 
@@ -157,11 +158,10 @@ using(var res = await sdk.RoomsV2.GetActiveRoomsForProcessAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetConnectionInfo
 
@@ -201,11 +201,10 @@ using(var res = await sdk.RoomsV2.GetConnectionInfoAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400,402,404,422,429,500                 | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 400, 402, 404, 422, 429, 500            | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetInactiveRoomsForProcess
 
@@ -249,11 +248,10 @@ using(var res = await sdk.RoomsV2.GetInactiveRoomsForProcessAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetRoomInfo
 
@@ -297,11 +295,10 @@ using(var res = await sdk.RoomsV2.GetRoomInfoAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,422,429                         | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429                      | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~SuspendRoomV2Deprecated~~
 
@@ -347,11 +344,10 @@ using(var res = await sdk.RoomsV2.SuspendRoomV2DeprecatedAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,429,500                         | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429, 500                      | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## UpdateRoomConfig
 
@@ -396,7 +392,7 @@ using(var res = await sdk.RoomsV2.UpdateRoomConfigAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,429,500                         | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429, 500                      | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |

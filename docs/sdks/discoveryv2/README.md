@@ -36,6 +36,6 @@ using(var res = await sdk.DiscoveryV2.GetPingServiceEndpointsAsync())
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |

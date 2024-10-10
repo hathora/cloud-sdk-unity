@@ -21,6 +21,9 @@ namespace HathoraCloud
     using System;
     using UnityEngine.Networking;
 
+    /// <summary>
+    /// Operations to get data on active and stopped <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a>.
+    /// </summary>
     public interface IProcessesV3
     {
 
@@ -32,7 +35,7 @@ namespace HathoraCloud
         /// <summary>
         /// Retrieve the 10 most recent <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a> objects for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>. Filter the array by optionally passing in a `status` or `region`.
         /// </summary>
-        Task<GetLatestProcessesResponse> GetLatestProcessesAsync(GetLatestProcessesRequest request);
+        Task<GetLatestProcessesResponse> GetLatestProcessesAsync(GetLatestProcessesRequest? request = null);
 
         /// <summary>
         /// Get details for a <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a>.
@@ -42,7 +45,7 @@ namespace HathoraCloud
         /// <summary>
         /// Count the number of <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a> objects for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>. Filter by optionally passing in a `status` or `region`.
         /// </summary>
-        Task<GetProcessesCountExperimentalResponse> GetProcessesCountExperimentalAsync(GetProcessesCountExperimentalRequest request);
+        Task<GetProcessesCountExperimentalResponse> GetProcessesCountExperimentalAsync(GetProcessesCountExperimentalRequest? request = null);
 
         /// <summary>
         /// Stops a <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> immediately.
@@ -50,14 +53,17 @@ namespace HathoraCloud
         Task<StopProcessResponse> StopProcessAsync(StopProcessRequest request);
     }
 
+    /// <summary>
+    /// Operations to get data on active and stopped <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a>.
+    /// </summary>
     public class ProcessesV3: IProcessesV3
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.0";
-        private const string _sdkGenVersion = "2.415.0";
+        private const string _sdkVersion = "0.30.1";
+        private const string _sdkGenVersion = "2.437.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.0 2.415.0 0.0.1 HathoraCloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.30.1 2.437.1 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -160,12 +166,8 @@ namespace HathoraCloud
         
 
         
-        public async Task<GetLatestProcessesResponse> GetLatestProcessesAsync(GetLatestProcessesRequest request)
+        public async Task<GetLatestProcessesResponse> GetLatestProcessesAsync(GetLatestProcessesRequest? request = null)
         {
-            if (request == null)
-            {
-                request = new GetLatestProcessesRequest();
-            }
             request.AppId ??= SDKConfiguration.AppId;
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
@@ -336,12 +338,8 @@ namespace HathoraCloud
         
 
         
-        public async Task<GetProcessesCountExperimentalResponse> GetProcessesCountExperimentalAsync(GetProcessesCountExperimentalRequest request)
+        public async Task<GetProcessesCountExperimentalResponse> GetProcessesCountExperimentalAsync(GetProcessesCountExperimentalRequest? request = null)
         {
-            if (request == null)
-            {
-                request = new GetProcessesCountExperimentalRequest();
-            }
             request.AppId ??= SDKConfiguration.AppId;
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();

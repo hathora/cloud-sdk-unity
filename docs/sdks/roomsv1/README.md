@@ -33,7 +33,10 @@ var sdk = new HathoraCloudSDK(
 
 CreateRoomDeprecatedRequest req = new CreateRoomDeprecatedRequest() {
     CreateRoomParams = new CreateRoomParams() {
-        Region = Region.Chicago,
+        ClientIPs = new List<string>() {
+            "123.123.123.123",
+        },
+        Region = Region.London,
         RoomConfig = "{\"name\":\"my-room\"}",
     },
     RoomId = "2swovpy1fnunu",
@@ -60,11 +63,10 @@ using(var res = await sdk.RoomsV1.CreateRoomDeprecatedAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400,401,402,404,422,429,500             | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 422, 429, 500       | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~DestroyRoomDeprecated~~
 
@@ -108,11 +110,10 @@ using(var res = await sdk.RoomsV1.DestroyRoomDeprecatedAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,429,500                         | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429, 500                      | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~GetActiveRoomsForProcessDeprecated~~
 
@@ -156,11 +157,10 @@ using(var res = await sdk.RoomsV1.GetActiveRoomsForProcessDeprecatedAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~GetConnectionInfoDeprecated~~
 
@@ -200,11 +200,10 @@ using(var res = await sdk.RoomsV1.GetConnectionInfoDeprecatedAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400,402,404,429,500                     | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 400, 402, 404, 429, 500                 | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~GetInactiveRoomsForProcessDeprecated~~
 
@@ -248,11 +247,10 @@ using(var res = await sdk.RoomsV1.GetInactiveRoomsForProcessDeprecatedAsync(req)
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~GetRoomInfoDeprecated~~
 
@@ -296,11 +294,10 @@ using(var res = await sdk.RoomsV1.GetRoomInfoDeprecatedAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,422,429                         | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429                      | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~SuspendRoomDeprecated~~
 
@@ -344,7 +341,7 @@ using(var res = await sdk.RoomsV1.SuspendRoomDeprecatedAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,429,500                         | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429, 500                      | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |

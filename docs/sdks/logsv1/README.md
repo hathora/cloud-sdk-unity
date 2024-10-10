@@ -52,11 +52,10 @@ using(var res = await sdk.LogsV1.DownloadLogForProcessAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400,401,404,410,429                     | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 400, 401, 404, 410, 429                 | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~GetLogsForApp~~
 
@@ -102,11 +101,10 @@ using(var res = await sdk.LogsV1.GetLogsForAppAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~GetLogsForDeployment~~
 
@@ -153,11 +151,10 @@ using(var res = await sdk.LogsV1.GetLogsForDeploymentAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetLogsForProcess
 
@@ -202,7 +199,7 @@ using(var res = await sdk.LogsV1.GetLogsForProcessAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400,401,404,410,429,500                 | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
+| HathoraCloud.Models.Errors.ApiError     | 400, 401, 404, 410, 429, 500            | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |

@@ -32,7 +32,7 @@ namespace HathoraCloud
         /// <summary>
         /// Returns a stream of logs for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`.
         /// </summary>
-        Task<GetLogsForAppResponse> GetLogsForAppAsync(GetLogsForAppRequest request);
+        Task<GetLogsForAppResponse> GetLogsForAppAsync(GetLogsForAppRequest? request = null);
 
         /// <summary>
         /// Returns a stream of logs for a <a href="https://hathora.dev/docs/concepts/hathora-entities#deployment">deployment</a> using `appId` and `deploymentId`.
@@ -49,10 +49,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.0";
-        private const string _sdkGenVersion = "2.415.0";
+        private const string _sdkVersion = "0.30.1";
+        private const string _sdkGenVersion = "2.437.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.0 2.415.0 0.0.1 HathoraCloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.30.1 2.437.1 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -154,12 +154,8 @@ namespace HathoraCloud
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<GetLogsForAppResponse> GetLogsForAppAsync(GetLogsForAppRequest request)
+        public async Task<GetLogsForAppResponse> GetLogsForAppAsync(GetLogsForAppRequest? request = null)
         {
-            if (request == null)
-            {
-                request = new GetLogsForAppRequest();
-            }
             request.AppId ??= SDKConfiguration.AppId;
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();

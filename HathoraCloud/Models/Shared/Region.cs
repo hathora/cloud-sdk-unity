@@ -40,6 +40,10 @@ namespace HathoraCloud.Models.Shared
         SaoPaulo,
         [JsonProperty("Dallas")]
         Dallas,
+        [JsonProperty("Johannesburg")]
+        Johannesburg,
+        [JsonProperty("Dubai")]
+        Dubai,
     }
 
     public static class RegionExtension

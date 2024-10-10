@@ -40,7 +40,7 @@ namespace HathoraCloud
         /// <summary>
         /// Get all active lobbies for a an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>. Filter by optionally passing in a `region`. Use this endpoint to display all public lobbies that a player can join in the game client.
         /// </summary>
-        Task<ListActivePublicLobbiesDeprecatedV2Response> ListActivePublicLobbiesDeprecatedV2Async(ListActivePublicLobbiesDeprecatedV2Request request);
+        Task<ListActivePublicLobbiesDeprecatedV2Response> ListActivePublicLobbiesDeprecatedV2Async(ListActivePublicLobbiesDeprecatedV2Request? request = null);
 
         /// <summary>
         /// Set the state of a lobby. State is intended to be set by the server and must be smaller than 1MB. Use this endpoint to store match data like live player count to enforce max number of clients or persist end-game data (i.e. winner or final scores).
@@ -52,10 +52,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.0";
-        private const string _sdkGenVersion = "2.415.0";
+        private const string _sdkVersion = "0.30.1";
+        private const string _sdkGenVersion = "2.437.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.0 2.415.0 0.0.1 HathoraCloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.30.1 2.437.1 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -518,12 +518,8 @@ namespace HathoraCloud
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<ListActivePublicLobbiesDeprecatedV2Response> ListActivePublicLobbiesDeprecatedV2Async(ListActivePublicLobbiesDeprecatedV2Request request)
+        public async Task<ListActivePublicLobbiesDeprecatedV2Response> ListActivePublicLobbiesDeprecatedV2Async(ListActivePublicLobbiesDeprecatedV2Request? request = null)
         {
-            if (request == null)
-            {
-                request = new ListActivePublicLobbiesDeprecatedV2Request();
-            }
             request.AppId ??= SDKConfiguration.AppId;
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
