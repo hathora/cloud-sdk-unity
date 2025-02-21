@@ -20,7 +20,7 @@ namespace HathoraCloud.Models.Operations
     {
 
         [SerializeField]
-        [SpeakeasyMetadata("multipartForm:file")]
+        [SpeakeasyMetadata("multipartForm:file,name=file")]
         public RunBuildV2DeprecatedFile? File { get; set; }
     }
 }

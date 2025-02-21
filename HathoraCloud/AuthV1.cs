@@ -28,17 +28,29 @@ namespace HathoraCloud
     {
 
         /// <summary>
+        /// LoginAnonymous
+        /// 
+        /// <remarks>
         /// Returns a unique player token for an anonymous user.
+        /// </remarks>
         /// </summary>
-        Task<LoginAnonymousResponse> LoginAnonymousAsync(LoginAnonymousRequest request);
+        Task<LoginAnonymousResponse> LoginAnonymousAsync(LoginAnonymousRequest? request = null);
 
         /// <summary>
+        /// LoginGoogle
+        /// 
+        /// <remarks>
         /// Returns a unique player token using a Google-signed OIDC `idToken`.
+        /// </remarks>
         /// </summary>
         Task<LoginGoogleResponse> LoginGoogleAsync(LoginGoogleRequest request);
 
         /// <summary>
+        /// LoginNickname
+        /// 
+        /// <remarks>
         /// Returns a unique player token with a specified nickname for a user.
+        /// </remarks>
         /// </summary>
         Task<LoginNicknameResponse> LoginNicknameAsync(LoginNicknameRequest request);
     }
@@ -50,10 +62,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.0";
-        private const string _sdkGenVersion = "2.415.0";
+        private const string _sdkVersion = "0.30.1";
+        private const string _sdkGenVersion = "2.518.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.0 2.415.0 0.0.1 HathoraCloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.30.1 2.518.1 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -68,12 +80,8 @@ namespace HathoraCloud
         
 
         
-        public async Task<LoginAnonymousResponse> LoginAnonymousAsync(LoginAnonymousRequest request)
+        public async Task<LoginAnonymousResponse> LoginAnonymousAsync(LoginAnonymousRequest? request = null)
         {
-            if (request == null)
-            {
-                request = new LoginAnonymousRequest();
-            }
             request.AppId ??= SDKConfiguration.AppId;
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
@@ -138,7 +146,11 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -217,7 +229,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{401, 404, 429}.Contains(httpCode))
+            else if (new List<int>{401, 404, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -229,7 +241,11 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -308,7 +324,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{404, 429}.Contains(httpCode))
+            else if (new List<int>{404, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -320,7 +336,11 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }

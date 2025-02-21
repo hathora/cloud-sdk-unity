@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
@@ -24,5 +25,12 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("name")]
         public string Name { get; set; } = default!;
+
+        /// <summary>
+        /// If not defined, the token has Admin access.
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("scopes")]
+        public Scopes? Scopes { get; set; }
     }
 }

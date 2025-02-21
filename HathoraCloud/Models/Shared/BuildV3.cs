@@ -80,6 +80,13 @@ namespace HathoraCloud.Models.Shared
         public string OrgId { get; set; } = default!;
 
         /// <summary>
+        /// Url to view details, like build logs, of the build.
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("shareUrl")]
+        public string? ShareUrl { get; set; }
+
+        /// <summary>
         /// When <a href="">`RunBuild()`</a> is called.
         /// </summary>
         [SerializeField]

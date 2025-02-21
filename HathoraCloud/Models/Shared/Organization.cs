@@ -10,7 +10,9 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
+    using System.Collections.Generic;
     using System;
     using UnityEngine;
     
@@ -18,9 +20,30 @@ namespace HathoraCloud.Models.Shared
     public class Organization
     {
 
+        /// <summary>
+        /// The features enabled for this org and user.
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("enabledFeatureFlags")]
+        public List<string>? EnabledFeatureFlags { get; set; }
+
         [SerializeField]
         [JsonProperty("isSingleTenant")]
         public bool IsSingleTenant { get; set; } = default!;
+
+        /// <summary>
+        /// The maximum memory in MB that can be used by any process in this org.
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("maxRequestedMemoryMB")]
+        public double? MaxRequestedMemoryMB { get; set; }
+
+        /// <summary>
+        /// The name of an organization.
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("name")]
+        public string? Name { get; set; }
 
         /// <summary>
         /// System generated unique identifier for an organization. Not guaranteed to have a specific format.
@@ -28,6 +51,13 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("orgId")]
         public string OrgId { get; set; } = default!;
+
+        /// <summary>
+        /// The scopes the user who loaded this has on this org.
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("scopes")]
+        public List<Scope>? Scopes { get; set; }
 
         [SerializeField]
         [JsonProperty("stripeCustomerId")]

@@ -3,15 +3,15 @@
 
 ## Overview
 
+Operations that allow you create and manage your [builds](https://hathora.dev/docs/concepts/hathora-entities#build).
+
 ### Available Operations
 
-* [CreateBuild](#createbuild) - Creates a new [build](https://hathora.dev/docs/concepts/hathora-entities#build) with optional `multipartUploadUrls` that can be used to upload larger builds in parts before calling `runBuild`. Responds with a `buildId` that you must pass to [`RunBuild()`](https://hathora.dev/api#tag/BuildV1/operation/RunBuild) to build the game server artifact. You can optionally pass in a `buildTag` to associate an external version with a build.
-* [DeleteBuild](#deletebuild) - Delete a [build](https://hathora.dev/docs/concepts/hathora-entities#build). All associated metadata is deleted.
-Be careful which builds you delete. This endpoint does not prevent you from deleting actively used builds.
-Deleting a build that is actively build used by an app's deployment will cause failures when creating rooms.
-* [GetBuild](#getbuild) - Get details for a [build](https://hathora.dev/docs/concepts/hathora-entities#build).
-* [GetBuilds](#getbuilds) - Returns an array of [builds](https://hathora.dev/docs/concepts/hathora-entities#build) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application).
-* [RunBuild](#runbuild) - Builds a game server artifact from a tarball you provide. Pass in the `buildId` generated from [`CreateBuild()`](https://hathora.dev/api#tag/BuildV1/operation/CreateBuild).
+* [CreateBuild](#createbuild) - CreateBuild
+* [DeleteBuild](#deletebuild) - DeleteBuild
+* [GetBuild](#getbuild) - GetBuild
+* [GetBuilds](#getbuilds) - GetBuilds
+* [RunBuild](#runbuild) - RunBuild
 
 ## CreateBuild
 
@@ -28,14 +28,15 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
 
 CreateBuildRequest req = new CreateBuildRequest() {
     CreateMultipartBuildParams = new CreateMultipartBuildParams() {
+        BuildId = "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5",
         BuildSizeInBytes = 5387.85D,
         BuildTag = "0.1.14-14c793",
     },
-    OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
 };
 
 
@@ -59,11 +60,11 @@ using(var res = await sdk.BuildsV3.CreateBuildAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400,401,404,422,429,500                 | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 400, 401, 404, 422, 429                 | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## DeleteBuild
 
@@ -82,11 +83,11 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
 
 DeleteBuildRequest req = new DeleteBuildRequest() {
-    BuildId = "<value>",
-    OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+    BuildId = "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5",
 };
 
 
@@ -110,11 +111,11 @@ using(var res = await sdk.BuildsV3.DeleteBuildAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,422,429,500                     | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429                      | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetBuild
 
@@ -131,11 +132,11 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
 
 GetBuildRequest req = new GetBuildRequest() {
-    BuildId = "<value>",
-    OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+    BuildId = "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5",
 };
 
 
@@ -159,11 +160,10 @@ using(var res = await sdk.BuildsV3.GetBuildAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetBuilds
 
@@ -180,11 +180,10 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
 
-GetBuildsRequest req = new GetBuildsRequest() {
-    OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
-};
+GetBuildsRequest req = new GetBuildsRequest() {};
 
 
 using(var res = await sdk.BuildsV3.GetBuildsAsync(req))
@@ -207,11 +206,10 @@ using(var res = await sdk.BuildsV3.GetBuildsAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401,404,429                             | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
-
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429                      | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## RunBuild
 
@@ -228,11 +226,11 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
 
 RunBuildRequest req = new RunBuildRequest() {
-    BuildId = "<value>",
-    OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+    BuildId = "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5",
 };
 
 
@@ -256,7 +254,8 @@ using(var res = await sdk.BuildsV3.RunBuildAsync(req))
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400,401,404,429,500                     | application/json                        |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
+| HathoraCloud.Models.Errors.ApiError     | 400, 401, 404, 429                      | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |

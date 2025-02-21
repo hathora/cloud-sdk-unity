@@ -24,6 +24,10 @@ namespace HathoraCloud
     public interface IHathoraCloudSDK
     {
         public IAppsV1 AppsV1 { get; }
+
+        /// <summary>
+        /// Operations that allow you manage your <a href="https://hathora.dev/docs/concepts/hathora-entities#application">applications</a>.
+        /// </summary>
         public IAppsV2 AppsV2 { get; }
 
         /// <summary>
@@ -37,9 +41,17 @@ namespace HathoraCloud
         public IBillingV1 BillingV1 { get; }
         public IBuildsV1 BuildsV1 { get; }
         public IBuildsV2 BuildsV2 { get; }
+
+        /// <summary>
+        /// Operations that allow you create and manage your <a href="https://hathora.dev/docs/concepts/hathora-entities#build">builds</a>.
+        /// </summary>
         public IBuildsV3 BuildsV3 { get; }
         public IDeploymentsV1 DeploymentsV1 { get; }
         public IDeploymentsV2 DeploymentsV2 { get; }
+
+        /// <summary>
+        /// Operations that allow you configure and manage an application&apos;s <a href="https://hathora.dev/docs/concepts/hathora-entities#build">build</a> at runtime.
+        /// </summary>
         public IDeploymentsV3 DeploymentsV3 { get; }
 
         /// <summary>
@@ -51,6 +63,11 @@ namespace HathoraCloud
         /// Service that allows clients to directly ping all Hathora regions to get latency information
         /// </summary>
         public IDiscoveryV2 DiscoveryV2 { get; }
+
+        /// <summary>
+        /// Operations to manage and view a <a href="https://hathora.dev/docs/concepts/hathora-entities#fleet">fleet</a>.
+        /// </summary>
+        public IFleetsV1 FleetsV1 { get; }
         public ILobbiesV1 LobbiesV1 { get; }
         public ILobbiesV2 LobbiesV2 { get; }
         public ILobbiesV3 LobbiesV3 { get; }
@@ -62,20 +79,24 @@ namespace HathoraCloud
         public IManagementV1 ManagementV1 { get; }
 
         /// <summary>
-        /// Operations to get metrics by <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a>. We store 72 hours of metrics data.
+        /// Deprecated. Use <a href="https://hathora.dev/api#tag/ProcessesV3/operation/GetProcessMetrics">ProcessesV3#GetProcessMetrics</a> to fetch metrics about a specific process.
         /// </summary>
         public IMetricsV1 MetricsV1 { get; }
         public IOrganizationsV1 OrganizationsV1 { get; }
 
         /// <summary>
-        /// Deprecated. Use <a href="https://hathora.dev/api#tag/ProcessesV2">ProcessesV2</a>.
+        /// Deprecated. Use <a href="https://hathora.dev/api#tag/ProcessesV3">ProcessesV3</a>.
         /// </summary>
         public IProcessesV1 ProcessesV1 { get; }
 
         /// <summary>
-        /// Operations to get data on active and stopped <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a>.
+        /// Deprecated. Use <a href="https://hathora.dev/api#tag/ProcessesV3">ProcessesV3</a>.
         /// </summary>
         public IProcessesV2 ProcessesV2 { get; }
+
+        /// <summary>
+        /// Operations to get data on active and stopped <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a>.
+        /// </summary>
         public IProcessesV3 ProcessesV3 { get; }
         public IRoomsV1 RoomsV1 { get; }
         public IRoomsV2 RoomsV2 { get; }
@@ -94,12 +115,13 @@ namespace HathoraCloud
         /// </summary>
         public static readonly string[] ServerList = {
             "https://api.hathora.dev",
-            "https:///",
+            "/",
         };
 
         public string serverUrl = "";
         public int serverIndex = 0;
         public string? AppId;
+        public string? OrgId;
 
         public string GetTemplatedServerDetails()
         {
@@ -119,10 +141,10 @@ namespace HathoraCloud
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.0";
-        private const string _sdkGenVersion = "2.415.0";
+        private const string _sdkVersion = "0.30.1";
+        private const string _sdkGenVersion = "2.518.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.0 2.415.0 0.0.1 HathoraCloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.30.1 2.518.1 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
@@ -139,6 +161,7 @@ namespace HathoraCloud
         public IDeploymentsV3 DeploymentsV3 { get; private set; }
         public IDiscoveryV1 DiscoveryV1 { get; private set; }
         public IDiscoveryV2 DiscoveryV2 { get; private set; }
+        public IFleetsV1 FleetsV1 { get; private set; }
         public ILobbiesV1 LobbiesV1 { get; private set; }
         public ILobbiesV2 LobbiesV2 { get; private set; }
         public ILobbiesV3 LobbiesV3 { get; private set; }
@@ -153,7 +176,7 @@ namespace HathoraCloud
         public IRoomsV2 RoomsV2 { get; private set; }
         public ITokensV1 TokensV1 { get; private set; }
 
-        public HathoraCloudSDK(Security? security = null, Func<Security>? securitySource = null, string? appId = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
+        public HathoraCloudSDK(Security? security = null, Func<Security>? securitySource = null, string? appId = null, string? orgId = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
         {
             if (serverIndex != null)
             {
@@ -187,6 +210,7 @@ namespace HathoraCloud
             SDKConfiguration = new SDKConfig()
             {
                 AppId = appId,
+                OrgId = orgId,
                 serverIndex = _serverIndex,
                 serverUrl = _serverUrl
             };
@@ -203,6 +227,7 @@ namespace HathoraCloud
             DeploymentsV3 = new DeploymentsV3(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
             DiscoveryV1 = new DiscoveryV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
             DiscoveryV2 = new DiscoveryV2(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            FleetsV1 = new FleetsV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
             LobbiesV1 = new LobbiesV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
             LobbiesV2 = new LobbiesV2(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
             LobbiesV3 = new LobbiesV3(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);

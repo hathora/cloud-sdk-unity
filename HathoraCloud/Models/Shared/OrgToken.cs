@@ -49,6 +49,13 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("orgTokenId")]
         public string OrgTokenId { get; set; } = default!;
 
+        /// <summary>
+        /// If not defined, the token has Admin access.
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("scopes")]
+        public OrgTokenScopes? Scopes { get; set; }
+
         [SerializeField]
         [JsonProperty("status")]
         public OrgTokenStatus Status { get; set; } = default!;

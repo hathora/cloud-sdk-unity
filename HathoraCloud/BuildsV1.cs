@@ -25,27 +25,47 @@ namespace HathoraCloud
     {
 
         /// <summary>
+        /// CreateBuildDeprecated
+        /// 
+        /// <remarks>
         /// Creates a new <a href="https://hathora.dev/docs/concepts/hathora-entities#build">build</a>. Responds with a `buildId` that you must pass to <a href="">`RunBuild()`</a> to build the game server artifact. You can optionally pass in a `buildTag` to associate an external version with a build.
+        /// </remarks>
         /// </summary>
         Task<CreateBuildDeprecatedResponse> CreateBuildDeprecatedAsync(CreateBuildDeprecatedRequest request);
 
         /// <summary>
+        /// DeleteBuildDeprecated
+        /// 
+        /// <remarks>
         /// Delete a <a href="https://hathora.dev/docs/concepts/hathora-entities#build">build</a>. All associated metadata is deleted.
+        /// </remarks>
         /// </summary>
         Task<DeleteBuildDeprecatedResponse> DeleteBuildDeprecatedAsync(DeleteBuildDeprecatedRequest request);
 
         /// <summary>
+        /// GetBuildInfoDeprecated
+        /// 
+        /// <remarks>
         /// Get details for a <a href="https://hathora.dev/docs/concepts/hathora-entities#build">build</a>.
+        /// </remarks>
         /// </summary>
         Task<GetBuildInfoDeprecatedResponse> GetBuildInfoDeprecatedAsync(GetBuildInfoDeprecatedRequest request);
 
         /// <summary>
+        /// GetBuildsDeprecated
+        /// 
+        /// <remarks>
         /// Returns an array of <a href="https://hathora.dev/docs/concepts/hathora-entities#build">builds</a> for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>.
+        /// </remarks>
         /// </summary>
-        Task<GetBuildsDeprecatedResponse> GetBuildsDeprecatedAsync(GetBuildsDeprecatedRequest request);
+        Task<GetBuildsDeprecatedResponse> GetBuildsDeprecatedAsync(GetBuildsDeprecatedRequest? request = null);
 
         /// <summary>
+        /// RunBuildDeprecated
+        /// 
+        /// <remarks>
         /// Builds a game server artifact from a tarball you provide. Pass in the `buildId` generated from <a href="">`CreateBuild()`</a>.
+        /// </remarks>
         /// </summary>
         Task<RunBuildDeprecatedResponse> RunBuildDeprecatedAsync(RunBuildDeprecatedRequest request);
     }
@@ -54,10 +74,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.0";
-        private const string _sdkGenVersion = "2.415.0";
+        private const string _sdkVersion = "0.30.1";
+        private const string _sdkGenVersion = "2.518.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.0 2.415.0 0.0.1 HathoraCloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.30.1 2.518.1 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -141,7 +161,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{401, 404, 429, 500}.Contains(httpCode))
+            else if (new List<int>{401, 404, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -153,7 +173,23 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -220,7 +256,7 @@ namespace HathoraCloud
             if (httpCode == 204)
             {
             }
-            else if (new List<int>{401, 404, 422, 429, 500}.Contains(httpCode))
+            else if (new List<int>{401, 404, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -232,7 +268,23 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -320,7 +372,11 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -334,12 +390,8 @@ namespace HathoraCloud
         
 
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<GetBuildsDeprecatedResponse> GetBuildsDeprecatedAsync(GetBuildsDeprecatedRequest request)
+        public async Task<GetBuildsDeprecatedResponse> GetBuildsDeprecatedAsync(GetBuildsDeprecatedRequest? request = null)
         {
-            if (request == null)
-            {
-                request = new GetBuildsDeprecatedRequest();
-            }
             request.AppId ??= SDKConfiguration.AppId;
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
@@ -408,7 +460,11 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -490,7 +546,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{400, 401, 404, 429, 500}.Contains(httpCode))
+            else if (new List<int>{400, 401, 404, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -502,7 +558,23 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }

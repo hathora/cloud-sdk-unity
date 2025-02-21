@@ -26,12 +26,36 @@ namespace HathoraCloud
     /// </summary>
     public interface IBillingV1
     {
-        Task<GetBalanceResponse> GetBalanceAsync();
-        Task<GetInvoicesResponse> GetInvoicesAsync();
-        Task<GetPaymentMethodResponse> GetPaymentMethodAsync();
-        Task<GetUpcomingInvoiceItemsResponse> GetUpcomingInvoiceItemsAsync();
-        Task<GetUpcomingInvoiceTotalResponse> GetUpcomingInvoiceTotalAsync();
-        Task<InitStripeCustomerPortalUrlResponse> InitStripeCustomerPortalUrlAsync(CustomerPortalUrl request);
+
+        /// <summary>
+        /// GetBalance
+        /// </summary>
+        Task<GetBalanceResponse> GetBalanceAsync(GetBalanceRequest? request = null);
+
+        /// <summary>
+        /// GetInvoices
+        /// </summary>
+        Task<GetInvoicesResponse> GetInvoicesAsync(GetInvoicesRequest? request = null);
+
+        /// <summary>
+        /// GetPaymentMethod
+        /// </summary>
+        Task<GetPaymentMethodResponse> GetPaymentMethodAsync(GetPaymentMethodRequest? request = null);
+
+        /// <summary>
+        /// GetUpcomingInvoiceItems
+        /// </summary>
+        Task<GetUpcomingInvoiceItemsResponse> GetUpcomingInvoiceItemsAsync(GetUpcomingInvoiceItemsRequest? request = null);
+
+        /// <summary>
+        /// GetUpcomingInvoiceTotal
+        /// </summary>
+        Task<GetUpcomingInvoiceTotalResponse> GetUpcomingInvoiceTotalAsync(GetUpcomingInvoiceTotalRequest? request = null);
+
+        /// <summary>
+        /// InitStripeCustomerPortalUrl
+        /// </summary>
+        Task<InitStripeCustomerPortalUrlResponse> InitStripeCustomerPortalUrlAsync(InitStripeCustomerPortalUrlRequest request);
     }
 
     /// <summary>
@@ -41,10 +65,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.0";
-        private const string _sdkGenVersion = "2.415.0";
+        private const string _sdkVersion = "0.30.1";
+        private const string _sdkGenVersion = "2.518.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.0 2.415.0 0.0.1 HathoraCloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.30.1 2.518.1 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -58,11 +82,13 @@ namespace HathoraCloud
         }
         
 
-        
-        public async Task<GetBalanceResponse> GetBalanceAsync()
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
+        public async Task<GetBalanceResponse> GetBalanceAsync(GetBalanceRequest? request = null)
         {
+            request.OrgId ??= SDKConfiguration.OrgId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = baseUrl + "/billing/v1/balance";
+            var urlString = URLBuilder.Build(baseUrl, "/billing/v1/balance", request);
 
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
@@ -127,7 +153,23 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -141,10 +183,12 @@ namespace HathoraCloud
         
 
         
-        public async Task<GetInvoicesResponse> GetInvoicesAsync()
+        public async Task<GetInvoicesResponse> GetInvoicesAsync(GetInvoicesRequest? request = null)
         {
+            request.OrgId ??= SDKConfiguration.OrgId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = baseUrl + "/billing/v1/invoices";
+            var urlString = URLBuilder.Build(baseUrl, "/billing/v1/invoices", request);
 
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
@@ -209,7 +253,11 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -223,10 +271,12 @@ namespace HathoraCloud
         
 
         
-        public async Task<GetPaymentMethodResponse> GetPaymentMethodAsync()
+        public async Task<GetPaymentMethodResponse> GetPaymentMethodAsync(GetPaymentMethodRequest? request = null)
         {
+            request.OrgId ??= SDKConfiguration.OrgId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = baseUrl + "/billing/v1/paymentmethod";
+            var urlString = URLBuilder.Build(baseUrl, "/billing/v1/paymentmethod", request);
 
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
@@ -279,7 +329,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{401, 404, 429, 500}.Contains(httpCode))
+            else if (new List<int>{401, 404, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -291,7 +341,23 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -305,10 +371,12 @@ namespace HathoraCloud
         
 
         
-        public async Task<GetUpcomingInvoiceItemsResponse> GetUpcomingInvoiceItemsAsync()
+        public async Task<GetUpcomingInvoiceItemsResponse> GetUpcomingInvoiceItemsAsync(GetUpcomingInvoiceItemsRequest? request = null)
         {
+            request.OrgId ??= SDKConfiguration.OrgId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = baseUrl + "/billing/v1/upcoming/items";
+            var urlString = URLBuilder.Build(baseUrl, "/billing/v1/upcoming/items", request);
 
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
@@ -373,7 +441,23 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -387,10 +471,12 @@ namespace HathoraCloud
         
 
         
-        public async Task<GetUpcomingInvoiceTotalResponse> GetUpcomingInvoiceTotalAsync()
+        public async Task<GetUpcomingInvoiceTotalResponse> GetUpcomingInvoiceTotalAsync(GetUpcomingInvoiceTotalRequest? request = null)
         {
+            request.OrgId ??= SDKConfiguration.OrgId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = baseUrl + "/billing/v1/upcoming/total";
+            var urlString = URLBuilder.Build(baseUrl, "/billing/v1/upcoming/total", request);
 
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
@@ -455,7 +541,23 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -469,17 +571,23 @@ namespace HathoraCloud
         
 
         
-        public async Task<InitStripeCustomerPortalUrlResponse> InitStripeCustomerPortalUrlAsync(CustomerPortalUrl request)
+        public async Task<InitStripeCustomerPortalUrlResponse> InitStripeCustomerPortalUrlAsync(InitStripeCustomerPortalUrlRequest request)
         {
+            if (request == null)
+            {
+                request = new InitStripeCustomerPortalUrlRequest();
+            }
+            request.OrgId ??= SDKConfiguration.OrgId;
+            
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = baseUrl + "/billing/v1/customerportalurl";
+            var urlString = URLBuilder.Build(baseUrl, "/billing/v1/customerportalurl", request);
 
             var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbPOST);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
 
-            var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json", false, false);
+            var serializedBody = RequestBodySerializer.Serialize(request, "CustomerPortalUrl", "json", false, false);
             if (serializedBody != null)
             {
                 httpRequest.uploadHandler = new UploadHandlerRaw(serializedBody.Body);
@@ -532,7 +640,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{401, 404, 429}.Contains(httpCode))
+            else if (new List<int>{401, 404, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -544,7 +652,23 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
