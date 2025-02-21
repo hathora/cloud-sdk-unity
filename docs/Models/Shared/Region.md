@@ -17,3 +17,5 @@
 | `Sydney`       | Sydney         |
 | `SaoPaulo`     | Sao_Paulo      |
 | `Dallas`       | Dallas         |
+| `Johannesburg` | Johannesburg   |
+| `Dubai`        | Dubai          |

@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
@@ -32,6 +33,10 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("orgId")]
         public string OrgId { get; set; } = default!;
+
+        [SerializeField]
+        [JsonProperty("scopes")]
+        public PendingOrgInviteScopes Scopes { get; set; } = default!;
 
         /// <summary>
         /// A user&apos;s email.

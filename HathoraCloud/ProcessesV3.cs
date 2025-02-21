@@ -21,43 +21,74 @@ namespace HathoraCloud
     using System;
     using UnityEngine.Networking;
 
+    /// <summary>
+    /// Operations to get data on active and stopped <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a>.
+    /// </summary>
     public interface IProcessesV3
     {
 
         /// <summary>
+        /// CreateProcess
+        /// 
+        /// <remarks>
         /// Creates a <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> without a room. Use this to pre-allocate processes ahead of time so that subsequent room assignment via <a href="">CreateRoom()</a> can be instant.
+        /// </remarks>
         /// </summary>
         Task<CreateProcessResponse> CreateProcessAsync(CreateProcessRequest request);
 
         /// <summary>
+        /// GetLatestProcesses
+        /// 
+        /// <remarks>
         /// Retrieve the 10 most recent <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a> objects for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>. Filter the array by optionally passing in a `status` or `region`.
+        /// </remarks>
         /// </summary>
-        Task<GetLatestProcessesResponse> GetLatestProcessesAsync(GetLatestProcessesRequest request);
+        Task<GetLatestProcessesResponse> GetLatestProcessesAsync(GetLatestProcessesRequest? request = null);
 
         /// <summary>
+        /// GetProcess
+        /// 
+        /// <remarks>
         /// Get details for a <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a>.
+        /// </remarks>
         /// </summary>
         Task<GetProcessResponse> GetProcessAsync(GetProcessRequest request);
 
         /// <summary>
-        /// Count the number of <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a> objects for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>. Filter by optionally passing in a `status` or `region`.
+        /// GetProcessMetrics
         /// </summary>
-        Task<GetProcessesCountExperimentalResponse> GetProcessesCountExperimentalAsync(GetProcessesCountExperimentalRequest request);
+        Task<GetProcessMetricsResponse> GetProcessMetricsAsync(GetProcessMetricsRequest request);
 
         /// <summary>
+        /// GetProcessesCountExperimental
+        /// 
+        /// <remarks>
+        /// Count the number of <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a> objects for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>. Filter by optionally passing in a `status` or `region`.
+        /// </remarks>
+        /// </summary>
+        Task<GetProcessesCountExperimentalResponse> GetProcessesCountExperimentalAsync(GetProcessesCountExperimentalRequest? request = null);
+
+        /// <summary>
+        /// StopProcess
+        /// 
+        /// <remarks>
         /// Stops a <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> immediately.
+        /// </remarks>
         /// </summary>
         Task<StopProcessResponse> StopProcessAsync(StopProcessRequest request);
     }
 
+    /// <summary>
+    /// Operations to get data on active and stopped <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a>.
+    /// </summary>
     public class ProcessesV3: IProcessesV3
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.0";
-        private const string _sdkGenVersion = "2.415.0";
+        private const string _sdkVersion = "0.30.1";
+        private const string _sdkGenVersion = "2.518.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.0 2.415.0 0.0.1 HathoraCloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.30.1 2.518.1 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -134,7 +165,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{401, 402, 404, 422, 429, 500}.Contains(httpCode))
+            else if (new List<int>{401, 402, 404, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -146,7 +177,23 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -160,12 +207,8 @@ namespace HathoraCloud
         
 
         
-        public async Task<GetLatestProcessesResponse> GetLatestProcessesAsync(GetLatestProcessesRequest request)
+        public async Task<GetLatestProcessesResponse> GetLatestProcessesAsync(GetLatestProcessesRequest? request = null)
         {
-            if (request == null)
-            {
-                request = new GetLatestProcessesRequest();
-            }
             request.AppId ??= SDKConfiguration.AppId;
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
@@ -222,7 +265,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{401, 404, 429}.Contains(httpCode))
+            else if (new List<int>{401, 404, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -234,7 +277,11 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -322,7 +369,11 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -336,12 +387,112 @@ namespace HathoraCloud
         
 
         
-        public async Task<GetProcessesCountExperimentalResponse> GetProcessesCountExperimentalAsync(GetProcessesCountExperimentalRequest request)
+        public async Task<GetProcessMetricsResponse> GetProcessMetricsAsync(GetProcessMetricsRequest request)
         {
             if (request == null)
             {
-                request = new GetProcessesCountExperimentalRequest();
+                request = new GetProcessMetricsRequest();
             }
+            request.AppId ??= SDKConfiguration.AppId;
+            
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
+            var urlString = URLBuilder.Build(baseUrl, "/processes/v3/apps/{appId}/processes/process/{processId}/metrics", request);
+
+            var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
+            DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
+            httpRequest.downloadHandler = downloadHandler;
+            httpRequest.SetRequestHeader("user-agent", _userAgent);
+
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
+            var httpResponse = await client.SendAsync(httpRequest);
+            int? errorCode = null;
+            string? contentType = null;
+            switch (httpResponse.result)
+            {
+                case UnityWebRequest.Result.ConnectionError:
+                case UnityWebRequest.Result.DataProcessingError:
+                case UnityWebRequest.Result.ProtocolError:
+                    errorCode = (int)httpRequest.responseCode;
+                    contentType = httpRequest.GetResponseHeader("Content-Type");
+                    httpRequest.Dispose();
+                    break;
+                case UnityWebRequest.Result.Success:
+                    Console.WriteLine("Success");
+                    break;
+            }
+
+            if (contentType == null)
+            {
+                contentType = httpResponse.GetResponseHeader("Content-Type") ?? "application/octet-stream";
+            }
+            int httpCode = errorCode ?? (int)httpResponse.responseCode;
+            var response = new GetProcessMetricsResponse
+            {
+                StatusCode = httpCode,
+                ContentType = contentType,
+                RawResponse = httpResponse
+            };
+            if (httpCode == 200)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ProcessMetricsData>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    response.ProcessMetricsData = obj;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (new List<int>{401, 404, 422, 429}.Contains(httpCode))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else
+            {
+                throw new SDKException("unknown status code received", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            return response;
+        }
+
+        
+
+        
+        public async Task<GetProcessesCountExperimentalResponse> GetProcessesCountExperimentalAsync(GetProcessesCountExperimentalRequest? request = null)
+        {
             request.AppId ??= SDKConfiguration.AppId;
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
@@ -398,7 +549,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{401, 404, 429}.Contains(httpCode))
+            else if (new List<int>{401, 404, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -410,7 +561,11 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -477,7 +632,7 @@ namespace HathoraCloud
             if (httpCode == 204)
             {
             }
-            else if (new List<int>{401, 404, 429, 500}.Contains(httpCode))
+            else if (new List<int>{401, 404, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -489,7 +644,23 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }

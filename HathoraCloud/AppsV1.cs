@@ -25,27 +25,47 @@ namespace HathoraCloud
     {
 
         /// <summary>
+        /// CreateAppV1Deprecated
+        /// 
+        /// <remarks>
         /// Create a new <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>.
+        /// </remarks>
         /// </summary>
         Task<CreateAppV1DeprecatedResponse> CreateAppV1DeprecatedAsync(AppConfig request);
 
         /// <summary>
+        /// DeleteAppV1Deprecated
+        /// 
+        /// <remarks>
         /// Delete an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`. Your organization will lose access to this application.
+        /// </remarks>
         /// </summary>
-        Task<DeleteAppV1DeprecatedResponse> DeleteAppV1DeprecatedAsync(DeleteAppV1DeprecatedRequest request);
+        Task<DeleteAppV1DeprecatedResponse> DeleteAppV1DeprecatedAsync(DeleteAppV1DeprecatedRequest? request = null);
 
         /// <summary>
+        /// GetAppInfoV1Deprecated
+        /// 
+        /// <remarks>
         /// Get details for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`.
+        /// </remarks>
         /// </summary>
-        Task<GetAppInfoV1DeprecatedResponse> GetAppInfoV1DeprecatedAsync(GetAppInfoV1DeprecatedRequest request);
+        Task<GetAppInfoV1DeprecatedResponse> GetAppInfoV1DeprecatedAsync(GetAppInfoV1DeprecatedRequest? request = null);
 
         /// <summary>
+        /// GetAppsV1Deprecated
+        /// 
+        /// <remarks>
         /// Returns an unsorted list of your organization’s <a href="https://hathora.dev/docs/concepts/hathora-entities#application">applications</a>. An application is uniquely identified by an `appId`.
+        /// </remarks>
         /// </summary>
         Task<GetAppsV1DeprecatedResponse> GetAppsV1DeprecatedAsync();
 
         /// <summary>
+        /// UpdateAppV1Deprecated
+        /// 
+        /// <remarks>
         /// Update data for an existing <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a> using `appId`.
+        /// </remarks>
         /// </summary>
         Task<UpdateAppV1DeprecatedResponse> UpdateAppV1DeprecatedAsync(UpdateAppV1DeprecatedRequest request);
     }
@@ -54,10 +74,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.0";
-        private const string _sdkGenVersion = "2.415.0";
+        private const string _sdkVersion = "0.30.1";
+        private const string _sdkGenVersion = "2.518.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.0 2.415.0 0.0.1 HathoraCloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.30.1 2.518.1 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -71,7 +91,7 @@ namespace HathoraCloud
         }
         
 
-        
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<CreateAppV1DeprecatedResponse> CreateAppV1DeprecatedAsync(AppConfig request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
@@ -135,7 +155,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{401, 422, 429, 500}.Contains(httpCode))
+            else if (new List<int>{401, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -147,7 +167,23 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -160,13 +196,9 @@ namespace HathoraCloud
 
         
 
-        
-        public async Task<DeleteAppV1DeprecatedResponse> DeleteAppV1DeprecatedAsync(DeleteAppV1DeprecatedRequest request)
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
+        public async Task<DeleteAppV1DeprecatedResponse> DeleteAppV1DeprecatedAsync(DeleteAppV1DeprecatedRequest? request = null)
         {
-            if (request == null)
-            {
-                request = new DeleteAppV1DeprecatedRequest();
-            }
             request.AppId ??= SDKConfiguration.AppId;
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
@@ -214,7 +246,7 @@ namespace HathoraCloud
             if (httpCode == 204)
             {
             }
-            else if (new List<int>{401, 404, 429, 500}.Contains(httpCode))
+            else if (new List<int>{401, 404, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -226,7 +258,23 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -239,13 +287,9 @@ namespace HathoraCloud
 
         
 
-        
-        public async Task<GetAppInfoV1DeprecatedResponse> GetAppInfoV1DeprecatedAsync(GetAppInfoV1DeprecatedRequest request)
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
+        public async Task<GetAppInfoV1DeprecatedResponse> GetAppInfoV1DeprecatedAsync(GetAppInfoV1DeprecatedRequest? request = null)
         {
-            if (request == null)
-            {
-                request = new GetAppInfoV1DeprecatedRequest();
-            }
             request.AppId ??= SDKConfiguration.AppId;
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
@@ -314,7 +358,11 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -327,7 +375,7 @@ namespace HathoraCloud
 
         
 
-        
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<GetAppsV1DeprecatedResponse> GetAppsV1DeprecatedAsync()
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
@@ -396,7 +444,11 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -409,7 +461,7 @@ namespace HathoraCloud
 
         
 
-        
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<UpdateAppV1DeprecatedResponse> UpdateAppV1DeprecatedAsync(UpdateAppV1DeprecatedRequest request)
         {
             if (request == null)
@@ -479,7 +531,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{401, 404, 422, 429, 500}.Contains(httpCode))
+            else if (new List<int>{401, 404, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -491,7 +543,23 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }

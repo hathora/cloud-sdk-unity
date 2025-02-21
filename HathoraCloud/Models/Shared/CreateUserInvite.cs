@@ -10,6 +10,7 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
@@ -17,6 +18,13 @@ namespace HathoraCloud.Models.Shared
     [Serializable]
     public class CreateUserInvite
     {
+
+        /// <summary>
+        /// If not defined, the user has Admin access.
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("scopes")]
+        public CreateUserInviteScopes? Scopes { get; set; }
 
         /// <summary>
         /// A user&apos;s email.

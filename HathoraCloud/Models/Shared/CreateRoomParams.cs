@@ -20,9 +20,19 @@ namespace HathoraCloud.Models.Shared
     public class CreateRoomParams
     {
 
+        /// <summary>
+        /// An optional list of client IP addresses to whitelist for DDoS protection.
+        /// </summary>
         [SerializeField]
         [JsonProperty("clientIPs")]
         public List<string>? ClientIPs { get; set; }
+
+        /// <summary>
+        /// System generated id for a deployment.
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("deploymentId")]
+        public string? DeploymentId { get; set; }
 
         [SerializeField]
         [JsonProperty("region")]

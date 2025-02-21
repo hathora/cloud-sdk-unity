@@ -22,48 +22,68 @@ namespace HathoraCloud
     using UnityEngine.Networking;
 
     /// <summary>
-    /// Operations to get data on active and stopped <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a>.
+    /// Deprecated. Use <a href="https://hathora.dev/api#tag/ProcessesV3">ProcessesV3</a>.
     /// </summary>
     public interface IProcessesV2
     {
 
         /// <summary>
+        /// CreateProcessV2Deprecated
+        /// 
+        /// <remarks>
         /// Creates a <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> without a room. Use this to pre-allocate processes ahead of time so that subsequent room assignment via <a href="">CreateRoom()</a> can be instant.
+        /// </remarks>
         /// </summary>
         Task<CreateProcessV2DeprecatedResponse> CreateProcessV2DeprecatedAsync(CreateProcessV2DeprecatedRequest request);
 
         /// <summary>
+        /// GetLatestProcessesV2Deprecated
+        /// 
+        /// <remarks>
         /// Retrieve the 10 most recent <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a> objects for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>. Filter the array by optionally passing in a `status` or `region`.
+        /// </remarks>
         /// </summary>
-        Task<GetLatestProcessesV2DeprecatedResponse> GetLatestProcessesV2DeprecatedAsync(GetLatestProcessesV2DeprecatedRequest request);
+        Task<GetLatestProcessesV2DeprecatedResponse> GetLatestProcessesV2DeprecatedAsync(GetLatestProcessesV2DeprecatedRequest? request = null);
 
         /// <summary>
+        /// GetProcessInfoV2Deprecated
+        /// 
+        /// <remarks>
         /// Get details for a <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a>.
+        /// </remarks>
         /// </summary>
         Task<GetProcessInfoV2DeprecatedResponse> GetProcessInfoV2DeprecatedAsync(GetProcessInfoV2DeprecatedRequest request);
 
         /// <summary>
+        /// GetProcessesCountExperimentalV2Deprecated
+        /// 
+        /// <remarks>
         /// Count the number of <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a> objects for an <a href="https://hathora.dev/docs/concepts/hathora-entities#application">application</a>. Filter by optionally passing in a `status` or `region`.
+        /// </remarks>
         /// </summary>
-        Task<GetProcessesCountExperimentalV2DeprecatedResponse> GetProcessesCountExperimentalV2DeprecatedAsync(GetProcessesCountExperimentalV2DeprecatedRequest request);
+        Task<GetProcessesCountExperimentalV2DeprecatedResponse> GetProcessesCountExperimentalV2DeprecatedAsync(GetProcessesCountExperimentalV2DeprecatedRequest? request = null);
 
         /// <summary>
+        /// StopProcessV2Deprecated
+        /// 
+        /// <remarks>
         /// Stops a <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> immediately.
+        /// </remarks>
         /// </summary>
         Task<StopProcessV2DeprecatedResponse> StopProcessV2DeprecatedAsync(StopProcessV2DeprecatedRequest request);
     }
 
     /// <summary>
-    /// Operations to get data on active and stopped <a href="https://hathora.dev/docs/concepts/hathora-entities#process">processes</a>.
+    /// Deprecated. Use <a href="https://hathora.dev/api#tag/ProcessesV3">ProcessesV3</a>.
     /// </summary>
     public class ProcessesV2: IProcessesV2
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.0";
-        private const string _sdkGenVersion = "2.415.0";
+        private const string _sdkVersion = "0.30.1";
+        private const string _sdkGenVersion = "2.518.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.0 2.415.0 0.0.1 HathoraCloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.30.1 2.518.1 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -77,7 +97,7 @@ namespace HathoraCloud
         }
         
 
-        
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<CreateProcessV2DeprecatedResponse> CreateProcessV2DeprecatedAsync(CreateProcessV2DeprecatedRequest request)
         {
             if (request == null)
@@ -140,7 +160,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{401, 402, 404, 422, 429, 500}.Contains(httpCode))
+            else if (new List<int>{401, 402, 404, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -152,7 +172,23 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -165,13 +201,9 @@ namespace HathoraCloud
 
         
 
-        
-        public async Task<GetLatestProcessesV2DeprecatedResponse> GetLatestProcessesV2DeprecatedAsync(GetLatestProcessesV2DeprecatedRequest request)
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
+        public async Task<GetLatestProcessesV2DeprecatedResponse> GetLatestProcessesV2DeprecatedAsync(GetLatestProcessesV2DeprecatedRequest? request = null)
         {
-            if (request == null)
-            {
-                request = new GetLatestProcessesV2DeprecatedRequest();
-            }
             request.AppId ??= SDKConfiguration.AppId;
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
@@ -228,7 +260,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{401, 404, 429}.Contains(httpCode))
+            else if (new List<int>{401, 404, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -240,7 +272,11 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -253,7 +289,7 @@ namespace HathoraCloud
 
         
 
-        
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<GetProcessInfoV2DeprecatedResponse> GetProcessInfoV2DeprecatedAsync(GetProcessInfoV2DeprecatedRequest request)
         {
             if (request == null)
@@ -328,7 +364,11 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -341,13 +381,9 @@ namespace HathoraCloud
 
         
 
-        
-        public async Task<GetProcessesCountExperimentalV2DeprecatedResponse> GetProcessesCountExperimentalV2DeprecatedAsync(GetProcessesCountExperimentalV2DeprecatedRequest request)
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
+        public async Task<GetProcessesCountExperimentalV2DeprecatedResponse> GetProcessesCountExperimentalV2DeprecatedAsync(GetProcessesCountExperimentalV2DeprecatedRequest? request = null)
         {
-            if (request == null)
-            {
-                request = new GetProcessesCountExperimentalV2DeprecatedRequest();
-            }
             request.AppId ??= SDKConfiguration.AppId;
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
@@ -404,7 +440,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{401, 404, 429}.Contains(httpCode))
+            else if (new List<int>{401, 404, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -416,7 +452,11 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }
@@ -429,7 +469,7 @@ namespace HathoraCloud
 
         
 
-        
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<StopProcessV2DeprecatedResponse> StopProcessV2DeprecatedAsync(StopProcessV2DeprecatedRequest request)
         {
             if (request == null)
@@ -483,7 +523,7 @@ namespace HathoraCloud
             if (httpCode == 204)
             {
             }
-            else if (new List<int>{401, 404, 429, 500}.Contains(httpCode))
+            else if (new List<int>{401, 404, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -495,7 +535,23 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }

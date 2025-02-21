@@ -7,7 +7,7 @@ Deprecated. Does not include latest Regions (missing Dallas region). Use [Discov
 
 ### Available Operations
 
-* [~~GetPingServiceEndpointsDeprecated~~](#getpingserviceendpointsdeprecated) - Returns an array of V1 regions with a host and port that a client can directly ping. Open a websocket connection to `wss://<host>:<port>/ws` and send a packet. To calculate ping, measure the time it takes to get an echo packet back. :warning: **Deprecated**
+* [~~GetPingServiceEndpointsDeprecated~~](#getpingserviceendpointsdeprecated) - GetPingServiceEndpointsDeprecated :warning: **Deprecated**
 
 ## ~~GetPingServiceEndpointsDeprecated~~
 
@@ -21,7 +21,9 @@ Returns an array of V1 regions with a host and port that a client can directly p
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
+var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
 
 
 using(var res = await sdk.DiscoveryV1.GetPingServiceEndpointsDeprecatedAsync())
@@ -38,6 +40,6 @@ using(var res = await sdk.DiscoveryV1.GetPingServiceEndpointsDeprecatedAsync())
 
 ### Errors
 
-| Error Object                            | Status Code                             | Content Type                            |
+| Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.SDKException | 4xx-5xx                                 | */*                                     |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |

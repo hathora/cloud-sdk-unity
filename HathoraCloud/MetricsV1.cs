@@ -22,28 +22,32 @@ namespace HathoraCloud
     using UnityEngine.Networking;
 
     /// <summary>
-    /// Operations to get metrics by <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a>. We store 72 hours of metrics data.
+    /// Deprecated. Use <a href="https://hathora.dev/api#tag/ProcessesV3/operation/GetProcessMetrics">ProcessesV3#GetProcessMetrics</a> to fetch metrics about a specific process.
     /// </summary>
     public interface IMetricsV1
     {
 
         /// <summary>
+        /// GetMetricsDeprecated
+        /// 
+        /// <remarks>
         /// Get metrics for a <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a> using `appId` and `processId`.
+        /// </remarks>
         /// </summary>
-        Task<GetMetricsResponse> GetMetricsAsync(GetMetricsRequest request);
+        Task<GetMetricsDeprecatedResponse> GetMetricsDeprecatedAsync(GetMetricsDeprecatedRequest request);
     }
 
     /// <summary>
-    /// Operations to get metrics by <a href="https://hathora.dev/docs/concepts/hathora-entities#process">process</a>. We store 72 hours of metrics data.
+    /// Deprecated. Use <a href="https://hathora.dev/api#tag/ProcessesV3/operation/GetProcessMetrics">ProcessesV3#GetProcessMetrics</a> to fetch metrics about a specific process.
     /// </summary>
     public class MetricsV1: IMetricsV1
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.0";
-        private const string _sdkGenVersion = "2.415.0";
+        private const string _sdkVersion = "0.30.1";
+        private const string _sdkGenVersion = "2.518.1";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.0 2.415.0 0.0.1 HathoraCloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.30.1 2.518.1 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -57,12 +61,12 @@ namespace HathoraCloud
         }
         
 
-        
-        public async Task<GetMetricsResponse> GetMetricsAsync(GetMetricsRequest request)
+        [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
+        public async Task<GetMetricsDeprecatedResponse> GetMetricsDeprecatedAsync(GetMetricsDeprecatedRequest request)
         {
             if (request == null)
             {
-                request = new GetMetricsRequest();
+                request = new GetMetricsDeprecatedRequest();
             }
             request.AppId ??= SDKConfiguration.AppId;
             
@@ -102,7 +106,7 @@ namespace HathoraCloud
                 contentType = httpResponse.GetResponseHeader("Content-Type") ?? "application/octet-stream";
             }
             int httpCode = errorCode ?? (int)httpResponse.responseCode;
-            var response = new GetMetricsResponse
+            var response = new GetMetricsDeprecatedResponse
             {
                 StatusCode = httpCode,
                 ContentType = contentType,
@@ -112,15 +116,15 @@ namespace HathoraCloud
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
-                    var obj = JsonConvert.DeserializeObject<MetricsData>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
-                    response.MetricsData = obj;
+                    var obj = JsonConvert.DeserializeObject<DeprecatedProcessMetricsData>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    response.DeprecatedProcessMetricsData = obj;
                 }
                 else
                 {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{401, 404, 422, 429, 500}.Contains(httpCode))
+            else if (new List<int>{401, 404, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -132,7 +136,23 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (httpCode >= 400 && httpCode < 500 || httpCode >= 500 && httpCode < 600)
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
             {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
             }

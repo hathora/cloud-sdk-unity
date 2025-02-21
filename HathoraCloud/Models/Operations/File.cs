@@ -23,7 +23,7 @@ namespace HathoraCloud.Models.Operations
         public byte[] Content { get; set; } = default!;
 
         [SerializeField]
-        [SpeakeasyMetadata("multipartForm:name=file")]
+        [SpeakeasyMetadata("multipartForm:name=fileName")]
         public string FileName { get; set; } = default!;
     }
 }

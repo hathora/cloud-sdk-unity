@@ -81,11 +81,30 @@ namespace HathoraCloud.Models.Shared
         public string DeploymentId { get; set; } = default!;
 
         /// <summary>
+        /// Arbitrary metadata associated with a deployment.
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("deploymentTag")]
+        public string? DeploymentTag { get; set; }
+
+        /// <summary>
         /// The environment variable that our process will have access to at runtime.
         /// </summary>
         [SerializeField]
         [JsonProperty("env")]
         public List<ApplicationWithLatestDeploymentAndBuildEnv> Env { get; set; } = default!;
+
+        /// <summary>
+        /// EXPERIMENTAL - this feature is in closed beta.<br/>
+        /// 
+        /// <remarks>
+        /// The number of GPUs allocated to your process. Must be an integer.<br/>
+        /// If not provided, the requested GPU is 0.
+        /// </remarks>
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("experimentalRequestedGPU")]
+        public double? ExperimentalRequestedGPU { get; set; }
 
         /// <summary>
         /// Option to shut down processes that have had no new connections or rooms<br/>
@@ -106,7 +125,11 @@ namespace HathoraCloud.Models.Shared
         public double RequestedCPU { get; set; } = default!;
 
         /// <summary>
-        /// The amount of memory allocated to your process.
+        /// The amount of memory allocated to your process. By default, this is capped<br/>
+        /// 
+        /// <remarks>
+        /// at 8192 MB, but can be increased further on the Enterprise tier.
+        /// </remarks>
         /// </summary>
         [SerializeField]
         [JsonProperty("requestedMemoryMB")]

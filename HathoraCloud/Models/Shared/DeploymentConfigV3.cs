@@ -42,11 +42,30 @@ namespace HathoraCloud.Models.Shared
         public int ContainerPort { get; set; } = default!;
 
         /// <summary>
+        /// Arbitrary metadata associated with a deployment.
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("deploymentTag")]
+        public string? DeploymentTag { get; set; }
+
+        /// <summary>
         /// The environment variable that our process will have access to at runtime.
         /// </summary>
         [SerializeField]
         [JsonProperty("env")]
         public List<DeploymentConfigV3Env> Env { get; set; } = default!;
+
+        /// <summary>
+        /// EXPERIMENTAL - this feature is in closed beta.<br/>
+        /// 
+        /// <remarks>
+        /// The number of GPUs allocated to your process. Must be an integer.<br/>
+        /// If not provided, the requested GPU is 0.
+        /// </remarks>
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("experimentalRequestedGPU")]
+        public double? ExperimentalRequestedGPU { get; set; }
 
         /// <summary>
         /// Option to shut down processes that have had no new connections or rooms<br/>
