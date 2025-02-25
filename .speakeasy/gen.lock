@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: bdb34d30-f36e-4c13-bfde-42babcb240db
 management:
-  docChecksum: 79cc003b2bc205f633c16f25f38b657e
+  docChecksum: 001e10a2978b3666a3b6e255a6a1503e
   docVersion: 0.0.1
-  speakeasyVersion: 1.498.1
-  generationVersion: 2.518.1
-  releaseVersion: 0.30.1
-  configChecksum: 94cc21936d5565aefe67b4232c5c1cca
+  speakeasyVersion: 1.502.0
+  generationVersion: 2.524.1
+  releaseVersion: 0.30.2
+  configChecksum: 81595aa6e3bd22d8846c0a10277e0cc9
   repoURL: https://github.com/hathora/cloud-sdk-unity.git
   repoSubDirectory: .
   published: true
