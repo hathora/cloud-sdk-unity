@@ -25,6 +25,10 @@ namespace HathoraCloud.Models.Operations
         public string? AppId { get; set; }
 
         [SerializeField]
+        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=before")]
+        public double? Before { get; set; }
+
+        [SerializeField]
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=region")]
         public List<Region>? Region { get; set; }
 
