@@ -36,7 +36,7 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("maxRequestedMemoryMB")]
-        public double? MaxRequestedMemoryMB { get; set; }
+        public double MaxRequestedMemoryMB { get; set; } = default!;
 
         /// <summary>
         /// The name of an organization.
@@ -53,11 +53,18 @@ namespace HathoraCloud.Models.Shared
         public string OrgId { get; set; } = default!;
 
         /// <summary>
+        /// The maximum lifespan in hours of a pod.
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("podMaxLifespanHrs")]
+        public double? PodMaxLifespanHrs { get; set; }
+
+        /// <summary>
         /// The scopes the user who loaded this has on this org.
         /// </summary>
         [SerializeField]
         [JsonProperty("scopes")]
-        public List<Scope>? Scopes { get; set; }
+        public List<Scope> Scopes { get; set; } = default!;
 
         [SerializeField]
         [JsonProperty("stripeCustomerId")]
