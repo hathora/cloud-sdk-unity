@@ -27,12 +27,9 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 AcceptInviteRequest req = new AcceptInviteRequest() {
     OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
@@ -75,12 +72,9 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetOrgMembersRequest req = new GetOrgMembersRequest() {
     OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
@@ -123,12 +117,9 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetOrgPendingInvitesRequest req = new GetOrgPendingInvitesRequest() {
     OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
@@ -170,12 +161,9 @@ Returns an unsorted list of all organizations that you are a member of (an accep
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 
 using(var res = await sdk.OrganizationsV1.GetOrgsAsync())
@@ -209,11 +197,10 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetUsageLimitsRequest req = new GetUsageLimitsRequest() {};
 
@@ -254,12 +241,9 @@ GetUserPendingInvites
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 
 using(var res = await sdk.OrganizationsV1.GetUserPendingInvitesAsync())
@@ -292,12 +276,9 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 InviteUserRequest req = new InviteUserRequest() {
     CreateUserInvite = new CreateUserInvite() {
@@ -343,12 +324,9 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 RejectInviteRequest req = new RejectInviteRequest() {
     OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
@@ -391,12 +369,9 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 RescindInviteRequest req = new RescindInviteRequest() {
     RescindUserInvite = new RescindUserInvite() {
@@ -443,12 +418,9 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 UpdateUserInviteRequest req = new UpdateUserInviteRequest() {
     UpdateUserInvite = new UpdateUserInvite() {

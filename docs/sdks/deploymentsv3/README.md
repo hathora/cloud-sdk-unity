@@ -25,11 +25,10 @@ using HathoraCloud.Models.Operations;
 using System.Collections.Generic;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateDeploymentRequest req = new CreateDeploymentRequest() {
     DeploymentConfigV3 = new DeploymentConfigV3() {
@@ -54,9 +53,8 @@ CreateDeploymentRequest req = new CreateDeploymentRequest() {
         RequestedCPU = 0.5D,
         RequestedMemoryMB = 1024D,
         RoomsPerProcess = 3,
-        TransportType = TransportType.Tcp,
+        TransportType = TransportType.Udp,
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -98,15 +96,13 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetDeploymentRequest req = new GetDeploymentRequest() {
     DeploymentId = "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -137,7 +133,7 @@ using(var res = await sdk.DeploymentsV3.GetDeploymentAsync(req))
 
 ## GetDeployments
 
-Returns an array of [deployments](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application), optionally filtered by deploymentTag.
+Returns an array of [deployments](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application), optionally filtered by deploymentTag or buildTag.
 
 ### Example Usage
 
@@ -147,14 +143,13 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetDeploymentsRequest req = new GetDeploymentsRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+    BuildTag = "0.1.14-14c793",
     DeploymentTag = "alpha",
 };
 
@@ -196,15 +191,12 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
-GetLatestDeploymentRequest req = new GetLatestDeploymentRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+GetLatestDeploymentRequest req = new GetLatestDeploymentRequest() {};
 
 
 using(var res = await sdk.DeploymentsV3.GetLatestDeploymentAsync(req))

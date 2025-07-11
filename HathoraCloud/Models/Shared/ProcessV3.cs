@@ -49,6 +49,10 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("exposedPort", NullValueHandling = NullValueHandling.Include)]
         public ProcessV3ExposedPort? ExposedPort { get; set; } = default!;
 
+        [SerializeField]
+        [JsonProperty("hosting")]
+        public Hosting? Hosting { get; set; }
+
         /// <summary>
         /// System generated unique identifier to a runtime instance of your game server.
         /// </summary>
@@ -91,6 +95,13 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("stoppingAt", NullValueHandling = NullValueHandling.Include)]
         public DateTime? StoppingAt { get; set; } = default!;
+
+        /// <summary>
+        /// The summary of why the process exited, if it has stopped.
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("summaryExitReason")]
+        public string? SummaryExitReason { get; set; }
 
         /// <summary>
         /// When the process has been terminated.

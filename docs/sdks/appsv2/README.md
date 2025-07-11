@@ -11,6 +11,7 @@ Operations that allow you manage your [applications](https://hathora.dev/docs/co
 * [DeleteApp](#deleteapp) - DeleteApp
 * [GetApp](#getapp) - GetApp
 * [GetApps](#getapps) - GetApps
+* [PatchApp](#patchapp) - PatchApp
 * [UpdateApp](#updateapp) - UpdateApp
 
 ## CreateApp
@@ -25,11 +26,10 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateAppRequest req = new CreateAppRequest() {
     AppConfig = new AppConfig() {
@@ -77,15 +77,12 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
-DeleteAppRequest req = new DeleteAppRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+DeleteAppRequest req = new DeleteAppRequest() {};
 
 
 using(var res = await sdk.AppsV2.DeleteAppAsync(req))
@@ -110,7 +107,7 @@ using(var res = await sdk.AppsV2.DeleteAppAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
@@ -126,15 +123,12 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
-GetAppRequest req = new GetAppRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+GetAppRequest req = new GetAppRequest() {};
 
 
 using(var res = await sdk.AppsV2.GetAppAsync(req))
@@ -174,11 +168,10 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetAppsRequest req = new GetAppsRequest() {};
 
@@ -208,9 +201,9 @@ using(var res = await sdk.AppsV2.GetAppsAsync(req))
 | HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
-## UpdateApp
+## PatchApp
 
-Update data for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`.
+Patch data for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`.
 
 ### Example Usage
 
@@ -218,20 +211,89 @@ Update data for an existing [application](https://hathora.dev/docs/concepts/hath
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
+using System.Collections.Generic;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+    });
+
+PatchAppRequest req = new PatchAppRequest() {
+    PartialAppConfigWithServiceConfig = new PartialAppConfigWithServiceConfig() {
+        ServiceConfig = new ServiceConfig() {
+            StaticProcessAllocation = new List<StaticProcessAllocationConfig>() {
+                new StaticProcessAllocationConfig() {
+                    MaxProcesses = 3,
+                    MinProcesses = 1,
+                    Region = Region.Tokyo,
+                    TargetProcesses = 2,
+                },
+            },
+        },
     },
+};
+
+
+using(var res = await sdk.AppsV2.PatchAppAsync(req))
+{
+    // handle response
+}
+
+
+```
+
+### Parameters
+
+| Parameter                                                     | Type                                                          | Required                                                      | Description                                                   |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
+| `request`                                                     | [PatchAppRequest](../../Models/Operations/PatchAppRequest.md) | :heavy_check_mark:                                            | The request object to use for the request.                    |
+
+### Response
+
+**[PatchAppResponse](../../Models/Operations/PatchAppResponse.md)**
+
+### Errors
+
+| Error Type                              | Status Code                             | Content Type                            |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429                      | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
+
+## UpdateApp
+
+Set application config (will override all fields) for an existing [application](https://hathora.dev/docs/concepts/hathora-entities#application) using `appId`.
+
+### Example Usage
+
+```csharp
+using HathoraCloud;
+using HathoraCloud.Models.Shared;
+using HathoraCloud.Models.Operations;
+using System.Collections.Generic;
+
+var sdk = new HathoraCloudSDK(
     appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    security: new Security() {
+        HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
+    });
 
 UpdateAppRequest req = new UpdateAppRequest() {
-    AppConfig = new AppConfig() {
+    AppConfigWithServiceConfig = new AppConfigWithServiceConfig() {
         AppName = "minecraft",
         AuthConfiguration = new AuthConfiguration() {},
+        ServiceConfig = new ServiceConfig() {
+            StaticProcessAllocation = new List<StaticProcessAllocationConfig>() {
+                new StaticProcessAllocationConfig() {
+                    MaxProcesses = 3,
+                    MinProcesses = 1,
+                    Region = Region.SaoPaulo,
+                    TargetProcesses = 2,
+                },
+            },
+        },
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 

@@ -21,6 +21,17 @@ namespace HathoraCloud.Models.Shared
     {
 
         /// <summary>
+        /// The maximum number of concurrent processes that can be run by the organization<br/>
+        /// 
+        /// <remarks>
+        /// If undefined, the organization has no limit.
+        /// </remarks>
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("concurrentProcessVcpusLimit")]
+        public double? ConcurrentProcessVcpusLimit { get; set; }
+
+        /// <summary>
         /// The features enabled for this org and user.
         /// </summary>
         [SerializeField]
@@ -32,11 +43,44 @@ namespace HathoraCloud.Models.Shared
         public bool IsSingleTenant { get; set; } = default!;
 
         /// <summary>
+        /// The retention period for process logs in hours<br/>
+        /// 
+        /// <remarks>
+        /// If undefined, the default is 72h
+        /// </remarks>
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("logRetentionPeriodHours")]
+        public int? LogRetentionPeriodHours { get; set; }
+
+        /// <summary>
+        /// The maximum number of inbound connections that can be made to a process<br/>
+        /// 
+        /// <remarks>
+        /// If undefined, the default is 1024 connections
+        /// </remarks>
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("maxProcessConnections")]
+        public double? MaxProcessConnections { get; set; }
+
+        /// <summary>
         /// The maximum memory in MB that can be used by any process in this org.
         /// </summary>
         [SerializeField]
         [JsonProperty("maxRequestedMemoryMB")]
         public double MaxRequestedMemoryMB { get; set; } = default!;
+
+        /// <summary>
+        /// The maximum number of monthly process vcpu hours that can be run by the organization<br/>
+        /// 
+        /// <remarks>
+        /// If undefined, the organization has no limit.
+        /// </remarks>
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("monthlyProcessVcpuHoursLimit")]
+        public double? MonthlyProcessVcpuHoursLimit { get; set; }
 
         /// <summary>
         /// The name of an organization.

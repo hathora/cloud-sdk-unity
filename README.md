@@ -47,11 +47,10 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateAppRequest req = new CreateAppRequest() {
     AppConfig = new AppConfig() {
@@ -90,6 +89,7 @@ using(var res = await sdk.AppsV2.CreateAppAsync(req))
 * [DeleteApp](docs/sdks/appsv2/README.md#deleteapp) - DeleteApp
 * [GetApp](docs/sdks/appsv2/README.md#getapp) - GetApp
 * [GetApps](docs/sdks/appsv2/README.md#getapps) - GetApps
+* [PatchApp](docs/sdks/appsv2/README.md#patchapp) - PatchApp
 * [UpdateApp](docs/sdks/appsv2/README.md#updateapp) - UpdateApp
 
 ### [AuthV1](docs/sdks/authv1/README.md)
@@ -128,10 +128,12 @@ using(var res = await sdk.AppsV2.CreateAppAsync(req))
 ### [BuildsV3](docs/sdks/buildsv3/README.md)
 
 * [CreateBuild](docs/sdks/buildsv3/README.md#createbuild) - CreateBuild
+* [CreateBuildRegistry](docs/sdks/buildsv3/README.md#createbuildregistry) - CreateBuildRegistry
 * [DeleteBuild](docs/sdks/buildsv3/README.md#deletebuild) - DeleteBuild
 * [GetBuild](docs/sdks/buildsv3/README.md#getbuild) - GetBuild
 * [GetBuilds](docs/sdks/buildsv3/README.md#getbuilds) - GetBuilds
 * [RunBuild](docs/sdks/buildsv3/README.md#runbuild) - RunBuild
+* [RunBuildRegistry](docs/sdks/buildsv3/README.md#runbuildregistry) - RunBuildRegistry
 
 ### [~~DeploymentsV1~~](docs/sdks/deploymentsv1/README.md)
 
@@ -167,6 +169,7 @@ using(var res = await sdk.AppsV2.CreateAppAsync(req))
 * [GetFleetMetrics](docs/sdks/fleetsv1/README.md#getfleetmetrics) - GetFleetMetrics
 * [GetFleetRegion](docs/sdks/fleetsv1/README.md#getfleetregion) - GetFleetRegion
 * [GetFleets](docs/sdks/fleetsv1/README.md#getfleets) - GetFleets
+* [UpdateFleet](docs/sdks/fleetsv1/README.md#updatefleet) - UpdateFleet
 * [UpdateFleetRegion](docs/sdks/fleetsv1/README.md#updatefleetregion) - UpdateFleetRegion
 
 
@@ -302,11 +305,11 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateAppRequest req = new CreateAppRequest() {
     AppConfig = new AppConfig() {
@@ -346,11 +349,10 @@ using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
     serverIndex: 1,
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateAppRequest req = new CreateAppRequest() {
     AppConfig = new AppConfig() {
@@ -378,11 +380,10 @@ using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
     serverUrl: "https://api.hathora.dev",
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateAppRequest req = new CreateAppRequest() {
     AppConfig = new AppConfig() {
@@ -433,11 +434,10 @@ using HathoraCloud.Models.Errors;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateAppRequest req = new CreateAppRequest() {
     AppConfig = new AppConfig() {
@@ -493,7 +493,6 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
 
 CreateAppRequest req = new CreateAppRequest() {
@@ -520,17 +519,14 @@ using HathoraCloud;
 using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 CreateLobbyRequest req = new CreateLobbyRequest() {
     CreateLobbyV3Params = new CreateLobbyV3Params() {
-        Region = Region.Seattle,
+        Region = Region.Dubai,
         RoomConfig = "{\"name\":\"my-room\"}",
         Visibility = LobbyVisibility.Private,
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     RoomId = "2swovpy1fnunu",
     ShortCode = "LFG4",
 };

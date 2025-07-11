@@ -10,16 +10,21 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
     
     /// <summary>
-    /// A fleet is a collection of vCPUs accross your regions that can scale up and down based on demand.
+    /// A fleet is a collection of vCPUs across your regions that can scale up and down based on demand.
     /// </summary>
     [Serializable]
     public class Fleet
     {
+
+        [SerializeField]
+        [JsonProperty("autoscalerConfig")]
+        public AutoscalerConfig? AutoscalerConfig { get; set; }
 
         /// <summary>
         /// the id of the fleet

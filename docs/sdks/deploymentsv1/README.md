@@ -25,11 +25,10 @@ using HathoraCloud.Models.Operations;
 using System.Collections.Generic;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateDeploymentV1DeprecatedRequest req = new CreateDeploymentV1DeprecatedRequest() {
     DeploymentConfig = new DeploymentConfig() {
@@ -37,22 +36,16 @@ CreateDeploymentV1DeprecatedRequest req = new CreateDeploymentV1DeprecatedReques
             new ContainerPort() {
                 Name = "default",
                 Port = 8000,
-                TransportType = TransportType.Tcp,
+                TransportType = TransportType.Tls,
             },
         },
         ContainerPort = 4000,
-        Env = new List<Env>() {
-            new Env() {
-                Name = "EULA",
-                Value = "TRUE",
-            },
-        },
+        Env = new List<Env>() {},
         PlanName = PlanName.Tiny,
         RoomsPerProcess = 3,
-        TransportType = TransportType.Tcp,
+        TransportType = TransportType.Udp,
     },
     BuildId = 1,
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -96,15 +89,13 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetDeploymentInfoV1DeprecatedRequest req = new GetDeploymentInfoV1DeprecatedRequest() {
     DeploymentId = 1,
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -147,15 +138,12 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
-GetDeploymentsV1DeprecatedRequest req = new GetDeploymentsV1DeprecatedRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+GetDeploymentsV1DeprecatedRequest req = new GetDeploymentsV1DeprecatedRequest() {};
 
 
 using(var res = await sdk.DeploymentsV1.GetDeploymentsV1DeprecatedAsync(req))
@@ -197,15 +185,12 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
-GetLatestDeploymentV1DeprecatedRequest req = new GetLatestDeploymentV1DeprecatedRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+GetLatestDeploymentV1DeprecatedRequest req = new GetLatestDeploymentV1DeprecatedRequest() {};
 
 
 using(var res = await sdk.DeploymentsV1.GetLatestDeploymentV1DeprecatedAsync(req))

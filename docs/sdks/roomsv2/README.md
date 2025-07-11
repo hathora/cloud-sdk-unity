@@ -28,11 +28,10 @@ using HathoraCloud.Models.Operations;
 using System.Collections.Generic;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateRoomRequest req = new CreateRoomRequest() {
     CreateRoomParams = new CreateRoomParams() {
@@ -43,7 +42,6 @@ CreateRoomRequest req = new CreateRoomRequest() {
         Region = Region.Dallas,
         RoomConfig = "{\"name\":\"my-room\"}",
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     RoomId = "2swovpy1fnunu",
 };
 
@@ -86,15 +84,13 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 DestroyRoomRequest req = new DestroyRoomRequest() {
     RoomId = "2swovpy1fnunu",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -136,15 +132,13 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetActiveRoomsForProcessRequest req = new GetActiveRoomsForProcessRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -184,13 +178,10 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 GetConnectionInfoRequest req = new GetConnectionInfoRequest() {
     RoomId = "2swovpy1fnunu",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -232,15 +223,13 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetInactiveRoomsForProcessRequest req = new GetInactiveRoomsForProcessRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -281,15 +270,13 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetRoomInfoRequest req = new GetRoomInfoRequest() {
     RoomId = "2swovpy1fnunu",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -330,15 +317,13 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 ResumeRoomRequest req = new ResumeRoomRequest() {
     RoomId = "2swovpy1fnunu",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -382,15 +367,13 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 SuspendRoomV2DeprecatedRequest req = new SuspendRoomV2DeprecatedRequest() {
     RoomId = "2swovpy1fnunu",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -432,18 +415,16 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 UpdateRoomConfigRequest req = new UpdateRoomConfigRequest() {
     UpdateRoomConfigParams = new UpdateRoomConfigParams() {
         RoomConfig = "{\"name\":\"my-room\"}",
     },
     RoomId = "2swovpy1fnunu",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 

@@ -26,15 +26,13 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateProcessRequest req = new CreateProcessRequest() {
-    Region = Region.SaoPaulo,
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+    Region = Region.Mumbai,
 };
 
 
@@ -77,15 +75,12 @@ using HathoraCloud.Models.Operations;
 using System.Collections.Generic;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
-GetLatestProcessesRequest req = new GetLatestProcessesRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+GetLatestProcessesRequest req = new GetLatestProcessesRequest() {};
 
 
 using(var res = await sdk.ProcessesV3.GetLatestProcessesAsync(req))
@@ -125,15 +120,13 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetProcessRequest req = new GetProcessRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -175,15 +168,13 @@ using HathoraCloud.Models.Operations;
 using System.Collections.Generic;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetProcessMetricsRequest req = new GetProcessMetricsRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -226,15 +217,12 @@ using HathoraCloud.Models.Operations;
 using System.Collections.Generic;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
-GetProcessesCountExperimentalRequest req = new GetProcessesCountExperimentalRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+GetProcessesCountExperimentalRequest req = new GetProcessesCountExperimentalRequest() {};
 
 
 using(var res = await sdk.ProcessesV3.GetProcessesCountExperimentalAsync(req))
@@ -274,15 +262,13 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 StopProcessRequest req = new StopProcessRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 

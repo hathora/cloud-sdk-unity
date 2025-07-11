@@ -81,5 +81,9 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("orgId")]
         public string OrgId { get; set; } = default!;
+
+        [SerializeField]
+        [JsonProperty("serviceConfig", NullValueHandling = NullValueHandling.Include)]
+        public ApplicationServiceConfig? ServiceConfig { get; set; } = default!;
     }
 }

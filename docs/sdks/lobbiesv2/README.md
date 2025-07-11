@@ -26,17 +26,14 @@ using HathoraCloud;
 using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 CreateLobbyDeprecatedRequest req = new CreateLobbyDeprecatedRequest() {
     CreateLobbyParams = new CreateLobbyParams() {
         InitialConfig = "<value>",
-        Region = Region.SaoPaulo,
+        Region = Region.Frankfurt,
         Visibility = LobbyVisibility.Private,
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     RoomId = "2swovpy1fnunu",
 };
 
@@ -85,16 +82,13 @@ using HathoraCloud;
 using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 CreateLocalLobbyRequest req = new CreateLocalLobbyRequest() {
     RequestBody = new CreateLocalLobbyRequestBody() {
         InitialConfig = "<value>",
         Region = Region.Johannesburg,
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     RoomId = "2swovpy1fnunu",
 };
 
@@ -143,16 +137,13 @@ using HathoraCloud;
 using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 CreatePrivateLobbyRequest req = new CreatePrivateLobbyRequest() {
     RequestBody = new CreatePrivateLobbyRequestBody() {
         InitialConfig = "<value>",
-        Region = Region.London,
+        Region = Region.Frankfurt,
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     RoomId = "2swovpy1fnunu",
 };
 
@@ -201,16 +192,13 @@ using HathoraCloud;
 using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 CreatePublicLobbyRequest req = new CreatePublicLobbyRequest() {
     RequestBody = new CreatePublicLobbyRequestBody() {
         InitialConfig = "<value>",
-        Region = Region.Johannesburg,
+        Region = Region.Tokyo,
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     RoomId = "2swovpy1fnunu",
 };
 
@@ -259,13 +247,10 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 GetLobbyInfoRequest req = new GetLobbyInfoRequest() {
     RoomId = "2swovpy1fnunu",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -307,13 +292,9 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-ListActivePublicLobbiesDeprecatedV2Request req = new ListActivePublicLobbiesDeprecatedV2Request() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+ListActivePublicLobbiesDeprecatedV2Request req = new ListActivePublicLobbiesDeprecatedV2Request() {};
 
 
 using(var res = await sdk.LobbiesV2.ListActivePublicLobbiesDeprecatedV2Async(req))
@@ -355,18 +336,16 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 SetLobbyStateRequest req = new SetLobbyStateRequest() {
     SetLobbyStateParams = new SetLobbyStateParams() {
-        State = "<value>",
+        State = "Connecticut",
     },
     RoomId = "2swovpy1fnunu",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 

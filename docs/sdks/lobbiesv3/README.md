@@ -21,17 +21,14 @@ using HathoraCloud;
 using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 CreateLobbyRequest req = new CreateLobbyRequest() {
     CreateLobbyV3Params = new CreateLobbyV3Params() {
-        Region = Region.Seattle,
+        Region = Region.Dubai,
         RoomConfig = "{\"name\":\"my-room\"}",
         Visibility = LobbyVisibility.Private,
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     RoomId = "2swovpy1fnunu",
     ShortCode = "LFG4",
 };
@@ -79,13 +76,10 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 GetLobbyInfoByRoomIdRequest req = new GetLobbyInfoByRoomIdRequest() {
     RoomId = "2swovpy1fnunu",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -125,13 +119,10 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 GetLobbyInfoByShortCodeRequest req = new GetLobbyInfoByShortCodeRequest() {
     ShortCode = "LFG4",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -171,13 +162,9 @@ using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-ListActivePublicLobbiesRequest req = new ListActivePublicLobbiesRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+ListActivePublicLobbiesRequest req = new ListActivePublicLobbiesRequest() {};
 
 
 using(var res = await sdk.LobbiesV3.ListActivePublicLobbiesAsync(req))

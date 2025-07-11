@@ -28,11 +28,10 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetBalanceRequest req = new GetBalanceRequest() {};
 
@@ -59,7 +58,7 @@ using(var res = await sdk.BillingV1.GetBalanceAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
@@ -75,11 +74,10 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetInvoicesRequest req = new GetInvoicesRequest() {};
 
@@ -106,7 +104,8 @@ using(var res = await sdk.BillingV1.GetInvoicesAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429                      | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetPaymentMethod
@@ -121,11 +120,10 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetPaymentMethodRequest req = new GetPaymentMethodRequest() {};
 
@@ -152,7 +150,7 @@ using(var res = await sdk.BillingV1.GetPaymentMethodAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
@@ -168,11 +166,10 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetUpcomingInvoiceItemsRequest req = new GetUpcomingInvoiceItemsRequest() {};
 
@@ -199,7 +196,7 @@ using(var res = await sdk.BillingV1.GetUpcomingInvoiceItemsAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
@@ -215,11 +212,10 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetUpcomingInvoiceTotalRequest req = new GetUpcomingInvoiceTotalRequest() {};
 
@@ -246,7 +242,7 @@ using(var res = await sdk.BillingV1.GetUpcomingInvoiceTotalAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
@@ -262,15 +258,14 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 InitStripeCustomerPortalUrlRequest req = new InitStripeCustomerPortalUrlRequest() {
     CustomerPortalUrl = new CustomerPortalUrl() {
-        ReturnUrl = "https://smart-puppet.biz/",
+        ReturnUrl = "https://sunny-majority.com/",
     },
 };
 
