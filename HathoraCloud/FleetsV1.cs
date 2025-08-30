@@ -55,6 +55,15 @@ namespace HathoraCloud
         Task<GetFleetsResponse> GetFleetsAsync(GetFleetsRequest? request = null);
 
         /// <summary>
+        /// UpdateFleet
+        /// 
+        /// <remarks>
+        /// Updates a <a href="https://hathora.dev/docs/concepts/hathora-entities#fleet">fleet</a>&apos;s configuration.
+        /// </remarks>
+        /// </summary>
+        Task<UpdateFleetResponse> UpdateFleetAsync(UpdateFleetRequest request);
+
+        /// <summary>
         /// UpdateFleetRegion
         /// 
         /// <remarks>
@@ -71,10 +80,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.2";
-        private const string _sdkGenVersion = "2.545.4";
+        private const string _sdkVersion = "0.30.3";
+        private const string _sdkGenVersion = "2.687.13";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.2 2.545.4 0.0.1 HathoraCloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.30.3 2.687.13 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -124,7 +133,6 @@ namespace HathoraCloud
                     httpRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
-                    Console.WriteLine("Success");
                     break;
             }
 
@@ -228,7 +236,6 @@ namespace HathoraCloud
                     httpRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
-                    Console.WriteLine("Success");
                     break;
             }
 
@@ -316,7 +323,6 @@ namespace HathoraCloud
                     httpRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
-                    Console.WriteLine("Success");
                     break;
             }
 
@@ -344,6 +350,107 @@ namespace HathoraCloud
                 }
             }
             else if (new List<int>{401, 404, 429}.Contains(httpCode))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else
+            {
+                throw new SDKException("unknown status code received", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            return response;
+        }
+
+        
+
+        
+        public async Task<UpdateFleetResponse> UpdateFleetAsync(UpdateFleetRequest request)
+        {
+            if (request == null)
+            {
+                request = new UpdateFleetRequest();
+            }
+            request.OrgId ??= SDKConfiguration.OrgId;
+            
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
+            var urlString = URLBuilder.Build(baseUrl, "/fleets/v1/fleets/{fleetId}", request);
+
+            var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbPOST);
+            DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
+            httpRequest.downloadHandler = downloadHandler;
+            httpRequest.SetRequestHeader("user-agent", _userAgent);
+
+            var serializedBody = RequestBodySerializer.Serialize(request, "UpdateFleet", "json", false, false);
+            if (serializedBody != null)
+            {
+                httpRequest.uploadHandler = new UploadHandlerRaw(serializedBody.Body);
+                httpRequest.SetRequestHeader("Content-Type", serializedBody.ContentType);
+            }
+
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
+            var httpResponse = await client.SendAsync(httpRequest);
+            int? errorCode = null;
+            string? contentType = null;
+            switch (httpResponse.result)
+            {
+                case UnityWebRequest.Result.ConnectionError:
+                case UnityWebRequest.Result.DataProcessingError:
+                case UnityWebRequest.Result.ProtocolError:
+                    errorCode = (int)httpRequest.responseCode;
+                    contentType = httpRequest.GetResponseHeader("Content-Type");
+                    httpRequest.Dispose();
+                    break;
+                case UnityWebRequest.Result.Success:
+                    break;
+            }
+
+            if (contentType == null)
+            {
+                contentType = httpResponse.GetResponseHeader("Content-Type") ?? "application/octet-stream";
+            }
+            int httpCode = errorCode ?? (int)httpResponse.responseCode;
+            var response = new UpdateFleetResponse
+            {
+                StatusCode = httpCode,
+                ContentType = contentType,
+                RawResponse = httpResponse
+            };
+            if (httpCode == 204)
+            {
+            }
+            else if (new List<int>{401, 404, 422, 429}.Contains(httpCode))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode == 500)
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -415,7 +522,6 @@ namespace HathoraCloud
                     httpRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
-                    Console.WriteLine("Success");
                     break;
             }
 

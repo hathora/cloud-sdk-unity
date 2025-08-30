@@ -64,6 +64,13 @@ namespace HathoraCloud.Models.Shared
         public DateTime? DeletedAt { get; set; } = default!;
 
         /// <summary>
+        /// When the build expired
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("expiredAt")]
+        public DateTime? ExpiredAt { get; set; }
+
+        /// <summary>
         /// When <a href="">`RunBuild()`</a> finished executing.
         /// </summary>
         [SerializeField]

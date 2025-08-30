@@ -24,11 +24,11 @@ namespace HathoraCloud.Models.Operations
         public string FleetId { get; set; } = default!;
 
         [SerializeField]
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=region")]
-        public Region Region { get; set; } = default!;
-
-        [SerializeField]
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=orgId")]
         public string? OrgId { get; set; }
+
+        [SerializeField]
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=region")]
+        public Region Region { get; set; } = default!;
     }
 }

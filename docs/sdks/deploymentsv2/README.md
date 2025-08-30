@@ -18,6 +18,7 @@ Create a new [deployment](https://hathora.dev/docs/concepts/hathora-entities#dep
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="CreateDeploymentV2Deprecated" method="post" path="/deployments/v2/{appId}/create/{buildId}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
@@ -25,11 +26,10 @@ using HathoraCloud.Models.Operations;
 using System.Collections.Generic;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateDeploymentV2DeprecatedRequest req = new CreateDeploymentV2DeprecatedRequest() {
     DeploymentConfigV2 = new DeploymentConfigV2() {
@@ -41,20 +41,14 @@ CreateDeploymentV2DeprecatedRequest req = new CreateDeploymentV2DeprecatedReques
             },
         },
         ContainerPort = 4000,
-        Env = new List<DeploymentConfigV2Env>() {
-            new DeploymentConfigV2Env() {
-                Name = "EULA",
-                Value = "TRUE",
-            },
-        },
-        IdleTimeoutEnabled = false,
+        Env = new List<DeploymentConfigV2Env>() {},
+        IdleTimeoutEnabled = true,
         RequestedCPU = 0.5D,
         RequestedMemoryMB = 1024D,
         RoomsPerProcess = 3,
         TransportType = TransportType.Tls,
     },
     BuildId = 1,
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -92,21 +86,20 @@ Get details for a [deployment](https://hathora.dev/docs/concepts/hathora-entitie
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetDeploymentInfoV2Deprecated" method="get" path="/deployments/v2/{appId}/info/{deploymentId}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetDeploymentInfoV2DeprecatedRequest req = new GetDeploymentInfoV2DeprecatedRequest() {
     DeploymentId = 1,
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -143,21 +136,19 @@ Returns an array of [deployments](https://hathora.dev/docs/concepts/hathora-enti
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetDeploymentsV2Deprecated" method="get" path="/deployments/v2/{appId}/list" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
-GetDeploymentsV2DeprecatedRequest req = new GetDeploymentsV2DeprecatedRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+GetDeploymentsV2DeprecatedRequest req = new GetDeploymentsV2DeprecatedRequest() {};
 
 
 using(var res = await sdk.DeploymentsV2.GetDeploymentsV2DeprecatedAsync(req))
@@ -193,21 +184,19 @@ Get the latest [deployment](https://hathora.dev/docs/concepts/hathora-entities#d
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetLatestDeploymentV2Deprecated" method="get" path="/deployments/v2/{appId}/latest" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
-GetLatestDeploymentV2DeprecatedRequest req = new GetLatestDeploymentV2DeprecatedRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+GetLatestDeploymentV2DeprecatedRequest req = new GetLatestDeploymentV2DeprecatedRequest() {};
 
 
 using(var res = await sdk.DeploymentsV2.GetLatestDeploymentV2DeprecatedAsync(req))

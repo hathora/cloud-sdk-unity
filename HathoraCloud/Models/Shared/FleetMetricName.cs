@@ -14,6 +14,9 @@ namespace HathoraCloud.Models.Shared
     using System;
     using UnityEngine;
     
+    /// <summary>
+    /// Represents the valid metric names available to measure/manage fleets in a given region
+    /// </summary>
     public enum FleetMetricName
     {
         [JsonProperty("provisionedTotal")]
@@ -24,6 +27,8 @@ namespace HathoraCloud.Models.Shared
         ProvisionedCloud,
         [JsonProperty("utilized")]
         Utilized,
+        [JsonProperty("systemOverhead")]
+        SystemOverhead,
     }
 
     public static class FleetMetricNameExtension

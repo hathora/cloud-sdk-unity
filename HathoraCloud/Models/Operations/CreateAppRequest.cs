@@ -21,7 +21,7 @@ namespace HathoraCloud.Models.Operations
 
         [SerializeField]
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public AppConfig AppConfig { get; set; } = default!;
+        public CreateAppConfig CreateAppConfig { get; set; } = default!;
 
         [SerializeField]
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=orgId")]

@@ -30,7 +30,7 @@ namespace HathoraCloud.Models.Shared
         public double BuildSizeInBytes { get; set; } = default!;
 
         /// <summary>
-        /// Tag to associate an external version with a build. It is accessible via <a href="">`GetBuildInfo()`</a>.
+        /// Tag to associate an external version with a build. It is accessible via <a href="">`GetBuild()`</a>.
         /// </summary>
         [SerializeField]
         [JsonProperty("buildTag")]

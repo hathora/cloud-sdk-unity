@@ -42,7 +42,7 @@ namespace HathoraCloud.Models.Shared
         public string BuildId { get; set; } = default!;
 
         /// <summary>
-        /// Tag to associate an external version with a build. It is accessible via <a href="">`GetBuildInfo()`</a>.
+        /// Tag to associate an external version with a build. It is accessible via <a href="">`GetBuild()`</a>.
         /// </summary>
         [SerializeField]
         [JsonProperty("buildTag")]
@@ -100,6 +100,13 @@ namespace HathoraCloud.Models.Shared
         public double? ExperimentalRequestedGPU { get; set; }
 
         /// <summary>
+        /// the id of the fleet
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("fleetId")]
+        public string? FleetId { get; set; }
+
+        /// <summary>
         /// Option to shut down processes that have had no new connections or rooms<br/>
         /// 
         /// <remarks>
@@ -116,6 +123,17 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("requestedCPU")]
         public double RequestedCPU { get; set; } = default!;
+
+        /// <summary>
+        /// The number of GPUs allocated to your process. Must be an integer.<br/>
+        /// 
+        /// <remarks>
+        /// If not provided, the requested GPU is 0.
+        /// </remarks>
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("requestedGPU")]
+        public double? RequestedGPU { get; set; }
 
         /// <summary>
         /// The amount of memory allocated to your process. By default, this is capped<br/>

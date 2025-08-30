@@ -1,5 +1,7 @@
 # FleetMetricName
 
+Represents the valid metric names available to measure/manage fleets in a given region
+
 
 ## Values
 
@@ -9,3 +11,4 @@
 | `ProvisionedBareMetal` | provisionedBareMetal   |
 | `ProvisionedCloud`     | provisionedCloud       |
 | `Utilized`             | utilized               |
+| `SystemOverhead`       | systemOverhead         |

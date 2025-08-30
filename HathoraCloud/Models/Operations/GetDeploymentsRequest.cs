@@ -23,6 +23,10 @@ namespace HathoraCloud.Models.Operations
         public string? AppId { get; set; }
 
         [SerializeField]
+        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=buildTag")]
+        public string? BuildTag { get; set; }
+
+        [SerializeField]
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=deploymentTag")]
         public string? DeploymentTag { get; set; }
     }

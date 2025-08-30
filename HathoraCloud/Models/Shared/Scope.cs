@@ -46,6 +46,10 @@ namespace HathoraCloud.Models.Shared
         TokensRead,
         [JsonProperty("tokens:read-write")]
         TokensReadWrite,
+        [JsonProperty("tickets:read")]
+        TicketsRead,
+        [JsonProperty("tickets:read-write")]
+        TicketsReadWrite,
     }
 
     public static class ScopeExtension

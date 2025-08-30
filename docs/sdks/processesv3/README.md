@@ -20,21 +20,20 @@ Creates a [process](https://hathora.dev/docs/concepts/hathora-entities#process) 
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="CreateProcess" method="post" path="/processes/v3/apps/{appId}/processes/regions/{region}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateProcessRequest req = new CreateProcessRequest() {
-    Region = Region.SaoPaulo,
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+    Region = Region.Mumbai,
 };
 
 
@@ -70,6 +69,7 @@ Retrieve the 10 most recent [processes](https://hathora.dev/docs/concepts/hathor
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetLatestProcesses" method="get" path="/processes/v3/apps/{appId}/processes/latest" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
@@ -77,15 +77,12 @@ using HathoraCloud.Models.Operations;
 using System.Collections.Generic;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
-GetLatestProcessesRequest req = new GetLatestProcessesRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+GetLatestProcessesRequest req = new GetLatestProcessesRequest() {};
 
 
 using(var res = await sdk.ProcessesV3.GetLatestProcessesAsync(req))
@@ -119,21 +116,20 @@ Get details for a [process](https://hathora.dev/docs/concepts/hathora-entities#p
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetProcess" method="get" path="/processes/v3/apps/{appId}/processes/{processId}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetProcessRequest req = new GetProcessRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -168,6 +164,7 @@ GetProcessMetrics
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetProcessMetrics" method="get" path="/processes/v3/apps/{appId}/processes/process/{processId}/metrics" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
@@ -175,15 +172,13 @@ using HathoraCloud.Models.Operations;
 using System.Collections.Generic;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetProcessMetricsRequest req = new GetProcessMetricsRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -219,6 +214,7 @@ Count the number of [processes](https://hathora.dev/docs/concepts/hathora-entiti
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetProcessesCountExperimental" method="get" path="/processes/v3/apps/{appId}/processes/count" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
@@ -226,15 +222,12 @@ using HathoraCloud.Models.Operations;
 using System.Collections.Generic;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
-GetProcessesCountExperimentalRequest req = new GetProcessesCountExperimentalRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+GetProcessesCountExperimentalRequest req = new GetProcessesCountExperimentalRequest() {};
 
 
 using(var res = await sdk.ProcessesV3.GetProcessesCountExperimentalAsync(req))
@@ -268,21 +261,20 @@ Stops a [process](https://hathora.dev/docs/concepts/hathora-entities#process) im
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="StopProcess" method="post" path="/processes/v3/apps/{appId}/processes/{processId}/stop" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 StopProcessRequest req = new StopProcessRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
