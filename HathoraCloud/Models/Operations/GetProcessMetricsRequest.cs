@@ -21,10 +21,6 @@ namespace HathoraCloud.Models.Operations
     {
 
         [SerializeField]
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=processId")]
-        public string ProcessId { get; set; } = default!;
-
-        [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
         public string? AppId { get; set; }
 
@@ -41,6 +37,10 @@ namespace HathoraCloud.Models.Operations
         [SerializeField]
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=metrics")]
         public List<ProcessMetricName>? Metrics { get; set; }
+
+        [SerializeField]
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=processId")]
+        public string ProcessId { get; set; } = default!;
 
         /// <summary>
         /// Unix timestamp. Default is -1 hour from `end`.

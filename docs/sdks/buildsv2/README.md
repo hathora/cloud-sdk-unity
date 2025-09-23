@@ -21,23 +21,22 @@ Creates a new [build](https://hathora.dev/docs/concepts/hathora-entities#build).
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="CreateBuildV2Deprecated" method="post" path="/builds/v2/{appId}/create" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateBuildV2DeprecatedRequest req = new CreateBuildV2DeprecatedRequest() {
     CreateBuildParams = new CreateBuildParams() {
         BuildTag = "0.1.14-14c793",
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -75,23 +74,22 @@ Creates a new [build](https://hathora.dev/docs/concepts/hathora-entities#build) 
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="CreateBuildWithUploadUrlV2Deprecated" method="post" path="/builds/v2/{appId}/createWithUploadUrl" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateBuildWithUploadUrlV2DeprecatedRequest req = new CreateBuildWithUploadUrlV2DeprecatedRequest() {
     CreateBuildParams = new CreateBuildParams() {
         BuildTag = "0.1.14-14c793",
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -129,25 +127,24 @@ Creates a new [build](https://hathora.dev/docs/concepts/hathora-entities#build) 
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="CreateWithMultipartUploadsV2Deprecated" method="post" path="/builds/v2/{appId}/createWithMultipartUploads" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateWithMultipartUploadsV2DeprecatedRequest req = new CreateWithMultipartUploadsV2DeprecatedRequest() {
     CreateMultipartBuildParams = new CreateMultipartBuildParams() {
         BuildId = "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5",
-        BuildSizeInBytes = 3146.66D,
+        BuildSizeInBytes = 5282.13D,
         BuildTag = "0.1.14-14c793",
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -185,21 +182,20 @@ Delete a [build](https://hathora.dev/docs/concepts/hathora-entities#build). All 
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="DeleteBuildV2Deprecated" method="delete" path="/builds/v2/{appId}/delete/{buildId}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 DeleteBuildV2DeprecatedRequest req = new DeleteBuildV2DeprecatedRequest() {
     BuildId = 1,
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -237,21 +233,20 @@ Get details for a [build](https://hathora.dev/docs/concepts/hathora-entities#bui
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetBuildInfoV2Deprecated" method="get" path="/builds/v2/{appId}/info/{buildId}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetBuildInfoV2DeprecatedRequest req = new GetBuildInfoV2DeprecatedRequest() {
     BuildId = 1,
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -288,21 +283,19 @@ Returns an array of [builds](https://hathora.dev/docs/concepts/hathora-entities#
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetBuildsV2Deprecated" method="get" path="/builds/v2/{appId}/list" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
-GetBuildsV2DeprecatedRequest req = new GetBuildsV2DeprecatedRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+GetBuildsV2DeprecatedRequest req = new GetBuildsV2DeprecatedRequest() {};
 
 
 using(var res = await sdk.BuildsV2.GetBuildsV2DeprecatedAsync(req))
@@ -338,22 +331,21 @@ Builds a game server artifact from a tarball you provide. Pass in the `buildId` 
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="RunBuildV2Deprecated" method="post" path="/builds/v2/{appId}/run/{buildId}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 RunBuildV2DeprecatedRequest req = new RunBuildV2DeprecatedRequest() {
     RequestBody = new RunBuildV2DeprecatedRequestBody() {},
     BuildId = 1,
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -379,6 +371,6 @@ using(var res = await sdk.BuildsV2.RunBuildV2DeprecatedAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400, 401, 404, 429                      | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 400, 401, 404, 422, 429                 | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |

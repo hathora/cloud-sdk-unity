@@ -8,364 +8,400 @@ actions:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetApps"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetAppsRequest req = new GetAppsRequest() {};\n\n\nusing(var res = await sdk.AppsV2.GetAppsAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetAppsRequest req = new GetAppsRequest() {};\n\n\nusing(var res = await sdk.AppsV2.GetAppsAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/apps/v2/apps"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "CreateApp"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nCreateAppRequest req = new CreateAppRequest() {\n    AppConfig = new AppConfig() {\n        AuthConfiguration = new AuthConfiguration() {},\n        AppName = \"minecraft\",\n    },\n};\n\n\nusing(var res = await sdk.AppsV2.CreateAppAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateAppRequest req = new CreateAppRequest() {\n    CreateAppConfig = new CreateAppConfig() {\n        AuthConfiguration = new AuthConfiguration() {},\n        AppName = \"minecraft\",\n    },\n};\n\n\nusing(var res = await sdk.AppsV2.CreateAppAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/apps/v2/apps/{appId}"]["delete"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "DeleteApp"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nDeleteAppRequest req = new DeleteAppRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n};\n\n\nusing(var res = await sdk.AppsV2.DeleteAppAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nDeleteAppRequest req = new DeleteAppRequest() {};\n\n\nusing(var res = await sdk.AppsV2.DeleteAppAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/apps/v2/apps/{appId}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetApp"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetAppRequest req = new GetAppRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n};\n\n\nusing(var res = await sdk.AppsV2.GetAppAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetAppRequest req = new GetAppRequest() {};\n\n\nusing(var res = await sdk.AppsV2.GetAppAsync(req))\n{\n    // handle response\n}"
+  - target: $["paths"]["/apps/v2/apps/{appId}"]["patch"]
+    update:
+      "x-codeSamples":
+        - "lang": "unity"
+          "label": "PatchApp"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nPatchAppRequest req = new PatchAppRequest() {\n    PartialAppConfigWithServiceConfig = new PartialAppConfigWithServiceConfig() {\n        ServiceConfig = new ServiceConfigWrite() {\n            StaticProcessAllocation = new List<StaticProcessAllocationConfigWrite>() {\n                new StaticProcessAllocationConfigWrite() {\n                    MaxProcesses = 3,\n                    TargetProcesses = 2,\n                    MinProcesses = 1,\n                    Region = Region.Tokyo,\n                },\n            },\n        },\n    },\n};\n\n\nusing(var res = await sdk.AppsV2.PatchAppAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/apps/v2/apps/{appId}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "UpdateApp"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nUpdateAppRequest req = new UpdateAppRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    AppConfig = new AppConfig() {\n        AuthConfiguration = new AuthConfiguration() {},\n        AppName = \"minecraft\",\n    },\n};\n\n\nusing(var res = await sdk.AppsV2.UpdateAppAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateAppRequest req = new UpdateAppRequest() {\n    AppConfigWithServiceConfig = new AppConfigWithServiceConfig() {\n        ServiceConfig = new ServiceConfigWrite() {\n            StaticProcessAllocation = new List<StaticProcessAllocationConfigWrite>() {\n                new StaticProcessAllocationConfigWrite() {\n                    MaxProcesses = 3,\n                    TargetProcesses = 2,\n                    MinProcesses = 1,\n                    Region = Region.SaoPaulo,\n                },\n            },\n        },\n        AuthConfiguration = new AuthConfiguration() {},\n        AppName = \"minecraft\",\n    },\n};\n\n\nusing(var res = await sdk.AppsV2.UpdateAppAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/auth/v1/{appId}/login/anonymous"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "LoginAnonymous"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nLoginAnonymousRequest req = new LoginAnonymousRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n};\n\n\nusing(var res = await sdk.AuthV1.LoginAnonymousAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nLoginAnonymousRequest req = new LoginAnonymousRequest() {};\n\n\nusing(var res = await sdk.AuthV1.LoginAnonymousAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/auth/v1/{appId}/login/google"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "LoginGoogle"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nLoginGoogleRequest req = new LoginGoogleRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    GoogleIdTokenObject = new GoogleIdTokenObject() {\n        IdToken = \"eyJhbGciOiJSUzI1NiIsImtpZCI6ImZkNDhhNzUxMzhkOWQ0OGYwYWE2MzVlZjU2OWM0ZTE5NmY3YWU4ZDYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiODQ4NDEyODI2Nzg4LW00bXNyYjZxNDRkbTJ1ZTNrZ3Z1aTBmcTdrZGE1NWxzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiODQ4NDEyODI2Nzg4LW00bXNyYjZxNDRkbTJ1ZTNrZ3Z1aTBmcTdrZGE1NWxzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTE0NTQyMzMwNzI3MTU2MTMzNzc2IiwiZW1haWwiOiJocGFdkeivmeuzQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoidno1NGhhdTNxbnVR\",\n    },\n};\n\n\nusing(var res = await sdk.AuthV1.LoginGoogleAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nLoginGoogleRequest req = new LoginGoogleRequest() {\n    GoogleIdTokenObject = new GoogleIdTokenObject() {\n        IdToken = \"eyJhbGciOiJSUzI1NiIsImtpZCI6ImZkNDhhNzUxMzhkOWQ0OGYwYWE2MzVlZjU2OWM0ZTE5NmY3YWU4ZDYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiODQ4NDEyODI2Nzg4LW00bXNyYjZxNDRkbTJ1ZTNrZ3Z1aTBmcTdrZGE1NWxzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiODQ4NDEyODI2Nzg4LW00bXNyYjZxNDRkbTJ1ZTNrZ3Z1aTBmcTdrZGE1NWxzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTE0NTQyMzMwNzI3MTU2MTMzNzc2IiwiZW1haWwiOiJocGFdkeivmeuzQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoidno1NGhhdTNxbnVR\",\n    },\n};\n\n\nusing(var res = await sdk.AuthV1.LoginGoogleAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/auth/v1/{appId}/login/nickname"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "LoginNickname"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nLoginNicknameRequest req = new LoginNicknameRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    NicknameObject = new NicknameObject() {\n        Nickname = \"squiddytwoshoes\",\n    },\n};\n\n\nusing(var res = await sdk.AuthV1.LoginNicknameAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nLoginNicknameRequest req = new LoginNicknameRequest() {\n    NicknameObject = new NicknameObject() {\n        Nickname = \"squiddytwoshoes\",\n    },\n};\n\n\nusing(var res = await sdk.AuthV1.LoginNicknameAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/billing/v1/customerportalurl"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "InitStripeCustomerPortalUrl"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nInitStripeCustomerPortalUrlRequest req = new InitStripeCustomerPortalUrlRequest() {\n    CustomerPortalUrl = new CustomerPortalUrl() {\n        ReturnUrl = \"https://smart-puppet.biz/\",\n    },\n};\n\n\nusing(var res = await sdk.BillingV1.InitStripeCustomerPortalUrlAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nInitStripeCustomerPortalUrlRequest req = new InitStripeCustomerPortalUrlRequest() {\n    CustomerPortalUrl = new CustomerPortalUrl() {\n        ReturnUrl = \"https://sunny-majority.com/\",\n    },\n};\n\n\nusing(var res = await sdk.BillingV1.InitStripeCustomerPortalUrlAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/billing/v1/invoices"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetInvoices"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetInvoicesRequest req = new GetInvoicesRequest() {};\n\n\nusing(var res = await sdk.BillingV1.GetInvoicesAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetInvoicesRequest req = new GetInvoicesRequest() {};\n\n\nusing(var res = await sdk.BillingV1.GetInvoicesAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/billing/v1/paymentmethod"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetPaymentMethod"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetPaymentMethodRequest req = new GetPaymentMethodRequest() {};\n\n\nusing(var res = await sdk.BillingV1.GetPaymentMethodAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetPaymentMethodRequest req = new GetPaymentMethodRequest() {};\n\n\nusing(var res = await sdk.BillingV1.GetPaymentMethodAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/billing/v1/upcoming/items"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetUpcomingInvoiceItems"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetUpcomingInvoiceItemsRequest req = new GetUpcomingInvoiceItemsRequest() {};\n\n\nusing(var res = await sdk.BillingV1.GetUpcomingInvoiceItemsAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetUpcomingInvoiceItemsRequest req = new GetUpcomingInvoiceItemsRequest() {};\n\n\nusing(var res = await sdk.BillingV1.GetUpcomingInvoiceItemsAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/billing/v1/upcoming/total"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetUpcomingInvoiceTotal"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetUpcomingInvoiceTotalRequest req = new GetUpcomingInvoiceTotalRequest() {};\n\n\nusing(var res = await sdk.BillingV1.GetUpcomingInvoiceTotalAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetUpcomingInvoiceTotalRequest req = new GetUpcomingInvoiceTotalRequest() {};\n\n\nusing(var res = await sdk.BillingV1.GetUpcomingInvoiceTotalAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/builds/v3/builds"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetBuilds"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetBuildsRequest req = new GetBuildsRequest() {};\n\n\nusing(var res = await sdk.BuildsV3.GetBuildsAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetBuildsRequest req = new GetBuildsRequest() {};\n\n\nusing(var res = await sdk.BuildsV3.GetBuildsAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/builds/v3/builds"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "CreateBuild"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nCreateBuildRequest req = new CreateBuildRequest() {\n    CreateMultipartBuildParams = new CreateMultipartBuildParams() {\n        BuildId = \"bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n        BuildTag = \"0.1.14-14c793\",\n        BuildSizeInBytes = 5387.85D,\n    },\n};\n\n\nusing(var res = await sdk.BuildsV3.CreateBuildAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateBuildRequest req = new CreateBuildRequest() {\n    CreateMultipartBuildParams = new CreateMultipartBuildParams() {\n        BuildId = \"bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n        BuildTag = \"0.1.14-14c793\",\n        BuildSizeInBytes = 2645.24D,\n    },\n};\n\n\nusing(var res = await sdk.BuildsV3.CreateBuildAsync(req))\n{\n    // handle response\n}"
+  - target: $["paths"]["/builds/v3/builds/registry"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "unity"
+          "label": "CreateBuildRegistry"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateBuildRegistryRequest req = new CreateBuildRegistryRequest() {\n    CreateBuildV3Params = new CreateBuildV3Params() {\n        BuildId = \"bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n        BuildTag = \"0.1.14-14c793\",\n    },\n};\n\n\nusing(var res = await sdk.BuildsV3.CreateBuildRegistryAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/builds/v3/builds/{buildId}"]["delete"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "DeleteBuild"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nDeleteBuildRequest req = new DeleteBuildRequest() {\n    BuildId = \"bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n};\n\n\nusing(var res = await sdk.BuildsV3.DeleteBuildAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nDeleteBuildRequest req = new DeleteBuildRequest() {\n    BuildId = \"bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n};\n\n\nusing(var res = await sdk.BuildsV3.DeleteBuildAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/builds/v3/builds/{buildId}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetBuild"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetBuildRequest req = new GetBuildRequest() {\n    BuildId = \"bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n};\n\n\nusing(var res = await sdk.BuildsV3.GetBuildAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetBuildRequest req = new GetBuildRequest() {\n    BuildId = \"bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n};\n\n\nusing(var res = await sdk.BuildsV3.GetBuildAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/builds/v3/builds/{buildId}/run"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "RunBuild"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nRunBuildRequest req = new RunBuildRequest() {\n    BuildId = \"bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n};\n\n\nusing(var res = await sdk.BuildsV3.RunBuildAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nRunBuildRequest req = new RunBuildRequest() {\n    BuildId = \"bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n};\n\n\nusing(var res = await sdk.BuildsV3.RunBuildAsync(req))\n{\n    // handle response\n}"
+  - target: $["paths"]["/builds/v3/builds/{buildId}/runRegistry"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "unity"
+          "label": "RunBuildRegistry"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nRunBuildRegistryRequest req = new RunBuildRegistryRequest() {\n    BuildId = \"bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n    RegistryConfig = new RegistryConfig() {\n        Image = \"https://picsum.photos/seed/3gDPgtj/723/1525\",\n    },\n};\n\n\nusing(var res = await sdk.BuildsV3.RunBuildRegistryAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/deployments/v3/apps/{appId}/deployments"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetDeployments"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetDeploymentsRequest req = new GetDeploymentsRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    DeploymentTag = \"alpha\",\n};\n\n\nusing(var res = await sdk.DeploymentsV3.GetDeploymentsAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetDeploymentsRequest req = new GetDeploymentsRequest() {\n    DeploymentTag = \"alpha\",\n    BuildTag = \"0.1.14-14c793\",\n};\n\n\nusing(var res = await sdk.DeploymentsV3.GetDeploymentsAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/deployments/v3/apps/{appId}/deployments"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "CreateDeployment"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nCreateDeploymentRequest req = new CreateDeploymentRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    DeploymentConfigV3 = new DeploymentConfigV3() {\n        DeploymentTag = \"alpha\",\n        IdleTimeoutEnabled = false,\n        Env = new List<DeploymentConfigV3Env>() {\n            new DeploymentConfigV3Env() {\n                Value = \"TRUE\",\n                Name = \"EULA\",\n            },\n        },\n        RoomsPerProcess = 3,\n        AdditionalContainerPorts = new List<ContainerPort>() {\n            new ContainerPort() {\n                TransportType = TransportType.Udp,\n                Port = 8000,\n                Name = \"default\",\n            },\n        },\n        TransportType = TransportType.Tcp,\n        ContainerPort = 4000,\n        ExperimentalRequestedGPU = 1D,\n        RequestedMemoryMB = 1024D,\n        RequestedCPU = 0.5D,\n        BuildId = \"bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n    },\n};\n\n\nusing(var res = await sdk.DeploymentsV3.CreateDeploymentAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateDeploymentRequest req = new CreateDeploymentRequest() {\n    DeploymentConfigV3 = new DeploymentConfigV3() {\n        DeploymentTag = \"alpha\",\n        IdleTimeoutEnabled = true,\n        Env = new List<DeploymentConfigV3Env>() {\n            new DeploymentConfigV3Env() {\n                Value = \"TRUE\",\n                Name = \"EULA\",\n            },\n        },\n        RoomsPerProcess = 3,\n        AdditionalContainerPorts = new List<ContainerPort>() {\n            new ContainerPort() {\n                TransportType = TransportType.Udp,\n                Port = 8000,\n                Name = \"default\",\n            },\n        },\n        TransportType = TransportType.Udp,\n        ContainerPort = 4000,\n        RequestedGPU = 1D,\n        ExperimentalRequestedGPU = 1D,\n        RequestedMemoryMB = 1024D,\n        RequestedCPU = 0.5D,\n        BuildId = \"bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n    },\n};\n\n\nusing(var res = await sdk.DeploymentsV3.CreateDeploymentAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/deployments/v3/apps/{appId}/deployments/latest"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetLatestDeployment"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetLatestDeploymentRequest req = new GetLatestDeploymentRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n};\n\n\nusing(var res = await sdk.DeploymentsV3.GetLatestDeploymentAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetLatestDeploymentRequest req = new GetLatestDeploymentRequest() {};\n\n\nusing(var res = await sdk.DeploymentsV3.GetLatestDeploymentAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/deployments/v3/apps/{appId}/deployments/{deploymentId}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetDeployment"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetDeploymentRequest req = new GetDeploymentRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    DeploymentId = \"dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n};\n\n\nusing(var res = await sdk.DeploymentsV3.GetDeploymentAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetDeploymentRequest req = new GetDeploymentRequest() {\n    DeploymentId = \"dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n};\n\n\nusing(var res = await sdk.DeploymentsV3.GetDeploymentAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/discovery/v2/ping"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetPingServiceEndpoints"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\n\nusing(var res = await sdk.DiscoveryV2.GetPingServiceEndpointsAsync())\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\n\nvar sdk = new HathoraCloudSDK();\n\n\nusing(var res = await sdk.DiscoveryV2.GetPingServiceEndpointsAsync())\n{\n    // handle response\n}"
   - target: $["paths"]["/fleets/v1/fleets"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetFleets"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetFleetsRequest req = new GetFleetsRequest() {};\n\n\nusing(var res = await sdk.FleetsV1.GetFleetsAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetFleetsRequest req = new GetFleetsRequest() {};\n\n\nusing(var res = await sdk.FleetsV1.GetFleetsAsync(req))\n{\n    // handle response\n}"
+  - target: $["paths"]["/fleets/v1/fleets"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "unity"
+          "label": "CreateFleet"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateFleetRequest req = new CreateFleetRequest() {\n    CreateFleet = new CreateFleet() {\n        NodeShape = NodeShape.GpuL411248,\n        AutoscalerConfig = new AutoscalerConfig() {\n            ScaleUpThreshold = 400145,\n        },\n        Name = \"production\",\n    },\n};\n\n\nusing(var res = await sdk.FleetsV1.CreateFleetAsync(req))\n{\n    // handle response\n}"
+  - target: $["paths"]["/fleets/v1/fleets/{fleetId}"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "unity"
+          "label": "GetFleet"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetFleetRequest req = new GetFleetRequest() {\n    FleetId = \"<id>\",\n};\n\n\nusing(var res = await sdk.FleetsV1.GetFleetAsync(req))\n{\n    // handle response\n}"
+  - target: $["paths"]["/fleets/v1/fleets/{fleetId}"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "unity"
+          "label": "UpdateFleet"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateFleetRequest req = new UpdateFleetRequest() {\n    FleetId = \"<id>\",\n    UpdateFleet = new UpdateFleet() {\n        AutoscalerConfig = new AutoscalerConfig() {\n            ScaleUpThreshold = 979840,\n        },\n        Name = \"production\",\n    },\n};\n\n\nusing(var res = await sdk.FleetsV1.UpdateFleetAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/fleets/v1/fleets/{fleetId}/regions/{region}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetFleetRegion"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetFleetRegionRequest req = new GetFleetRegionRequest() {\n    FleetId = \"<id>\",\n    Region = Region.SaoPaulo,\n};\n\n\nusing(var res = await sdk.FleetsV1.GetFleetRegionAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetFleetRegionRequest req = new GetFleetRegionRequest() {\n    FleetId = \"<id>\",\n    Region = Region.Singapore,\n};\n\n\nusing(var res = await sdk.FleetsV1.GetFleetRegionAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/fleets/v1/fleets/{fleetId}/regions/{region}"]["put"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "UpdateFleetRegion"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nUpdateFleetRegionRequest req = new UpdateFleetRegionRequest() {\n    FleetId = \"<id>\",\n    Region = Region.Singapore,\n    FleetRegionConfig = new FleetRegionConfig() {\n        CloudMinVcpus = 513135,\n    },\n};\n\n\nusing(var res = await sdk.FleetsV1.UpdateFleetRegionAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateFleetRegionRequest req = new UpdateFleetRegionRequest() {\n    FleetId = \"<id>\",\n    Region = Region.Chicago,\n    FleetRegionConfig = new FleetRegionConfig() {\n        CloudMinVcpus = 503995,\n    },\n};\n\n\nusing(var res = await sdk.FleetsV1.UpdateFleetRegionAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/fleets/v1/fleets/{fleetId}/regions/{region}/metrics"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetFleetMetrics"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetFleetMetricsRequest req = new GetFleetMetricsRequest() {\n    FleetId = \"<id>\",\n    Region = Region.London,\n};\n\n\nusing(var res = await sdk.FleetsV1.GetFleetMetricsAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetFleetMetricsRequest req = new GetFleetMetricsRequest() {\n    FleetId = \"<id>\",\n    Region = Region.WashingtonDC,\n};\n\n\nusing(var res = await sdk.FleetsV1.GetFleetMetricsAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/lobby/v3/{appId}/create"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "CreateLobby"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Operations;\nusing HathoraCloud.Models.Shared;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nCreateLobbyRequest req = new CreateLobbyRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    ShortCode = \"LFG4\",\n    RoomId = \"2swovpy1fnunu\",\n    CreateLobbyV3Params = new CreateLobbyV3Params() {\n        Visibility = LobbyVisibility.Private,\n        RoomConfig = \"{\\\"name\\\":\\\"my-room\\\"}\",\n        Region = Region.Seattle,\n    },\n};\n\n\nusing(var res = await sdk.LobbiesV3.CreateLobbyAsync(\n    security: new CreateLobbySecurity() {\n        PlayerAuth = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Operations;\nusing HathoraCloud.Models.Shared;\n\nvar sdk = new HathoraCloudSDK(appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nCreateLobbyRequest req = new CreateLobbyRequest() {\n    ShortCode = \"LFG4\",\n    RoomId = \"2swovpy1fnunu\",\n    CreateLobbyV3Params = new CreateLobbyV3Params() {\n        Visibility = LobbyVisibility.Private,\n        RoomConfig = \"{\\\"name\\\":\\\"my-room\\\"}\",\n        Region = Region.Dubai,\n    },\n};\n\n\nusing(var res = await sdk.LobbiesV3.CreateLobbyAsync(\n    security: new CreateLobbySecurity() {\n        PlayerAuth = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    req))\n{\n    // handle response\n}"
   - target: $["paths"]["/lobby/v3/{appId}/info/roomid/{roomId}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetLobbyInfoByRoomId"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetLobbyInfoByRoomIdRequest req = new GetLobbyInfoByRoomIdRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    RoomId = \"2swovpy1fnunu\",\n};\n\n\nusing(var res = await sdk.LobbiesV3.GetLobbyInfoByRoomIdAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetLobbyInfoByRoomIdRequest req = new GetLobbyInfoByRoomIdRequest() {\n    RoomId = \"2swovpy1fnunu\",\n};\n\n\nusing(var res = await sdk.LobbiesV3.GetLobbyInfoByRoomIdAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/lobby/v3/{appId}/info/shortcode/{shortCode}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetLobbyInfoByShortCode"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetLobbyInfoByShortCodeRequest req = new GetLobbyInfoByShortCodeRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    ShortCode = \"LFG4\",\n};\n\n\nusing(var res = await sdk.LobbiesV3.GetLobbyInfoByShortCodeAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetLobbyInfoByShortCodeRequest req = new GetLobbyInfoByShortCodeRequest() {\n    ShortCode = \"LFG4\",\n};\n\n\nusing(var res = await sdk.LobbiesV3.GetLobbyInfoByShortCodeAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/lobby/v3/{appId}/list/public"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "ListActivePublicLobbies"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nListActivePublicLobbiesRequest req = new ListActivePublicLobbiesRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n};\n\n\nusing(var res = await sdk.LobbiesV3.ListActivePublicLobbiesAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nListActivePublicLobbiesRequest req = new ListActivePublicLobbiesRequest() {};\n\n\nusing(var res = await sdk.LobbiesV3.ListActivePublicLobbiesAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/logs/v1/{appId}/process/{processId}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetLogsForProcess"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetLogsForProcessRequest req = new GetLogsForProcessRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    ProcessId = \"cbfcddd2-0006-43ae-996c-995fff7bed2e\",\n    TailLines = 100,\n};\n\n\nusing(var res = await sdk.LogsV1.GetLogsForProcessAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetLogsForProcessRequest req = new GetLogsForProcessRequest() {\n    ProcessId = \"cbfcddd2-0006-43ae-996c-995fff7bed2e\",\n    TailLines = 100,\n};\n\n\nusing(var res = await sdk.LogsV1.GetLogsForProcessAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/logs/v1/{appId}/process/{processId}/download"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "DownloadLogForProcess"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nDownloadLogForProcessRequest req = new DownloadLogForProcessRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    ProcessId = \"cbfcddd2-0006-43ae-996c-995fff7bed2e\",\n};\n\n\nusing(var res = await sdk.LogsV1.DownloadLogForProcessAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nDownloadLogForProcessRequest req = new DownloadLogForProcessRequest() {\n    ProcessId = \"cbfcddd2-0006-43ae-996c-995fff7bed2e\",\n};\n\n\nusing(var res = await sdk.LogsV1.DownloadLogForProcessAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/management/v1/sendverificationemail"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "SendVerificationEmail"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nVerificationEmailRequest req = new VerificationEmailRequest() {\n    UserId = \"<id>\",\n};\n\n\nusing(var res = await sdk.ManagementV1.SendVerificationEmailAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\n\nvar sdk = new HathoraCloudSDK();\n\nVerificationEmailRequest req = new VerificationEmailRequest() {\n    UserId = \"<id>\",\n};\n\n\nusing(var res = await sdk.ManagementV1.SendVerificationEmailAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/orgs/v1"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetOrgs"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\n\nusing(var res = await sdk.OrganizationsV1.GetOrgsAsync())\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\n\nusing(var res = await sdk.OrganizationsV1.GetOrgsAsync())\n{\n    // handle response\n}"
   - target: $["paths"]["/orgs/v1/metadata/usageLimits"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetUsageLimits"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetUsageLimitsRequest req = new GetUsageLimitsRequest() {};\n\n\nusing(var res = await sdk.OrganizationsV1.GetUsageLimitsAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetUsageLimitsRequest req = new GetUsageLimitsRequest() {};\n\n\nusing(var res = await sdk.OrganizationsV1.GetUsageLimitsAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/orgs/v1/user/invites/pending"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetUserPendingInvites"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\n\nusing(var res = await sdk.OrganizationsV1.GetUserPendingInvitesAsync())\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\n\nusing(var res = await sdk.OrganizationsV1.GetUserPendingInvitesAsync())\n{\n    // handle response\n}"
   - target: $["paths"]["/orgs/v1/{orgId}/invites"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "UpdateUserInvite"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nUpdateUserInviteRequest req = new UpdateUserInviteRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    UpdateUserInvite = new UpdateUserInvite() {\n        Scopes = UpdateUserInviteScopes.CreateUserRole(\n            UserRole.Viewer,\n        ),\n        UserEmail = \"noreply@hathora.dev\",\n    },\n};\n\n\nusing(var res = await sdk.OrganizationsV1.UpdateUserInviteAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateUserInviteRequest req = new UpdateUserInviteRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    UpdateUserInvite = new UpdateUserInvite() {\n        Scopes = UpdateUserInviteScopes.CreateUserRole(\n            UserRole.Viewer,\n        ),\n        UserEmail = \"noreply@hathora.dev\",\n    },\n};\n\n\nusing(var res = await sdk.OrganizationsV1.UpdateUserInviteAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/orgs/v1/{orgId}/invites"]["put"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "InviteUser"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nInviteUserRequest req = new InviteUserRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    CreateUserInvite = new CreateUserInvite() {\n        UserEmail = \"noreply@hathora.dev\",\n    },\n};\n\n\nusing(var res = await sdk.OrganizationsV1.InviteUserAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nInviteUserRequest req = new InviteUserRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    CreateUserInvite = new CreateUserInvite() {\n        UserEmail = \"noreply@hathora.dev\",\n    },\n};\n\n\nusing(var res = await sdk.OrganizationsV1.InviteUserAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/orgs/v1/{orgId}/invites/accept"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "AcceptInvite"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nAcceptInviteRequest req = new AcceptInviteRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n};\n\n\nusing(var res = await sdk.OrganizationsV1.AcceptInviteAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nAcceptInviteRequest req = new AcceptInviteRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n};\n\n\nusing(var res = await sdk.OrganizationsV1.AcceptInviteAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/orgs/v1/{orgId}/invites/pending"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetOrgPendingInvites"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetOrgPendingInvitesRequest req = new GetOrgPendingInvitesRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n};\n\n\nusing(var res = await sdk.OrganizationsV1.GetOrgPendingInvitesAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetOrgPendingInvitesRequest req = new GetOrgPendingInvitesRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n};\n\n\nusing(var res = await sdk.OrganizationsV1.GetOrgPendingInvitesAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/orgs/v1/{orgId}/invites/reject"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "RejectInvite"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nRejectInviteRequest req = new RejectInviteRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n};\n\n\nusing(var res = await sdk.OrganizationsV1.RejectInviteAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nRejectInviteRequest req = new RejectInviteRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n};\n\n\nusing(var res = await sdk.OrganizationsV1.RejectInviteAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/orgs/v1/{orgId}/invites/rescind"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "RescindInvite"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nRescindInviteRequest req = new RescindInviteRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    RescindUserInvite = new RescindUserInvite() {\n        UserEmail = \"noreply@hathora.dev\",\n    },\n};\n\n\nusing(var res = await sdk.OrganizationsV1.RescindInviteAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nRescindInviteRequest req = new RescindInviteRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    RescindUserInvite = new RescindUserInvite() {\n        UserEmail = \"noreply@hathora.dev\",\n    },\n};\n\n\nusing(var res = await sdk.OrganizationsV1.RescindInviteAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/orgs/v1/{orgId}/members"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetOrgMembers"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetOrgMembersRequest req = new GetOrgMembersRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n};\n\n\nusing(var res = await sdk.OrganizationsV1.GetOrgMembersAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetOrgMembersRequest req = new GetOrgMembersRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n};\n\n\nusing(var res = await sdk.OrganizationsV1.GetOrgMembersAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/processes/v3/apps/{appId}/processes/count"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetProcessesCountExperimental"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetProcessesCountExperimentalRequest req = new GetProcessesCountExperimentalRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n};\n\n\nusing(var res = await sdk.ProcessesV3.GetProcessesCountExperimentalAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetProcessesCountExperimentalRequest req = new GetProcessesCountExperimentalRequest() {};\n\n\nusing(var res = await sdk.ProcessesV3.GetProcessesCountExperimentalAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/processes/v3/apps/{appId}/processes/latest"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetLatestProcesses"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetLatestProcessesRequest req = new GetLatestProcessesRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n};\n\n\nusing(var res = await sdk.ProcessesV3.GetLatestProcessesAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetLatestProcessesRequest req = new GetLatestProcessesRequest() {};\n\n\nusing(var res = await sdk.ProcessesV3.GetLatestProcessesAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/processes/v3/apps/{appId}/processes/process/{processId}/metrics"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetProcessMetrics"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetProcessMetricsRequest req = new GetProcessMetricsRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    ProcessId = \"cbfcddd2-0006-43ae-996c-995fff7bed2e\",\n};\n\n\nusing(var res = await sdk.ProcessesV3.GetProcessMetricsAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetProcessMetricsRequest req = new GetProcessMetricsRequest() {\n    ProcessId = \"cbfcddd2-0006-43ae-996c-995fff7bed2e\",\n};\n\n\nusing(var res = await sdk.ProcessesV3.GetProcessMetricsAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/processes/v3/apps/{appId}/processes/regions/{region}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "CreateProcess"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nCreateProcessRequest req = new CreateProcessRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    Region = Region.SaoPaulo,\n};\n\n\nusing(var res = await sdk.ProcessesV3.CreateProcessAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateProcessRequest req = new CreateProcessRequest() {\n    Region = Region.Mumbai,\n};\n\n\nusing(var res = await sdk.ProcessesV3.CreateProcessAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/processes/v3/apps/{appId}/processes/{processId}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetProcess"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetProcessRequest req = new GetProcessRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    ProcessId = \"cbfcddd2-0006-43ae-996c-995fff7bed2e\",\n};\n\n\nusing(var res = await sdk.ProcessesV3.GetProcessAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetProcessRequest req = new GetProcessRequest() {\n    ProcessId = \"cbfcddd2-0006-43ae-996c-995fff7bed2e\",\n};\n\n\nusing(var res = await sdk.ProcessesV3.GetProcessAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/processes/v3/apps/{appId}/processes/{processId}/stop"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "StopProcess"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nStopProcessRequest req = new StopProcessRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    ProcessId = \"cbfcddd2-0006-43ae-996c-995fff7bed2e\",\n};\n\n\nusing(var res = await sdk.ProcessesV3.StopProcessAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nStopProcessRequest req = new StopProcessRequest() {\n    ProcessId = \"cbfcddd2-0006-43ae-996c-995fff7bed2e\",\n};\n\n\nusing(var res = await sdk.ProcessesV3.StopProcessAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/rooms/v2/{appId}/connectioninfo/{roomId}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetConnectionInfo"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetConnectionInfoRequest req = new GetConnectionInfoRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    RoomId = \"2swovpy1fnunu\",\n};\n\n\nusing(var res = await sdk.RoomsV2.GetConnectionInfoAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetConnectionInfoRequest req = new GetConnectionInfoRequest() {\n    RoomId = \"2swovpy1fnunu\",\n};\n\n\nusing(var res = await sdk.RoomsV2.GetConnectionInfoAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/rooms/v2/{appId}/create"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "CreateRoom"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nCreateRoomRequest req = new CreateRoomRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    RoomId = \"2swovpy1fnunu\",\n    CreateRoomParams = new CreateRoomParams() {\n        DeploymentId = \"dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n        ClientIPs = new List<string>() {\n            \"123.123.123.123\",\n        },\n        RoomConfig = \"{\\\"name\\\":\\\"my-room\\\"}\",\n        Region = Region.Dallas,\n    },\n};\n\n\nusing(var res = await sdk.RoomsV2.CreateRoomAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateRoomRequest req = new CreateRoomRequest() {\n    RoomId = \"2swovpy1fnunu\",\n    CreateRoomParams = new CreateRoomParams() {\n        DeploymentId = \"dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n        ClientIPs = new List<string>() {\n            \"123.123.123.123\",\n        },\n        RoomConfig = \"{\\\"name\\\":\\\"my-room\\\"}\",\n        Region = Region.Dallas,\n    },\n};\n\n\nusing(var res = await sdk.RoomsV2.CreateRoomAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/rooms/v2/{appId}/destroy/{roomId}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "DestroyRoom"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nDestroyRoomRequest req = new DestroyRoomRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    RoomId = \"2swovpy1fnunu\",\n};\n\n\nusing(var res = await sdk.RoomsV2.DestroyRoomAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nDestroyRoomRequest req = new DestroyRoomRequest() {\n    RoomId = \"2swovpy1fnunu\",\n};\n\n\nusing(var res = await sdk.RoomsV2.DestroyRoomAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/rooms/v2/{appId}/info/{roomId}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetRoomInfo"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetRoomInfoRequest req = new GetRoomInfoRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    RoomId = \"2swovpy1fnunu\",\n};\n\n\nusing(var res = await sdk.RoomsV2.GetRoomInfoAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetRoomInfoRequest req = new GetRoomInfoRequest() {\n    RoomId = \"2swovpy1fnunu\",\n};\n\n\nusing(var res = await sdk.RoomsV2.GetRoomInfoAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/rooms/v2/{appId}/list/{processId}/active"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetActiveRoomsForProcess"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetActiveRoomsForProcessRequest req = new GetActiveRoomsForProcessRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    ProcessId = \"cbfcddd2-0006-43ae-996c-995fff7bed2e\",\n};\n\n\nusing(var res = await sdk.RoomsV2.GetActiveRoomsForProcessAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetActiveRoomsForProcessRequest req = new GetActiveRoomsForProcessRequest() {\n    ProcessId = \"cbfcddd2-0006-43ae-996c-995fff7bed2e\",\n};\n\n\nusing(var res = await sdk.RoomsV2.GetActiveRoomsForProcessAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/rooms/v2/{appId}/list/{processId}/inactive"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetInactiveRoomsForProcess"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetInactiveRoomsForProcessRequest req = new GetInactiveRoomsForProcessRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    ProcessId = \"cbfcddd2-0006-43ae-996c-995fff7bed2e\",\n};\n\n\nusing(var res = await sdk.RoomsV2.GetInactiveRoomsForProcessAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetInactiveRoomsForProcessRequest req = new GetInactiveRoomsForProcessRequest() {\n    ProcessId = \"cbfcddd2-0006-43ae-996c-995fff7bed2e\",\n};\n\n\nusing(var res = await sdk.RoomsV2.GetInactiveRoomsForProcessAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/rooms/v2/{appId}/resume/{roomId}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "ResumeRoom"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nResumeRoomRequest req = new ResumeRoomRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    RoomId = \"2swovpy1fnunu\",\n};\n\n\nusing(var res = await sdk.RoomsV2.ResumeRoomAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nResumeRoomRequest req = new ResumeRoomRequest() {\n    RoomId = \"2swovpy1fnunu\",\n};\n\n\nusing(var res = await sdk.RoomsV2.ResumeRoomAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/rooms/v2/{appId}/update/{roomId}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "UpdateRoomConfig"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nUpdateRoomConfigRequest req = new UpdateRoomConfigRequest() {\n    AppId = \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    RoomId = \"2swovpy1fnunu\",\n    UpdateRoomConfigParams = new UpdateRoomConfigParams() {\n        RoomConfig = \"{\\\"name\\\":\\\"my-room\\\"}\",\n    },\n};\n\n\nusing(var res = await sdk.RoomsV2.UpdateRoomConfigAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateRoomConfigRequest req = new UpdateRoomConfigRequest() {\n    RoomId = \"2swovpy1fnunu\",\n    UpdateRoomConfigParams = new UpdateRoomConfigParams() {\n        RoomConfig = \"{\\\"name\\\":\\\"my-room\\\"}\",\n    },\n};\n\n\nusing(var res = await sdk.RoomsV2.UpdateRoomConfigAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/tokens/v1/orgs/{orgId}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetOrgTokens"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nGetOrgTokensRequest req = new GetOrgTokensRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n};\n\n\nusing(var res = await sdk.TokensV1.GetOrgTokensAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetOrgTokensRequest req = new GetOrgTokensRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n};\n\n\nusing(var res = await sdk.TokensV1.GetOrgTokensAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/tokens/v1/orgs/{orgId}/create"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "CreateOrgToken"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nCreateOrgTokenRequest req = new CreateOrgTokenRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    CreateOrgToken = new CreateOrgToken() {\n        Name = \"ci-token\",\n    },\n};\n\n\nusing(var res = await sdk.TokensV1.CreateOrgTokenAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateOrgTokenRequest req = new CreateOrgTokenRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    CreateOrgToken = new CreateOrgToken() {\n        Name = \"ci-token\",\n    },\n};\n\n\nusing(var res = await sdk.TokensV1.CreateOrgTokenAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/tokens/v1/orgs/{orgId}/tokens/{orgTokenId}/revoke"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "RevokeOrgToken"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nRevokeOrgTokenRequest req = new RevokeOrgTokenRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    OrgTokenId = \"org-token-af469a92-5b45-4565-b3c4-b79878de67d2\",\n};\n\n\nusing(var res = await sdk.TokensV1.RevokeOrgTokenAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nRevokeOrgTokenRequest req = new RevokeOrgTokenRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    OrgTokenId = \"org-token-af469a92-5b45-4565-b3c4-b79878de67d2\",\n};\n\n\nusing(var res = await sdk.TokensV1.RevokeOrgTokenAsync(req))\n{\n    // handle response\n}"

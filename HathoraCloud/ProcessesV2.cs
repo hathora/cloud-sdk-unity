@@ -80,10 +80,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.2";
-        private const string _sdkGenVersion = "2.545.4";
+        private const string _sdkVersion = "0.30.3";
+        private const string _sdkGenVersion = "2.709.0";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.2 2.545.4 0.0.1 HathoraCloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.30.3 2.709.0 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -133,7 +133,6 @@ namespace HathoraCloud
                     httpRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
-                    Console.WriteLine("Success");
                     break;
             }
 
@@ -233,7 +232,6 @@ namespace HathoraCloud
                     httpRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
-                    Console.WriteLine("Success");
                     break;
             }
 
@@ -325,7 +323,6 @@ namespace HathoraCloud
                     httpRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
-                    Console.WriteLine("Success");
                     break;
             }
 
@@ -413,7 +410,6 @@ namespace HathoraCloud
                     httpRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
-                    Console.WriteLine("Success");
                     break;
             }
 
@@ -505,7 +501,6 @@ namespace HathoraCloud
                     httpRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
-                    Console.WriteLine("Success");
                     break;
             }
 

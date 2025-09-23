@@ -1,22 +1,22 @@
 lockVersion: 2.0.0
 id: bdb34d30-f36e-4c13-bfde-42babcb240db
 management:
-  docChecksum: ffd488694474637071e5f19b756d1d43
+  docChecksum: 85b9257406cf446e358a71e891825e42
   docVersion: 0.0.1
-  speakeasyVersion: 1.513.4
-  generationVersion: 2.545.4
-  releaseVersion: 0.30.2
-  configChecksum: 81595aa6e3bd22d8846c0a10277e0cc9
+  speakeasyVersion: 1.622.1
+  generationVersion: 2.709.0
+  releaseVersion: 0.30.3
+  configChecksum: b499e6c0aa4b74baa898e7d6cd2bda58
   repoURL: https://github.com/hathora/cloud-sdk-unity.git
   repoSubDirectory: .
   published: true
 features:
   unity:
-    core: 1.7.27
+    core: 1.7.32
     deprecations: 0.0.2
     downloadStreams: 0.0.2
-    globalSecurity: 0.2.7
-    globalServerURLs: 0.0.4
+    globalSecurity: 0.2.8
+    globalServerURLs: 0.0.5
     globals: 0.1.1
     groups: 0.0.2
     methodSecurity: 0.1.2
@@ -54,6 +54,8 @@ generatedFiles:
   - HathoraCloud/Models/Operations/CreateAppV1DeprecatedResponse.cs
   - HathoraCloud/Models/Operations/CreateBuildDeprecatedRequest.cs
   - HathoraCloud/Models/Operations/CreateBuildDeprecatedResponse.cs
+  - HathoraCloud/Models/Operations/CreateBuildRegistryRequest.cs
+  - HathoraCloud/Models/Operations/CreateBuildRegistryResponse.cs
   - HathoraCloud/Models/Operations/CreateBuildRequest.cs
   - HathoraCloud/Models/Operations/CreateBuildResponse.cs
   - HathoraCloud/Models/Operations/CreateBuildV2DeprecatedRequest.cs
@@ -66,6 +68,8 @@ generatedFiles:
   - HathoraCloud/Models/Operations/CreateDeploymentV1DeprecatedResponse.cs
   - HathoraCloud/Models/Operations/CreateDeploymentV2DeprecatedRequest.cs
   - HathoraCloud/Models/Operations/CreateDeploymentV2DeprecatedResponse.cs
+  - HathoraCloud/Models/Operations/CreateFleetRequest.cs
+  - HathoraCloud/Models/Operations/CreateFleetResponse.cs
   - HathoraCloud/Models/Operations/CreateLobbyDeprecatedRequest.cs
   - HathoraCloud/Models/Operations/CreateLobbyDeprecatedResponse.cs
   - HathoraCloud/Models/Operations/CreateLobbyDeprecatedSecurity.cs
@@ -164,6 +168,8 @@ generatedFiles:
   - HathoraCloud/Models/Operations/GetFleetMetricsResponse.cs
   - HathoraCloud/Models/Operations/GetFleetRegionRequest.cs
   - HathoraCloud/Models/Operations/GetFleetRegionResponse.cs
+  - HathoraCloud/Models/Operations/GetFleetRequest.cs
+  - HathoraCloud/Models/Operations/GetFleetResponse.cs
   - HathoraCloud/Models/Operations/GetFleetsRequest.cs
   - HathoraCloud/Models/Operations/GetFleetsResponse.cs
   - HathoraCloud/Models/Operations/GetInactiveRoomsForProcessDeprecatedRequest.cs
@@ -249,6 +255,8 @@ generatedFiles:
   - HathoraCloud/Models/Operations/LoginGoogleResponse.cs
   - HathoraCloud/Models/Operations/LoginNicknameRequest.cs
   - HathoraCloud/Models/Operations/LoginNicknameResponse.cs
+  - HathoraCloud/Models/Operations/PatchAppRequest.cs
+  - HathoraCloud/Models/Operations/PatchAppResponse.cs
   - HathoraCloud/Models/Operations/RejectInviteRequest.cs
   - HathoraCloud/Models/Operations/RejectInviteResponse.cs
   - HathoraCloud/Models/Operations/RescindInviteRequest.cs
@@ -260,6 +268,8 @@ generatedFiles:
   - HathoraCloud/Models/Operations/RunBuildDeprecatedRequest.cs
   - HathoraCloud/Models/Operations/RunBuildDeprecatedRequestBody.cs
   - HathoraCloud/Models/Operations/RunBuildDeprecatedResponse.cs
+  - HathoraCloud/Models/Operations/RunBuildRegistryRequest.cs
+  - HathoraCloud/Models/Operations/RunBuildRegistryResponse.cs
   - HathoraCloud/Models/Operations/RunBuildRequest.cs
   - HathoraCloud/Models/Operations/RunBuildResponse.cs
   - HathoraCloud/Models/Operations/RunBuildV2DeprecatedFile.cs
@@ -283,21 +293,27 @@ generatedFiles:
   - HathoraCloud/Models/Operations/UpdateAppV1DeprecatedResponse.cs
   - HathoraCloud/Models/Operations/UpdateFleetRegionRequest.cs
   - HathoraCloud/Models/Operations/UpdateFleetRegionResponse.cs
+  - HathoraCloud/Models/Operations/UpdateFleetRequest.cs
+  - HathoraCloud/Models/Operations/UpdateFleetResponse.cs
   - HathoraCloud/Models/Operations/UpdateRoomConfigRequest.cs
   - HathoraCloud/Models/Operations/UpdateRoomConfigResponse.cs
   - HathoraCloud/Models/Operations/UpdateUserInviteRequest.cs
   - HathoraCloud/Models/Operations/UpdateUserInviteResponse.cs
   - HathoraCloud/Models/Shared/AchPaymentMethod.cs
   - HathoraCloud/Models/Shared/ActiveConnectionInfo.cs
-  - HathoraCloud/Models/Shared/AppConfig.cs
+  - HathoraCloud/Models/Shared/AppConfigWithServiceConfig.cs
   - HathoraCloud/Models/Shared/Application.cs
   - HathoraCloud/Models/Shared/ApplicationWithLatestDeploymentAndBuild.cs
   - HathoraCloud/Models/Shared/ApplicationWithLatestDeploymentAndBuildDeprecated.cs
   - HathoraCloud/Models/Shared/ApplicationWithLatestDeploymentAndBuildDeprecatedDeployment.cs
   - HathoraCloud/Models/Shared/ApplicationWithLatestDeploymentAndBuildDeprecatedEnv.cs
+  - HathoraCloud/Models/Shared/ApplicationWithLatestDeploymentAndBuildDeprecatedServiceConfig.cs
   - HathoraCloud/Models/Shared/ApplicationWithLatestDeploymentAndBuildEnv.cs
+  - HathoraCloud/Models/Shared/ApplicationWithLatestDeploymentAndBuildServiceConfig.cs
   - HathoraCloud/Models/Shared/ApplicationsPage.cs
   - HathoraCloud/Models/Shared/AuthConfiguration.cs
+  - HathoraCloud/Models/Shared/AutoscalerConfig.cs
+  - HathoraCloud/Models/Shared/AutoscalerTargetMetric.cs
   - HathoraCloud/Models/Shared/Build.cs
   - HathoraCloud/Models/Shared/BuildPart.cs
   - HathoraCloud/Models/Shared/BuildStatus.cs
@@ -312,7 +328,10 @@ generatedFiles:
   - HathoraCloud/Models/Shared/ConnectionInfo.cs
   - HathoraCloud/Models/Shared/ConnectionInfoV2.cs
   - HathoraCloud/Models/Shared/ContainerPort.cs
+  - HathoraCloud/Models/Shared/CreateAppConfig.cs
   - HathoraCloud/Models/Shared/CreateBuildParams.cs
+  - HathoraCloud/Models/Shared/CreateBuildV3Params.cs
+  - HathoraCloud/Models/Shared/CreateFleet.cs
   - HathoraCloud/Models/Shared/CreateLobbyParams.cs
   - HathoraCloud/Models/Shared/CreateLobbyV3Params.cs
   - HathoraCloud/Models/Shared/CreateMultipartBuildParams.cs
@@ -352,18 +371,22 @@ generatedFiles:
   - HathoraCloud/Models/Shared/FleetsPage.cs
   - HathoraCloud/Models/Shared/Google.cs
   - HathoraCloud/Models/Shared/GoogleIdTokenObject.cs
+  - HathoraCloud/Models/Shared/Hosting.cs
   - HathoraCloud/Models/Shared/Invoice.cs
   - HathoraCloud/Models/Shared/InvoiceItem.cs
   - HathoraCloud/Models/Shared/InvoiceItemPage.cs
   - HathoraCloud/Models/Shared/InvoiceStatus.cs
   - HathoraCloud/Models/Shared/LinkPaymentMethod.cs
   - HathoraCloud/Models/Shared/ListOrgTokens.cs
+  - HathoraCloud/Models/Shared/LoadBalancerConfig.cs
   - HathoraCloud/Models/Shared/Lobby.cs
   - HathoraCloud/Models/Shared/LobbyV3.cs
   - HathoraCloud/Models/Shared/LobbyV3CreatedBy.cs
   - HathoraCloud/Models/Shared/LobbyVisibility.cs
+  - HathoraCloud/Models/Shared/MetricName.cs
   - HathoraCloud/Models/Shared/MetricValue.cs
   - HathoraCloud/Models/Shared/NicknameObject.cs
+  - HathoraCloud/Models/Shared/NodeShape.cs
   - HathoraCloud/Models/Shared/OrgMember.cs
   - HathoraCloud/Models/Shared/OrgMemberScopes.cs
   - HathoraCloud/Models/Shared/OrgMembersPage.cs
@@ -373,6 +396,7 @@ generatedFiles:
   - HathoraCloud/Models/Shared/OrgTokenStatus.cs
   - HathoraCloud/Models/Shared/Organization.cs
   - HathoraCloud/Models/Shared/OrgsPage.cs
+  - HathoraCloud/Models/Shared/PartialAppConfigWithServiceConfig.cs
   - HathoraCloud/Models/Shared/PaymentMethod.cs
   - HathoraCloud/Models/Shared/PendingOrgInvite.cs
   - HathoraCloud/Models/Shared/PendingOrgInviteScopes.cs
@@ -381,6 +405,7 @@ generatedFiles:
   - HathoraCloud/Models/Shared/PlanName.cs
   - HathoraCloud/Models/Shared/PlayerTokenObject.cs
   - HathoraCloud/Models/Shared/Process.cs
+  - HathoraCloud/Models/Shared/ProcessAutoscalerConfig.cs
   - HathoraCloud/Models/Shared/ProcessExposedPort.cs
   - HathoraCloud/Models/Shared/ProcessMetricName.cs
   - HathoraCloud/Models/Shared/ProcessMetricsData.cs
@@ -394,6 +419,7 @@ generatedFiles:
   - HathoraCloud/Models/Shared/RecordStringNever.cs
   - HathoraCloud/Models/Shared/Region.cs
   - HathoraCloud/Models/Shared/RegionalContainerTags.cs
+  - HathoraCloud/Models/Shared/RegistryConfig.cs
   - HathoraCloud/Models/Shared/RescindUserInvite.cs
   - HathoraCloud/Models/Shared/Room.cs
   - HathoraCloud/Models/Shared/RoomAllocation.cs
@@ -406,12 +432,17 @@ generatedFiles:
   - HathoraCloud/Models/Shared/Scope.cs
   - HathoraCloud/Models/Shared/Scopes.cs
   - HathoraCloud/Models/Shared/Security.cs
+  - HathoraCloud/Models/Shared/ServiceConfig.cs
+  - HathoraCloud/Models/Shared/ServiceConfigWrite.cs
   - HathoraCloud/Models/Shared/SetLobbyStateParams.cs
   - HathoraCloud/Models/Shared/StartingConnectionInfo.cs
   - HathoraCloud/Models/Shared/StartingConnectionInfoStatus.cs
+  - HathoraCloud/Models/Shared/StaticProcessAllocationConfig.cs
+  - HathoraCloud/Models/Shared/StaticProcessAllocationConfigWrite.cs
   - HathoraCloud/Models/Shared/Status.cs
   - HathoraCloud/Models/Shared/TransportType.cs
   - HathoraCloud/Models/Shared/Two.cs
+  - HathoraCloud/Models/Shared/UpdateFleet.cs
   - HathoraCloud/Models/Shared/UpdateRoomConfigParams.cs
   - HathoraCloud/Models/Shared/UpdateUserInvite.cs
   - HathoraCloud/Models/Shared/UpdateUserInviteScopes.cs
@@ -453,6 +484,8 @@ generatedFiles:
   - docs/Models/Operations/CreateAppV1DeprecatedResponse.md
   - docs/Models/Operations/CreateBuildDeprecatedRequest.md
   - docs/Models/Operations/CreateBuildDeprecatedResponse.md
+  - docs/Models/Operations/CreateBuildRegistryRequest.md
+  - docs/Models/Operations/CreateBuildRegistryResponse.md
   - docs/Models/Operations/CreateBuildRequest.md
   - docs/Models/Operations/CreateBuildResponse.md
   - docs/Models/Operations/CreateBuildV2DeprecatedRequest.md
@@ -465,6 +498,8 @@ generatedFiles:
   - docs/Models/Operations/CreateDeploymentV1DeprecatedResponse.md
   - docs/Models/Operations/CreateDeploymentV2DeprecatedRequest.md
   - docs/Models/Operations/CreateDeploymentV2DeprecatedResponse.md
+  - docs/Models/Operations/CreateFleetRequest.md
+  - docs/Models/Operations/CreateFleetResponse.md
   - docs/Models/Operations/CreateLobbyDeprecatedRequest.md
   - docs/Models/Operations/CreateLobbyDeprecatedResponse.md
   - docs/Models/Operations/CreateLobbyDeprecatedSecurity.md
@@ -563,6 +598,8 @@ generatedFiles:
   - docs/Models/Operations/GetFleetMetricsResponse.md
   - docs/Models/Operations/GetFleetRegionRequest.md
   - docs/Models/Operations/GetFleetRegionResponse.md
+  - docs/Models/Operations/GetFleetRequest.md
+  - docs/Models/Operations/GetFleetResponse.md
   - docs/Models/Operations/GetFleetsRequest.md
   - docs/Models/Operations/GetFleetsResponse.md
   - docs/Models/Operations/GetInactiveRoomsForProcessDeprecatedRequest.md
@@ -648,6 +685,8 @@ generatedFiles:
   - docs/Models/Operations/LoginGoogleResponse.md
   - docs/Models/Operations/LoginNicknameRequest.md
   - docs/Models/Operations/LoginNicknameResponse.md
+  - docs/Models/Operations/PatchAppRequest.md
+  - docs/Models/Operations/PatchAppResponse.md
   - docs/Models/Operations/RejectInviteRequest.md
   - docs/Models/Operations/RejectInviteResponse.md
   - docs/Models/Operations/RescindInviteRequest.md
@@ -659,6 +698,8 @@ generatedFiles:
   - docs/Models/Operations/RunBuildDeprecatedRequest.md
   - docs/Models/Operations/RunBuildDeprecatedRequestBody.md
   - docs/Models/Operations/RunBuildDeprecatedResponse.md
+  - docs/Models/Operations/RunBuildRegistryRequest.md
+  - docs/Models/Operations/RunBuildRegistryResponse.md
   - docs/Models/Operations/RunBuildRequest.md
   - docs/Models/Operations/RunBuildResponse.md
   - docs/Models/Operations/RunBuildV2DeprecatedFile.md
@@ -682,21 +723,27 @@ generatedFiles:
   - docs/Models/Operations/UpdateAppV1DeprecatedResponse.md
   - docs/Models/Operations/UpdateFleetRegionRequest.md
   - docs/Models/Operations/UpdateFleetRegionResponse.md
+  - docs/Models/Operations/UpdateFleetRequest.md
+  - docs/Models/Operations/UpdateFleetResponse.md
   - docs/Models/Operations/UpdateRoomConfigRequest.md
   - docs/Models/Operations/UpdateRoomConfigResponse.md
   - docs/Models/Operations/UpdateUserInviteRequest.md
   - docs/Models/Operations/UpdateUserInviteResponse.md
   - docs/Models/Shared/AchPaymentMethod.md
   - docs/Models/Shared/ActiveConnectionInfo.md
-  - docs/Models/Shared/AppConfig.md
+  - docs/Models/Shared/AppConfigWithServiceConfig.md
   - docs/Models/Shared/Application.md
   - docs/Models/Shared/ApplicationWithLatestDeploymentAndBuild.md
   - docs/Models/Shared/ApplicationWithLatestDeploymentAndBuildDeprecated.md
   - docs/Models/Shared/ApplicationWithLatestDeploymentAndBuildDeprecatedDeployment.md
   - docs/Models/Shared/ApplicationWithLatestDeploymentAndBuildDeprecatedEnv.md
+  - docs/Models/Shared/ApplicationWithLatestDeploymentAndBuildDeprecatedServiceConfig.md
   - docs/Models/Shared/ApplicationWithLatestDeploymentAndBuildEnv.md
+  - docs/Models/Shared/ApplicationWithLatestDeploymentAndBuildServiceConfig.md
   - docs/Models/Shared/ApplicationsPage.md
   - docs/Models/Shared/AuthConfiguration.md
+  - docs/Models/Shared/AutoscalerConfig.md
+  - docs/Models/Shared/AutoscalerTargetMetric.md
   - docs/Models/Shared/Build.md
   - docs/Models/Shared/BuildPart.md
   - docs/Models/Shared/BuildStatus.md
@@ -711,7 +758,10 @@ generatedFiles:
   - docs/Models/Shared/ConnectionInfo.md
   - docs/Models/Shared/ConnectionInfoV2.md
   - docs/Models/Shared/ContainerPort.md
+  - docs/Models/Shared/CreateAppConfig.md
   - docs/Models/Shared/CreateBuildParams.md
+  - docs/Models/Shared/CreateBuildV3Params.md
+  - docs/Models/Shared/CreateFleet.md
   - docs/Models/Shared/CreateLobbyParams.md
   - docs/Models/Shared/CreateLobbyV3Params.md
   - docs/Models/Shared/CreateMultipartBuildParams.md
@@ -751,18 +801,22 @@ generatedFiles:
   - docs/Models/Shared/FleetsPage.md
   - docs/Models/Shared/Google.md
   - docs/Models/Shared/GoogleIdTokenObject.md
+  - docs/Models/Shared/Hosting.md
   - docs/Models/Shared/Invoice.md
   - docs/Models/Shared/InvoiceItem.md
   - docs/Models/Shared/InvoiceItemPage.md
   - docs/Models/Shared/InvoiceStatus.md
   - docs/Models/Shared/LinkPaymentMethod.md
   - docs/Models/Shared/ListOrgTokens.md
+  - docs/Models/Shared/LoadBalancerConfig.md
   - docs/Models/Shared/Lobby.md
   - docs/Models/Shared/LobbyV3.md
   - docs/Models/Shared/LobbyV3CreatedBy.md
   - docs/Models/Shared/LobbyVisibility.md
+  - docs/Models/Shared/MetricName.md
   - docs/Models/Shared/MetricValue.md
   - docs/Models/Shared/NicknameObject.md
+  - docs/Models/Shared/NodeShape.md
   - docs/Models/Shared/OrgMember.md
   - docs/Models/Shared/OrgMemberScopes.md
   - docs/Models/Shared/OrgMembersPage.md
@@ -772,6 +826,7 @@ generatedFiles:
   - docs/Models/Shared/OrgTokenStatus.md
   - docs/Models/Shared/Organization.md
   - docs/Models/Shared/OrgsPage.md
+  - docs/Models/Shared/PartialAppConfigWithServiceConfig.md
   - docs/Models/Shared/PaymentMethod.md
   - docs/Models/Shared/PendingOrgInvite.md
   - docs/Models/Shared/PendingOrgInviteScopes.md
@@ -780,6 +835,7 @@ generatedFiles:
   - docs/Models/Shared/PlanName.md
   - docs/Models/Shared/PlayerTokenObject.md
   - docs/Models/Shared/Process.md
+  - docs/Models/Shared/ProcessAutoscalerConfig.md
   - docs/Models/Shared/ProcessExposedPort.md
   - docs/Models/Shared/ProcessMetricName.md
   - docs/Models/Shared/ProcessMetricsData.md
@@ -793,6 +849,7 @@ generatedFiles:
   - docs/Models/Shared/RecordStringNever.md
   - docs/Models/Shared/Region.md
   - docs/Models/Shared/RegionalContainerTags.md
+  - docs/Models/Shared/RegistryConfig.md
   - docs/Models/Shared/RescindUserInvite.md
   - docs/Models/Shared/Room.md
   - docs/Models/Shared/RoomAllocation.md
@@ -805,12 +862,17 @@ generatedFiles:
   - docs/Models/Shared/Scope.md
   - docs/Models/Shared/Scopes.md
   - docs/Models/Shared/Security.md
+  - docs/Models/Shared/ServiceConfig.md
+  - docs/Models/Shared/ServiceConfigWrite.md
   - docs/Models/Shared/SetLobbyStateParams.md
   - docs/Models/Shared/StartingConnectionInfo.md
   - docs/Models/Shared/StartingConnectionInfoStatus.md
+  - docs/Models/Shared/StaticProcessAllocationConfig.md
+  - docs/Models/Shared/StaticProcessAllocationConfigWrite.md
   - docs/Models/Shared/Status.md
   - docs/Models/Shared/TransportType.md
   - docs/Models/Shared/Two.md
+  - docs/Models/Shared/UpdateFleet.md
   - docs/Models/Shared/UpdateRoomConfigParams.md
   - docs/Models/Shared/UpdateUserInvite.md
   - docs/Models/Shared/UpdateUserInviteScopes.md
@@ -854,7 +916,7 @@ examples:
         application/json: {"appName": "minecraft", "authConfiguration": {}}
       responses:
         "201":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "appName": "minecraft", "appSecret": "secret-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "authConfiguration": {}, "createdAt": "2024-02-17T14:23:22.462Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2024-05-22T05:17:10.920Z", "deletedBy": "noreply@hathora.dev", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "appName": "minecraft", "appSecret": "secret-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "authConfiguration": {}, "createdAt": "2025-05-14T15:09:59.797Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2025-04-07T04:55:54.204Z", "deletedBy": "noreply@hathora.dev", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "serviceConfig": {"staticProcessAllocation": [{"maxProcesses": 3, "minProcesses": 1, "region": "Washington_DC", "targetProcesses": 2}]}}
         "401":
           application/json: {"message": "<value>"}
         "500":
@@ -876,14 +938,14 @@ examples:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
       responses:
         "200":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "appName": "minecraft", "appSecret": "secret-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "authConfiguration": {}, "createdAt": "2023-07-24T20:16:35.295Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2024-12-02T19:30:46.663Z", "deletedBy": "noreply@hathora.dev", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "appName": "minecraft", "appSecret": "secret-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "authConfiguration": {}, "createdAt": "2025-09-28T01:16:48.097Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2024-01-31T01:23:47.195Z", "deletedBy": "noreply@hathora.dev", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "serviceConfig": {"staticProcessAllocation": []}}
         "401":
           application/json: {"message": "<value>"}
   GetAppsV1Deprecated:
     speakeasy-default-get-apps-v1-deprecated:
       responses:
         "200":
-          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "appName": "minecraft", "appSecret": "secret-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "authConfiguration": {}, "createdAt": "2025-11-13T21:57:17.003Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2023-04-09T16:45:12.979Z", "deletedBy": "noreply@hathora.dev", "deployment": {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "build": {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "buildTag": "0.1.14-14c793", "createdAt": "2025-05-01T23:17:55.655Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2025-09-26T21:19:01.179Z", "finishedAt": "2023-10-23T18:39:38.712Z", "imageSize": 190742, "regionalContainerTags": [], "startedAt": "2024-07-28T14:01:20.466Z", "status": "running"}, "buildId": 1, "createdAt": "2023-10-12T07:52:16.528Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tcp"}, "deploymentId": 1, "env": [{"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}], "idleTimeoutEnabled": false, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3}, "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"}]
+          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "appName": "minecraft", "appSecret": "secret-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "authConfiguration": {}, "createdAt": "2024-12-13T19:35:13.068Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2025-02-02T23:42:27.985Z", "deletedBy": "noreply@hathora.dev", "deployment": {"additionalContainerPorts": [{"name": "debug", "port": 4000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "build": {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "buildTag": "0.1.14-14c793", "createdAt": "2024-10-31T18:25:24.245Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2024-06-14T23:54:59.368Z", "finishedAt": "2023-11-08T09:11:28.157Z", "imageSize": 918003, "regionalContainerTags": [{"containerTag": "<value>", "region": "Los_Angeles"}], "startedAt": "2023-06-23T09:25:35.314Z", "status": "created"}, "buildId": 1, "createdAt": "2023-06-14T10:16:56.303Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "udp"}, "deploymentId": 1, "env": [], "idleTimeoutEnabled": false, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3}, "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "serviceConfig": {"staticProcessAllocation": [{"maxProcesses": 3, "minProcesses": 1, "region": "Dallas", "targetProcesses": 2}]}}]
         "401":
           application/json: {"message": "<value>"}
   UpdateAppV1Deprecated:
@@ -895,7 +957,7 @@ examples:
         application/json: {"appName": "minecraft", "authConfiguration": {}}
       responses:
         "200":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "appName": "minecraft", "appSecret": "secret-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "authConfiguration": {}, "createdAt": "2023-12-19T03:26:23.362Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2025-05-07T03:58:14.207Z", "deletedBy": "noreply@hathora.dev", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "appName": "minecraft", "appSecret": "secret-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "authConfiguration": {}, "createdAt": "2024-09-28T21:54:22.947Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2023-04-11T04:52:01.937Z", "deletedBy": "noreply@hathora.dev", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "serviceConfig": null}
         "401":
           application/json: {"message": "<value>"}
         "500":
@@ -909,7 +971,7 @@ examples:
         application/json: {"appName": "minecraft", "authConfiguration": {}}
       responses:
         "201":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "appName": "minecraft", "appSecret": "secret-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "authConfiguration": {}, "createdAt": "2025-03-25T14:27:16.779Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2025-02-02T20:05:29.586Z", "deletedBy": "noreply@hathora.dev", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "appName": "minecraft", "appSecret": "secret-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "authConfiguration": {}, "createdAt": "2023-06-18T03:27:54.880Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2025-08-18T14:10:52.541Z", "deletedBy": "noreply@hathora.dev", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "serviceConfig": {"staticProcessAllocation": []}}
         "401":
           application/json: {"message": "<value>"}
         "500":
@@ -931,7 +993,7 @@ examples:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
       responses:
         "200":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "appName": "minecraft", "appSecret": "secret-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "authConfiguration": {}, "createdAt": "2024-02-18T07:51:03.251Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2025-07-06T02:39:27.766Z", "deletedBy": "noreply@hathora.dev", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "appName": "minecraft", "appSecret": "secret-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "authConfiguration": {}, "createdAt": "2024-03-26T11:28:01.817Z", "createdBy": "noreply@hathora.dev", "deletedAt": null, "deletedBy": "noreply@hathora.dev", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "serviceConfig": {"staticProcessAllocation": []}}
         "401":
           application/json: {"message": "<value>"}
   GetApps:
@@ -941,8 +1003,22 @@ examples:
           orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
       responses:
         "200":
-          application/json: {"applications": [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "appName": "minecraft", "appSecret": "secret-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "authConfiguration": {}, "createdAt": "2025-05-19T07:37:51.466Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2024-10-29T17:07:20.503Z", "deletedBy": "noreply@hathora.dev", "deployment": {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "build": {"buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2024-07-24T18:37:50.268Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2025-05-01T03:17:16.845Z", "finishedAt": "2025-12-07T03:50:42.366Z", "imageSize": 419043, "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "startedAt": "2023-07-11T20:22:35.931Z", "status": "succeeded"}, "buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2023-11-08T18:09:33.664Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "udp"}, "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "deploymentTag": "alpha", "env": [{"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}], "experimentalRequestedGPU": 1, "idleTimeoutEnabled": true, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3}, "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"}, {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "appName": "minecraft", "appSecret": "secret-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "authConfiguration": {}, "createdAt": "2025-08-25T15:30:39.795Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2024-01-21T03:51:37.018Z", "deletedBy": "noreply@hathora.dev", "deployment": {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "build": {"buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2025-05-22T14:26:46.034Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2023-11-24T10:32:47.415Z", "finishedAt": "2025-10-28T10:25:16.252Z", "imageSize": 167866, "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "startedAt": "2025-03-03T16:16:36.924Z", "status": "running"}, "buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2023-03-10T11:31:49.059Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tcp"}, "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "deploymentTag": "alpha", "env": [{"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}], "experimentalRequestedGPU": 1, "idleTimeoutEnabled": false, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3}, "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"}, {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "appName": "minecraft", "appSecret": "secret-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "authConfiguration": {}, "createdAt": "2024-06-22T14:09:23.898Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2025-10-07T00:55:28.149Z", "deletedBy": "noreply@hathora.dev", "deployment": {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "build": {"buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2025-05-24T14:42:54.470Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2025-03-24T03:07:32.544Z", "finishedAt": "2024-11-17T10:55:25.280Z", "imageSize": 231076, "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "startedAt": "2023-09-04T14:33:32.203Z", "status": "succeeded"}, "buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2023-04-19T03:28:19.505Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "udp"}, "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "deploymentTag": "alpha", "env": [{"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}], "experimentalRequestedGPU": 1, "idleTimeoutEnabled": false, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3}, "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"}]}
+          application/json: {"applications": []}
         "401":
+          application/json: {"message": "<value>"}
+  PatchApp:
+    speakeasy-default-patch-app:
+      parameters:
+        path:
+          appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
+      requestBody:
+        application/json: {"serviceConfig": {"staticProcessAllocation": [{"maxProcesses": 3, "minProcesses": 1, "region": "Tokyo", "targetProcesses": 2}]}}
+      responses:
+        "200":
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "appName": "minecraft", "appSecret": "secret-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "authConfiguration": {}, "createdAt": "2025-02-19T23:45:20.741Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2025-06-15T07:24:57.780Z", "deletedBy": "noreply@hathora.dev", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "serviceConfig": {"staticProcessAllocation": []}}
+        "401":
+          application/json: {"message": "<value>"}
+        "500":
           application/json: {"message": "<value>"}
   UpdateApp:
     speakeasy-default-update-app:
@@ -950,10 +1026,10 @@ examples:
         path:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
       requestBody:
-        application/json: {"appName": "minecraft", "authConfiguration": {}}
+        application/json: {"appName": "minecraft", "authConfiguration": {}, "serviceConfig": {"staticProcessAllocation": [{"maxProcesses": 3, "minProcesses": 1, "region": "Sao_Paulo", "targetProcesses": 2}]}}
       responses:
         "200":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "appName": "minecraft", "appSecret": "secret-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "authConfiguration": {}, "createdAt": "2023-08-09T16:09:30.379Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2024-09-14T06:34:02.715Z", "deletedBy": "noreply@hathora.dev", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "appName": "minecraft", "appSecret": "secret-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "authConfiguration": {}, "createdAt": "2023-09-08T10:59:59.196Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2025-05-30T21:43:56.902Z", "deletedBy": "noreply@hathora.dev", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "serviceConfig": {"staticProcessAllocation": [{"maxProcesses": 3, "minProcesses": 1, "region": "London", "targetProcesses": 2}]}}
         "401":
           application/json: {"message": "<value>"}
         "500":
@@ -999,7 +1075,7 @@ examples:
           orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
       responses:
         "200":
-          application/json: 68.43
+          application/json: 9329.53
         "401":
           application/json: {"message": "<value>"}
         "500":
@@ -1011,8 +1087,10 @@ examples:
           orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
       responses:
         "200":
-          application/json: [{"amountDue": 6294.58, "dueDate": "2025-10-27T12:46:22.213Z", "id": "<id>", "month": 5289.86, "pdfUrl": "https://bare-ferret.info/", "status": "overdue", "year": 8858.56}, {"amountDue": 7192.45, "dueDate": "2023-07-11T02:30:47.153Z", "id": "<id>", "month": 9249.53, "pdfUrl": "https://burly-technologist.org", "status": "pending", "year": 4221.79}, {"amountDue": 2099.06, "dueDate": "2025-06-14T18:38:25.404Z", "id": "<id>", "month": 3209.15, "pdfUrl": "https://twin-swine.info/", "status": "overdue", "year": 67.53}]
+          application/json: [{"amountDue": 9544.9, "dueDate": "2024-12-21T20:49:49.105Z", "id": "<id>", "month": 6398.67, "pdfUrl": "https://athletic-cake.net/", "status": "paid", "year": 3800.57}]
         "401":
+          application/json: {"message": "<value>"}
+        "500":
           application/json: {"message": "<value>"}
   GetPaymentMethod:
     speakeasy-default-get-payment-method:
@@ -1033,7 +1111,7 @@ examples:
           orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
       responses:
         "200":
-          application/json: {"invoiceItems": [{"amount": 3848.12, "productName": "<value>", "quantity": 479.96, "unit": "candela", "unitPrice": 102.23}, {"amount": 6502.55, "productName": "<value>", "quantity": 9111.09, "unit": "joule", "unitPrice": 2801.28}, {"amount": 4556.8, "productName": "<value>", "quantity": 773.01, "unit": "gray", "unitPrice": 9216.76}]}
+          application/json: {"invoiceItems": []}
         "401":
           application/json: {"message": "<value>"}
         "500":
@@ -1045,7 +1123,7 @@ examples:
           orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
       responses:
         "200":
-          application/json: {"value": 2752.14}
+          application/json: {"value": 8856.44}
         "401":
           application/json: {"message": "<value>"}
         "500":
@@ -1056,7 +1134,7 @@ examples:
         query:
           orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
       requestBody:
-        application/json: {"returnUrl": "https://smart-puppet.biz/"}
+        application/json: {"returnUrl": "https://sunny-majority.com/"}
       responses:
         "200":
           application/json: "<value>"
@@ -1073,7 +1151,7 @@ examples:
         application/json: {"buildTag": "0.1.14-14c793"}
       responses:
         "201":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "buildTag": "0.1.14-14c793", "createdAt": "2025-09-30T03:26:49.901Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2023-01-12T20:36:58.968Z", "finishedAt": "2025-11-04T16:03:08.169Z", "imageSize": 512080, "regionalContainerTags": [{"containerTag": "<value>", "region": "Tokyo"}, {"containerTag": "<value>", "region": "Johannesburg"}, {"containerTag": "<value>", "region": "Tokyo"}], "startedAt": "2023-02-13T10:29:08.560Z", "status": "failed"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "buildTag": "0.1.14-14c793", "createdAt": "2025-10-06T13:43:53.048Z", "createdBy": "noreply@hathora.dev", "deletedAt": null, "finishedAt": "2024-04-17T05:15:03.523Z", "imageSize": 223623, "regionalContainerTags": [{"containerTag": "<value>", "region": "Dallas"}], "startedAt": "2024-06-27T18:29:38.748Z", "status": "created"}
         "401":
           application/json: {"message": "<value>"}
         "500":
@@ -1097,7 +1175,7 @@ examples:
           buildId: 1
       responses:
         "200":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "buildTag": "0.1.14-14c793", "createdAt": "2025-11-19T18:29:38.859Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2024-03-04T05:20:13.679Z", "finishedAt": "2024-01-26T08:21:08.453Z", "imageSize": 916393, "regionalContainerTags": [{"containerTag": "<value>", "region": "Sydney"}], "startedAt": "2024-08-18T04:35:50.245Z", "status": "failed"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "buildTag": "0.1.14-14c793", "createdAt": "2023-11-18T12:15:34.018Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2025-08-25T16:39:20.356Z", "finishedAt": "2023-03-05T01:30:52.022Z", "imageSize": 877383, "regionalContainerTags": [{"containerTag": "<value>", "region": "London"}], "startedAt": "2023-04-23T05:51:09.344Z", "status": "succeeded"}
         "401":
           application/json: {"message": "<value>"}
   GetBuildsDeprecated:
@@ -1107,7 +1185,7 @@ examples:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
       responses:
         "200":
-          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "buildTag": "0.1.14-14c793", "createdAt": "2023-07-24T11:27:17.355Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2023-05-19T12:29:32.221Z", "finishedAt": "2024-08-07T12:02:20.492Z", "imageSize": 750016, "regionalContainerTags": [], "startedAt": "2023-07-04T00:41:08.616Z", "status": "running"}, {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "buildTag": "0.1.14-14c793", "createdAt": "2024-07-08T10:09:53.177Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2024-04-08T15:31:07.186Z", "finishedAt": "2025-11-17T02:21:46.761Z", "imageSize": 234744, "regionalContainerTags": [{"containerTag": "<value>", "region": "Singapore"}, {"containerTag": "<value>", "region": "Tokyo"}, {"containerTag": "<value>", "region": "Sao_Paulo"}], "startedAt": "2023-05-18T01:34:37.201Z", "status": "succeeded"}]
+          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "buildTag": "0.1.14-14c793", "createdAt": "2024-04-02T14:51:10.776Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2023-10-04T04:47:21.646Z", "finishedAt": "2023-08-16T22:18:58.549Z", "imageSize": 690766, "regionalContainerTags": [], "startedAt": "2025-03-06T03:39:22.283Z", "status": "succeeded"}]
         "401":
           application/json: {"message": "<value>"}
   RunBuildDeprecated:
@@ -1117,7 +1195,7 @@ examples:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
           buildId: 1
       requestBody:
-        multipart/form-data: {"file": {"": "example.file"}}
+        multipart/form-data: {"file": "x-file: example.file"}
       responses:
         "200":
           text/plain: "<value>"
@@ -1134,7 +1212,7 @@ examples:
         application/json: {"buildTag": "0.1.14-14c793"}
       responses:
         "201":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "buildTag": "0.1.14-14c793", "createdAt": "2023-09-12T00:06:37.657Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2025-10-20T23:26:11.176Z", "finishedAt": "2024-01-08T05:42:56.547Z", "imageSize": 73356, "regionalContainerTags": [{"containerTag": "<value>", "region": "Dubai"}, {"containerTag": "<value>", "region": "Seattle"}, {"containerTag": "<value>", "region": "Frankfurt"}], "startedAt": "2025-09-15T15:30:43.167Z", "status": "failed"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "buildTag": "0.1.14-14c793", "createdAt": "2025-04-05T21:06:24.527Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2024-01-20T14:47:36.719Z", "finishedAt": null, "imageSize": 916117, "regionalContainerTags": [{"containerTag": "<value>", "region": "Sydney"}], "startedAt": "2024-03-28T11:44:27.909Z", "status": "created"}
         "401":
           application/json: {"message": "<value>"}
         "500":
@@ -1148,7 +1226,7 @@ examples:
         application/json: {"buildTag": "0.1.14-14c793"}
       responses:
         "201":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "buildTag": "0.1.14-14c793", "createdAt": "2023-10-18T23:29:31.421Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2025-01-28T12:26:21.770Z", "finishedAt": "2024-06-02T03:01:08.803Z", "imageSize": 159430, "regionalContainerTags": [{"containerTag": "<value>", "region": "Johannesburg"}, {"containerTag": "<value>", "region": "Frankfurt"}, {"containerTag": "<value>", "region": "Mumbai"}], "startedAt": "2023-12-19T02:42:59.085Z", "status": "failed", "uploadBodyParams": [], "uploadUrl": "https://ill-oil.biz"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "buildTag": "0.1.14-14c793", "createdAt": "2024-07-29T11:51:17.420Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2024-10-07T08:19:15.352Z", "finishedAt": null, "imageSize": 508024, "regionalContainerTags": [{"containerTag": "<value>", "region": "Seattle"}], "startedAt": "2025-05-24T11:16:01.387Z", "status": "failed", "uploadBodyParams": [], "uploadUrl": "https://mild-event.name/"}
         "401":
           application/json: {"message": "<value>"}
         "500":
@@ -1159,10 +1237,10 @@ examples:
         path:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
       requestBody:
-        application/json: {"buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildSizeInBytes": 3146.66, "buildTag": "0.1.14-14c793"}
+        application/json: {"buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildSizeInBytes": 5282.13, "buildTag": "0.1.14-14c793"}
       responses:
         "201":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "buildTag": "0.1.14-14c793", "completeUploadPostRequestUrl": "https://chilly-bran.com/", "createdAt": "2024-01-11T08:01:35.189Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2024-05-30T17:34:08.033Z", "finishedAt": "2024-01-12T04:17:56.407Z", "imageSize": 278777, "maxChunkSize": 2062.6, "regionalContainerTags": [], "startedAt": "2023-02-09T03:06:15.794Z", "status": "running", "uploadParts": []}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "buildTag": "0.1.14-14c793", "completeUploadPostRequestUrl": "https://reasonable-jungle.net/", "createdAt": "2023-03-27T18:22:41.923Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2025-07-26T14:02:50.454Z", "finishedAt": "2025-07-17T21:41:50.693Z", "imageSize": 591465, "maxChunkSize": 3108.08, "regionalContainerTags": [{"containerTag": "<value>", "region": "Dubai"}], "startedAt": "2025-08-03T19:28:31.736Z", "status": "succeeded", "uploadParts": []}
         "400":
           application/json: {"message": "<value>"}
         "500":
@@ -1186,7 +1264,7 @@ examples:
           buildId: 1
       responses:
         "200":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "buildTag": "0.1.14-14c793", "createdAt": "2024-03-01T14:52:20.817Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2024-09-18T22:34:44.667Z", "finishedAt": "2024-06-18T07:40:37.523Z", "imageSize": 426944, "regionalContainerTags": [], "startedAt": "2025-12-28T16:55:54.752Z", "status": "succeeded"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "buildTag": "0.1.14-14c793", "createdAt": "2025-01-09T03:35:05.946Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2024-05-31T15:42:54.186Z", "finishedAt": "2024-05-22T20:59:27.058Z", "imageSize": 209011, "regionalContainerTags": [{"containerTag": "<value>", "region": "Sydney"}], "startedAt": "2023-05-23T21:42:58.129Z", "status": "failed"}
         "401":
           application/json: {"message": "<value>"}
   GetBuildsV2Deprecated:
@@ -1196,7 +1274,7 @@ examples:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
       responses:
         "200":
-          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "buildTag": "0.1.14-14c793", "createdAt": "2023-02-06T20:37:17.224Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2023-06-18T08:03:36.928Z", "finishedAt": "2025-01-16T13:13:32.673Z", "imageSize": 762103, "regionalContainerTags": [{"containerTag": "<value>", "region": "London"}, {"containerTag": "<value>", "region": "Frankfurt"}], "startedAt": "2025-02-01T08:28:07.508Z", "status": "created"}]
+          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "buildTag": "0.1.14-14c793", "createdAt": "2023-09-06T01:02:15.009Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2023-04-02T04:19:54.974Z", "finishedAt": "2023-03-10T15:48:56.546Z", "imageSize": 622337, "regionalContainerTags": [], "startedAt": "2025-06-30T12:11:51.055Z", "status": "running"}]
         "401":
           application/json: {"message": "<value>"}
   RunBuildV2Deprecated:
@@ -1220,10 +1298,24 @@ examples:
         query:
           orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
       requestBody:
-        application/json: {"buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildSizeInBytes": 5387.85, "buildTag": "0.1.14-14c793"}
+        application/json: {"buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildSizeInBytes": 2645.24, "buildTag": "0.1.14-14c793"}
       responses:
         "201":
-          application/json: {"buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "completeUploadPostRequestUrl": "https://unknown-director.name/", "createdAt": "2025-07-15T13:43:40.932Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2024-02-10T17:11:36.930Z", "finishedAt": "2023-06-23T10:31:12.436Z", "imageSize": 905836, "maxChunkSize": 3825.39, "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "startedAt": "2025-08-11T02:20:55.835Z", "status": "created", "uploadParts": []}
+          application/json: {"buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "completeUploadPostRequestUrl": "https://grimy-tomb.com", "createdAt": "2025-08-02T21:00:31.794Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2023-10-18T01:44:43.266Z", "finishedAt": "2023-11-28T12:58:03.970Z", "imageSize": 803758, "maxChunkSize": 1535.68, "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "startedAt": "2025-02-17T04:26:59.900Z", "status": "running", "uploadParts": [{"partNumber": 6274.3, "putRequestUrl": "https://gigantic-siege.biz/"}]}
+        "400":
+          application/json: {"message": "<value>"}
+        "500":
+          application/json: {"message": "<value>"}
+  CreateBuildRegistry:
+    speakeasy-default-create-build-registry:
+      parameters:
+        query:
+          orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
+      requestBody:
+        application/json: {"buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793"}
+      responses:
+        "201":
+          application/json: {"buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2024-05-22T15:21:05.647Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2025-05-08T21:45:48.968Z", "finishedAt": "2023-01-14T12:22:51.638Z", "imageSize": 713692, "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "startedAt": "2023-01-30T07:08:18.335Z", "status": "succeeded"}
         "400":
           application/json: {"message": "<value>"}
         "500":
@@ -1251,7 +1343,7 @@ examples:
           orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
       responses:
         "200":
-          application/json: {"buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2025-06-25T23:45:40.945Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2024-06-30T05:11:17.709Z", "finishedAt": "2023-08-28T06:31:38.029Z", "imageSize": 166040, "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "startedAt": "2023-02-25T19:36:28.984Z", "status": "failed"}
+          application/json: {"buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2024-02-22T18:31:28.580Z", "createdBy": "noreply@hathora.dev", "deletedAt": null, "finishedAt": "2023-05-12T10:29:41.309Z", "imageSize": 608773, "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "startedAt": "2025-07-31T22:59:28.269Z", "status": "failed"}
         "401":
           application/json: {"message": "<value>"}
   GetBuilds:
@@ -1261,7 +1353,7 @@ examples:
           orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
       responses:
         "200":
-          application/json: {"builds": [{"buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2023-03-11T00:34:19.616Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2025-11-15T14:07:27.601Z", "finishedAt": "2024-04-02T10:11:25.538Z", "imageSize": 770311, "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "startedAt": "2025-04-14T07:30:43.053Z", "status": "succeeded"}, {"buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2025-11-07T12:36:21.758Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2025-03-22T13:36:24.824Z", "finishedAt": "2025-08-06T10:33:28.756Z", "imageSize": 493710, "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "startedAt": "2023-07-10T13:10:35.908Z", "status": "created"}]}
+          application/json: {"builds": [{"buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2025-03-13T17:49:05.344Z", "createdBy": "noreply@hathora.dev", "deletedAt": "2024-06-30T01:51:30.058Z", "finishedAt": "2023-12-31T08:08:29.374Z", "imageSize": 961801, "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "startedAt": "2025-05-22T10:57:56.420Z", "status": "failed"}]}
         "401":
           application/json: {"message": "<value>"}
   RunBuild:
@@ -1278,6 +1370,22 @@ examples:
           application/json: {"message": "<value>"}
         "500":
           application/json: {"message": "<value>"}
+  RunBuildRegistry:
+    speakeasy-default-run-build-registry:
+      parameters:
+        path:
+          buildId: "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5"
+        query:
+          orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
+      requestBody:
+        application/json: {"image": "https://picsum.photos/seed/3gDPgtj/723/1525"}
+      responses:
+        "200":
+          application/octet-stream: "x-file: example.file"
+        "400":
+          application/json: {"message": "<value>"}
+        "500":
+          application/json: {"message": "<value>"}
   CreateDeploymentV1Deprecated:
     speakeasy-default-create-deployment-v1-deprecated:
       parameters:
@@ -1285,10 +1393,10 @@ examples:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
           buildId: 1
       requestBody:
-        application/json: {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}], "containerPort": 4000, "env": [{"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}], "planName": "tiny", "roomsPerProcess": 3, "transportType": "udp"}
+        application/json: {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tls"}], "containerPort": 4000, "env": [], "planName": "tiny", "roomsPerProcess": 3, "transportType": "udp"}
       responses:
         "201":
-          application/json: {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "containerPort": 4542.69, "createdAt": "2025-04-19T07:39:28.495Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "udp"}, "deploymentId": 1, "env": [{"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}], "planName": "tiny", "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3, "transportType": "tcp"}
+          application/json: {"additionalContainerPorts": [{"name": "debug", "port": 4000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "containerPort": 7052.38, "createdAt": "2024-04-11T22:52:49.724Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tls"}, "deploymentId": 1, "env": [{"name": "EULA", "value": "TRUE"}], "planName": "tiny", "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3, "transportType": "udp"}
         "400":
           application/json: {"message": "<value>"}
         "500":
@@ -1301,7 +1409,7 @@ examples:
           deploymentId: 1
       responses:
         "200":
-          application/json: {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "containerPort": 7738.86, "createdAt": "2025-04-15T09:05:57.273Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tcp"}, "deploymentId": 1, "env": [], "planName": "tiny", "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3, "transportType": "tls"}
+          application/json: {"additionalContainerPorts": [{"name": "debug", "port": 4000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "containerPort": 7991.46, "createdAt": "2024-05-17T04:32:59.269Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tls"}, "deploymentId": 1, "env": [], "planName": "tiny", "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3, "transportType": "tls"}
         "401":
           application/json: {"message": "<value>"}
   GetDeploymentsV1Deprecated:
@@ -1311,7 +1419,7 @@ examples:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
       responses:
         "200":
-          application/json: [{"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "containerPort": 5525.16, "createdAt": "2023-04-27T07:12:49.871Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tls"}, "deploymentId": 1, "env": [{"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}], "planName": "tiny", "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3, "transportType": "tls"}]
+          application/json: [{"additionalContainerPorts": [{"name": "debug", "port": 4000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "containerPort": 1710.69, "createdAt": "2025-11-18T18:59:23.086Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tls"}, "deploymentId": 1, "env": [], "planName": "tiny", "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3, "transportType": "tls"}]
         "401":
           application/json: {"message": "<value>"}
   GetLatestDeploymentV1Deprecated:
@@ -1321,7 +1429,7 @@ examples:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
       responses:
         "200":
-          application/json: {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "containerPort": 1419.21, "createdAt": "2025-02-22T18:13:03.403Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tls"}, "deploymentId": 1, "env": [], "planName": "tiny", "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3, "transportType": "tcp"}
+          application/json: {"additionalContainerPorts": [{"name": "debug", "port": 4000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "containerPort": 6488.08, "createdAt": "2023-11-23T23:15:51.839Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tls"}, "deploymentId": 1, "env": [], "planName": "tiny", "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3, "transportType": "tcp"}
         "401":
           application/json: {"message": "<value>"}
   CreateDeploymentV2Deprecated:
@@ -1331,10 +1439,10 @@ examples:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
           buildId: 1
       requestBody:
-        application/json: {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tls"}, {"name": "default", "port": 8000, "transportType": "tcp"}, {"name": "default", "port": 8000, "transportType": "tls"}], "containerPort": 4000, "env": [{"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}], "idleTimeoutEnabled": true, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3, "transportType": "tls"}
+        application/json: {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tls"}], "containerPort": 4000, "env": [], "idleTimeoutEnabled": true, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3, "transportType": "tls"}
       responses:
         "201":
-          application/json: {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "createdAt": "2024-10-24T09:24:49.311Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tls"}, "deploymentId": 1, "env": [{"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}], "idleTimeoutEnabled": true, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3}
+          application/json: {"additionalContainerPorts": [{"name": "debug", "port": 4000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "createdAt": "2025-01-13T11:32:12.554Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tls"}, "deploymentId": 1, "env": [{"name": "EULA", "value": "TRUE"}], "idleTimeoutEnabled": false, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3}
         "400":
           application/json: {"message": "<value>"}
         "500":
@@ -1347,7 +1455,7 @@ examples:
           deploymentId: 1
       responses:
         "200":
-          application/json: {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "createdAt": "2024-04-12T07:15:45.359Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tls"}, "deploymentId": 1, "env": [{"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}], "idleTimeoutEnabled": false, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3}
+          application/json: {"additionalContainerPorts": [{"name": "debug", "port": 4000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "createdAt": "2023-05-06T07:02:52.177Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tls"}, "deploymentId": 1, "env": [], "idleTimeoutEnabled": false, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3}
         "401":
           application/json: {"message": "<value>"}
   GetDeploymentsV2Deprecated:
@@ -1357,7 +1465,7 @@ examples:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
       responses:
         "200":
-          application/json: [{"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "createdAt": "2025-10-25T17:58:01.112Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "udp"}, "deploymentId": 1, "env": [{"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}], "idleTimeoutEnabled": false, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3}]
+          application/json: [{"additionalContainerPorts": [{"name": "debug", "port": 4000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "createdAt": "2024-06-11T01:52:15.226Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "udp"}, "deploymentId": 1, "env": [{"name": "EULA", "value": "TRUE"}], "idleTimeoutEnabled": false, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3}]
         "401":
           application/json: {"message": "<value>"}
   GetLatestDeploymentV2Deprecated:
@@ -1367,7 +1475,7 @@ examples:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
       responses:
         "200":
-          application/json: {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "createdAt": "2024-11-13T23:28:17.215Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "udp"}, "deploymentId": 1, "env": [{"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}], "idleTimeoutEnabled": false, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3}
+          application/json: {"additionalContainerPorts": [{"name": "debug", "port": 4000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": 1, "createdAt": "2023-01-14T16:10:11.409Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tls"}, "deploymentId": 1, "env": [{"name": "EULA", "value": "TRUE"}], "idleTimeoutEnabled": true, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3}
         "401":
           application/json: {"message": "<value>"}
   CreateDeployment:
@@ -1376,10 +1484,10 @@ examples:
         path:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
       requestBody:
-        application/json: {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}, {"name": "default", "port": 8000, "transportType": "tcp"}], "buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "containerPort": 4000, "deploymentTag": "alpha", "env": [{"name": "EULA", "value": "TRUE"}], "experimentalRequestedGPU": 1, "idleTimeoutEnabled": false, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3, "transportType": "udp"}
+        application/json: {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "udp"}], "buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "containerPort": 4000, "deploymentTag": "alpha", "env": [{"name": "EULA", "value": "TRUE"}], "experimentalRequestedGPU": 1, "idleTimeoutEnabled": false, "requestedCPU": 0.5, "requestedGPU": 1, "requestedMemoryMB": 1024, "roomsPerProcess": 3, "transportType": "udp"}
       responses:
         "201":
-          application/json: {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2025-12-17T03:13:08.156Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tcp"}, "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "deploymentTag": "alpha", "env": [{"name": "EULA", "value": "TRUE"}], "experimentalRequestedGPU": 1, "idleTimeoutEnabled": true, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3}
+          application/json: {"additionalContainerPorts": [{"name": "debug", "port": 4000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2024-01-02T08:13:12.966Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tls"}, "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "deploymentTag": "alpha", "env": [], "experimentalRequestedGPU": 1, "idleTimeoutEnabled": false, "requestedCPU": 0.5, "requestedGPU": 1, "requestedMemoryMB": 1024, "roomsPerProcess": 3}
         "400":
           application/json: {"message": "<value>"}
         "500":
@@ -1392,7 +1500,7 @@ examples:
           deploymentId: "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5"
       responses:
         "200":
-          application/json: {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2024-01-17T20:50:05.370Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tls"}, "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "deploymentTag": "alpha", "env": [{"name": "EULA", "value": "TRUE"}], "experimentalRequestedGPU": 1, "idleTimeoutEnabled": false, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3}
+          application/json: {"additionalContainerPorts": [{"name": "debug", "port": 4000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2025-09-17T21:51:01.967Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "udp"}, "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "deploymentTag": "alpha", "env": [], "experimentalRequestedGPU": 1, "idleTimeoutEnabled": true, "requestedCPU": 0.5, "requestedGPU": 1, "requestedMemoryMB": 1024, "roomsPerProcess": 3}
         "401":
           application/json: {"message": "<value>"}
   GetDeployments:
@@ -1402,9 +1510,10 @@ examples:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
         query:
           deploymentTag: "alpha"
+          buildTag: "0.1.14-14c793"
       responses:
         "200":
-          application/json: {"deployments": [{"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2025-05-22T10:33:22.880Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "udp"}, "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "deploymentTag": "alpha", "env": [{"name": "EULA", "value": "TRUE"}], "experimentalRequestedGPU": 1, "idleTimeoutEnabled": true, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3}, {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2023-09-30T01:03:34.196Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tcp"}, "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "deploymentTag": "alpha", "env": [], "experimentalRequestedGPU": 1, "idleTimeoutEnabled": true, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3}, {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2024-03-24T15:47:23.598Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "udp"}, "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "deploymentTag": "alpha", "env": [{"name": "EULA", "value": "TRUE"}], "experimentalRequestedGPU": 1, "idleTimeoutEnabled": false, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3}]}
+          application/json: {"deployments": []}
         "401":
           application/json: {"message": "<value>"}
   GetLatestDeployment:
@@ -1414,7 +1523,7 @@ examples:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
       responses:
         "200":
-          application/json: {"additionalContainerPorts": [{"name": "default", "port": 8000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2023-09-10T07:35:39.868Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tls"}, "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "deploymentTag": "alpha", "env": [{"name": "EULA", "value": "TRUE"}, {"name": "EULA", "value": "TRUE"}], "experimentalRequestedGPU": 1, "idleTimeoutEnabled": false, "requestedCPU": 0.5, "requestedMemoryMB": 1024, "roomsPerProcess": 3}
+          application/json: {"additionalContainerPorts": [{"name": "debug", "port": 4000, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "buildId": "bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "buildTag": "0.1.14-14c793", "createdAt": "2024-02-03T17:28:09.046Z", "createdBy": "noreply@hathora.dev", "defaultContainerPort": {"name": "default", "port": 8000, "transportType": "tls"}, "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "deploymentTag": "alpha", "env": [], "experimentalRequestedGPU": 1, "idleTimeoutEnabled": false, "requestedCPU": 0.5, "requestedGPU": 1, "requestedMemoryMB": 1024, "roomsPerProcess": 3}
         "401":
           application/json: {"message": "<value>"}
   GetPingServiceEndpointsDeprecated:
@@ -1427,12 +1536,40 @@ examples:
       responses:
         "200":
           application/json: [{"host": "ping.hathora.dev", "port": 2000, "region": "Seattle"}]
+  CreateFleet:
+    speakeasy-default-create-fleet:
+      parameters:
+        query:
+          orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
+      requestBody:
+        application/json: {"autoscalerConfig": {"scaleUpThreshold": 599396}, "name": "production", "nodeShape": "cpu-16-64"}
+      responses:
+        "200":
+          application/json: {"fleetId": "<id>", "name": "production", "nodeShape": "cpu-32-128", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"}
+        "401":
+          application/json: {"message": "<value>"}
+        "500":
+          application/json: {"message": "<value>"}
+  GetFleet:
+    speakeasy-default-get-fleet:
+      parameters:
+        path:
+          fleetId: "<id>"
+        query:
+          orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
+      responses:
+        "200":
+          application/json: {"fleetId": "<id>", "name": "production", "nodeShape": "gpu-h100-4-104-936", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"}
+        "401":
+          application/json: {"message": "<value>"}
+        "500":
+          application/json: {"message": "<value>"}
   GetFleetMetrics:
     speakeasy-default-get-fleet-metrics:
       parameters:
         path:
           fleetId: "<id>"
-          region: "London"
+          region: "Washington_DC"
         query:
           orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
       responses:
@@ -1447,12 +1584,12 @@ examples:
       parameters:
         path:
           fleetId: "<id>"
-          region: "Sao_Paulo"
+          region: "Singapore"
         query:
           orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
       responses:
         "200":
-          application/json: {"cloudMinVcpus": 745546, "cloudMinVcpusUpdatedAt": "2024-10-09T11:34:21.782Z", "scaleIncrementVcpus": 225958}
+          application/json: {"cloudMinVcpus": 989408, "cloudMinVcpusUpdatedAt": "2024-06-09T22:13:41.280Z", "scaleIncrementVcpus": 979858}
         "401":
           application/json: {"message": "<value>"}
   GetFleets:
@@ -1462,19 +1599,33 @@ examples:
           orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
       responses:
         "200":
-          application/json: {"fleets": [{"fleetId": "<id>", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"}]}
+          application/json: {"fleets": [{"fleetId": "<id>", "name": "production", "nodeShape": "cpu-32-64", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"}]}
         "401":
+          application/json: {"message": "<value>"}
+  UpdateFleet:
+    speakeasy-default-update-fleet:
+      parameters:
+        path:
+          fleetId: "<id>"
+        query:
+          orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
+      requestBody:
+        application/json: {"autoscalerConfig": {"scaleUpThreshold": 979840}, "name": "production"}
+      responses:
+        "401":
+          application/json: {"message": "<value>"}
+        "500":
           application/json: {"message": "<value>"}
   UpdateFleetRegion:
     speakeasy-default-update-fleet-region:
       parameters:
         path:
           fleetId: "<id>"
-          region: "Singapore"
+          region: "Chicago"
         query:
           orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
       requestBody:
-        application/json: {"cloudMinVcpus": 511402}
+        application/json: {"cloudMinVcpus": 503995}
       responses:
         "401":
           application/json: {"message": "<value>"}
@@ -1485,7 +1636,6 @@ examples:
       parameters:
         path:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-        query: {}
       responses:
         "200":
           application/json: "2swovpy1fnunu"
@@ -1498,7 +1648,6 @@ examples:
       parameters:
         path:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-        query: {}
       responses:
         "200":
           application/json: "2swovpy1fnunu"
@@ -1511,10 +1660,9 @@ examples:
       parameters:
         path:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-        query: {}
       responses:
         "200":
-          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2024-11-07T00:58:14.604Z", "createdBy": "google-oauth2|107030234048588177467", "initialConfig": "<value>", "local": false, "region": "Johannesburg", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}, {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2023-03-09T17:56:37.363Z", "createdBy": "google-oauth2|107030234048588177467", "initialConfig": "<value>", "local": false, "region": "Dallas", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}, {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2025-05-18T01:51:10.065Z", "createdBy": "google-oauth2|107030234048588177467", "initialConfig": "<value>", "local": true, "region": "Mumbai", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}]
+          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2023-06-12T14:50:29.230Z", "createdBy": "google-oauth2|107030234048588177467", "initialConfig": "<value>", "local": false, "region": "Chicago", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}]
         "404":
           application/json: {"message": "<value>"}
   CreateLobbyDeprecated:
@@ -1525,10 +1673,10 @@ examples:
         query:
           roomId: "2swovpy1fnunu"
       requestBody:
-        application/json: {"initialConfig": "<value>", "region": "Sao_Paulo", "visibility": "private"}
+        application/json: {"initialConfig": "<value>", "region": "Frankfurt", "visibility": "private"}
       responses:
         "201":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2025-06-14T21:44:41.196Z", "createdBy": "google-oauth2|107030234048588177467", "initialConfig": "<value>", "local": false, "region": "Singapore", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2024-08-06T08:44:23.543Z", "createdBy": "google-oauth2|107030234048588177467", "initialConfig": "<value>", "local": false, "region": "Dubai", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}
         "400":
           application/json: {"message": "<value>"}
         "500":
@@ -1544,7 +1692,7 @@ examples:
         application/json: {"initialConfig": "<value>", "region": "Johannesburg"}
       responses:
         "201":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2024-07-24T01:08:32.320Z", "createdBy": "google-oauth2|107030234048588177467", "initialConfig": "<value>", "local": false, "region": "Tokyo", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2024-06-08T18:32:07.384Z", "createdBy": "google-oauth2|107030234048588177467", "initialConfig": "<value>", "local": false, "region": "Los_Angeles", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}
         "400":
           application/json: {"message": "<value>"}
         "500":
@@ -1557,10 +1705,10 @@ examples:
         query:
           roomId: "2swovpy1fnunu"
       requestBody:
-        application/json: {"initialConfig": "<value>", "region": "London"}
+        application/json: {"initialConfig": "<value>", "region": "Frankfurt"}
       responses:
         "201":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2024-07-18T04:23:52.656Z", "createdBy": "google-oauth2|107030234048588177467", "initialConfig": "<value>", "local": true, "region": "Seattle", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2025-07-13T11:01:56.634Z", "createdBy": "google-oauth2|107030234048588177467", "initialConfig": "<value>", "local": false, "region": "London", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}
         "400":
           application/json: {"message": "<value>"}
         "500":
@@ -1573,10 +1721,10 @@ examples:
         query:
           roomId: "2swovpy1fnunu"
       requestBody:
-        application/json: {"initialConfig": "<value>", "region": "Johannesburg"}
+        application/json: {"initialConfig": "<value>", "region": "Tokyo"}
       responses:
         "201":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2024-11-27T02:02:25.922Z", "createdBy": "google-oauth2|107030234048588177467", "initialConfig": "<value>", "local": true, "region": "Dubai", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2025-08-19T17:58:21.825Z", "createdBy": "google-oauth2|107030234048588177467", "initialConfig": "<value>", "local": true, "region": "Tokyo", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}
         "400":
           application/json: {"message": "<value>"}
         "500":
@@ -1589,7 +1737,7 @@ examples:
           roomId: "2swovpy1fnunu"
       responses:
         "200":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2023-07-06T04:13:36.623Z", "createdBy": "google-oauth2|107030234048588177467", "initialConfig": "<value>", "local": true, "region": "Mumbai", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2023-10-16T16:06:00.030Z", "createdBy": "google-oauth2|107030234048588177467", "initialConfig": "<value>", "local": true, "region": "Singapore", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}
         "404":
           application/json: {"message": "<value>"}
   ListActivePublicLobbiesDeprecatedV2:
@@ -1597,10 +1745,9 @@ examples:
       parameters:
         path:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-        query: {}
       responses:
         "200":
-          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2025-04-21T18:42:49.974Z", "createdBy": "google-oauth2|107030234048588177467", "initialConfig": "<value>", "local": false, "region": "Mumbai", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}, {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2024-10-10T08:47:09.450Z", "createdBy": "google-oauth2|107030234048588177467", "initialConfig": "<value>", "local": true, "region": "Johannesburg", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}]
+          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2025-05-08T07:37:36.077Z", "createdBy": "google-oauth2|107030234048588177467", "initialConfig": "<value>", "local": false, "region": "Frankfurt", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}]
         "401":
           application/json: {"message": "<value>"}
   SetLobbyState:
@@ -1610,10 +1757,10 @@ examples:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
           roomId: "2swovpy1fnunu"
       requestBody:
-        application/json: {"state": "South Dakota"}
+        application/json: {"state": "Connecticut"}
       responses:
         "200":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2024-10-28T09:25:45.486Z", "createdBy": "google-oauth2|107030234048588177467", "initialConfig": "<value>", "local": true, "region": "Los_Angeles", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2025-12-07T07:49:45.257Z", "createdBy": "google-oauth2|107030234048588177467", "initialConfig": "<value>", "local": false, "region": "Washington_DC", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}
         "401":
           application/json: {"message": "<value>"}
   CreateLobby:
@@ -1625,10 +1772,10 @@ examples:
           shortCode: "LFG4"
           roomId: "2swovpy1fnunu"
       requestBody:
-        application/json: {"region": "Seattle", "roomConfig": "{\"name\":\"my-room\"}", "visibility": "private"}
+        application/json: {"region": "Dubai", "roomConfig": "{\"name\":\"my-room\"}", "visibility": "private"}
       responses:
         "201":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2025-10-06T23:08:27.155Z", "createdBy": "google-oauth2|107030234048588177467", "region": "Mumbai", "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2023-04-14T13:21:23.896Z", "createdBy": "google-oauth2|107030234048588177467", "region": "Mumbai", "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}
         "400":
           application/json: {"message": "<value>"}
         "500":
@@ -1641,7 +1788,7 @@ examples:
           roomId: "2swovpy1fnunu"
       responses:
         "200":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2024-05-03T00:54:54.671Z", "createdBy": "google-oauth2|107030234048588177467", "region": "Dubai", "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2025-11-29T10:49:51.258Z", "createdBy": "google-oauth2|107030234048588177467", "region": "Frankfurt", "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}
         "404":
           application/json: {"message": "<value>"}
   GetLobbyInfoByShortCode:
@@ -1652,7 +1799,7 @@ examples:
           shortCode: "LFG4"
       responses:
         "200":
-          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2024-12-31T16:22:21.687Z", "createdBy": "google-oauth2|107030234048588177467", "region": "Tokyo", "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}
+          application/json: {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2025-07-15T06:18:25.498Z", "createdBy": "google-oauth2|107030234048588177467", "region": "Mumbai", "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}
         "404":
           application/json: {"message": "<value>"}
   ListActivePublicLobbies:
@@ -1660,10 +1807,9 @@ examples:
       parameters:
         path:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-        query: {}
       responses:
         "200":
-          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2023-08-18T01:08:43.794Z", "createdBy": "google-oauth2|107030234048588177467", "region": "Dallas", "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}]
+          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2025-12-07T12:22:26.824Z", "createdBy": "google-oauth2|107030234048588177467", "region": "Washington_DC", "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "shortCode": "LFG4", "visibility": "private"}]
         "401":
           application/json: {"message": "<value>"}
   DownloadLogForProcess:
@@ -1709,7 +1855,6 @@ examples:
         path:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
           processId: "cbfcddd2-0006-43ae-996c-995fff7bed2e"
-        query: {}
       responses:
         "200":
           application/json: {}
@@ -1742,7 +1887,7 @@ examples:
           orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
       responses:
         "200":
-          application/json: {"invites": []}
+          application/json: {"invites": [{"createdAt": "2024-08-17T16:03:45.096Z", "invitedBy": "noreply@hathora.dev", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "scopes": [], "userEmail": "noreply@hathora.dev"}]}
         "401":
           application/json: {"message": "<value>"}
   GetOrgs:
@@ -1759,7 +1904,7 @@ examples:
           orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
       responses:
         "200":
-          application/json: {"concurrentProcessVcpus7DayMax": 5579.88, "monthlyProcessVcpuHoursConsumed": 7121.66}
+          application/json: {"concurrentProcessVcpus7DayMax": 3263.46, "monthlyProcessVcpuHoursConsumed": 9052.16}
         "401":
           application/json: {"message": "<value>"}
         "500":
@@ -1768,7 +1913,7 @@ examples:
     speakeasy-default-get-user-pending-invites:
       responses:
         "200":
-          application/json: {"invites": [{"createdAt": "2025-01-04T14:15:35.164Z", "invitedBy": "noreply@hathora.dev", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "scopes": "admin", "userEmail": "noreply@hathora.dev"}, {"createdAt": "2025-06-02T22:56:51.490Z", "invitedBy": "noreply@hathora.dev", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "scopes": [], "userEmail": "noreply@hathora.dev"}]}
+          application/json: {"invites": [{"createdAt": "2025-07-18T21:56:50.983Z", "invitedBy": "noreply@hathora.dev", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "scopes": [], "userEmail": "noreply@hathora.dev"}]}
         "401":
           application/json: {"message": "<value>"}
   InviteUser:
@@ -1780,7 +1925,7 @@ examples:
         application/json: {"userEmail": "noreply@hathora.dev"}
       responses:
         "200":
-          application/json: {"createdAt": "2025-05-26T01:23:01.777Z", "invitedBy": "noreply@hathora.dev", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "scopes": "member", "userEmail": "noreply@hathora.dev"}
+          application/json: {"createdAt": "2025-05-31T20:45:41.223Z", "invitedBy": "noreply@hathora.dev", "orgId": "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39", "scopes": [], "userEmail": "noreply@hathora.dev"}
         "401":
           application/json: {"message": "<value>"}
   RejectInvite:
@@ -1823,7 +1968,7 @@ examples:
           processId: "cbfcddd2-0006-43ae-996c-995fff7bed2e"
       responses:
         "200":
-          application/json: {"activeConnections": 10, "activeConnectionsUpdatedAt": "2025-10-01T07:24:08.106Z", "additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "deploymentId": 1, "draining": false, "egressedBytes": 435, "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "host": "silver-word.info", "idleSince": "2023-02-25T03:28:19.622Z", "port": 2442, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Mumbai", "roomSlotsAvailable": 7563.96, "roomSlotsAvailableUpdatedAt": "2023-09-01T08:59:39.747Z", "roomsAllocated": 1, "roomsAllocatedUpdatedAt": "2025-12-08T00:06:43.149Z", "roomsPerProcess": 3, "startedAt": "2024-04-20T21:46:04.535Z", "startingAt": "2025-04-15T14:07:27.961Z", "stoppingAt": "2023-06-04T23:08:01.419Z", "terminatedAt": "2025-05-27T00:40:24.893Z"}
+          application/json: {"activeConnections": 10, "activeConnectionsUpdatedAt": "2025-11-03T09:41:56.009Z", "additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "debug", "port": 72941, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "deploymentId": 1, "draining": true, "egressedBytes": 435, "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "host": "weary-submitter.com", "idleSince": "2023-10-07T06:14:03.681Z", "port": 1177.64, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Dallas", "roomSlotsAvailable": 4625.24, "roomSlotsAvailableUpdatedAt": "2024-07-09T09:28:32.132Z", "roomsAllocated": 1, "roomsAllocatedUpdatedAt": "2025-08-31T01:51:34.461Z", "roomsPerProcess": 3, "startedAt": "2023-06-03T14:28:19.589Z", "startingAt": "2023-04-29T03:46:44.356Z", "stoppingAt": "2025-12-10T05:39:45.167Z", "terminatedAt": "2023-03-13T11:48:05.668Z"}
         "401":
           application/json: {"message": "<value>"}
         "500":
@@ -1833,10 +1978,9 @@ examples:
       parameters:
         path:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-        query: {}
       responses:
         "200":
-          application/json: [{"activeConnections": 10, "activeConnectionsUpdatedAt": "2025-04-16T22:05:36.139Z", "additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "deploymentId": 1, "draining": true, "egressedBytes": 435, "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "host": "assured-address.com", "idleSince": "2023-08-03T12:36:53.179Z", "port": 9469.76, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Mumbai", "roomSlotsAvailable": 6364.53, "roomSlotsAvailableUpdatedAt": "2025-03-26T11:32:01.922Z", "rooms": [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2025-01-27T19:58:39.876Z", "unscheduledAt": "2024-08-26T03:59:52.565Z"}, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}, {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2023-07-08T17:42:00.558Z", "unscheduledAt": "2024-02-10T06:28:40.609Z"}, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}, {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2024-01-29T04:28:37.860Z", "unscheduledAt": "2023-07-17T19:45:54.757Z"}, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}], "roomsAllocated": 1, "roomsAllocatedUpdatedAt": "2023-05-26T12:37:04.536Z", "roomsPerProcess": 3, "startedAt": "2023-08-05T02:57:28.118Z", "startingAt": "2024-03-20T10:07:31.016Z", "stoppingAt": "2024-06-08T03:06:22.087Z", "terminatedAt": "2023-03-16T11:16:22.956Z", "totalRooms": 810170}, {"activeConnections": 10, "activeConnectionsUpdatedAt": "2025-04-16T10:48:51.035Z", "additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "deploymentId": 1, "draining": false, "egressedBytes": 435, "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "host": "quiet-quinoa.biz", "idleSince": "2024-01-13T13:58:22.537Z", "port": 6547.39, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "London", "roomSlotsAvailable": 1576.83, "roomSlotsAvailableUpdatedAt": "2025-04-18T21:10:55.150Z", "rooms": [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2025-06-12T20:08:06.490Z", "unscheduledAt": "2023-10-30T02:11:59.423Z"}, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}, {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2023-10-04T21:23:17.176Z", "unscheduledAt": "2023-11-11T18:51:59.810Z"}, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}, {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2024-05-11T12:18:16.657Z", "unscheduledAt": "2024-12-16T01:44:26.210Z"}, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}], "roomsAllocated": 1, "roomsAllocatedUpdatedAt": "2024-04-11T21:15:18.110Z", "roomsPerProcess": 3, "startedAt": "2024-02-11T16:23:39.628Z", "startingAt": "2024-10-29T01:04:25.924Z", "stoppingAt": "2025-02-10T03:36:24.990Z", "terminatedAt": "2025-03-13T15:24:03.010Z", "totalRooms": 888007}, {"activeConnections": 10, "activeConnectionsUpdatedAt": "2025-02-24T07:05:32.800Z", "additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "deploymentId": 1, "draining": false, "egressedBytes": 435, "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "host": "impolite-cod.net", "idleSince": "2023-11-13T20:51:53.000Z", "port": 4110.74, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Dallas", "roomSlotsAvailable": 2093.59, "roomSlotsAvailableUpdatedAt": "2023-05-16T16:32:08.043Z", "rooms": [], "roomsAllocated": 1, "roomsAllocatedUpdatedAt": "2025-06-20T15:22:52.552Z", "roomsPerProcess": 3, "startedAt": "2025-11-30T09:41:54.864Z", "startingAt": "2023-07-03T15:21:52.689Z", "stoppingAt": "2025-05-18T01:01:08.166Z", "terminatedAt": "2023-06-11T05:25:47.492Z", "totalRooms": 282460}]
+          application/json: [{"activeConnections": 10, "activeConnectionsUpdatedAt": "2025-03-18T03:23:09.483Z", "additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "debug", "port": 72941, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "deploymentId": 1, "draining": true, "egressedBytes": 435, "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "host": "knotty-resource.com", "idleSince": "2024-12-11T20:09:50.405Z", "port": 6150.54, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Singapore", "roomSlotsAvailable": 329.2, "roomSlotsAvailableUpdatedAt": "2025-10-26T10:14:59.803Z", "rooms": [], "roomsAllocated": 1, "roomsAllocatedUpdatedAt": "2023-05-25T11:22:03.061Z", "roomsPerProcess": 3, "startedAt": "2024-05-28T04:52:33.091Z", "startingAt": "2023-01-25T21:19:23.262Z", "stoppingAt": "2024-02-20T03:33:39.047Z", "terminatedAt": "2023-04-14T03:19:44.675Z", "totalRooms": 303438}]
         "401":
           application/json: {"message": "<value>"}
   GetStoppedProcesses:
@@ -1844,10 +1988,9 @@ examples:
       parameters:
         path:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-        query: {}
       responses:
         "200":
-          application/json: [{"activeConnections": 10, "activeConnectionsUpdatedAt": "2025-02-01T19:54:10.305Z", "additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "deploymentId": 1, "draining": true, "egressedBytes": 435, "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "host": "chubby-begonia.net", "idleSince": "2025-07-09T17:53:58.542Z", "port": 4164.67, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Johannesburg", "roomSlotsAvailable": 5999.21, "roomSlotsAvailableUpdatedAt": "2023-01-31T21:04:01.615Z", "roomsAllocated": 1, "roomsAllocatedUpdatedAt": "2025-10-14T14:26:39.957Z", "roomsPerProcess": 3, "startedAt": "2023-09-25T17:27:22.731Z", "startingAt": "2024-07-05T05:29:52.093Z", "stoppingAt": "2023-10-30T23:26:37.774Z", "terminatedAt": "2023-05-30T02:17:10.417Z"}, {"activeConnections": 10, "activeConnectionsUpdatedAt": "2024-11-16T06:23:39.664Z", "additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "deploymentId": 1, "draining": false, "egressedBytes": 435, "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "host": "splendid-allegation.com", "idleSince": "2025-07-23T14:14:41.113Z", "port": 822.63, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Sydney", "roomSlotsAvailable": 1437.97, "roomSlotsAvailableUpdatedAt": "2023-11-22T12:06:41.903Z", "roomsAllocated": 1, "roomsAllocatedUpdatedAt": "2023-10-19T11:05:46.638Z", "roomsPerProcess": 3, "startedAt": "2023-01-11T03:55:40.055Z", "startingAt": "2023-03-29T14:11:59.118Z", "stoppingAt": "2025-09-18T19:47:20.871Z", "terminatedAt": "2024-07-22T12:11:50.173Z"}, {"activeConnections": 10, "activeConnectionsUpdatedAt": "2023-08-07T01:18:05.284Z", "additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "deploymentId": 1, "draining": true, "egressedBytes": 435, "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "host": "silent-beret.org", "idleSince": "2023-10-23T19:21:37.029Z", "port": 5848.93, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Tokyo", "roomSlotsAvailable": 1145.27, "roomSlotsAvailableUpdatedAt": "2025-01-23T14:50:46.774Z", "roomsAllocated": 1, "roomsAllocatedUpdatedAt": "2023-04-28T17:39:33.776Z", "roomsPerProcess": 3, "startedAt": "2024-11-18T10:27:20.746Z", "startingAt": "2025-03-24T06:04:37.343Z", "stoppingAt": "2023-04-05T19:46:52.802Z", "terminatedAt": "2025-05-29T19:12:05.495Z"}]
+          application/json: [{"activeConnections": 10, "activeConnectionsUpdatedAt": "2024-11-21T17:01:48.302Z", "additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "debug", "port": 72941, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "deploymentId": 1, "draining": true, "egressedBytes": 435, "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "host": "recent-stay.com", "idleSince": "2023-11-20T08:39:16.295Z", "port": 8630.73, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Mumbai", "roomSlotsAvailable": 6125.23, "roomSlotsAvailableUpdatedAt": "2025-01-20T15:55:54.771Z", "roomsAllocated": 1, "roomsAllocatedUpdatedAt": "2025-01-20T06:52:32.698Z", "roomsPerProcess": 3, "startedAt": "2023-07-13T12:52:05.376Z", "startingAt": "2025-11-18T05:00:22.587Z", "stoppingAt": "2024-03-21T19:44:32.436Z", "terminatedAt": "2025-06-17T02:22:14.605Z"}]
         "401":
           application/json: {"message": "<value>"}
   CreateProcessV2Deprecated:
@@ -1855,10 +1998,10 @@ examples:
       parameters:
         path:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-          region: "Tokyo"
+          region: "Johannesburg"
       responses:
         "201":
-          application/json: {"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2023-10-17T17:30:03.723Z", "deploymentId": 1, "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Johannesburg", "roomsAllocated": 1, "roomsPerProcess": 3, "startedAt": "2024-03-21T20:04:29.092Z", "status": "starting", "stoppingAt": "2025-05-10T17:31:49.196Z", "terminatedAt": "2025-04-04T04:58:10.718Z"}
+          application/json: {"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "debug", "port": 72941, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2024-02-21T02:03:43.984Z", "deploymentId": 1, "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Singapore", "roomsAllocated": 1, "roomsPerProcess": 3, "startedAt": null, "status": "draining", "stoppingAt": "2024-10-25T19:52:38.424Z", "terminatedAt": "2025-09-06T23:34:34.578Z"}
         "401":
           application/json: {"message": "<value>"}
         "500":
@@ -1868,10 +2011,9 @@ examples:
       parameters:
         path:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-        query: {}
       responses:
         "200":
-          application/json: [{"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2023-12-10T07:40:56.196Z", "deploymentId": 1, "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Seattle", "roomsAllocated": 1, "roomsPerProcess": 3, "startedAt": "2023-07-28T01:29:14.081Z", "status": "stopping", "stoppingAt": "2024-08-04T07:27:57.212Z", "terminatedAt": "2025-02-18T04:59:40.321Z"}, {"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2024-01-06T00:04:25.552Z", "deploymentId": 1, "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Dubai", "roomsAllocated": 1, "roomsPerProcess": 3, "startedAt": "2023-06-05T10:34:03.355Z", "status": "stopped", "stoppingAt": "2023-09-29T11:54:10.349Z", "terminatedAt": "2023-09-04T13:27:31.953Z"}]
+          application/json: [{"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "debug", "port": 72941, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2024-12-27T03:19:10.939Z", "deploymentId": 1, "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Singapore", "roomsAllocated": 1, "roomsPerProcess": 3, "startedAt": "2024-08-29T20:09:42.985Z", "status": "draining", "stoppingAt": "2025-02-20T13:17:36.855Z", "terminatedAt": "2023-04-24T12:22:25.497Z"}]
         "401":
           application/json: {"message": "<value>"}
   GetProcessInfoV2Deprecated:
@@ -1882,7 +2024,7 @@ examples:
           processId: "cbfcddd2-0006-43ae-996c-995fff7bed2e"
       responses:
         "200":
-          application/json: {"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2023-02-17T10:55:40.676Z", "deploymentId": 1, "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Sydney", "roomsAllocated": 1, "roomsPerProcess": 3, "startedAt": "2025-04-02T09:20:48.017Z", "status": "stopping", "stoppingAt": "2024-10-24T02:41:16.498Z", "terminatedAt": "2025-12-23T00:25:48.856Z"}
+          application/json: {"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "debug", "port": 72941, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2025-04-12T11:27:23.006Z", "deploymentId": 1, "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Mumbai", "roomsAllocated": 1, "roomsPerProcess": 3, "startedAt": "2025-12-10T01:54:11.424Z", "status": "starting", "stoppingAt": "2024-02-20T07:30:25.132Z", "terminatedAt": "2023-05-08T20:09:28.316Z"}
         "401":
           application/json: {"message": "<value>"}
   GetProcessesCountExperimentalV2Deprecated:
@@ -1890,10 +2032,9 @@ examples:
       parameters:
         path:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-        query: {}
       responses:
         "200":
-          application/json: {"count": 4304.38}
+          application/json: {"count": 9414.61}
         "401":
           application/json: {"message": "<value>"}
   StopProcessV2Deprecated:
@@ -1912,10 +2053,10 @@ examples:
       parameters:
         path:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-          region: "Sao_Paulo"
+          region: "Mumbai"
       responses:
         "201":
-          application/json: {"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2025-03-14T09:59:48.465Z", "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Frankfurt", "roomsAllocated": 1, "roomsPerProcess": 3, "startedAt": "2023-05-16T14:01:12.166Z", "status": "draining", "stoppingAt": "2024-10-02T00:12:41.482Z", "terminatedAt": "2023-07-29T09:57:22.068Z"}
+          application/json: {"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "debug", "port": 72941, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2023-04-07T10:34:00.420Z", "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Chicago", "roomsAllocated": 1, "roomsPerProcess": 3, "startedAt": "2024-12-26T09:55:19.143Z", "status": "starting", "stoppingAt": "2025-12-26T12:31:53.271Z", "terminatedAt": "2023-04-21T02:19:44.467Z"}
         "401":
           application/json: {"message": "<value>"}
         "500":
@@ -1925,10 +2066,9 @@ examples:
       parameters:
         path:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-        query: {}
       responses:
         "200":
-          application/json: [{"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2024-02-26T17:08:15.213Z", "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Sao_Paulo", "roomsAllocated": 1, "roomsPerProcess": 3, "startedAt": "2023-09-07T05:57:23.957Z", "status": "starting", "stoppingAt": "2024-02-21T09:03:45.377Z", "terminatedAt": "2024-02-02T03:28:21.431Z"}, {"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2023-10-05T18:12:28.556Z", "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Washington_DC", "roomsAllocated": 1, "roomsPerProcess": 3, "startedAt": "2025-03-22T01:11:37.277Z", "status": "draining", "stoppingAt": "2024-12-09T20:20:38.039Z", "terminatedAt": "2024-09-22T08:36:35.331Z"}, {"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2023-08-22T09:12:04.786Z", "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Los_Angeles", "roomsAllocated": 1, "roomsPerProcess": 3, "startedAt": "2024-10-24T14:42:08.301Z", "status": "starting", "stoppingAt": "2023-08-08T12:33:29.118Z", "terminatedAt": "2024-12-13T01:35:41.199Z"}]
+          application/json: [{"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "debug", "port": 72941, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2024-06-11T01:20:58.685Z", "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Dubai", "roomsAllocated": 1, "roomsPerProcess": 3, "startedAt": "2024-07-14T18:20:47.129Z", "status": "draining", "stoppingAt": "2025-12-26T20:09:45.616Z", "terminatedAt": "2023-11-02T16:30:59.530Z"}]
         "401":
           application/json: {"message": "<value>"}
   GetProcess:
@@ -1939,7 +2079,7 @@ examples:
           processId: "cbfcddd2-0006-43ae-996c-995fff7bed2e"
       responses:
         "200":
-          application/json: {"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2024-12-10T06:13:11.300Z", "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Chicago", "roomsAllocated": 1, "roomsPerProcess": 3, "startedAt": "2025-12-07T20:41:15.051Z", "status": "starting", "stoppingAt": "2023-09-14T23:34:03.902Z", "terminatedAt": "2023-12-16T21:18:28.333Z"}
+          application/json: {"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "debug", "port": 72941, "transportType": "tcp"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "createdAt": "2024-01-22T10:19:23.253Z", "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "region": "Johannesburg", "roomsAllocated": 1, "roomsPerProcess": 3, "startedAt": "2023-07-03T22:42:09.537Z", "status": "failed", "stoppingAt": "2025-10-29T15:32:30.169Z", "terminatedAt": "2023-11-04T15:46:38.702Z"}
         "401":
           application/json: {"message": "<value>"}
   GetProcessMetrics:
@@ -1948,7 +2088,6 @@ examples:
         path:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
           processId: "cbfcddd2-0006-43ae-996c-995fff7bed2e"
-        query: {}
       responses:
         "200":
           application/json: {}
@@ -1961,10 +2100,9 @@ examples:
       parameters:
         path:
           appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2"
-        query: {}
       responses:
         "200":
-          application/json: {"count": 4724.83}
+          application/json: {"count": 1403.26}
         "401":
           application/json: {"message": "<value>"}
   StopProcess:
@@ -2013,7 +2151,7 @@ examples:
           processId: "cbfcddd2-0006-43ae-996c-995fff7bed2e"
       responses:
         "200":
-          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2025-11-29T20:10:58.686Z", "unscheduledAt": "2024-03-26T20:17:37.723Z"}, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}, {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2024-07-14T09:35:39.721Z", "unscheduledAt": "2025-04-09T10:56:00.093Z"}, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}, {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2025-07-27T13:40:43.672Z", "unscheduledAt": "2023-07-21T11:06:09.616Z"}, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}]
+          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2025-07-20T06:45:02.296Z", "unscheduledAt": null}, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}]
         "401":
           application/json: {"message": "<value>"}
   GetConnectionInfoDeprecated:
@@ -2024,7 +2162,7 @@ examples:
           roomId: "2swovpy1fnunu"
       responses:
         "200":
-          application/json: {"host": "functional-bran.org", "port": 963.07, "roomId": "2swovpy1fnunu", "status": "active", "transportType": "udp"}
+          application/json: {"roomId": "2swovpy1fnunu", "status": "starting"}
         "400":
           application/json: {"message": "<value>"}
         "500":
@@ -2037,7 +2175,7 @@ examples:
           processId: "cbfcddd2-0006-43ae-996c-995fff7bed2e"
       responses:
         "200":
-          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2025-08-27T13:44:10.472Z", "unscheduledAt": "2024-05-13T18:41:53.420Z"}, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}]
+          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2024-02-14T03:35:06.239Z", "unscheduledAt": "2024-05-25T18:52:03.873Z"}, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}]
         "401":
           application/json: {"message": "<value>"}
   GetRoomInfoDeprecated:
@@ -2048,7 +2186,7 @@ examples:
           roomId: "2swovpy1fnunu"
       responses:
         "200":
-          application/json: {"allocations": [{"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2025-08-15T12:15:33.984Z", "unscheduledAt": "2025-04-13T07:01:30.792Z"}, {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2023-06-26T00:20:57.528Z", "unscheduledAt": "2024-02-07T05:04:32.232Z"}, {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2024-05-26T01:25:52.895Z", "unscheduledAt": "2025-01-21T17:02:06.151Z"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2023-06-20T14:20:53.478Z", "unscheduledAt": "2023-08-19T03:53:54.463Z"}, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}
+          application/json: {"allocations": [{"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2023-12-13T19:31:56.256Z", "unscheduledAt": "2024-05-28T02:26:14.793Z"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2025-02-24T07:03:04.961Z", "unscheduledAt": "2024-02-29T20:13:16.438Z"}, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}
         "401":
           application/json: {"message": "<value>"}
   SuspendRoomDeprecated:
@@ -2073,7 +2211,7 @@ examples:
         application/json: {"clientIPs": ["123.123.123.123"], "deploymentId": "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5", "region": "Dallas", "roomConfig": "{\"name\":\"my-room\"}"}
       responses:
         "201":
-          application/json: {"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}], "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomId": "2swovpy1fnunu", "status": "active"}
+          application/json: {"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "debug", "port": 72941, "transportType": "tcp"}], "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomId": "2swovpy1fnunu", "status": "active"}
         "400":
           application/json: {"message": "<value>"}
         "500":
@@ -2097,7 +2235,7 @@ examples:
           processId: "cbfcddd2-0006-43ae-996c-995fff7bed2e"
       responses:
         "200":
-          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2023-07-20T15:50:05.093Z", "unscheduledAt": "2025-05-05T21:12:24.513Z"}, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}]
+          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2025-10-04T18:22:52.058Z", "unscheduledAt": "2023-12-23T11:38:18.881Z"}, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}]
         "401":
           application/json: {"message": "<value>"}
   GetConnectionInfo:
@@ -2108,7 +2246,7 @@ examples:
           roomId: "2swovpy1fnunu"
       responses:
         "200":
-          application/json: {"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}], "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "roomId": "2swovpy1fnunu", "status": "active"}
+          application/json: {"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "debug", "port": 72941, "transportType": "tcp"}], "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "roomId": "2swovpy1fnunu", "status": "starting"}
         "400":
           application/json: {"message": "<value>"}
         "500":
@@ -2121,7 +2259,7 @@ examples:
           processId: "cbfcddd2-0006-43ae-996c-995fff7bed2e"
       responses:
         "200":
-          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2024-09-17T22:53:47.360Z", "unscheduledAt": "2024-04-24T23:27:12.620Z"}, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}, {"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2023-05-22T15:58:08.259Z", "unscheduledAt": "2025-01-02T01:03:30.499Z"}, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}]
+          application/json: [{"appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": null, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}]
         "401":
           application/json: {"message": "<value>"}
   GetRoomInfo:
@@ -2132,7 +2270,7 @@ examples:
           roomId: "2swovpy1fnunu"
       responses:
         "200":
-          application/json: {"allocations": [{"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2024-07-25T00:45:58.316Z", "unscheduledAt": "2024-03-31T18:51:27.031Z"}, {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2024-08-31T05:11:11.318Z", "unscheduledAt": "2023-04-02T11:20:42.629Z"}, {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2025-10-27T12:02:21.560Z", "unscheduledAt": "2023-07-10T13:51:59.745Z"}], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": {"processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomAllocationId": "e3a0aa32-1711-4036-acfa-008b96061a78", "scheduledAt": "2023-01-08T22:39:02.063Z", "unscheduledAt": "2025-11-01T01:05:00.252Z"}, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}
+          application/json: {"allocations": [], "appId": "app-af469a92-5b45-4565-b3c4-b79878de67d2", "currentAllocation": null, "roomConfig": "{\"name\":\"my-room\"}", "roomId": "2swovpy1fnunu", "status": "active"}
         "401":
           application/json: {"message": "<value>"}
   ResumeRoom:
@@ -2143,7 +2281,7 @@ examples:
           roomId: "2swovpy1fnunu"
       responses:
         "200":
-          application/json: {"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}], "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomId": "2swovpy1fnunu", "status": "starting"}
+          application/json: {"additionalExposedPorts": [{"host": "1.proxy.hathora.dev", "name": "debug", "port": 72941, "transportType": "tcp"}], "exposedPort": {"host": "1.proxy.hathora.dev", "name": "default", "port": 34567, "transportType": "tcp"}, "processId": "cbfcddd2-0006-43ae-996c-995fff7bed2e", "roomId": "2swovpy1fnunu", "status": "active"}
         "400":
           application/json: {"message": "<value>"}
         "500":
@@ -2181,7 +2319,7 @@ examples:
         application/json: {"name": "ci-token"}
       responses:
         "201":
-          application/json: {"orgToken": {"createdAt": "2024-07-07T21:31:16.458Z", "createdBy": "noreply@hathora.dev", "lastFourCharsOfKey": "<value>", "name": "ci-token", "orgId": "<id>", "orgTokenId": "org-token-af469a92-5b45-4565-b3c4-b79878de67d2", "status": "active"}, "plainTextToken": "<value>"}
+          application/json: {"orgToken": {"createdAt": "2025-04-12T22:01:38.496Z", "createdBy": "noreply@hathora.dev", "lastFourCharsOfKey": "<value>", "name": "ci-token", "orgId": "<id>", "orgTokenId": "org-token-af469a92-5b45-4565-b3c4-b79878de67d2", "status": "revoked"}, "plainTextToken": "<value>"}
         "401":
           application/json: {"message": "<value>"}
   GetOrgTokens:
@@ -2191,7 +2329,7 @@ examples:
           orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39"
       responses:
         "200":
-          application/json: {"tokens": [{"createdAt": "2023-10-03T00:28:03.217Z", "createdBy": "noreply@hathora.dev", "lastFourCharsOfKey": "<value>", "name": "ci-token", "orgId": "<id>", "orgTokenId": "org-token-af469a92-5b45-4565-b3c4-b79878de67d2", "status": "revoked"}]}
+          application/json: {"tokens": []}
         "401":
           application/json: {"message": "<value>"}
   RevokeOrgToken:
@@ -2202,8 +2340,9 @@ examples:
           orgTokenId: "org-token-af469a92-5b45-4565-b3c4-b79878de67d2"
       responses:
         "200":
-          application/json: false
+          application/json: true
         "401":
           application/json: {"message": "<value>"}
-examplesVersion: 1.0.0
+examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Unity SDK Changes Detected:\n* `Hathora-Cloud-SDK.AppsV1.UpdateAppV1Deprecated()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response.serviceConfig` **Added**\n* `Hathora-Cloud-SDK.AppsV2.UpdateApp()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response.serviceConfig` **Added**\n* `Hathora-Cloud-SDK.AppsV2.CreateApp()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response.serviceConfig` **Added**\n* `Hathora-Cloud-SDK.BuildsV1.GetBuildInfoDeprecated()`:  `response.expiredAt` **Added**\n* `Hathora-Cloud-SDK.FleetsV1.GetFleet()`: **Added**\n* `Hathora-Cloud-SDK.FleetsV1.UpdateFleet()`: **Added**\n* `Hathora-Cloud-SDK.AppsV1.CreateAppV1Deprecated()`: \n  *  `request.loadBalancer` **Added**\n  *  `response.serviceConfig` **Added**\n  *  `error.status[404]` **Added**\n* `Hathora-Cloud-SDK.AppsV1.DeleteAppV1Deprecated()`:  `error.status[422]` **Added**\n* `Hathora-Cloud-SDK.AppsV1.GetAppInfoV1Deprecated()`:  `response.serviceConfig` **Added**\n* `Hathora-Cloud-SDK.AppsV1.GetAppsV1Deprecated()`:  `response.[]` **Changed**\n* `Hathora-Cloud-SDK.FleetsV1.CreateFleet()`: **Added**\n* `Hathora-Cloud-SDK.BuildsV3.RunBuildRegistry()`: **Added**\n* `Hathora-Cloud-SDK.AppsV2.DeleteApp()`:  `error.status[422]` **Added**\n* `Hathora-Cloud-SDK.AppsV2.GetApp()`:  `response.serviceConfig` **Added**\n* `Hathora-Cloud-SDK.AppsV2.GetApps()`:  `response.applications.[]` **Changed**\n* `Hathora-Cloud-SDK.BuildsV3.CreateBuildRegistry()`: **Added**\n* `Hathora-Cloud-SDK.BillingV1.GetBalance()`:  `error.status[422]` **Added**\n* `Hathora-Cloud-SDK.BillingV1.GetInvoices()`:  `error` **Changed**\n* `Hathora-Cloud-SDK.BillingV1.GetPaymentMethod()`:  `error.status[422]` **Added**\n* `Hathora-Cloud-SDK.BillingV1.GetUpcomingInvoiceItems()`:  `error.status[422]` **Added**\n* `Hathora-Cloud-SDK.BillingV1.GetUpcomingInvoiceTotal()`:  `error.status[422]` **Added**\n* `Hathora-Cloud-SDK.BuildsV1.CreateBuildDeprecated()`:  `response.expiredAt` **Added**\n* `Hathora-Cloud-SDK.AppsV2.PatchApp()`: **Added**\n* `Hathora-Cloud-SDK.BuildsV2.CreateBuildV2Deprecated()`:  `response.expiredAt` **Added**\n* `Hathora-Cloud-SDK.BuildsV1.GetBuildsDeprecated()`:  `response.[].expiredAt` **Added**\n* `Hathora-Cloud-SDK.BuildsV1.RunBuildDeprecated()`:  `error.status[422]` **Added**\n* `Hathora-Cloud-SDK.BuildsV2.CreateBuildWithUploadUrlV2Deprecated()`:  `response.expiredAt` **Added**\n* `Hathora-Cloud-SDK.BuildsV2.CreateWithMultipartUploadsV2Deprecated()`:  `response.expiredAt` **Added**\n* `Hathora-Cloud-SDK.BuildsV2.GetBuildInfoV2Deprecated()`:  `response.expiredAt` **Added**\n* `Hathora-Cloud-SDK.BuildsV2.GetBuildsV2Deprecated()`:  `response.[].expiredAt` **Added**\n* `Hathora-Cloud-SDK.BuildsV2.RunBuildV2Deprecated()`:  `error.status[422]` **Added**\n* `Hathora-Cloud-SDK.BuildsV3.CreateBuild()`:  `response.expiredAt` **Added**\n* `Hathora-Cloud-SDK.BuildsV3.GetBuild()`:  `response.expiredAt` **Added**\n* `Hathora-Cloud-SDK.BuildsV3.GetBuilds()`:  `response.builds.[].expiredAt` **Added**\n* `Hathora-Cloud-SDK.BuildsV3.RunBuild()`:  `error.status[422]` **Added**\n* `Hathora-Cloud-SDK.DeploymentsV3.CreateDeployment()`: \n  *  `request.DeploymentConfigV3` **Changed**\n  *  `response` **Changed**\n* `Hathora-Cloud-SDK.DeploymentsV3.GetDeployment()`:  `response` **Changed**\n* `Hathora-Cloud-SDK.DeploymentsV3.GetDeployments()`: \n  *  `request.buildTag` **Added**\n  *  `response.deployments.[]` **Changed**\n* `Hathora-Cloud-SDK.DeploymentsV3.GetLatestDeployment()`:  `response` **Changed**\n* `Hathora-Cloud-SDK.FleetsV1.GetFleetMetrics()`: \n  *  `request.metrics` **Changed**\n  *  `response.systemOverhead` **Added**\n* `Hathora-Cloud-SDK.FleetsV1.GetFleets()`:  `response.fleets.[]` **Changed**\n* `Hathora-Cloud-SDK.LobbiesV3.ListActivePublicLobbies()`:  `error.status[422]` **Added**\n* `Hathora-Cloud-SDK.LogsV1.GetLogsForProcess()`:  `error.status[408]` **Added**\n* `Hathora-Cloud-SDK.OrganizationsV1.GetOrgs()`:  `response.orgs.[]` **Changed**\n* `Hathora-Cloud-SDK.ProcessesV3.CreateProcess()`:  `response` **Changed**\n* `Hathora-Cloud-SDK.ProcessesV3.GetLatestProcesses()`:  `response.[]` **Changed**\n* `Hathora-Cloud-SDK.ProcessesV3.GetProcess()`:  `response` **Changed**\n"

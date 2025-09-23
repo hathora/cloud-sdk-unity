@@ -18,6 +18,7 @@ Create a new [deployment](https://hathora.dev/docs/concepts/hathora-entities#dep
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="CreateDeploymentV1Deprecated" method="post" path="/deployments/v1/{appId}/create/{buildId}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
@@ -25,11 +26,10 @@ using HathoraCloud.Models.Operations;
 using System.Collections.Generic;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateDeploymentV1DeprecatedRequest req = new CreateDeploymentV1DeprecatedRequest() {
     DeploymentConfig = new DeploymentConfig() {
@@ -37,22 +37,16 @@ CreateDeploymentV1DeprecatedRequest req = new CreateDeploymentV1DeprecatedReques
             new ContainerPort() {
                 Name = "default",
                 Port = 8000,
-                TransportType = TransportType.Tcp,
+                TransportType = TransportType.Tls,
             },
         },
         ContainerPort = 4000,
-        Env = new List<Env>() {
-            new Env() {
-                Name = "EULA",
-                Value = "TRUE",
-            },
-        },
+        Env = new List<Env>() {},
         PlanName = PlanName.Tiny,
         RoomsPerProcess = 3,
-        TransportType = TransportType.Tcp,
+        TransportType = TransportType.Udp,
     },
     BuildId = 1,
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -90,21 +84,20 @@ Get details for a [deployment](https://hathora.dev/docs/concepts/hathora-entitie
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetDeploymentInfoV1Deprecated" method="get" path="/deployments/v1/{appId}/info/{deploymentId}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetDeploymentInfoV1DeprecatedRequest req = new GetDeploymentInfoV1DeprecatedRequest() {
     DeploymentId = 1,
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -141,21 +134,19 @@ Returns an array of [deployments](https://hathora.dev/docs/concepts/hathora-enti
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetDeploymentsV1Deprecated" method="get" path="/deployments/v1/{appId}/list" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
-GetDeploymentsV1DeprecatedRequest req = new GetDeploymentsV1DeprecatedRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+GetDeploymentsV1DeprecatedRequest req = new GetDeploymentsV1DeprecatedRequest() {};
 
 
 using(var res = await sdk.DeploymentsV1.GetDeploymentsV1DeprecatedAsync(req))
@@ -191,21 +182,19 @@ Get the latest [deployment](https://hathora.dev/docs/concepts/hathora-entities#d
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetLatestDeploymentV1Deprecated" method="get" path="/deployments/v1/{appId}/latest" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
-GetLatestDeploymentV1DeprecatedRequest req = new GetLatestDeploymentV1DeprecatedRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+GetLatestDeploymentV1DeprecatedRequest req = new GetLatestDeploymentV1DeprecatedRequest() {};
 
 
 using(var res = await sdk.DeploymentsV1.GetLatestDeploymentV1DeprecatedAsync(req))

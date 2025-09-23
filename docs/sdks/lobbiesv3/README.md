@@ -16,22 +16,20 @@ Create a new lobby for an [application](https://hathora.dev/docs/concepts/hathor
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="CreateLobby" method="post" path="/lobby/v3/{appId}/create" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 CreateLobbyRequest req = new CreateLobbyRequest() {
     CreateLobbyV3Params = new CreateLobbyV3Params() {
-        Region = Region.Seattle,
+        Region = Region.Dubai,
         RoomConfig = "{\"name\":\"my-room\"}",
         Visibility = LobbyVisibility.Private,
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     RoomId = "2swovpy1fnunu",
     ShortCode = "LFG4",
 };
@@ -74,18 +72,16 @@ Get details for a lobby.
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetLobbyInfoByRoomId" method="get" path="/lobby/v3/{appId}/info/roomid/{roomId}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 GetLobbyInfoByRoomIdRequest req = new GetLobbyInfoByRoomIdRequest() {
     RoomId = "2swovpy1fnunu",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -120,18 +116,16 @@ Get details for a lobby. If 2 or more lobbies have the same `shortCode`, then th
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetLobbyInfoByShortCode" method="get" path="/lobby/v3/{appId}/info/shortcode/{shortCode}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 GetLobbyInfoByShortCodeRequest req = new GetLobbyInfoByShortCodeRequest() {
     ShortCode = "LFG4",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -166,18 +160,15 @@ Get all active lobbies for a given [application](https://hathora.dev/docs/concep
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="ListActivePublicLobbies" method="get" path="/lobby/v3/{appId}/list/public" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-ListActivePublicLobbiesRequest req = new ListActivePublicLobbiesRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+ListActivePublicLobbiesRequest req = new ListActivePublicLobbiesRequest() {};
 
 
 using(var res = await sdk.LobbiesV3.ListActivePublicLobbiesAsync(req))
@@ -202,5 +193,5 @@ using(var res = await sdk.LobbiesV3.ListActivePublicLobbiesAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 429                                | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 422, 429                           | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
