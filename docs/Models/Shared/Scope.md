@@ -20,3 +20,6 @@
 | `OrgsReadWrite`         | orgs:read-write         |
 | `TokensRead`            | tokens:read             |
 | `TokensReadWrite`       | tokens:read-write       |
+| `TicketsRead`           | tickets:read            |
+| `TicketsReadWrite`      | tickets:read-write      |
+| `LoadBalancerAccess`    | load-balancer:access    |

@@ -23,6 +23,10 @@ namespace HathoraCloud.Models.Shared
         public double Amount { get; set; } = default!;
 
         [SerializeField]
+        [JsonProperty("discount")]
+        public double? Discount { get; set; }
+
+        [SerializeField]
         [JsonProperty("productName")]
         public string ProductName { get; set; } = default!;
 

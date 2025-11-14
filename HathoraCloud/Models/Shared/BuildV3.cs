@@ -30,7 +30,7 @@ namespace HathoraCloud.Models.Shared
         public string BuildId { get; set; } = default!;
 
         /// <summary>
-        /// Tag to associate an external version with a build. It is accessible via <a href="">`GetBuildInfo()`</a>.
+        /// Tag to associate an external version with a build. It is accessible via <a href="">`GetBuild()`</a>.
         /// </summary>
         [SerializeField]
         [JsonProperty("buildTag")]
@@ -57,6 +57,13 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("deletedAt", NullValueHandling = NullValueHandling.Include)]
         public DateTime? DeletedAt { get; set; } = default!;
+
+        /// <summary>
+        /// When the build expired
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("expiredAt")]
+        public DateTime? ExpiredAt { get; set; }
 
         /// <summary>
         /// When <a href="">`RunBuild()`</a> finished executing.

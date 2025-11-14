@@ -17,18 +17,15 @@ CreatePrivateLobbyDeprecated
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="CreatePrivateLobbyDeprecated" method="post" path="/lobby/v1/{appId}/create/private" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-CreatePrivateLobbyDeprecatedRequest req = new CreatePrivateLobbyDeprecatedRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+CreatePrivateLobbyDeprecatedRequest req = new CreatePrivateLobbyDeprecatedRequest() {};
 
 
 using(var res = await sdk.LobbiesV1.CreatePrivateLobbyDeprecatedAsync(
@@ -58,7 +55,7 @@ using(var res = await sdk.LobbiesV1.CreatePrivateLobbyDeprecatedAsync(
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 422, 429            | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 408, 422, 429       | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
@@ -70,18 +67,15 @@ CreatePublicLobbyDeprecated
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="CreatePublicLobbyDeprecated" method="post" path="/lobby/v1/{appId}/create/public" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-CreatePublicLobbyDeprecatedRequest req = new CreatePublicLobbyDeprecatedRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+CreatePublicLobbyDeprecatedRequest req = new CreatePublicLobbyDeprecatedRequest() {};
 
 
 using(var res = await sdk.LobbiesV1.CreatePublicLobbyDeprecatedAsync(
@@ -111,7 +105,7 @@ using(var res = await sdk.LobbiesV1.CreatePublicLobbyDeprecatedAsync(
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 422, 429            | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 408, 422, 429       | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
@@ -123,18 +117,15 @@ ListActivePublicLobbiesDeprecatedV1
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="ListActivePublicLobbiesDeprecatedV1" method="get" path="/lobby/v1/{appId}/list" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-ListActivePublicLobbiesDeprecatedV1Request req = new ListActivePublicLobbiesDeprecatedV1Request() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+ListActivePublicLobbiesDeprecatedV1Request req = new ListActivePublicLobbiesDeprecatedV1Request() {};
 
 
 using(var res = await sdk.LobbiesV1.ListActivePublicLobbiesDeprecatedV1Async(req))
@@ -159,5 +150,5 @@ using(var res = await sdk.LobbiesV1.ListActivePublicLobbiesDeprecatedV1Async(req
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 404, 422, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 404, 408, 422, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |

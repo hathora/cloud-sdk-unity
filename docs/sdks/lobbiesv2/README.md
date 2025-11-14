@@ -21,22 +21,20 @@ Create a new lobby for an [application](https://hathora.dev/docs/concepts/hathor
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="CreateLobbyDeprecated" method="post" path="/lobby/v2/{appId}/create" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 CreateLobbyDeprecatedRequest req = new CreateLobbyDeprecatedRequest() {
     CreateLobbyParams = new CreateLobbyParams() {
         InitialConfig = "<value>",
-        Region = Region.SaoPaulo,
+        Region = Region.Frankfurt,
         Visibility = LobbyVisibility.Private,
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     RoomId = "2swovpy1fnunu",
 };
 
@@ -68,7 +66,7 @@ using(var res = await sdk.LobbiesV2.CreateLobbyDeprecatedAsync(
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 422, 429            | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 408, 422, 429       | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
@@ -80,21 +78,19 @@ CreateLocalLobby
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="CreateLocalLobby" method="post" path="/lobby/v2/{appId}/create/local" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 CreateLocalLobbyRequest req = new CreateLocalLobbyRequest() {
     RequestBody = new CreateLocalLobbyRequestBody() {
         InitialConfig = "<value>",
         Region = Region.Johannesburg,
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     RoomId = "2swovpy1fnunu",
 };
 
@@ -126,7 +122,7 @@ using(var res = await sdk.LobbiesV2.CreateLocalLobbyAsync(
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 422, 429            | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 408, 422, 429       | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
@@ -138,21 +134,19 @@ CreatePrivateLobby
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="CreatePrivateLobby" method="post" path="/lobby/v2/{appId}/create/private" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 CreatePrivateLobbyRequest req = new CreatePrivateLobbyRequest() {
     RequestBody = new CreatePrivateLobbyRequestBody() {
         InitialConfig = "<value>",
-        Region = Region.London,
+        Region = Region.Frankfurt,
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     RoomId = "2swovpy1fnunu",
 };
 
@@ -184,7 +178,7 @@ using(var res = await sdk.LobbiesV2.CreatePrivateLobbyAsync(
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 422, 429            | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 408, 422, 429       | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
@@ -196,21 +190,19 @@ CreatePublicLobby
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="CreatePublicLobby" method="post" path="/lobby/v2/{appId}/create/public" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 CreatePublicLobbyRequest req = new CreatePublicLobbyRequest() {
     RequestBody = new CreatePublicLobbyRequestBody() {
         InitialConfig = "<value>",
-        Region = Region.Johannesburg,
+        Region = Region.Tokyo,
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     RoomId = "2swovpy1fnunu",
 };
 
@@ -242,7 +234,7 @@ using(var res = await sdk.LobbiesV2.CreatePublicLobbyAsync(
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 422, 429            | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 408, 422, 429       | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
@@ -254,18 +246,16 @@ Get details for a lobby.
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetLobbyInfo" method="get" path="/lobby/v2/{appId}/info/{roomId}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 GetLobbyInfoRequest req = new GetLobbyInfoRequest() {
     RoomId = "2swovpy1fnunu",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -291,7 +281,7 @@ using(var res = await sdk.LobbiesV2.GetLobbyInfoAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 404, 429                                | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 404, 408, 429                           | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~ListActivePublicLobbiesDeprecatedV2~~
@@ -302,18 +292,15 @@ Get all active lobbies for a an [application](https://hathora.dev/docs/concepts/
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="ListActivePublicLobbiesDeprecatedV2" method="get" path="/lobby/v2/{appId}/list/public" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
-ListActivePublicLobbiesDeprecatedV2Request req = new ListActivePublicLobbiesDeprecatedV2Request() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+ListActivePublicLobbiesDeprecatedV2Request req = new ListActivePublicLobbiesDeprecatedV2Request() {};
 
 
 using(var res = await sdk.LobbiesV2.ListActivePublicLobbiesDeprecatedV2Async(req))
@@ -338,7 +325,7 @@ using(var res = await sdk.LobbiesV2.ListActivePublicLobbiesDeprecatedV2Async(req
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 429                                | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 408, 429                           | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~SetLobbyState~~
@@ -349,24 +336,23 @@ Set the state of a lobby. State is intended to be set by the server and must be 
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="SetLobbyState" method="post" path="/lobby/v2/{appId}/setState/{roomId}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 SetLobbyStateRequest req = new SetLobbyStateRequest() {
     SetLobbyStateParams = new SetLobbyStateParams() {
-        State = "<value>",
+        State = "Connecticut",
     },
     RoomId = "2swovpy1fnunu",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -392,5 +378,5 @@ using(var res = await sdk.LobbiesV2.SetLobbyStateAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429                      | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 422, 429                 | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |

@@ -33,6 +33,10 @@ namespace HathoraCloud.Models.Shared
         public List<MetricValue>? ProvisionedTotal { get; set; }
 
         [SerializeField]
+        [JsonProperty("systemOverhead")]
+        public List<MetricValue>? SystemOverhead { get; set; }
+
+        [SerializeField]
         [JsonProperty("utilized")]
         public List<MetricValue>? Utilized { get; set; }
     }

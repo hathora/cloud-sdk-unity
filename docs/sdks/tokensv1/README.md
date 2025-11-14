@@ -17,17 +17,15 @@ Create a new organization token.
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="CreateOrgToken" method="post" path="/tokens/v1/orgs/{orgId}/create" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateOrgTokenRequest req = new CreateOrgTokenRequest() {
     CreateOrgToken = new CreateOrgToken() {
@@ -59,7 +57,7 @@ using(var res = await sdk.TokensV1.CreateOrgTokenAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429                      | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 422, 429                 | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetOrgTokens
@@ -68,17 +66,15 @@ List all organization tokens for a given org.
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetOrgTokens" method="get" path="/tokens/v1/orgs/{orgId}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetOrgTokensRequest req = new GetOrgTokensRequest() {
     OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
@@ -107,7 +103,7 @@ using(var res = await sdk.TokensV1.GetOrgTokensAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## RevokeOrgToken
@@ -116,17 +112,15 @@ Revoke an organization token.
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="RevokeOrgToken" method="post" path="/tokens/v1/orgs/{orgId}/tokens/{orgTokenId}/revoke" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 RevokeOrgTokenRequest req = new RevokeOrgTokenRequest() {
     OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
@@ -156,5 +150,5 @@ using(var res = await sdk.TokensV1.RevokeOrgTokenAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |

@@ -29,6 +29,14 @@ namespace HathoraCloud.Models.Shared
         public List<MetricValue>? Cpu { get; set; }
 
         [SerializeField]
+        [JsonProperty("gpuMemory")]
+        public List<MetricValue>? GpuMemory { get; set; }
+
+        [SerializeField]
+        [JsonProperty("gpuUtilization")]
+        public List<MetricValue>? GpuUtilization { get; set; }
+
+        [SerializeField]
         [JsonProperty("memory")]
         public List<MetricValue>? Memory { get; set; }
 

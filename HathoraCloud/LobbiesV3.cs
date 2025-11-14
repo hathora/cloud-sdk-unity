@@ -65,10 +65,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.2";
-        private const string _sdkGenVersion = "2.545.4";
+        private const string _sdkVersion = "0.31.0";
+        private const string _sdkGenVersion = "2.753.6";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.2 2.545.4 0.0.1 HathoraCloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.31.0 2.753.6 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -121,7 +121,6 @@ namespace HathoraCloud
                     httpRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
-                    Console.WriteLine("Success");
                     break;
             }
 
@@ -148,7 +147,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{400, 401, 402, 404, 422, 429}.Contains(httpCode))
+            else if (new List<int>{400, 401, 402, 404, 408, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -221,7 +220,6 @@ namespace HathoraCloud
                     httpRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
-                    Console.WriteLine("Success");
                     break;
             }
 
@@ -248,7 +246,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{404, 422, 429}.Contains(httpCode))
+            else if (new List<int>{404, 408, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -309,7 +307,6 @@ namespace HathoraCloud
                     httpRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
-                    Console.WriteLine("Success");
                     break;
             }
 
@@ -336,7 +333,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{404, 429}.Contains(httpCode))
+            else if (new List<int>{404, 408, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -393,7 +390,6 @@ namespace HathoraCloud
                     httpRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
-                    Console.WriteLine("Success");
                     break;
             }
 
@@ -420,7 +416,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{401, 429}.Contains(httpCode))
+            else if (new List<int>{401, 408, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    

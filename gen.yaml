@@ -3,17 +3,28 @@ generation:
   sdkClassName: Hathora-Cloud-SDK
   usageSnippets:
     optionalPropertyRendering: withExample
+    sdkInitStyle: constructor
   fixes:
     nameResolutionFeb2025: false
     parameterOrderingFeb2024: false
     requestResponseComponentNamesFeb2024: false
     securityFeb2025: false
+    sharedErrorComponentsApr2025: false
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
+    hoistGlobalSecurity: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
+  tests:
+    generateTests: true
+    generateNewTests: false
+    skipResponseBodyAssertions: false
 unity:
-  version: 0.30.2
+  version: 0.31.0
   author: Hathora
+  baseErrorName: HathoraCloudSDKError
   clientServerStatusCodesAsErrors: true
   defaultErrorName: SDKException
   disableNamespacePascalCasingApr2024: false

@@ -1,21 +1,21 @@
-speakeasyVersion: 1.513.4
+speakeasyVersion: 1.656.2
 sources:
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:44a4a52549812eab9f181044113e11fb2d55780649522613a0fedba27ed408a4
-        sourceBlobDigest: sha256:af38ffd79fb9b92b14192a4c0903daa24fb677d9a0e22caaf727cba648debd39
+        sourceRevisionDigest: sha256:4a3206d670a13ac8ec9c060876590f89f57f53379a249f12246b245b59db0130
+        sourceBlobDigest: sha256:2fe2e274bba5c6dfb6dc164ac5ab74a132e920f2c117eae58b9a972cc8202b0d
         tags:
             - latest
-            - speakeasy-sdk-regen-1740441935
+            - speakeasy-sdk-regen-1758758685
             - 0.0.1
 targets:
     cloud-sdk-unity:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:44a4a52549812eab9f181044113e11fb2d55780649522613a0fedba27ed408a4
-        sourceBlobDigest: sha256:af38ffd79fb9b92b14192a4c0903daa24fb677d9a0e22caaf727cba648debd39
+        sourceRevisionDigest: sha256:4a3206d670a13ac8ec9c060876590f89f57f53379a249f12246b245b59db0130
+        sourceBlobDigest: sha256:2fe2e274bba5c6dfb6dc164ac5ab74a132e920f2c117eae58b9a972cc8202b0d
         codeSamplesNamespace: code-samples-unity-cloud-sdk-unity
-        codeSamplesRevisionDigest: sha256:4fbfd49e17e13ea40e10cbd39ea6d5e4f9e635b36575e54e02070752127d7608
+        codeSamplesRevisionDigest: sha256:e79b0f8cba785fdeece18a83ba986597abd4f3b4a6a70051e66af35ce3d8cf49
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

@@ -44,7 +44,7 @@ namespace HathoraCloud.Models.Shared
         public string AppSecret { get; set; } = default!;
 
         /// <summary>
-        /// Configure <a href="https://hathora.dev/docs/lobbies-and-matchmaking/auth-service">player authentication</a> for your application. Use Hathora&apos;s built-in auth providers or use your own <a href="https://hathora.dev/docs/lobbies-and-matchmaking/auth-service#custom-auth-provider">custom authentication</a>.
+        /// Configure <a href="https://hathora.dev/docs/backend-integrations/lobbies-and-matchmaking/auth-service">player authentication</a> for your application. Use Hathora&apos;s built-in auth providers or use your own <a href="https://hathora.dev/docs/lobbies-and-matchmaking/auth-service#custom-auth-provider">custom authentication</a>.
         /// </summary>
         [SerializeField]
         [JsonProperty("authConfiguration")]
@@ -85,5 +85,9 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("orgId")]
         public string OrgId { get; set; } = default!;
+
+        [SerializeField]
+        [JsonProperty("serviceConfig", NullValueHandling = NullValueHandling.Include)]
+        public ApplicationWithLatestDeploymentAndBuildServiceConfig? ServiceConfig { get; set; } = default!;
     }
 }
