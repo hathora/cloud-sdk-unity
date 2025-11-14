@@ -24,11 +24,11 @@ namespace HathoraCloud.Models.Operations
         public DeploymentConfig DeploymentConfig { get; set; } = default!;
 
         [SerializeField]
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=buildId")]
-        public int BuildId { get; set; } = default!;
-
-        [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
         public string? AppId { get; set; }
+
+        [SerializeField]
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=buildId")]
+        public int BuildId { get; set; } = default!;
     }
 }

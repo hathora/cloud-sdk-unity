@@ -47,14 +47,13 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateAppRequest req = new CreateAppRequest() {
-    AppConfig = new AppConfig() {
+    CreateAppConfig = new CreateAppConfig() {
         AppName = "minecraft",
         AuthConfiguration = new AuthConfiguration() {},
     },
@@ -90,6 +89,7 @@ using(var res = await sdk.AppsV2.CreateAppAsync(req))
 * [DeleteApp](docs/sdks/appsv2/README.md#deleteapp) - DeleteApp
 * [GetApp](docs/sdks/appsv2/README.md#getapp) - GetApp
 * [GetApps](docs/sdks/appsv2/README.md#getapps) - GetApps
+* [PatchApp](docs/sdks/appsv2/README.md#patchapp) - PatchApp
 * [UpdateApp](docs/sdks/appsv2/README.md#updateapp) - UpdateApp
 
 ### [AuthV1](docs/sdks/authv1/README.md)
@@ -128,10 +128,12 @@ using(var res = await sdk.AppsV2.CreateAppAsync(req))
 ### [BuildsV3](docs/sdks/buildsv3/README.md)
 
 * [CreateBuild](docs/sdks/buildsv3/README.md#createbuild) - CreateBuild
+* [CreateBuildRegistry](docs/sdks/buildsv3/README.md#createbuildregistry) - CreateBuildRegistry
 * [DeleteBuild](docs/sdks/buildsv3/README.md#deletebuild) - DeleteBuild
 * [GetBuild](docs/sdks/buildsv3/README.md#getbuild) - GetBuild
 * [GetBuilds](docs/sdks/buildsv3/README.md#getbuilds) - GetBuilds
 * [RunBuild](docs/sdks/buildsv3/README.md#runbuild) - RunBuild
+* [RunBuildRegistry](docs/sdks/buildsv3/README.md#runbuildregistry) - RunBuildRegistry
 
 ### [~~DeploymentsV1~~](docs/sdks/deploymentsv1/README.md)
 
@@ -164,11 +166,26 @@ using(var res = await sdk.AppsV2.CreateAppAsync(req))
 
 ### [FleetsV1](docs/sdks/fleetsv1/README.md)
 
-* [GetFleetMetrics](docs/sdks/fleetsv1/README.md#getfleetmetrics) - GetFleetMetrics
-* [GetFleetRegion](docs/sdks/fleetsv1/README.md#getfleetregion) - GetFleetRegion
-* [GetFleets](docs/sdks/fleetsv1/README.md#getfleets) - GetFleets
-* [UpdateFleetRegion](docs/sdks/fleetsv1/README.md#updatefleetregion) - UpdateFleetRegion
+* [CreateFleetDeprecated](docs/sdks/fleetsv1/README.md#createfleetdeprecated) - CreateFleetDeprecated
+* [GetFleetDeprecated](docs/sdks/fleetsv1/README.md#getfleetdeprecated) - GetFleetDeprecated
+* [GetFleetMetricsDeprecated](docs/sdks/fleetsv1/README.md#getfleetmetricsdeprecated) - GetFleetMetricsDeprecated
+* [GetFleetRegionDeprecated](docs/sdks/fleetsv1/README.md#getfleetregiondeprecated) - GetFleetRegionDeprecated
+* [GetFleetRegionMetricsDeprecated](docs/sdks/fleetsv1/README.md#getfleetregionmetricsdeprecated) - GetFleetRegionMetricsDeprecated
+* [GetFleetsDeprecated](docs/sdks/fleetsv1/README.md#getfleetsdeprecated) - GetFleetsDeprecated
+* [UpdateFleetDeprecated](docs/sdks/fleetsv1/README.md#updatefleetdeprecated) - UpdateFleetDeprecated
+* [UpdateFleetRegionDeprecated](docs/sdks/fleetsv1/README.md#updatefleetregiondeprecated) - UpdateFleetRegionDeprecated
 
+### [FleetsV2](docs/sdks/fleetsv2/README.md)
+
+* [CreateFleet](docs/sdks/fleetsv2/README.md#createfleet) - CreateFleet
+* [GetFleet](docs/sdks/fleetsv2/README.md#getfleet) - GetFleet
+* [GetFleetMetrics](docs/sdks/fleetsv2/README.md#getfleetmetrics) - GetFleetMetrics
+* [GetFleetRegion](docs/sdks/fleetsv2/README.md#getfleetregion) - GetFleetRegion
+* [GetFleetRegionMetrics](docs/sdks/fleetsv2/README.md#getfleetregionmetrics) - GetFleetRegionMetrics
+* [GetFleets](docs/sdks/fleetsv2/README.md#getfleets) - GetFleets
+* [GetNodeShapes](docs/sdks/fleetsv2/README.md#getnodeshapes) - GetNodeShapes
+* [UpdateFleet](docs/sdks/fleetsv2/README.md#updatefleet) - UpdateFleet
+* [UpdateFleetRegion](docs/sdks/fleetsv2/README.md#updatefleetregion) - UpdateFleetRegion
 
 ### [~~LobbiesV1~~](docs/sdks/lobbiesv1/README.md)
 
@@ -205,6 +222,11 @@ using(var res = await sdk.AppsV2.CreateAppAsync(req))
 ### [~~MetricsV1~~](docs/sdks/metricsv1/README.md)
 
 * [~~GetMetricsDeprecated~~](docs/sdks/metricsv1/README.md#getmetricsdeprecated) - GetMetricsDeprecated :warning: **Deprecated**
+
+### [NodesV1](docs/sdks/nodesv1/README.md)
+
+* [GetNode](docs/sdks/nodesv1/README.md#getnode) - GetNode
+* [ListProvisionedNodes](docs/sdks/nodesv1/README.md#listprovisionednodes) - ListProvisionedNodes
 
 ### [OrganizationsV1](docs/sdks/organizationsv1/README.md)
 
@@ -302,14 +324,14 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateAppRequest req = new CreateAppRequest() {
-    AppConfig = new AppConfig() {
+    CreateAppConfig = new CreateAppConfig() {
         AppName = "minecraft",
         AuthConfiguration = new AuthConfiguration() {},
     },
@@ -345,15 +367,14 @@ using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
-    serverIndex: 1,
+    serverIndex: 0,
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateAppRequest req = new CreateAppRequest() {
-    AppConfig = new AppConfig() {
+    CreateAppConfig = new CreateAppConfig() {
         AppName = "minecraft",
         AuthConfiguration = new AuthConfiguration() {},
     },
@@ -378,14 +399,13 @@ using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
     serverUrl: "https://api.hathora.dev",
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateAppRequest req = new CreateAppRequest() {
-    AppConfig = new AppConfig() {
+    CreateAppConfig = new CreateAppConfig() {
         AppName = "minecraft",
         AuthConfiguration = new AuthConfiguration() {},
     },
@@ -417,11 +437,11 @@ By default, an API error will raise a `HathoraCloud.Models.Errors.SDKException` 
 
 When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `CreateAppAsync` method throws the following exceptions:
 
-| Error Type                              | Status Code        | Content Type     |
-| --------------------------------------- | ------------------ | ---------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429 | application/json |
-| HathoraCloud.Models.Errors.ApiError     | 500                | application/json |
-| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX           | \*/\*            |
+| Error Type                              | Status Code             | Content Type     |
+| --------------------------------------- | ----------------------- | ---------------- |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 422, 429 | application/json |
+| HathoraCloud.Models.Errors.ApiError     | 500                     | application/json |
+| HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                | \*/\*            |
 
 ### Example
 
@@ -433,14 +453,13 @@ using HathoraCloud.Models.Errors;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateAppRequest req = new CreateAppRequest() {
-    AppConfig = new AppConfig() {
+    CreateAppConfig = new CreateAppConfig() {
         AppName = "minecraft",
         AuthConfiguration = new AuthConfiguration() {},
     },
@@ -493,11 +512,10 @@ var sdk = new HathoraCloudSDK(
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
     },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
 
 CreateAppRequest req = new CreateAppRequest() {
-    AppConfig = new AppConfig() {
+    CreateAppConfig = new CreateAppConfig() {
         AppName = "minecraft",
         AuthConfiguration = new AuthConfiguration() {},
     },
@@ -520,17 +538,14 @@ using HathoraCloud;
 using HathoraCloud.Models.Operations;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 CreateLobbyRequest req = new CreateLobbyRequest() {
     CreateLobbyV3Params = new CreateLobbyV3Params() {
-        Region = Region.Seattle,
+        Region = Region.Dubai,
         RoomConfig = "{\"name\":\"my-room\"}",
         Visibility = LobbyVisibility.Private,
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     RoomId = "2swovpy1fnunu",
     ShortCode = "LFG4",
 };

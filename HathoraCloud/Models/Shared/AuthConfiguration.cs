@@ -16,7 +16,7 @@ namespace HathoraCloud.Models.Shared
     using UnityEngine;
     
     /// <summary>
-    /// Configure <a href="https://hathora.dev/docs/lobbies-and-matchmaking/auth-service">player authentication</a> for your application. Use Hathora&apos;s built-in auth providers or use your own <a href="https://hathora.dev/docs/lobbies-and-matchmaking/auth-service#custom-auth-provider">custom authentication</a>.
+    /// Configure <a href="https://hathora.dev/docs/backend-integrations/lobbies-and-matchmaking/auth-service">player authentication</a> for your application. Use Hathora&apos;s built-in auth providers or use your own <a href="https://hathora.dev/docs/lobbies-and-matchmaking/auth-service#custom-auth-provider">custom authentication</a>.
     /// </summary>
     [Serializable]
     public class AuthConfiguration

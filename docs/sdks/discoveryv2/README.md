@@ -15,13 +15,12 @@ Returns an array of all regions with a host and port that a client can directly 
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetPingServiceEndpoints" method="get" path="/discovery/v2/ping" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK();
 
 
 using(var res = await sdk.DiscoveryV2.GetPingServiceEndpointsAsync())

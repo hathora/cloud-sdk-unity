@@ -28,40 +28,72 @@ namespace HathoraCloud
     {
 
         /// <summary>
-        /// GetFleetMetrics
-        /// 
-        /// <remarks>
-        /// Gets metrics for a <a href="https://hathora.dev/docs/concepts/hathora-entities#fleet">fleet</a> in a region.
-        /// </remarks>
+        /// CreateFleetDeprecated
         /// </summary>
-        Task<GetFleetMetricsResponse> GetFleetMetricsAsync(GetFleetMetricsRequest request);
+        Task<CreateFleetDeprecatedResponse> CreateFleetDeprecatedAsync(CreateFleetDeprecatedRequest request);
 
         /// <summary>
-        /// GetFleetRegion
+        /// GetFleetDeprecated
+        /// 
+        /// <remarks>
+        /// Returns a <a href="https://hathora.dev/docs/concepts/hathora-entities#fleet">fleet</a>.
+        /// </remarks>
+        /// </summary>
+        Task<GetFleetDeprecatedResponse> GetFleetDeprecatedAsync(GetFleetDeprecatedRequest request);
+
+        /// <summary>
+        /// GetFleetMetricsDeprecated
+        /// 
+        /// <remarks>
+        /// Gets aggregate metrics for a <a href="https://hathora.dev/docs/concepts/hathora-entities#fleet">fleet</a>.
+        /// </remarks>
+        /// </summary>
+        Task<GetFleetMetricsDeprecatedResponse> GetFleetMetricsDeprecatedAsync(GetFleetMetricsDeprecatedRequest request);
+
+        /// <summary>
+        /// GetFleetRegionDeprecated
         /// 
         /// <remarks>
         /// Gets the configuration for a given <a href="https://hathora.dev/docs/concepts/hathora-entities#fleet">fleet</a> in a region.
         /// </remarks>
         /// </summary>
-        Task<GetFleetRegionResponse> GetFleetRegionAsync(GetFleetRegionRequest request);
+        Task<GetFleetRegionDeprecatedResponse> GetFleetRegionDeprecatedAsync(GetFleetRegionDeprecatedRequest request);
 
         /// <summary>
-        /// GetFleets
+        /// GetFleetRegionMetricsDeprecated
+        /// 
+        /// <remarks>
+        /// Gets metrics for a region in a <a href="https://hathora.dev/docs/concepts/hathora-entities#fleet">fleet</a>.
+        /// </remarks>
+        /// </summary>
+        Task<GetFleetRegionMetricsDeprecatedResponse> GetFleetRegionMetricsDeprecatedAsync(GetFleetRegionMetricsDeprecatedRequest request);
+
+        /// <summary>
+        /// GetFleetsDeprecated
         /// 
         /// <remarks>
         /// Returns an array of <a href="https://hathora.dev/docs/concepts/hathora-entities#fleet">fleets</a>.
         /// </remarks>
         /// </summary>
-        Task<GetFleetsResponse> GetFleetsAsync(GetFleetsRequest? request = null);
+        Task<GetFleetsDeprecatedResponse> GetFleetsDeprecatedAsync(GetFleetsDeprecatedRequest? request = null);
 
         /// <summary>
-        /// UpdateFleetRegion
+        /// UpdateFleetDeprecated
+        /// 
+        /// <remarks>
+        /// Updates a <a href="https://hathora.dev/docs/concepts/hathora-entities#fleet">fleet</a>&apos;s configuration.
+        /// </remarks>
+        /// </summary>
+        Task<UpdateFleetDeprecatedResponse> UpdateFleetDeprecatedAsync(UpdateFleetDeprecatedRequest request);
+
+        /// <summary>
+        /// UpdateFleetRegionDeprecated
         /// 
         /// <remarks>
         /// Updates the configuration for a given <a href="https://hathora.dev/docs/concepts/hathora-entities#fleet">fleet</a> in a region.
         /// </remarks>
         /// </summary>
-        Task<UpdateFleetRegionResponse> UpdateFleetRegionAsync(UpdateFleetRegionRequest request);
+        Task<UpdateFleetRegionDeprecatedResponse> UpdateFleetRegionDeprecatedAsync(UpdateFleetRegionDeprecatedRequest request);
     }
 
     /// <summary>
@@ -71,10 +103,10 @@ namespace HathoraCloud
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.2";
-        private const string _sdkGenVersion = "2.545.4";
+        private const string _sdkVersion = "0.31.0";
+        private const string _sdkGenVersion = "2.753.6";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.2 2.545.4 0.0.1 HathoraCloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.31.0 2.753.6 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -89,21 +121,28 @@ namespace HathoraCloud
         
 
         
-        public async Task<GetFleetMetricsResponse> GetFleetMetricsAsync(GetFleetMetricsRequest request)
+        public async Task<CreateFleetDeprecatedResponse> CreateFleetDeprecatedAsync(CreateFleetDeprecatedRequest request)
         {
             if (request == null)
             {
-                request = new GetFleetMetricsRequest();
+                request = new CreateFleetDeprecatedRequest();
             }
             request.OrgId ??= SDKConfiguration.OrgId;
             
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
-            var urlString = URLBuilder.Build(baseUrl, "/fleets/v1/fleets/{fleetId}/regions/{region}/metrics", request);
+            var urlString = URLBuilder.Build(baseUrl, "/fleets/v1/fleets", request);
 
-            var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
+            var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbPOST);
             DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
             httpRequest.downloadHandler = downloadHandler;
             httpRequest.SetRequestHeader("user-agent", _userAgent);
+
+            var serializedBody = RequestBodySerializer.Serialize(request, "CreateFleet", "json", false, false);
+            if (serializedBody != null)
+            {
+                httpRequest.uploadHandler = new UploadHandlerRaw(serializedBody.Body);
+                httpRequest.SetRequestHeader("Content-Type", serializedBody.ContentType);
+            }
 
             var client = _defaultClient;
             if (_securitySource != null)
@@ -124,7 +163,6 @@ namespace HathoraCloud
                     httpRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
-                    Console.WriteLine("Success");
                     break;
             }
 
@@ -133,7 +171,7 @@ namespace HathoraCloud
                 contentType = httpResponse.GetResponseHeader("Content-Type") ?? "application/octet-stream";
             }
             int httpCode = errorCode ?? (int)httpResponse.responseCode;
-            var response = new GetFleetMetricsResponse
+            var response = new CreateFleetDeprecatedResponse
             {
                 StatusCode = httpCode,
                 ContentType = contentType,
@@ -143,15 +181,15 @@ namespace HathoraCloud
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
-                    var obj = JsonConvert.DeserializeObject<FleetMetricsData>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
-                    response.FleetMetricsData = obj;
+                    var obj = JsonConvert.DeserializeObject<Fleet>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    response.Fleet = obj;
                 }
                 else
                 {
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{401, 404, 422, 429}.Contains(httpCode))
+            else if (new List<int>{401, 404, 408, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -193,11 +231,217 @@ namespace HathoraCloud
         
 
         
-        public async Task<GetFleetRegionResponse> GetFleetRegionAsync(GetFleetRegionRequest request)
+        public async Task<GetFleetDeprecatedResponse> GetFleetDeprecatedAsync(GetFleetDeprecatedRequest request)
         {
             if (request == null)
             {
-                request = new GetFleetRegionRequest();
+                request = new GetFleetDeprecatedRequest();
+            }
+            request.OrgId ??= SDKConfiguration.OrgId;
+            
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
+            var urlString = URLBuilder.Build(baseUrl, "/fleets/v1/fleets/{fleetId}", request);
+
+            var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
+            DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
+            httpRequest.downloadHandler = downloadHandler;
+            httpRequest.SetRequestHeader("user-agent", _userAgent);
+
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
+            var httpResponse = await client.SendAsync(httpRequest);
+            int? errorCode = null;
+            string? contentType = null;
+            switch (httpResponse.result)
+            {
+                case UnityWebRequest.Result.ConnectionError:
+                case UnityWebRequest.Result.DataProcessingError:
+                case UnityWebRequest.Result.ProtocolError:
+                    errorCode = (int)httpRequest.responseCode;
+                    contentType = httpRequest.GetResponseHeader("Content-Type");
+                    httpRequest.Dispose();
+                    break;
+                case UnityWebRequest.Result.Success:
+                    break;
+            }
+
+            if (contentType == null)
+            {
+                contentType = httpResponse.GetResponseHeader("Content-Type") ?? "application/octet-stream";
+            }
+            int httpCode = errorCode ?? (int)httpResponse.responseCode;
+            var response = new GetFleetDeprecatedResponse
+            {
+                StatusCode = httpCode,
+                ContentType = contentType,
+                RawResponse = httpResponse
+            };
+            if (httpCode == 200)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<Fleet>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    response.Fleet = obj;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (new List<int>{401, 404, 408, 422, 429}.Contains(httpCode))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else
+            {
+                throw new SDKException("unknown status code received", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            return response;
+        }
+
+        
+
+        
+        public async Task<GetFleetMetricsDeprecatedResponse> GetFleetMetricsDeprecatedAsync(GetFleetMetricsDeprecatedRequest request)
+        {
+            if (request == null)
+            {
+                request = new GetFleetMetricsDeprecatedRequest();
+            }
+            request.OrgId ??= SDKConfiguration.OrgId;
+            
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
+            var urlString = URLBuilder.Build(baseUrl, "/fleets/v1/fleets/{fleetId}/metrics", request);
+
+            var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
+            DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
+            httpRequest.downloadHandler = downloadHandler;
+            httpRequest.SetRequestHeader("user-agent", _userAgent);
+
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
+            var httpResponse = await client.SendAsync(httpRequest);
+            int? errorCode = null;
+            string? contentType = null;
+            switch (httpResponse.result)
+            {
+                case UnityWebRequest.Result.ConnectionError:
+                case UnityWebRequest.Result.DataProcessingError:
+                case UnityWebRequest.Result.ProtocolError:
+                    errorCode = (int)httpRequest.responseCode;
+                    contentType = httpRequest.GetResponseHeader("Content-Type");
+                    httpRequest.Dispose();
+                    break;
+                case UnityWebRequest.Result.Success:
+                    break;
+            }
+
+            if (contentType == null)
+            {
+                contentType = httpResponse.GetResponseHeader("Content-Type") ?? "application/octet-stream";
+            }
+            int httpCode = errorCode ?? (int)httpResponse.responseCode;
+            var response = new GetFleetMetricsDeprecatedResponse
+            {
+                StatusCode = httpCode,
+                ContentType = contentType,
+                RawResponse = httpResponse
+            };
+            if (httpCode == 200)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<FleetMetricsData>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    response.FleetMetricsData = obj;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (new List<int>{401, 404, 408, 422, 429}.Contains(httpCode))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else
+            {
+                throw new SDKException("unknown status code received", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            return response;
+        }
+
+        
+
+        
+        public async Task<GetFleetRegionDeprecatedResponse> GetFleetRegionDeprecatedAsync(GetFleetRegionDeprecatedRequest request)
+        {
+            if (request == null)
+            {
+                request = new GetFleetRegionDeprecatedRequest();
             }
             request.OrgId ??= SDKConfiguration.OrgId;
             
@@ -228,7 +472,6 @@ namespace HathoraCloud
                     httpRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
-                    Console.WriteLine("Success");
                     break;
             }
 
@@ -237,7 +480,7 @@ namespace HathoraCloud
                 contentType = httpResponse.GetResponseHeader("Content-Type") ?? "application/octet-stream";
             }
             int httpCode = errorCode ?? (int)httpResponse.responseCode;
-            var response = new GetFleetRegionResponse
+            var response = new GetFleetRegionDeprecatedResponse
             {
                 StatusCode = httpCode,
                 ContentType = contentType,
@@ -255,7 +498,7 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{401, 404, 422, 429}.Contains(httpCode))
+            else if (new List<int>{401, 404, 408, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -285,7 +528,110 @@ namespace HathoraCloud
         
 
         
-        public async Task<GetFleetsResponse> GetFleetsAsync(GetFleetsRequest? request = null)
+        public async Task<GetFleetRegionMetricsDeprecatedResponse> GetFleetRegionMetricsDeprecatedAsync(GetFleetRegionMetricsDeprecatedRequest request)
+        {
+            if (request == null)
+            {
+                request = new GetFleetRegionMetricsDeprecatedRequest();
+            }
+            request.OrgId ??= SDKConfiguration.OrgId;
+            
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
+            var urlString = URLBuilder.Build(baseUrl, "/fleets/v1/fleets/{fleetId}/regions/{region}/metrics", request);
+
+            var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbGET);
+            DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
+            httpRequest.downloadHandler = downloadHandler;
+            httpRequest.SetRequestHeader("user-agent", _userAgent);
+
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
+            var httpResponse = await client.SendAsync(httpRequest);
+            int? errorCode = null;
+            string? contentType = null;
+            switch (httpResponse.result)
+            {
+                case UnityWebRequest.Result.ConnectionError:
+                case UnityWebRequest.Result.DataProcessingError:
+                case UnityWebRequest.Result.ProtocolError:
+                    errorCode = (int)httpRequest.responseCode;
+                    contentType = httpRequest.GetResponseHeader("Content-Type");
+                    httpRequest.Dispose();
+                    break;
+                case UnityWebRequest.Result.Success:
+                    break;
+            }
+
+            if (contentType == null)
+            {
+                contentType = httpResponse.GetResponseHeader("Content-Type") ?? "application/octet-stream";
+            }
+            int httpCode = errorCode ?? (int)httpResponse.responseCode;
+            var response = new GetFleetRegionMetricsDeprecatedResponse
+            {
+                StatusCode = httpCode,
+                ContentType = contentType,
+                RawResponse = httpResponse
+            };
+            if (httpCode == 200)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<FleetMetricsData>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    response.FleetMetricsData = obj;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (new List<int>{401, 404, 408, 422, 429}.Contains(httpCode))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else
+            {
+                throw new SDKException("unknown status code received", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            return response;
+        }
+
+        
+
+        
+        public async Task<GetFleetsDeprecatedResponse> GetFleetsDeprecatedAsync(GetFleetsDeprecatedRequest? request = null)
         {
             request.OrgId ??= SDKConfiguration.OrgId;
             
@@ -316,7 +662,6 @@ namespace HathoraCloud
                     httpRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
-                    Console.WriteLine("Success");
                     break;
             }
 
@@ -325,7 +670,7 @@ namespace HathoraCloud
                 contentType = httpResponse.GetResponseHeader("Content-Type") ?? "application/octet-stream";
             }
             int httpCode = errorCode ?? (int)httpResponse.responseCode;
-            var response = new GetFleetsResponse
+            var response = new GetFleetsDeprecatedResponse
             {
                 StatusCode = httpCode,
                 ContentType = contentType,
@@ -343,7 +688,19 @@ namespace HathoraCloud
                 throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
                 }
             }
-            else if (new List<int>{401, 404, 429}.Contains(httpCode))
+            else if (new List<int>{401, 404, 408, 429}.Contains(httpCode))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode == 500)
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    
@@ -373,11 +730,112 @@ namespace HathoraCloud
         
 
         
-        public async Task<UpdateFleetRegionResponse> UpdateFleetRegionAsync(UpdateFleetRegionRequest request)
+        public async Task<UpdateFleetDeprecatedResponse> UpdateFleetDeprecatedAsync(UpdateFleetDeprecatedRequest request)
         {
             if (request == null)
             {
-                request = new UpdateFleetRegionRequest();
+                request = new UpdateFleetDeprecatedRequest();
+            }
+            request.OrgId ??= SDKConfiguration.OrgId;
+            
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
+            var urlString = URLBuilder.Build(baseUrl, "/fleets/v1/fleets/{fleetId}", request);
+
+            var httpRequest = new UnityWebRequest(urlString, UnityWebRequest.kHttpVerbPOST);
+            DownloadHandlerStream downloadHandler = new DownloadHandlerStream();
+            httpRequest.downloadHandler = downloadHandler;
+            httpRequest.SetRequestHeader("user-agent", _userAgent);
+
+            var serializedBody = RequestBodySerializer.Serialize(request, "UpdateFleet", "json", false, false);
+            if (serializedBody != null)
+            {
+                httpRequest.uploadHandler = new UploadHandlerRaw(serializedBody.Body);
+                httpRequest.SetRequestHeader("Content-Type", serializedBody.ContentType);
+            }
+
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
+            var httpResponse = await client.SendAsync(httpRequest);
+            int? errorCode = null;
+            string? contentType = null;
+            switch (httpResponse.result)
+            {
+                case UnityWebRequest.Result.ConnectionError:
+                case UnityWebRequest.Result.DataProcessingError:
+                case UnityWebRequest.Result.ProtocolError:
+                    errorCode = (int)httpRequest.responseCode;
+                    contentType = httpRequest.GetResponseHeader("Content-Type");
+                    httpRequest.Dispose();
+                    break;
+                case UnityWebRequest.Result.Success:
+                    break;
+            }
+
+            if (contentType == null)
+            {
+                contentType = httpResponse.GetResponseHeader("Content-Type") ?? "application/octet-stream";
+            }
+            int httpCode = errorCode ?? (int)httpResponse.responseCode;
+            var response = new UpdateFleetDeprecatedResponse
+            {
+                StatusCode = httpCode,
+                ContentType = contentType,
+                RawResponse = httpResponse
+            };
+            if (httpCode == 204)
+            {
+            }
+            else if (new List<int>{401, 404, 408, 422, 429}.Contains(httpCode))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode == 500)
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {                    
+                    var obj = JsonConvert.DeserializeObject<ApiError>(httpResponse.downloadHandler.text, new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = Utilities.GetDefaultJsonDeserializers() });
+                    throw obj!;
+                }
+                else
+                {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+                }
+            }
+            else if (httpCode >= 400 && httpCode < 500)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else if (httpCode >= 500 && httpCode < 600)
+            {
+                throw new SDKException("API error occurred", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            else
+            {
+                throw new SDKException("unknown status code received", httpCode, httpResponse.downloadHandler.text, httpResponse);
+            }
+            return response;
+        }
+
+        
+
+        
+        public async Task<UpdateFleetRegionDeprecatedResponse> UpdateFleetRegionDeprecatedAsync(UpdateFleetRegionDeprecatedRequest request)
+        {
+            if (request == null)
+            {
+                request = new UpdateFleetRegionDeprecatedRequest();
             }
             request.OrgId ??= SDKConfiguration.OrgId;
             
@@ -415,7 +873,6 @@ namespace HathoraCloud
                     httpRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
-                    Console.WriteLine("Success");
                     break;
             }
 
@@ -424,7 +881,7 @@ namespace HathoraCloud
                 contentType = httpResponse.GetResponseHeader("Content-Type") ?? "application/octet-stream";
             }
             int httpCode = errorCode ?? (int)httpResponse.responseCode;
-            var response = new UpdateFleetRegionResponse
+            var response = new UpdateFleetRegionDeprecatedResponse
             {
                 StatusCode = httpCode,
                 ContentType = contentType,
@@ -433,7 +890,7 @@ namespace HathoraCloud
             if (httpCode == 204)
             {
             }
-            else if (new List<int>{401, 404, 422, 429}.Contains(httpCode))
+            else if (new List<int>{401, 404, 408, 422, 429}.Contains(httpCode))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
                 {                    

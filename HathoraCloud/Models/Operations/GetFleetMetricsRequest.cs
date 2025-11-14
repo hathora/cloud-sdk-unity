@@ -21,16 +21,12 @@ namespace HathoraCloud.Models.Operations
     {
 
         [SerializeField]
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=fleetId")]
-        public string FleetId { get; set; } = default!;
-
-        [SerializeField]
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=region")]
-        public Region Region { get; set; } = default!;
-
-        [SerializeField]
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=end")]
         public double? End { get; set; }
+
+        [SerializeField]
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=fleetId")]
+        public string FleetId { get; set; } = default!;
 
         /// <summary>
         /// Available metrics to query over time.

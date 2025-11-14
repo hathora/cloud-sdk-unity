@@ -34,6 +34,10 @@ namespace HathoraCloud.Models.Shared
         [JsonProperty("cloudMinVcpusUpdatedAt")]
         public DateTime CloudMinVcpusUpdatedAt { get; set; } = default!;
 
+        /// <summary>
+        /// This field is deprecated and may contain the value -1. For node increment values, refer to nodeShape on the Fleet.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [SerializeField]
         [JsonProperty("scaleIncrementVcpus")]
         public int ScaleIncrementVcpus { get; set; } = default!;

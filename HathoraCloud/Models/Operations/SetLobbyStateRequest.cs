@@ -24,11 +24,11 @@ namespace HathoraCloud.Models.Operations
         public SetLobbyStateParams SetLobbyStateParams { get; set; } = default!;
 
         [SerializeField]
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=roomId")]
-        public string RoomId { get; set; } = default!;
-
-        [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=appId")]
         public string? AppId { get; set; }
+
+        [SerializeField]
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=roomId")]
+        public string RoomId { get; set; } = default!;
     }
 }

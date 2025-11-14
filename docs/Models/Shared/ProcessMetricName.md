@@ -12,3 +12,5 @@ Available metrics to query over time.
 | `RateEgress`        | rateEgress          |
 | `TotalEgress`       | totalEgress         |
 | `ActiveConnections` | activeConnections   |
+| `GpuMemory`         | gpuMemory           |
+| `GpuUtilization`    | gpuUtilization      |

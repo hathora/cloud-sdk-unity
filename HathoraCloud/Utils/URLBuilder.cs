@@ -312,6 +312,11 @@ namespace HathoraCloud.Utils
 
                 foreach (var key in ((IDictionary)value).Keys)
                 {
+                    if (key == null)
+                    {
+                        continue;
+                    }
+
                     var val = ((IDictionary)value)[key];
 
                     if (explode)
@@ -389,7 +394,7 @@ namespace HathoraCloud.Utils
                     else
                     {
                         items.Add(
-                            $"{metadata.Name}{delimiter}{Utilities.ValueToString(val)}"
+                            $"{metadata.Name}{delimiter}{(val != null ? Utilities.ValueToString(val) : "")}"
                         );
                     }
                 }
@@ -408,23 +413,30 @@ namespace HathoraCloud.Utils
             {
                 var items = new List<string>();
 
-                foreach (var key in ((IDictionary)value).Keys)
+                foreach (var k in ((IDictionary)value).Keys)
                 {
+                    var key = k?.ToString();
+
+                    if (key == null)
+                    {
+                        continue;
+                    }
+
                     if (explode)
                     {
-                        if (!parameters.ContainsKey(key.ToString()))
+                        if (!parameters.ContainsKey(key))
                         {
-                            parameters.Add(key.ToString(), new List<string>());
+                            parameters.Add(key, new List<string>());
                         }
 
-                        parameters[key.ToString()].Add(
-                            Utilities.ValueToString(((IDictionary)value)[key])
+                        parameters[key].Add(
+                            ((IDictionary)value)[key] != null ? Utilities.ValueToString(((IDictionary)value)[key]) : ""
                         );
                     }
                     else
                     {
                         items.Add(
-                            $"{key.ToString()}{delimiter}{Utilities.ValueToString(((IDictionary)value)[key])}"
+                            $"{key}{delimiter}{(((IDictionary)value)[key] != null ? Utilities.ValueToString(((IDictionary)value)[key]) : "")}"
                         );
                     }
                 }
@@ -448,11 +460,11 @@ namespace HathoraCloud.Utils
                 {
                     if (explode)
                     {
-                        values.Add(Utilities.ValueToString(item));
+                        values.Add(item != null ? Utilities.ValueToString(item) : "");
                     }
                     else
                     {
-                        items.Add(Utilities.ValueToString(item));
+                        items.Add(item != null ? Utilities.ValueToString(item) : "");
                     }
                 }
 
@@ -514,7 +526,7 @@ namespace HathoraCloud.Utils
 
                     var keyName = $"{parentName}[{metadata.Name}]";
 
-                    if (Utilities.IsList(val))
+                    if (val != null && Utilities.IsList(val))
                     {
                         foreach (var v in (IList)val)
                         {
@@ -524,7 +536,7 @@ namespace HathoraCloud.Utils
                             }
 
                             parameters[keyName].Add(
-                                Utilities.ValueToString(v)
+                                v != null ? Utilities.ValueToString(v) : ""
                             );
                         }
                     }
@@ -535,7 +547,7 @@ namespace HathoraCloud.Utils
                             parameters.Add(keyName, new List<string>());
                         }
 
-                        parameters[keyName].Add(Utilities.ValueToString(val));
+                        parameters[keyName].Add(val != null ? Utilities.ValueToString(val) : "");
                     }
                 }
             }
@@ -543,11 +555,16 @@ namespace HathoraCloud.Utils
             {
                 foreach (var key in ((IDictionary)value).Keys)
                 {
+                    if (key == null)
+                    {
+                        continue;
+                    }
+
                     var val = ((IDictionary)value)[key];
 
                     var keyName = $"{parentName}[{key}]";
 
-                    if (Utilities.IsList(val))
+                    if (val != null && Utilities.IsList(val))
                     {
                         foreach (var v in (IList)val)
                         {
@@ -557,7 +574,7 @@ namespace HathoraCloud.Utils
                             }
 
                             parameters[keyName].Add(
-                                Utilities.ValueToString(v)
+                                v != null ? Utilities.ValueToString(v) : ""
                             );
                         }
                     }
@@ -568,7 +585,7 @@ namespace HathoraCloud.Utils
                             parameters.Add(keyName, new List<string>());
                         }
 
-                        parameters[keyName].Add(Utilities.ValueToString(val));
+                        parameters[keyName].Add(val != null ? Utilities.ValueToString(val) : "");
                     }
                 }
             }

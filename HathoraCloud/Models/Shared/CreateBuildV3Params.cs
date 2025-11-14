@@ -10,27 +10,26 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
-    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
     using System;
     using UnityEngine;
     
     [Serializable]
-    public class AppConfig
+    public class CreateBuildV3Params
     {
 
         /// <summary>
-        /// Readable name for an application. Must be unique within an organization.
+        /// System generated id for a build. Can also be user defined when creating a build.
         /// </summary>
         [SerializeField]
-        [JsonProperty("appName")]
-        public string AppName { get; set; } = default!;
+        [JsonProperty("buildId")]
+        public string? BuildId { get; set; }
 
         /// <summary>
-        /// Configure <a href="https://hathora.dev/docs/lobbies-and-matchmaking/auth-service">player authentication</a> for your application. Use Hathora&apos;s built-in auth providers or use your own <a href="https://hathora.dev/docs/lobbies-and-matchmaking/auth-service#custom-auth-provider">custom authentication</a>.
+        /// Tag to associate an external version with a build. It is accessible via <a href="">`GetBuild()`</a>.
         /// </summary>
         [SerializeField]
-        [JsonProperty("authConfiguration")]
-        public AuthConfiguration AuthConfiguration { get; set; } = default!;
+        [JsonProperty("buildTag")]
+        public string? BuildTag { get; set; }
     }
 }

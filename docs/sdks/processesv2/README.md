@@ -21,21 +21,20 @@ Creates a [process](https://hathora.dev/docs/concepts/hathora-entities#process) 
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="CreateProcessV2Deprecated" method="post" path="/processes/v2/{appId}/create/{region}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateProcessV2DeprecatedRequest req = new CreateProcessV2DeprecatedRequest() {
-    Region = Region.Tokyo,
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+    Region = Region.Johannesburg,
 };
 
 
@@ -61,7 +60,7 @@ using(var res = await sdk.ProcessesV2.CreateProcessV2DeprecatedAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 402, 404, 422, 429                 | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 402, 404, 408, 422, 429            | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
@@ -73,6 +72,7 @@ Retrieve the 10 most recent [processes](https://hathora.dev/docs/concepts/hathor
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetLatestProcessesV2Deprecated" method="get" path="/processes/v2/{appId}/list/latest" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
@@ -80,15 +80,12 @@ using HathoraCloud.Models.Operations;
 using System.Collections.Generic;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
-GetLatestProcessesV2DeprecatedRequest req = new GetLatestProcessesV2DeprecatedRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+GetLatestProcessesV2DeprecatedRequest req = new GetLatestProcessesV2DeprecatedRequest() {};
 
 
 using(var res = await sdk.ProcessesV2.GetLatestProcessesV2DeprecatedAsync(req))
@@ -113,7 +110,7 @@ using(var res = await sdk.ProcessesV2.GetLatestProcessesV2DeprecatedAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429                      | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 422, 429                 | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~GetProcessInfoV2Deprecated~~
@@ -124,21 +121,20 @@ Get details for a [process](https://hathora.dev/docs/concepts/hathora-entities#p
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetProcessInfoV2Deprecated" method="get" path="/processes/v2/{appId}/info/{processId}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetProcessInfoV2DeprecatedRequest req = new GetProcessInfoV2DeprecatedRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -164,7 +160,7 @@ using(var res = await sdk.ProcessesV2.GetProcessInfoV2DeprecatedAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~GetProcessesCountExperimentalV2Deprecated~~
@@ -175,6 +171,7 @@ Count the number of [processes](https://hathora.dev/docs/concepts/hathora-entiti
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetProcessesCountExperimentalV2Deprecated" method="get" path="/processes/v2/{appId}/count" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
@@ -182,15 +179,12 @@ using HathoraCloud.Models.Operations;
 using System.Collections.Generic;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
-GetProcessesCountExperimentalV2DeprecatedRequest req = new GetProcessesCountExperimentalV2DeprecatedRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+GetProcessesCountExperimentalV2DeprecatedRequest req = new GetProcessesCountExperimentalV2DeprecatedRequest() {};
 
 
 using(var res = await sdk.ProcessesV2.GetProcessesCountExperimentalV2DeprecatedAsync(req))
@@ -215,7 +209,7 @@ using(var res = await sdk.ProcessesV2.GetProcessesCountExperimentalV2DeprecatedA
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429                      | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 422, 429                 | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~StopProcessV2Deprecated~~
@@ -226,21 +220,20 @@ Stops a [process](https://hathora.dev/docs/concepts/hathora-entities#process) im
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="StopProcessV2Deprecated" method="post" path="/processes/v2/{appId}/stop/{processId}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 StopProcessV2DeprecatedRequest req = new StopProcessV2DeprecatedRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -266,6 +259,6 @@ using(var res = await sdk.ProcessesV2.StopProcessV2DeprecatedAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |

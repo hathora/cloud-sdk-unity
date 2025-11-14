@@ -68,6 +68,7 @@ namespace HathoraCloud
         /// Operations to manage and view a <a href="https://hathora.dev/docs/concepts/hathora-entities#fleet">fleet</a>.
         /// </summary>
         public IFleetsV1 FleetsV1 { get; }
+        public IFleetsV2 FleetsV2 { get; }
         public ILobbiesV1 LobbiesV1 { get; }
         public ILobbiesV2 LobbiesV2 { get; }
         public ILobbiesV3 LobbiesV3 { get; }
@@ -82,6 +83,7 @@ namespace HathoraCloud
         /// Deprecated. Use <a href="https://hathora.dev/api#tag/ProcessesV3/operation/GetProcessMetrics">ProcessesV3#GetProcessMetrics</a> to fetch metrics about a specific process.
         /// </summary>
         public IMetricsV1 MetricsV1 { get; }
+        public INodesV1 NodesV1 { get; }
         public IOrganizationsV1 OrganizationsV1 { get; }
 
         /// <summary>
@@ -141,10 +143,10 @@ namespace HathoraCloud
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _target = "unity";
-        private const string _sdkVersion = "0.30.2";
-        private const string _sdkGenVersion = "2.545.4";
+        private const string _sdkVersion = "0.31.0";
+        private const string _sdkGenVersion = "2.753.6";
         private const string _openapiDocVersion = "0.0.1";
-        private const string _userAgent = "speakeasy-sdk/unity 0.30.2 2.545.4 0.0.1 HathoraCloud";
+        private const string _userAgent = "speakeasy-sdk/unity 0.31.0 2.753.6 0.0.1 HathoraCloud";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
@@ -162,12 +164,14 @@ namespace HathoraCloud
         public IDiscoveryV1 DiscoveryV1 { get; private set; }
         public IDiscoveryV2 DiscoveryV2 { get; private set; }
         public IFleetsV1 FleetsV1 { get; private set; }
+        public IFleetsV2 FleetsV2 { get; private set; }
         public ILobbiesV1 LobbiesV1 { get; private set; }
         public ILobbiesV2 LobbiesV2 { get; private set; }
         public ILobbiesV3 LobbiesV3 { get; private set; }
         public ILogsV1 LogsV1 { get; private set; }
         public IManagementV1 ManagementV1 { get; private set; }
         public IMetricsV1 MetricsV1 { get; private set; }
+        public INodesV1 NodesV1 { get; private set; }
         public IOrganizationsV1 OrganizationsV1 { get; private set; }
         public IProcessesV1 ProcessesV1 { get; private set; }
         public IProcessesV2 ProcessesV2 { get; private set; }
@@ -228,12 +232,14 @@ namespace HathoraCloud
             DiscoveryV1 = new DiscoveryV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
             DiscoveryV2 = new DiscoveryV2(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
             FleetsV1 = new FleetsV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            FleetsV2 = new FleetsV2(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
             LobbiesV1 = new LobbiesV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
             LobbiesV2 = new LobbiesV2(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
             LobbiesV3 = new LobbiesV3(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
             LogsV1 = new LogsV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
             ManagementV1 = new ManagementV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
             MetricsV1 = new MetricsV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            NodesV1 = new NodesV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
             OrganizationsV1 = new OrganizationsV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
             ProcessesV1 = new ProcessesV1(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
             ProcessesV2 = new ProcessesV2(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);

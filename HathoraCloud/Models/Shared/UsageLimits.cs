@@ -18,18 +18,38 @@ namespace HathoraCloud.Models.Shared
     public class UsageLimits
     {
 
+        /// <summary>
+        /// The maximum number of concurrent processes that have been run by the organization in the last 7 days.
+        /// </summary>
         [SerializeField]
         [JsonProperty("concurrentProcessVcpus7DayMax")]
         public double ConcurrentProcessVcpus7DayMax { get; set; } = default!;
 
+        /// <summary>
+        /// The maximum number of concurrent processes that can be run by the organization<br/>
+        /// 
+        /// <remarks>
+        /// If undefined, the organization has no limit.
+        /// </remarks>
+        /// </summary>
         [SerializeField]
         [JsonProperty("concurrentProcessVcpusLimit")]
         public double? ConcurrentProcessVcpusLimit { get; set; }
 
+        /// <summary>
+        /// The number of vCPU hours used up by the organization in the current month.
+        /// </summary>
         [SerializeField]
         [JsonProperty("monthlyProcessVcpuHoursConsumed")]
         public double MonthlyProcessVcpuHoursConsumed { get; set; } = default!;
 
+        /// <summary>
+        /// The maximum number of monthly process vcpu hours that can be run by the organization<br/>
+        /// 
+        /// <remarks>
+        /// If undefined, the organization has no limit.
+        /// </remarks>
+        /// </summary>
         [SerializeField]
         [JsonProperty("monthlyProcessVcpuHoursLimit")]
         public double? MonthlyProcessVcpuHoursLimit { get; set; }

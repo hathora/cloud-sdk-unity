@@ -21,6 +21,7 @@ CreateRoomDeprecated
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="CreateRoomDeprecated" method="post" path="/rooms/v1/{appId}/create" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
@@ -28,11 +29,10 @@ using HathoraCloud.Models.Operations;
 using System.Collections.Generic;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateRoomDeprecatedRequest req = new CreateRoomDeprecatedRequest() {
     CreateRoomParams = new CreateRoomParams() {
@@ -43,7 +43,6 @@ CreateRoomDeprecatedRequest req = new CreateRoomDeprecatedRequest() {
         Region = Region.London,
         RoomConfig = "{\"name\":\"my-room\"}",
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     RoomId = "2swovpy1fnunu",
 };
 
@@ -70,7 +69,7 @@ using(var res = await sdk.RoomsV1.CreateRoomDeprecatedAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 422, 429            | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 400, 401, 402, 404, 408, 422, 429       | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
@@ -82,21 +81,20 @@ DestroyRoomDeprecated
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="DestroyRoomDeprecated" method="post" path="/rooms/v1/{appId}/destroy/{roomId}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 DestroyRoomDeprecatedRequest req = new DestroyRoomDeprecatedRequest() {
     RoomId = "2swovpy1fnunu",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -122,7 +120,7 @@ using(var res = await sdk.RoomsV1.DestroyRoomDeprecatedAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
@@ -134,21 +132,20 @@ GetActiveRoomsForProcessDeprecated
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetActiveRoomsForProcessDeprecated" method="get" path="/rooms/v1/{appId}/list/{processId}/active" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetActiveRoomsForProcessDeprecatedRequest req = new GetActiveRoomsForProcessDeprecatedRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -174,7 +171,7 @@ using(var res = await sdk.RoomsV1.GetActiveRoomsForProcessDeprecatedAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~GetConnectionInfoDeprecated~~
@@ -185,18 +182,16 @@ GetConnectionInfoDeprecated
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetConnectionInfoDeprecated" method="get" path="/rooms/v1/{appId}/connectioninfo/{roomId}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+var sdk = new HathoraCloudSDK(appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2");
 
 GetConnectionInfoDeprecatedRequest req = new GetConnectionInfoDeprecatedRequest() {
     RoomId = "2swovpy1fnunu",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -222,7 +217,7 @@ using(var res = await sdk.RoomsV1.GetConnectionInfoDeprecatedAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400, 402, 404, 429                      | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 400, 402, 404, 408, 429                 | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
@@ -234,21 +229,20 @@ GetInactiveRoomsForProcessDeprecated
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetInactiveRoomsForProcessDeprecated" method="get" path="/rooms/v1/{appId}/list/{processId}/inactive" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetInactiveRoomsForProcessDeprecatedRequest req = new GetInactiveRoomsForProcessDeprecatedRequest() {
     ProcessId = "cbfcddd2-0006-43ae-996c-995fff7bed2e",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -274,7 +268,7 @@ using(var res = await sdk.RoomsV1.GetInactiveRoomsForProcessDeprecatedAsync(req)
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~GetRoomInfoDeprecated~~
@@ -285,21 +279,20 @@ GetRoomInfoDeprecated
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetRoomInfoDeprecated" method="get" path="/rooms/v1/{appId}/info/{roomId}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetRoomInfoDeprecatedRequest req = new GetRoomInfoDeprecatedRequest() {
     RoomId = "2swovpy1fnunu",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -325,7 +318,7 @@ using(var res = await sdk.RoomsV1.GetRoomInfoDeprecatedAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429                      | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 422, 429                 | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~SuspendRoomDeprecated~~
@@ -336,21 +329,20 @@ SuspendRoomDeprecated
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="SuspendRoomDeprecated" method="post" path="/rooms/v1/{appId}/suspend/{roomId}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 SuspendRoomDeprecatedRequest req = new SuspendRoomDeprecatedRequest() {
     RoomId = "2swovpy1fnunu",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -376,6 +368,6 @@ using(var res = await sdk.RoomsV1.SuspendRoomDeprecatedAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |

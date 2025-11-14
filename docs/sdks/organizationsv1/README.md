@@ -22,17 +22,15 @@ AcceptInvite
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="AcceptInvite" method="post" path="/orgs/v1/{orgId}/invites/accept" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 AcceptInviteRequest req = new AcceptInviteRequest() {
     OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
@@ -61,7 +59,7 @@ using(var res = await sdk.OrganizationsV1.AcceptInviteAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetOrgMembers
@@ -70,17 +68,15 @@ GetOrgMembers
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetOrgMembers" method="get" path="/orgs/v1/{orgId}/members" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetOrgMembersRequest req = new GetOrgMembersRequest() {
     OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
@@ -109,7 +105,7 @@ using(var res = await sdk.OrganizationsV1.GetOrgMembersAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 429                                | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 408, 429                           | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetOrgPendingInvites
@@ -118,17 +114,15 @@ GetOrgPendingInvites
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetOrgPendingInvites" method="get" path="/orgs/v1/{orgId}/invites/pending" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetOrgPendingInvitesRequest req = new GetOrgPendingInvitesRequest() {
     OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
@@ -157,7 +151,7 @@ using(var res = await sdk.OrganizationsV1.GetOrgPendingInvitesAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 429                                | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 408, 429                           | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetOrgs
@@ -166,16 +160,14 @@ Returns an unsorted list of all organizations that you are a member of (an accep
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetOrgs" method="get" path="/orgs/v1" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 
 using(var res = await sdk.OrganizationsV1.GetOrgsAsync())
@@ -194,7 +186,7 @@ using(var res = await sdk.OrganizationsV1.GetOrgsAsync())
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetUsageLimits
@@ -203,17 +195,17 @@ GetUsageLimits
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetUsageLimits" method="get" path="/orgs/v1/metadata/usageLimits" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetUsageLimitsRequest req = new GetUsageLimitsRequest() {};
 
@@ -240,7 +232,7 @@ using(var res = await sdk.OrganizationsV1.GetUsageLimitsAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
@@ -250,16 +242,14 @@ GetUserPendingInvites
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetUserPendingInvites" method="get" path="/orgs/v1/user/invites/pending" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 
 using(var res = await sdk.OrganizationsV1.GetUserPendingInvitesAsync())
@@ -278,7 +268,7 @@ using(var res = await sdk.OrganizationsV1.GetUserPendingInvitesAsync())
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 429                                | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 408, 429                           | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## InviteUser
@@ -287,17 +277,15 @@ InviteUser
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="InviteUser" method="put" path="/orgs/v1/{orgId}/invites" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 InviteUserRequest req = new InviteUserRequest() {
     CreateUserInvite = new CreateUserInvite() {
@@ -329,7 +317,7 @@ using(var res = await sdk.OrganizationsV1.InviteUserAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 422, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 408, 422, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## RejectInvite
@@ -338,17 +326,15 @@ RejectInvite
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="RejectInvite" method="post" path="/orgs/v1/{orgId}/invites/reject" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 RejectInviteRequest req = new RejectInviteRequest() {
     OrgId = "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39",
@@ -377,7 +363,7 @@ using(var res = await sdk.OrganizationsV1.RejectInviteAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## RescindInvite
@@ -386,17 +372,15 @@ RescindInvite
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="RescindInvite" method="post" path="/orgs/v1/{orgId}/invites/rescind" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 RescindInviteRequest req = new RescindInviteRequest() {
     RescindUserInvite = new RescindUserInvite() {
@@ -428,7 +412,7 @@ using(var res = await sdk.OrganizationsV1.RescindInviteAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429                      | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 422, 429                 | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
@@ -438,17 +422,15 @@ UpdateUserInvite
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="UpdateUserInvite" method="post" path="/orgs/v1/{orgId}/invites" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
-var sdk = new HathoraCloudSDK(
-    security: new Security() {
+var sdk = new HathoraCloudSDK(security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 UpdateUserInviteRequest req = new UpdateUserInviteRequest() {
     UpdateUserInvite = new UpdateUserInvite() {
@@ -483,5 +465,5 @@ using(var res = await sdk.OrganizationsV1.UpdateUserInviteAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 422, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 408, 422, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |

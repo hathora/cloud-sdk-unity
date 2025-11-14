@@ -18,6 +18,7 @@ Create a new [deployment](https://hathora.dev/docs/concepts/hathora-entities#dep
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="CreateDeployment" method="post" path="/deployments/v3/apps/{appId}/deployments" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
@@ -25,11 +26,10 @@ using HathoraCloud.Models.Operations;
 using System.Collections.Generic;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 CreateDeploymentRequest req = new CreateDeploymentRequest() {
     DeploymentConfigV3 = new DeploymentConfigV3() {
@@ -52,11 +52,11 @@ CreateDeploymentRequest req = new CreateDeploymentRequest() {
         ExperimentalRequestedGPU = 1D,
         IdleTimeoutEnabled = false,
         RequestedCPU = 0.5D,
+        RequestedGPU = 1D,
         RequestedMemoryMB = 1024D,
         RoomsPerProcess = 3,
-        TransportType = TransportType.Tcp,
+        TransportType = TransportType.Udp,
     },
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -82,7 +82,7 @@ using(var res = await sdk.DeploymentsV3.CreateDeploymentAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 400, 401, 404, 422, 429                 | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 400, 401, 404, 408, 422, 429            | application/json                        |
 | HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
@@ -92,21 +92,20 @@ Get details for a [deployment](https://hathora.dev/docs/concepts/hathora-entitie
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetDeployment" method="get" path="/deployments/v3/apps/{appId}/deployments/{deploymentId}" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetDeploymentRequest req = new GetDeploymentRequest() {
     DeploymentId = "dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5",
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
 };
 
 
@@ -132,29 +131,29 @@ using(var res = await sdk.DeploymentsV3.GetDeploymentAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetDeployments
 
-Returns an array of [deployments](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application), optionally filtered by deploymentTag.
+Returns an array of [deployments](https://hathora.dev/docs/concepts/hathora-entities#deployment) for an [application](https://hathora.dev/docs/concepts/hathora-entities#application), optionally filtered by deploymentTag or buildTag.
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetDeployments" method="get" path="/deployments/v3/apps/{appId}/deployments" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
 GetDeploymentsRequest req = new GetDeploymentsRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
+    BuildTag = "0.1.14-14c793",
     DeploymentTag = "alpha",
 };
 
@@ -181,7 +180,7 @@ using(var res = await sdk.DeploymentsV3.GetDeploymentsAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetLatestDeployment
@@ -190,21 +189,19 @@ Get the latest [deployment](https://hathora.dev/docs/concepts/hathora-entities#d
 
 ### Example Usage
 
+<!-- UsageSnippet language="unity" operationID="GetLatestDeployment" method="get" path="/deployments/v3/apps/{appId}/deployments/latest" -->
 ```csharp
 using HathoraCloud;
 using HathoraCloud.Models.Shared;
 using HathoraCloud.Models.Operations;
 
 var sdk = new HathoraCloudSDK(
+    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
     security: new Security() {
         HathoraDevToken = "<YOUR_BEARER_TOKEN_HERE>",
-    },
-    appId: "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-    orgId: "org-6f706e83-0ec1-437a-9a46-7d4281eb2f39");
+    });
 
-GetLatestDeploymentRequest req = new GetLatestDeploymentRequest() {
-    AppId = "app-af469a92-5b45-4565-b3c4-b79878de67d2",
-};
+GetLatestDeploymentRequest req = new GetLatestDeploymentRequest() {};
 
 
 using(var res = await sdk.DeploymentsV3.GetLatestDeploymentAsync(req))
@@ -229,5 +226,5 @@ using(var res = await sdk.DeploymentsV3.GetLatestDeploymentAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 422, 429                      | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 422, 429                 | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |

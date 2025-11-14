@@ -29,6 +29,10 @@ namespace HathoraCloud.Models.Shared
         TotalEgress,
         [JsonProperty("activeConnections")]
         ActiveConnections,
+        [JsonProperty("gpuMemory")]
+        GpuMemory,
+        [JsonProperty("gpuUtilization")]
+        GpuUtilization,
     }
 
     public static class ProcessMetricNameExtension

@@ -29,7 +29,7 @@ namespace HathoraCloud.Models.Operations
         /// Ok
         /// </summary>
         [SerializeField]
-        public FleetsPage? FleetsPage { get; set; }
+        public FleetsPageV2? FleetsPageV2 { get; set; }
 
         /// <summary>
         /// HTTP response status code for this operation
