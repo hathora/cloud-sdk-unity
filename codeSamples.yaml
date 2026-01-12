@@ -243,18 +243,18 @@ actions:
         - "lang": "unity"
           "label": "GetFleetRegion"
           "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetFleetRegionRequest req = new GetFleetRegionRequest() {\n    FleetId = \"<id>\",\n    Region = Region.Singapore,\n};\n\n\nusing(var res = await sdk.FleetsV2.GetFleetRegionAsync(req))\n{\n    // handle response\n}"
-  - target: $["paths"]["/fleets/v2/fleets/{fleetId}/regions/{region}"]["put"]
-    update:
-      "x-codeSamples":
-        - "lang": "unity"
-          "label": "UpdateFleetRegion"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateFleetRegionRequest req = new UpdateFleetRegionRequest() {\n    FleetId = \"<id>\",\n    Region = Region.Chicago,\n    FleetRegionConfig = new FleetRegionConfig() {\n        CloudMinVcpus = 503995,\n    },\n};\n\n\nusing(var res = await sdk.FleetsV2.UpdateFleetRegionAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/fleets/v2/fleets/{fleetId}/regions/{region}/metrics"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetFleetRegionMetrics"
           "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetFleetRegionMetricsRequest req = new GetFleetRegionMetricsRequest() {\n    FleetId = \"<id>\",\n    Region = Region.Chicago,\n};\n\n\nusing(var res = await sdk.FleetsV2.GetFleetRegionMetricsAsync(req))\n{\n    // handle response\n}"
+  - target: $["paths"]["/fleets/v2/fleets/{fleetId}/regions/{region}/v2"]["put"]
+    update:
+      "x-codeSamples":
+        - "lang": "unity"
+          "label": "UpdateFleetRegion"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateFleetRegionRequest req = new UpdateFleetRegionRequest() {\n    FleetId = \"<id>\",\n    Region = Region.Chicago,\n    FleetRegionConfigV2 = new FleetRegionConfigV2() {\n        NodeBaseline = 503995,\n    },\n};\n\n\nusing(var res = await sdk.FleetsV2.UpdateFleetRegionAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/fleets/v2/nodeShapes"]["get"]
     update:
       "x-codeSamples":

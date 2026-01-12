@@ -32,6 +32,13 @@ namespace HathoraCloud.Models.Shared
         public string AppId { get; set; } = default!;
 
         /// <summary>
+        /// When the container was fully downloaded and started booting.
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("bootedAt", NullValueHandling = NullValueHandling.Include)]
+        public DateTime? BootedAt { get; set; } = default!;
+
+        /// <summary>
         /// When the process started being provisioned.
         /// </summary>
         [SerializeField]
@@ -86,7 +93,14 @@ namespace HathoraCloud.Models.Shared
         public int RoomsPerProcess { get; set; } = default!;
 
         /// <summary>
-        /// When the process bound to the specified port. We use this to determine when we should start billing.
+        /// When the process was assigned to an available node.
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("scheduledAt", NullValueHandling = NullValueHandling.Include)]
+        public DateTime? ScheduledAt { get; set; } = default!;
+
+        /// <summary>
+        /// When the process bound to the specified port. We use this to determine when to register the process to the load balancer.
         /// </summary>
         [SerializeField]
         [JsonProperty("startedAt", NullValueHandling = NullValueHandling.Include)]
@@ -97,7 +111,7 @@ namespace HathoraCloud.Models.Shared
         public ProcessStatus Status { get; set; } = default!;
 
         /// <summary>
-        /// When the process is issued to stop. We use this to determine when we should stop billing.
+        /// When the process is issued to stop.
         /// </summary>
         [SerializeField]
         [JsonProperty("stoppingAt", NullValueHandling = NullValueHandling.Include)]

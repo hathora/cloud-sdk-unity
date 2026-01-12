@@ -72,8 +72,6 @@ namespace HathoraCloud.Models.Shared
         GpuH200116200,
         [JsonProperty("gpu-h200-8-128-1600")]
         GpuH20081281600,
-        [JsonProperty("gpu-b200-8-160-1792")]
-        GpuB20081601792,
     }
 
     public static class NodeShapeExtension

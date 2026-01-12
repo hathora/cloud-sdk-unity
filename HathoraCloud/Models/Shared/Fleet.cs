@@ -38,7 +38,7 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("name")]
-        public string? Name { get; set; }
+        public string Name { get; set; } = default!;
 
         [SerializeField]
         [JsonProperty("nodeShape")]

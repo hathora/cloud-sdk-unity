@@ -10,22 +10,19 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
-    using HathoraCloud.Models.Shared;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
     using System;
     using UnityEngine;
     
     [Serializable]
-    public class DeploymentsV3Page
+    public class FleetRegionConfigV2
     {
 
+        /// <summary>
+        /// The minimum number of nodes that should be running.
+        /// </summary>
         [SerializeField]
-        [JsonProperty("deployments")]
-        public List<DeploymentV3> Deployments { get; set; } = default!;
-
-        [SerializeField]
-        [JsonProperty("nextPageToken")]
-        public string? NextPageToken { get; set; }
+        [JsonProperty("nodeBaseline")]
+        public int NodeBaseline { get; set; } = default!;
     }
 }

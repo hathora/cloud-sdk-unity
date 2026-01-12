@@ -1,5 +1,4 @@
 # LobbiesV3
-(*LobbiesV3*)
 
 ## Overview
 

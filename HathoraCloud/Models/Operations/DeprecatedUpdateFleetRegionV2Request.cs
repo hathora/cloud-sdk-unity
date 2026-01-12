@@ -16,12 +16,12 @@ namespace HathoraCloud.Models.Operations
     using UnityEngine;
     
     [Serializable]
-    public class UpdateFleetRegionRequest
+    public class DeprecatedUpdateFleetRegionV2Request
     {
 
         [SerializeField]
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public FleetRegionConfigV2 FleetRegionConfigV2 { get; set; } = default!;
+        public FleetRegionConfig FleetRegionConfig { get; set; } = default!;
 
         [SerializeField]
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=fleetId")]

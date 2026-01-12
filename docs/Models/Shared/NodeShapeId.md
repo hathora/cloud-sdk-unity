@@ -27,4 +27,3 @@
 | `ShapeH100sxm58`   | shape-h100sxm5-8   |
 | `ShapeH200sxm51`   | shape-h200sxm5-1   |
 | `ShapeH200sxm58`   | shape-h200sxm5-8   |
-| `ShapeB200sxm58`   | shape-b200sxm5-8   |

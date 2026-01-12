@@ -29,5 +29,9 @@ namespace HathoraCloud.Models.Operations
         [SerializeField]
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=deploymentTag")]
         public string? DeploymentTag { get; set; }
+
+        [SerializeField]
+        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=nextPageToken")]
+        public string? NextPageToken { get; set; }
     }
 }

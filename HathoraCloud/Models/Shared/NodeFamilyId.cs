@@ -30,8 +30,6 @@ namespace HathoraCloud.Models.Shared
         FamilyH100sxm5,
         [JsonProperty("family-h200sxm5")]
         FamilyH200sxm5,
-        [JsonProperty("family-b200sxm5")]
-        FamilyB200sxm5,
     }
 
     public static class NodeFamilyIdExtension

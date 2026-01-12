@@ -1,5 +1,4 @@
 # BillingV1
-(*BillingV1*)
 
 ## Overview
 

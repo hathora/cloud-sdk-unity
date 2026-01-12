@@ -1,5 +1,7 @@
-# DiscoveryV1
-(*DiscoveryV1*)
+# ~~DiscoveryV1~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 

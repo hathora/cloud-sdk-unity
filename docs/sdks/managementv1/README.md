@@ -1,5 +1,4 @@
 # ManagementV1
-(*ManagementV1*)
 
 ## Overview
 
