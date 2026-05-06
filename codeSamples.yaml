@@ -14,7 +14,7 @@ actions:
       "x-codeSamples":
         - "lang": "unity"
           "label": "CreateApp"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateAppRequest req = new CreateAppRequest() {\n    CreateAppConfig = new CreateAppConfig() {\n        AuthConfiguration = new AuthConfiguration() {},\n        AppName = \"minecraft\",\n    },\n};\n\n\nusing(var res = await sdk.AppsV2.CreateAppAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateAppRequest req = new CreateAppRequest() {\n    CreateAppConfig = new CreateAppConfig() {\n        AppName = \"minecraft\",\n        AuthConfiguration = new AuthConfiguration() {},\n    },\n};\n\n\nusing(var res = await sdk.AppsV2.CreateAppAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/apps/v2/apps/{appId}"]["delete"]
     update:
       "x-codeSamples":
@@ -32,13 +32,13 @@ actions:
       "x-codeSamples":
         - "lang": "unity"
           "label": "PatchApp"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nPatchAppRequest req = new PatchAppRequest() {\n    PartialAppConfigWithServiceConfig = new PartialAppConfigWithServiceConfig() {\n        ServiceConfig = new ServiceConfigWrite() {\n            StaticProcessAllocation = new List<StaticProcessAllocationConfigWrite>() {\n                new StaticProcessAllocationConfigWrite() {\n                    MaxProcesses = 3,\n                    TargetProcesses = 2,\n                    MinProcesses = 1,\n                    Region = Region.Tokyo,\n                },\n            },\n        },\n    },\n};\n\n\nusing(var res = await sdk.AppsV2.PatchAppAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nPatchAppRequest req = new PatchAppRequest() {\n    PartialAppConfigWithServiceConfig = new PartialAppConfigWithServiceConfig() {\n        ServiceConfig = new ServiceConfigWrite() {\n            StaticProcessAllocation = new List<StaticProcessAllocationConfigWrite>() {\n                new StaticProcessAllocationConfigWrite() {\n                    MaxProcesses = 3,\n                    MinProcesses = 1,\n                    Region = Region.Tokyo,\n                    TargetProcesses = 2,\n                },\n            },\n        },\n    },\n};\n\n\nusing(var res = await sdk.AppsV2.PatchAppAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/apps/v2/apps/{appId}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "UpdateApp"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateAppRequest req = new UpdateAppRequest() {\n    AppConfigWithServiceConfig = new AppConfigWithServiceConfig() {\n        ServiceConfig = new ServiceConfigWrite() {\n            StaticProcessAllocation = new List<StaticProcessAllocationConfigWrite>() {\n                new StaticProcessAllocationConfigWrite() {\n                    MaxProcesses = 3,\n                    TargetProcesses = 2,\n                    MinProcesses = 1,\n                    Region = Region.SaoPaulo,\n                },\n            },\n        },\n        AuthConfiguration = new AuthConfiguration() {},\n        AppName = \"minecraft\",\n    },\n};\n\n\nusing(var res = await sdk.AppsV2.UpdateAppAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateAppRequest req = new UpdateAppRequest() {\n    AppConfigWithServiceConfig = new AppConfigWithServiceConfig() {\n        AppName = \"minecraft\",\n        AuthConfiguration = new AuthConfiguration() {},\n        ServiceConfig = new ServiceConfigWrite() {\n            StaticProcessAllocation = new List<StaticProcessAllocationConfigWrite>() {\n                new StaticProcessAllocationConfigWrite() {\n                    MaxProcesses = 3,\n                    MinProcesses = 1,\n                    Region = Region.SaoPaulo,\n                    TargetProcesses = 2,\n                },\n            },\n        },\n    },\n};\n\n\nusing(var res = await sdk.AppsV2.UpdateAppAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/auth/v1/{appId}/login/anonymous"]["post"]
     update:
       "x-codeSamples":
@@ -98,7 +98,7 @@ actions:
       "x-codeSamples":
         - "lang": "unity"
           "label": "CreateBuild"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateBuildRequest req = new CreateBuildRequest() {\n    CreateMultipartBuildParams = new CreateMultipartBuildParams() {\n        BuildId = \"bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n        BuildTag = \"0.1.14-14c793\",\n        BuildSizeInBytes = 2645.24D,\n    },\n};\n\n\nusing(var res = await sdk.BuildsV3.CreateBuildAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateBuildRequest req = new CreateBuildRequest() {\n    CreateMultipartBuildParams = new CreateMultipartBuildParams() {\n        BuildId = \"bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n        BuildSizeInBytes = 2645.24D,\n        BuildTag = \"0.1.14-14c793\",\n    },\n};\n\n\nusing(var res = await sdk.BuildsV3.CreateBuildAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/builds/v3/builds/registry"]["post"]
     update:
       "x-codeSamples":
@@ -128,19 +128,19 @@ actions:
       "x-codeSamples":
         - "lang": "unity"
           "label": "RunBuildRegistry"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nRunBuildRegistryRequest req = new RunBuildRegistryRequest() {\n    BuildId = \"bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n    RegistryConfig = new RegistryConfig() {\n        Image = \"https://picsum.photos/seed/3gDPgtj/723/1525\",\n    },\n};\n\n\nusing(var res = await sdk.BuildsV3.RunBuildRegistryAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nRunBuildRegistryRequest req = new RunBuildRegistryRequest() {\n    RegistryConfig = new RegistryConfig() {\n        Image = \"https://picsum.photos/seed/3gDPgtj/723/1525\",\n    },\n    BuildId = \"bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n};\n\n\nusing(var res = await sdk.BuildsV3.RunBuildRegistryAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/deployments/v3/apps/{appId}/deployments"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetDeployments"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetDeploymentsRequest req = new GetDeploymentsRequest() {\n    DeploymentTag = \"alpha\",\n    BuildTag = \"0.1.14-14c793\",\n};\n\n\nusing(var res = await sdk.DeploymentsV3.GetDeploymentsAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetDeploymentsRequest req = new GetDeploymentsRequest() {\n    BuildTag = \"0.1.14-14c793\",\n    DeploymentTag = \"alpha\",\n};\n\n\nusing(var res = await sdk.DeploymentsV3.GetDeploymentsAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/deployments/v3/apps/{appId}/deployments"]["post"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "CreateDeployment"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateDeploymentRequest req = new CreateDeploymentRequest() {\n    DeploymentConfigV3 = new DeploymentConfigV3() {\n        DeploymentTag = \"alpha\",\n        IdleTimeoutEnabled = true,\n        Env = new List<DeploymentConfigV3Env>() {\n            new DeploymentConfigV3Env() {\n                Value = \"TRUE\",\n                Name = \"EULA\",\n            },\n        },\n        RoomsPerProcess = 3,\n        AdditionalContainerPorts = new List<ContainerPort>() {\n            new ContainerPort() {\n                TransportType = TransportType.Udp,\n                Port = 8000,\n                Name = \"default\",\n            },\n        },\n        TransportType = TransportType.Udp,\n        ContainerPort = 4000,\n        RequestedGPU = 1D,\n        ExperimentalRequestedGPU = 1D,\n        RequestedMemoryMB = 1024D,\n        RequestedCPU = 0.5D,\n        BuildId = \"bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n    },\n};\n\n\nusing(var res = await sdk.DeploymentsV3.CreateDeploymentAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateDeploymentRequest req = new CreateDeploymentRequest() {\n    DeploymentConfigV3 = new DeploymentConfigV3() {\n        AdditionalContainerPorts = new List<ContainerPort>() {\n            new ContainerPort() {\n                Name = \"default\",\n                Port = 8000,\n                TransportType = TransportType.Udp,\n            },\n        },\n        BuildId = \"bld-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n        ContainerPort = 4000,\n        DeploymentTag = \"alpha\",\n        Env = new List<DeploymentConfigV3Env>() {\n            new DeploymentConfigV3Env() {\n                Name = \"EULA\",\n                Value = \"TRUE\",\n            },\n        },\n        ExperimentalRequestedGPU = 1D,\n        IdleTimeoutEnabled = false,\n        RequestedCPU = 0.5D,\n        RequestedGPU = 1D,\n        RequestedMemoryMB = 1024D,\n        RoomsPerProcess = 3,\n        TransportType = TransportType.Udp,\n    },\n};\n\n\nusing(var res = await sdk.DeploymentsV3.CreateDeploymentAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/deployments/v3/apps/{appId}/deployments/latest"]["get"]
     update:
       "x-codeSamples":
@@ -170,7 +170,7 @@ actions:
       "x-codeSamples":
         - "lang": "unity"
           "label": "CreateFleetDeprecated"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateFleetDeprecatedRequest req = new CreateFleetDeprecatedRequest() {\n    CreateFleet = new CreateFleet() {\n        NodeShape = NodeShape.Cpu1632,\n        AutoscalerConfig = new AutoscalerConfig() {\n            ScaleUpThreshold = 557407,\n        },\n        Name = \"production\",\n    },\n};\n\n\nusing(var res = await sdk.FleetsV1.CreateFleetDeprecatedAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateFleetDeprecatedRequest req = new CreateFleetDeprecatedRequest() {\n    CreateFleet = new CreateFleet() {\n        AutoscalerConfig = new AutoscalerConfig() {\n            ScaleUpThreshold = 78718,\n        },\n        Name = \"production\",\n        NodeShape = NodeShape.GpuH1004104936,\n    },\n};\n\n\nusing(var res = await sdk.FleetsV1.CreateFleetDeprecatedAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/fleets/v1/fleets/{fleetId}"]["get"]
     update:
       "x-codeSamples":
@@ -182,7 +182,7 @@ actions:
       "x-codeSamples":
         - "lang": "unity"
           "label": "UpdateFleetDeprecated"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateFleetDeprecatedRequest req = new UpdateFleetDeprecatedRequest() {\n    FleetId = \"<id>\",\n    UpdateFleet = new UpdateFleet() {\n        AutoscalerConfig = new AutoscalerConfig() {\n            ScaleUpThreshold = 638855,\n        },\n        Name = \"production\",\n    },\n};\n\n\nusing(var res = await sdk.FleetsV1.UpdateFleetDeprecatedAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateFleetDeprecatedRequest req = new UpdateFleetDeprecatedRequest() {\n    UpdateFleet = new UpdateFleet() {\n        AutoscalerConfig = new AutoscalerConfig() {\n            ScaleUpThreshold = 638855,\n        },\n        Name = \"production\",\n    },\n    FleetId = \"<id>\",\n};\n\n\nusing(var res = await sdk.FleetsV1.UpdateFleetDeprecatedAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/fleets/v1/fleets/{fleetId}/metrics"]["get"]
     update:
       "x-codeSamples":
@@ -200,7 +200,7 @@ actions:
       "x-codeSamples":
         - "lang": "unity"
           "label": "UpdateFleetRegionDeprecated"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateFleetRegionDeprecatedRequest req = new UpdateFleetRegionDeprecatedRequest() {\n    FleetId = \"<id>\",\n    Region = Region.Johannesburg,\n    FleetRegionConfig = new FleetRegionConfig() {\n        CloudMinVcpus = 122781,\n    },\n};\n\n\nusing(var res = await sdk.FleetsV1.UpdateFleetRegionDeprecatedAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateFleetRegionDeprecatedRequest req = new UpdateFleetRegionDeprecatedRequest() {\n    FleetRegionConfig = new FleetRegionConfig() {\n        CloudMinVcpus = 122781,\n    },\n    FleetId = \"<id>\",\n    Region = Region.Johannesburg,\n};\n\n\nusing(var res = await sdk.FleetsV1.UpdateFleetRegionDeprecatedAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/fleets/v1/fleets/{fleetId}/regions/{region}/metrics"]["get"]
     update:
       "x-codeSamples":
@@ -218,7 +218,7 @@ actions:
       "x-codeSamples":
         - "lang": "unity"
           "label": "CreateFleet"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateFleetRequest req = new CreateFleetRequest() {\n    CreateFleetV2 = new CreateFleetV2() {\n        NodeShapeId = NodeShapeId.ShapeL48,\n        AutoscalerConfig = new AutoscalerConfig() {\n            ScaleUpThreshold = 400145,\n        },\n        Name = \"production\",\n    },\n};\n\n\nusing(var res = await sdk.FleetsV2.CreateFleetAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateFleetRequest req = new CreateFleetRequest() {\n    CreateFleetV2 = new CreateFleetV2() {\n        AutoscalerConfig = new AutoscalerConfig() {\n            ScaleUpThreshold = 599396,\n        },\n        Name = \"production\",\n        NodeShapeId = NodeShapeId.ShapeL414,\n    },\n};\n\n\nusing(var res = await sdk.FleetsV2.CreateFleetAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/fleets/v2/fleets/{fleetId}"]["get"]
     update:
       "x-codeSamples":
@@ -230,7 +230,7 @@ actions:
       "x-codeSamples":
         - "lang": "unity"
           "label": "UpdateFleet"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateFleetRequest req = new UpdateFleetRequest() {\n    FleetId = \"<id>\",\n    UpdateFleetV2 = new UpdateFleetV2() {\n        AutoscalerConfig = new AutoscalerConfig() {\n            ScaleUpThreshold = 979840,\n        },\n        Name = \"production\",\n    },\n};\n\n\nusing(var res = await sdk.FleetsV2.UpdateFleetAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateFleetRequest req = new UpdateFleetRequest() {\n    UpdateFleetV2 = new UpdateFleetV2() {\n        AutoscalerConfig = new AutoscalerConfig() {\n            ScaleUpThreshold = 979840,\n        },\n        Name = \"production\",\n    },\n    FleetId = \"<id>\",\n};\n\n\nusing(var res = await sdk.FleetsV2.UpdateFleetAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/fleets/v2/fleets/{fleetId}/metrics"]["get"]
     update:
       "x-codeSamples":
@@ -243,18 +243,18 @@ actions:
         - "lang": "unity"
           "label": "GetFleetRegion"
           "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetFleetRegionRequest req = new GetFleetRegionRequest() {\n    FleetId = \"<id>\",\n    Region = Region.Singapore,\n};\n\n\nusing(var res = await sdk.FleetsV2.GetFleetRegionAsync(req))\n{\n    // handle response\n}"
-  - target: $["paths"]["/fleets/v2/fleets/{fleetId}/regions/{region}"]["put"]
-    update:
-      "x-codeSamples":
-        - "lang": "unity"
-          "label": "UpdateFleetRegion"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateFleetRegionRequest req = new UpdateFleetRegionRequest() {\n    FleetId = \"<id>\",\n    Region = Region.Chicago,\n    FleetRegionConfig = new FleetRegionConfig() {\n        CloudMinVcpus = 503995,\n    },\n};\n\n\nusing(var res = await sdk.FleetsV2.UpdateFleetRegionAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/fleets/v2/fleets/{fleetId}/regions/{region}/metrics"]["get"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "GetFleetRegionMetrics"
           "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nGetFleetRegionMetricsRequest req = new GetFleetRegionMetricsRequest() {\n    FleetId = \"<id>\",\n    Region = Region.Chicago,\n};\n\n\nusing(var res = await sdk.FleetsV2.GetFleetRegionMetricsAsync(req))\n{\n    // handle response\n}"
+  - target: $["paths"]["/fleets/v2/fleets/{fleetId}/regions/{region}/v2"]["put"]
+    update:
+      "x-codeSamples":
+        - "lang": "unity"
+          "label": "UpdateFleetRegion"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    orgId: \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateFleetRegionRequest req = new UpdateFleetRegionRequest() {\n    FleetRegionConfigV2 = new FleetRegionConfigV2() {\n        NodeBaseline = 503995,\n    },\n    FleetId = \"<id>\",\n    Region = Region.Chicago,\n};\n\n\nusing(var res = await sdk.FleetsV2.UpdateFleetRegionAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/fleets/v2/nodeShapes"]["get"]
     update:
       "x-codeSamples":
@@ -266,7 +266,7 @@ actions:
       "x-codeSamples":
         - "lang": "unity"
           "label": "CreateLobby"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Operations;\nusing HathoraCloud.Models.Shared;\n\nvar sdk = new HathoraCloudSDK(appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nCreateLobbyRequest req = new CreateLobbyRequest() {\n    ShortCode = \"LFG4\",\n    RoomId = \"2swovpy1fnunu\",\n    CreateLobbyV3Params = new CreateLobbyV3Params() {\n        Visibility = LobbyVisibility.Private,\n        RoomConfig = \"{\\\"name\\\":\\\"my-room\\\"}\",\n        Region = Region.Dubai,\n    },\n};\n\n\nusing(var res = await sdk.LobbiesV3.CreateLobbyAsync(\n    security: new CreateLobbySecurity() {\n        PlayerAuth = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Operations;\nusing HathoraCloud.Models.Shared;\n\nvar sdk = new HathoraCloudSDK(appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\");\n\nCreateLobbyRequest req = new CreateLobbyRequest() {\n    CreateLobbyV3Params = new CreateLobbyV3Params() {\n        Region = Region.Dubai,\n        RoomConfig = \"{\\\"name\\\":\\\"my-room\\\"}\",\n        Visibility = LobbyVisibility.Private,\n    },\n    RoomId = \"2swovpy1fnunu\",\n    ShortCode = \"LFG4\",\n};\n\n\nusing(var res = await sdk.LobbiesV3.CreateLobbyAsync(\n    security: new CreateLobbySecurity() {\n        PlayerAuth = \"<YOUR_BEARER_TOKEN_HERE>\",\n    },\n    req))\n{\n    // handle response\n}"
   - target: $["paths"]["/lobby/v3/{appId}/info/roomid/{roomId}"]["get"]
     update:
       "x-codeSamples":
@@ -338,13 +338,13 @@ actions:
       "x-codeSamples":
         - "lang": "unity"
           "label": "UpdateUserInvite"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateUserInviteRequest req = new UpdateUserInviteRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    UpdateUserInvite = new UpdateUserInvite() {\n        Scopes = UpdateUserInviteScopes.CreateUserRole(\n            UserRole.Viewer,\n        ),\n        UserEmail = \"noreply@hathora.dev\",\n    },\n};\n\n\nusing(var res = await sdk.OrganizationsV1.UpdateUserInviteAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateUserInviteRequest req = new UpdateUserInviteRequest() {\n    UpdateUserInvite = new UpdateUserInvite() {\n        Scopes = UpdateUserInviteScopes.CreateUserRole(\n            UserRole.Viewer,\n        ),\n        UserEmail = \"noreply@hathora.dev\",\n    },\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n};\n\n\nusing(var res = await sdk.OrganizationsV1.UpdateUserInviteAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/orgs/v1/{orgId}/invites"]["put"]
     update:
       "x-codeSamples":
         - "lang": "unity"
           "label": "InviteUser"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nInviteUserRequest req = new InviteUserRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    CreateUserInvite = new CreateUserInvite() {\n        UserEmail = \"noreply@hathora.dev\",\n    },\n};\n\n\nusing(var res = await sdk.OrganizationsV1.InviteUserAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nInviteUserRequest req = new InviteUserRequest() {\n    CreateUserInvite = new CreateUserInvite() {\n        UserEmail = \"noreply@hathora.dev\",\n    },\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n};\n\n\nusing(var res = await sdk.OrganizationsV1.InviteUserAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/orgs/v1/{orgId}/invites/accept"]["post"]
     update:
       "x-codeSamples":
@@ -368,7 +368,7 @@ actions:
       "x-codeSamples":
         - "lang": "unity"
           "label": "RescindInvite"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nRescindInviteRequest req = new RescindInviteRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    RescindUserInvite = new RescindUserInvite() {\n        UserEmail = \"noreply@hathora.dev\",\n    },\n};\n\n\nusing(var res = await sdk.OrganizationsV1.RescindInviteAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nRescindInviteRequest req = new RescindInviteRequest() {\n    RescindUserInvite = new RescindUserInvite() {\n        UserEmail = \"noreply@hathora.dev\",\n    },\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n};\n\n\nusing(var res = await sdk.OrganizationsV1.RescindInviteAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/orgs/v1/{orgId}/members"]["get"]
     update:
       "x-codeSamples":
@@ -422,7 +422,7 @@ actions:
       "x-codeSamples":
         - "lang": "unity"
           "label": "CreateRoom"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateRoomRequest req = new CreateRoomRequest() {\n    RoomId = \"2swovpy1fnunu\",\n    CreateRoomParams = new CreateRoomParams() {\n        DeploymentId = \"dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n        ClientIPs = new List<string>() {\n            \"123.123.123.123\",\n        },\n        RoomConfig = \"{\\\"name\\\":\\\"my-room\\\"}\",\n        Region = Region.Dallas,\n    },\n};\n\n\nusing(var res = await sdk.RoomsV2.CreateRoomAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\nusing System.Collections.Generic;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateRoomRequest req = new CreateRoomRequest() {\n    CreateRoomParams = new CreateRoomParams() {\n        ClientIPs = new List<string>() {\n            \"123.123.123.123\",\n        },\n        DeploymentId = \"dep-6d4c6a71-2d75-4b42-94e1-f312f57f33c5\",\n        Region = Region.Dallas,\n        RoomConfig = \"{\\\"name\\\":\\\"my-room\\\"}\",\n    },\n    RoomId = \"2swovpy1fnunu\",\n};\n\n\nusing(var res = await sdk.RoomsV2.CreateRoomAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/rooms/v2/{appId}/destroy/{roomId}"]["post"]
     update:
       "x-codeSamples":
@@ -458,7 +458,7 @@ actions:
       "x-codeSamples":
         - "lang": "unity"
           "label": "UpdateRoomConfig"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateRoomConfigRequest req = new UpdateRoomConfigRequest() {\n    RoomId = \"2swovpy1fnunu\",\n    UpdateRoomConfigParams = new UpdateRoomConfigParams() {\n        RoomConfig = \"{\\\"name\\\":\\\"my-room\\\"}\",\n    },\n};\n\n\nusing(var res = await sdk.RoomsV2.UpdateRoomConfigAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(\n    appId: \"app-af469a92-5b45-4565-b3c4-b79878de67d2\",\n    security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nUpdateRoomConfigRequest req = new UpdateRoomConfigRequest() {\n    UpdateRoomConfigParams = new UpdateRoomConfigParams() {\n        RoomConfig = \"{\\\"name\\\":\\\"my-room\\\"}\",\n    },\n    RoomId = \"2swovpy1fnunu\",\n};\n\n\nusing(var res = await sdk.RoomsV2.UpdateRoomConfigAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/tokens/v1/orgs/{orgId}"]["get"]
     update:
       "x-codeSamples":
@@ -470,7 +470,7 @@ actions:
       "x-codeSamples":
         - "lang": "unity"
           "label": "CreateOrgToken"
-          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateOrgTokenRequest req = new CreateOrgTokenRequest() {\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n    CreateOrgToken = new CreateOrgToken() {\n        Name = \"ci-token\",\n    },\n};\n\n\nusing(var res = await sdk.TokensV1.CreateOrgTokenAsync(req))\n{\n    // handle response\n}"
+          "source": "using HathoraCloud;\nusing HathoraCloud.Models.Shared;\nusing HathoraCloud.Models.Operations;\n\nvar sdk = new HathoraCloudSDK(security: new Security() {\n        HathoraDevToken = \"<YOUR_BEARER_TOKEN_HERE>\",\n    });\n\nCreateOrgTokenRequest req = new CreateOrgTokenRequest() {\n    CreateOrgToken = new CreateOrgToken() {\n        Name = \"ci-token\",\n    },\n    OrgId = \"org-6f706e83-0ec1-437a-9a46-7d4281eb2f39\",\n};\n\n\nusing(var res = await sdk.TokensV1.CreateOrgTokenAsync(req))\n{\n    // handle response\n}"
   - target: $["paths"]["/tokens/v1/orgs/{orgId}/tokens/{orgTokenId}/revoke"]["post"]
     update:
       "x-codeSamples":

@@ -178,6 +178,7 @@ using(var res = await sdk.AppsV2.CreateAppAsync(req))
 ### [FleetsV2](docs/sdks/fleetsv2/README.md)
 
 * [CreateFleet](docs/sdks/fleetsv2/README.md#createfleet) - CreateFleet
+* [~~DeprecatedUpdateFleetRegionV2~~](docs/sdks/fleetsv2/README.md#deprecatedupdatefleetregionv2) - DeprecatedUpdateFleetRegionV2 :warning: **Deprecated**
 * [GetFleet](docs/sdks/fleetsv2/README.md#getfleet) - GetFleet
 * [GetFleetMetrics](docs/sdks/fleetsv2/README.md#getfleetmetrics) - GetFleetMetrics
 * [GetFleetRegion](docs/sdks/fleetsv2/README.md#getfleetregion) - GetFleetRegion

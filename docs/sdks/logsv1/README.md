@@ -1,5 +1,4 @@
 # LogsV1
-(*LogsV1*)
 
 ## Overview
 

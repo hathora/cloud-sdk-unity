@@ -1,5 +1,4 @@
 # OrganizationsV1
-(*OrganizationsV1*)
 
 ## Overview
 

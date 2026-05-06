@@ -1,5 +1,4 @@
 # DeploymentsV3
-(*DeploymentsV3*)
 
 ## Overview
 
@@ -180,7 +179,7 @@ using(var res = await sdk.DeploymentsV3.GetDeploymentsAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 429                      | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 422, 429                 | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## GetLatestDeployment

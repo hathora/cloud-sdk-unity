@@ -1,0 +1,11 @@
+# FleetErrorState
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `InError`                                                                             | *bool*                                                                                | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `LastErrorLogId`                                                                      | *string*                                                                              | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `LastErrorMessage`                                                                    | *string*                                                                              | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `LastErrorTimestamp`                                                                  | [DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-5.0) | :heavy_check_mark:                                                                    | N/A                                                                                   |

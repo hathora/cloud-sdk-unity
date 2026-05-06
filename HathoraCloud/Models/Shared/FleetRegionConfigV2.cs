@@ -10,14 +10,19 @@
 #nullable enable
 namespace HathoraCloud.Models.Shared
 {
+    using Newtonsoft.Json;
     using System;
     using UnityEngine;
     
-    /// <summary>
-    /// Construct a type with a set of properties K of type T
-    /// </summary>
     [Serializable]
-    public class RecordStringNever
+    public class FleetRegionConfigV2
     {
+
+        /// <summary>
+        /// The minimum number of nodes that should be running.
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("nodeBaseline")]
+        public int NodeBaseline { get; set; } = default!;
     }
 }

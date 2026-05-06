@@ -26,6 +26,7 @@ namespace HathoraCloud.Models.Shared
     public class FleetRegion
     {
 
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [SerializeField]
         [JsonProperty("cloudMinVcpus")]
         public int CloudMinVcpus { get; set; } = default!;
@@ -33,6 +34,13 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("cloudMinVcpusUpdatedAt")]
         public DateTime CloudMinVcpusUpdatedAt { get; set; } = default!;
+
+        /// <summary>
+        /// The minimum number of nodes that should be running.
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("nodeBaseline")]
+        public int NodeBaseline { get; set; } = default!;
 
         /// <summary>
         /// This field is deprecated and may contain the value -1. For node increment values, refer to nodeShape on the Fleet.

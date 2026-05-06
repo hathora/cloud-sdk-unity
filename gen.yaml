@@ -10,6 +10,8 @@ generation:
     requestResponseComponentNamesFeb2024: false
     securityFeb2025: false
     sharedErrorComponentsApr2025: false
+    sharedNestedComponentsJan2026: false
+    nameOverrideFeb2026: false
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
@@ -17,12 +19,14 @@ generation:
   schemas:
     allOfMergeStrategy: shallowMerge
   requestBodyFieldName: ""
+  versioningStrategy: automatic
+  persistentEdits: {}
   tests:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
 unity:
-  version: 0.31.0
+  version: 0.31.1
   author: Hathora
   baseErrorName: HathoraCloudSDKError
   clientServerStatusCodesAsErrors: true
@@ -38,7 +42,10 @@ unity:
       operations: Models/Operations
       shared: Models/Shared
       webhooks: Models/Webhooks
+  inferUnionDiscriminators: false
   inputModelSuffix: input
   maxMethodParams: 0
+  multipartArrayFormat: legacy
   outputModelSuffix: output
   packageName: HathoraCloud
+  respectTitlesForPrimitiveUnionMembers: false

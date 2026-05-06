@@ -27,7 +27,7 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("anonymous")]
-        public RecordStringNever? Anonymous { get; set; }
+        public DeletedBuild? Anonymous { get; set; }
 
         /// <summary>
         /// Enable google auth for your application.
@@ -41,6 +41,6 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("nickname")]
-        public RecordStringNever? Nickname { get; set; }
+        public DeletedBuild? Nickname { get; set; }
     }
 }

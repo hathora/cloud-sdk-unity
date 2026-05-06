@@ -60,8 +60,6 @@ namespace HathoraCloud.Models.Shared
         ShapeH200sxm51,
         [JsonProperty("shape-h200sxm5-8")]
         ShapeH200sxm58,
-        [JsonProperty("shape-b200sxm5-8")]
-        ShapeB200sxm58,
     }
 
     public static class NodeShapeIdExtension

@@ -1,5 +1,7 @@
-# DeploymentsV1
-(*DeploymentsV1*)
+# ~~DeploymentsV1~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
@@ -172,6 +174,7 @@ using(var res = await sdk.DeploymentsV1.GetDeploymentsV1DeprecatedAsync(req))
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
 | HathoraCloud.Models.Errors.ApiError     | 401, 404, 408, 429                      | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 500                                     | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ~~GetLatestDeploymentV1Deprecated~~

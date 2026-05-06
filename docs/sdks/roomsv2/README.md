@@ -1,5 +1,4 @@
 # RoomsV2
-(*RoomsV2*)
 
 ## Overview
 

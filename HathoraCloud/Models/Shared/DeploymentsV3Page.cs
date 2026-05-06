@@ -23,5 +23,9 @@ namespace HathoraCloud.Models.Shared
         [SerializeField]
         [JsonProperty("deployments")]
         public List<DeploymentV3> Deployments { get; set; } = default!;
+
+        [SerializeField]
+        [JsonProperty("nextPageToken")]
+        public string? NextPageToken { get; set; }
     }
 }

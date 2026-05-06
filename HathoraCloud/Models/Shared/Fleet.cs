@@ -27,6 +27,13 @@ namespace HathoraCloud.Models.Shared
         public AutoscalerConfig? AutoscalerConfig { get; set; }
 
         /// <summary>
+        /// Make all properties in T optional
+        /// </summary>
+        [SerializeField]
+        [JsonProperty("errorState")]
+        public PartialRecordRegionFleetErrorState? ErrorState { get; set; }
+
+        /// <summary>
         /// The id of the fleet.
         /// </summary>
         [SerializeField]
@@ -38,7 +45,7 @@ namespace HathoraCloud.Models.Shared
         /// </summary>
         [SerializeField]
         [JsonProperty("name")]
-        public string? Name { get; set; }
+        public string Name { get; set; } = default!;
 
         [SerializeField]
         [JsonProperty("nodeShape")]

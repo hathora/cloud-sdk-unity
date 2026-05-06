@@ -1,5 +1,4 @@
 # LobbiesV3
-(*LobbiesV3*)
 
 ## Overview
 
@@ -151,7 +150,7 @@ using(var res = await sdk.LobbiesV3.GetLobbyInfoByShortCodeAsync(req))
 
 | Error Type                              | Status Code                             | Content Type                            |
 | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| HathoraCloud.Models.Errors.ApiError     | 404, 408, 429                           | application/json                        |
+| HathoraCloud.Models.Errors.ApiError     | 404, 408, 422, 429                      | application/json                        |
 | HathoraCloud.Models.Errors.SDKException | 4XX, 5XX                                | \*/\*                                   |
 
 ## ListActivePublicLobbies

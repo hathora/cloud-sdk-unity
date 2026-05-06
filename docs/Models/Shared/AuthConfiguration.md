@@ -5,8 +5,8 @@ Configure [player authentication](https://hathora.dev/docs/backend-integrations/
 
 ## Fields
 
-| Field                                                         | Type                                                          | Required                                                      | Description                                                   |
-| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
-| `Anonymous`                                                   | [RecordStringNever](../../Models/Shared/RecordStringNever.md) | :heavy_minus_sign:                                            | Construct a type with a set of properties K of type T         |
-| `Google`                                                      | [Google](../../Models/Shared/Google.md)                       | :heavy_minus_sign:                                            | Enable google auth for your application.                      |
-| `Nickname`                                                    | [RecordStringNever](../../Models/Shared/RecordStringNever.md) | :heavy_minus_sign:                                            | Construct a type with a set of properties K of type T         |
+| Field                                                 | Type                                                  | Required                                              | Description                                           |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `Anonymous`                                           | [DeletedBuild](../../Models/Shared/DeletedBuild.md)   | :heavy_minus_sign:                                    | Construct a type with a set of properties K of type T |
+| `Google`                                              | [Google](../../Models/Shared/Google.md)               | :heavy_minus_sign:                                    | Enable google auth for your application.              |
+| `Nickname`                                            | [DeletedBuild](../../Models/Shared/DeletedBuild.md)   | :heavy_minus_sign:                                    | Construct a type with a set of properties K of type T |
